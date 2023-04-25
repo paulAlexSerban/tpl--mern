@@ -1,7 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import './index.css';
+
+import './index.scss';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+
+import { createRoot } from 'react-dom/client';
+
+// Clear the existing HTML content
+document.body.innerHTML = '<div id="drawer-hook"></div><div id="backdrop-hook"></div><div id="root"></div>';
+
+// Render your React component instead
+const root = createRoot(document.getElementById('root'));
+root.render(<App />);
