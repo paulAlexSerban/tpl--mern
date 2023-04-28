@@ -9,8 +9,6 @@ import Backdrop from "../UIElements/Backdrop";
 
 const MainNavigation = (props) => {
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
-    const portalContainer = document.getElementById("drawer-hook");
-    console.log(portalContainer);
     const openDrawerHandler = () => {
         setDrawerIsOpen(true);
     };
