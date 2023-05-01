@@ -3,8 +3,6 @@ import './index.scss';
 import App from './App';
 import { createRoot } from 'react-dom/client';
 
-console.log(process.env);
-
 // Clear the existing HTML content
 document.body.innerHTML = `<div id="drawer-hook"></div>
     <div id="modal-hook"></div>
