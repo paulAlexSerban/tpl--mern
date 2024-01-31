@@ -4,10 +4,12 @@
     "author": "paulAlexSerban <paul.alex.serban@gmail.com>",
     "license": "MIT",
     "scripts": {
+        "///": "GIT",
+        "commit": "yarn git-cz",
         "//": "FORMATS",
         "formats:check": "yarn prettier --check .",
         "formats:write": "yarn prettier --write .",
-        "/": "SETUP",
+        "/": "INSTALL",
         "prepare": "husky install"
     },
     "devDependencies": {
