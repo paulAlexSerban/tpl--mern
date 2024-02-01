@@ -4,6 +4,8 @@
     "author": "paulAlexSerban <paul.alex.serban@gmail.com>",
     "license": "MIT",
     "scripts": {
+        "////": "/////",
+        "develop:simple-shop": "yarn lerna run develop:simple-shop",
         "///": "GIT",
         "commit": "yarn git-cz",
         "//": "FORMATS",
