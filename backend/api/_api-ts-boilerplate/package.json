@@ -1,5 +1,5 @@
 {
-    "name": "@tpl--mern/_api-ts-boilerplate",
+    "name": "@wbk--mern-playground/_api-ts-boilerplate",
     "version": "0.0.0",
     "private": true,
     "main": "dist/bin/www.js",

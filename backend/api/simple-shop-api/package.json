@@ -1,5 +1,5 @@
 {
-    "name": "@tpl--mern/simple-shop-api",
+    "name": "@wbk--mern-playground/simple-shop-api",
     "private": true,
     "version": "0.0.0",
     "main": "dist/index.js",

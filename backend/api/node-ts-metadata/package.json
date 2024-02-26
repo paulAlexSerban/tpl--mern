@@ -1,5 +1,5 @@
 {
-    "name": "@tpl--mern/node-ts-metadata",
+    "name": "@wbk--mern-playground/node-ts-metadata",
     "private": true,
     "version": "0.0.0",
     "main": "dist/index.js",

@@ -1,5 +1,5 @@
 {
-    "name": "@tpl--mern/food-order-api",
+    "name": "@wbk--mern-playground/food-order-api",
     "private": true,
     "version": "0.0.0",
     "main": "dist/index.js",

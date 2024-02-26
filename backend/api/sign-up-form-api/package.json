@@ -1,5 +1,5 @@
 {
-    "name": "@tpl--mern/sign-up-form-api",
+    "name": "@wbk--mern-playground/sign-up-form-api",
     "private": true,
     "version": "0.0.0",
     "main": "dist/index.js",

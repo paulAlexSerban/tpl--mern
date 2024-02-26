@@ -1,5 +1,5 @@
 {
-    "name": "@tpl--mern/gof-patterns-observer-pattern",
+    "name": "@wbk--mern-playground/gof-patterns-observer-pattern",
     "version": "0.0.0",
     "private": true,
     "main": "dist/bin/www.js",

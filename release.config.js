@@ -1,6 +1,6 @@
 module.exports = {
     branches: 'release',
-    repositoryUrl: 'https://github.com/paulAlexSerban/tpl--mern',
+    repositoryUrl: 'https://github.com/paulAlexSerban/wbk--mern-playground',
     plugins: [
         '@semantic-release/commit-analyzer',
         '@semantic-release/release-notes-generator',

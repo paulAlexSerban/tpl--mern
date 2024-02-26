@@ -1,5 +1,5 @@
 {
-    "name": "@tpl--mern/place-picker-full-api",
+    "name": "@wbk--mern-playground/place-picker-full-api",
     "private": true,
     "version": "0.0.0",
     "main": "dist/index.js",

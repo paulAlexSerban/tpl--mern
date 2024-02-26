@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
             NODE_VERSION: 16.19.0
-            SITE_URL: https://paulalexserban.github.io/tpl--mern
+            SITE_URL: https://paulalexserban.github.io/wbk--mern-playground
         steps:
             - name: '📥 checkout repository'
               uses: actions/checkout@v3

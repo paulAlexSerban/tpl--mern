@@ -1,0 +1,39 @@
+---
+version: '3.8'
+
+services:
+    # ---------------------------------------------------------------------
+    # | UI React SP                                                       |
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa-container
+        build:
+            context: ../../frontend/apps/simple-shop
+            dockerfile: dev.Dockerfile
+        ports:
+            - '3000:5173' # Expose the port your app runs on
+        volumes:
+            - ../../frontend/apps/simple-shop:/usr/src/app # Mount the app directory to the container
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+        networks:
+            - simple-shop-network
+
+    # ---------------------------------------------------------------------
+    # | Node.js API                                                       |
+    # ---------------------------------------------------------------------
+    nodejs-api:
+        container_name: nodejs-api-container
+        build:
+            context: ../../backend/api/simple-shop-api
+            dockerfile: dev.Dockerfile
+        ports:
+            - '3001:4001' # Expose the port your app runs on
+        volumes:
+            - ../../backend/api/simple-shop-api:/usr/src/app # Mount the app directory to the container
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+        networks:
+            - simple-shop-network
+
+networks:
+    simple-shop-network:
+        driver: bridge
