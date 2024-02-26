@@ -1,0 +1,59 @@
+{
+    "name": "@tpl--mern/core",
+    "version": "0.0.0",
+    "author": "paulAlexSerban <paul.alex.serban@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "////": "/////",
+        "develop:food-order": "yarn lerna run develop:food-order",
+        "develop:place-picker": "yarn lerna run develop:place-picker",
+        "develop:sign-up-form": "yarn lerna run develop:sign-up-form",
+        "develop:simple-shop": "yarn lerna run develop:simple-shop",
+        "///": "GIT",
+        "commit": "yarn git-cz",
+        "//": "FORMATS",
+        "formats:check": "yarn prettier --check .",
+        "formats:write": "yarn prettier --write .",
+        "/": "INSTALL",
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^18.6.0",
+        "@commitlint/config-conventional": "^18.6.0",
+        "commitizen": "^4.3.0",
+        "cz-conventional-changelog": "^3.3.0",
+        "husky": "^9.0.7",
+        "lerna": "^8.0.2",
+        "prettier": "^3.2.4"
+    },
+    "keywords": [],
+    "private": true,
+    "workspaces": {
+        "packages": [
+            "assets/*",
+            "assets/",
+            "backend/*",
+            "backend/**/*",
+            "database/*",
+            "frontend/*",
+            "frontend/**/*",
+            "shared/*",
+            "shared/**/*",
+            "tools/*"
+        ],
+        "nohoist": [
+            "**/normalize-scss"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "husky": {
+        "hooks": {
+            "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    }
+}
