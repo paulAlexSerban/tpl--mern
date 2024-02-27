@@ -16,8 +16,6 @@ RUN yarn install
 # Bundle app source
 COPY . /usr/src/app/
 
-EXPOSE 5173
-
 # Command to run when the container is ready
 # Separate arguments as separate values in the array
-CMD [ "yarn", "run", "develop:to-do-app"]
+CMD [ "yarn", "run", "develop:to-do"]

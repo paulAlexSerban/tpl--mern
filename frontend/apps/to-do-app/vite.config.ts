@@ -9,6 +9,17 @@ export default defineConfig(({ command }) => {
     const config = {
         plugins: [react()],
         base: '/',
+        server: {
+            proxy: {
+                // Proxying API requests
+                '/api': {
+                    target: 'http://node-api:5000',
+                    changeOrigin: true,
+                    secure: false,
+                    rewrite: (path) => path.replace(/^\/api/, ''),
+                },
+            },
+        },
     };
 
     if (command !== 'serve') {

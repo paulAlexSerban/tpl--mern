@@ -10,7 +10,7 @@ const App = () => {
 
     useEffect(() => {
         const fetchTasks = async () => {
-            const { data } = await axios.get('/tasks');
+            const { data } = await axios.get('http://localhost:3000/tasks');
             console.log(data);
             setTasks(data);
         };
@@ -18,7 +18,7 @@ const App = () => {
     }, []);
 
     const addTask = async (task: Task) => {
-        const res = await fetch('/tasks', {
+        const res = await fetch('http://localhost:3000/tasks', {
             method: 'post',
             headers: {
                 'content-type': 'application/json',
@@ -32,7 +32,7 @@ const App = () => {
     };
 
     const deleteTask = async (id: string) => {
-        await axios.delete(`/tasks/${id}`);
+        await axios.delete(`http://localhost:3000/tasks/${id}`);
 
         setTasks(tasks.filter((task) => task._id !== id));
     };

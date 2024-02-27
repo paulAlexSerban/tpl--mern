@@ -4,8 +4,14 @@ import Task from '../models/Task';
 const router: Router = express.Router();
 
 router.get('/tasks', async (req, res) => {
-    const tasks = await Task.find();
-    res.json(tasks);
+    try {
+        const tasks = await Task.find();
+        console.log(tasks);
+        res.json(tasks);
+    } catch (error) {
+        const err = error as Error;
+        res.status(500).json({ message: err.message });
+    }
 });
 
 router.post('/tasks', async (req, res) => {
