@@ -15,7 +15,7 @@
         "develop:local:sign-up-form": "yarn lerna run develop:sign-up-form",
         "develop:local:simple-shop": "yarn lerna run develop:simple-shop",
         "develop:local:spot-share": "yarn lerna run develop:spot-share",
-        "develop:local:to-do-app": "yarn lerna run develop:to-do-app",
+        "develop:local:to-do": "yarn lerna run develop:to-do",
         "///": "GIT",
         "commit": "yarn git-cz",
         "//": "FORMATS",
