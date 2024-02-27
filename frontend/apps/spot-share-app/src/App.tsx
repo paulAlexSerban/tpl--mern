@@ -1,19 +1,26 @@
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
-
+import Root from './root/Root';
 import Users from './users/pages/Users';
 import NewPlace from './places/pages/NewPlace';
-import './App.css';
-
+import UserPlaces from './places/pages/UserPlaces';
 const Router = createBrowserRouter(
     [
         {
             path: '/',
-            element: <Users />,
+            element: <Root />,
+            children: [
+                { index: true, element: <Users /> },
+                {
+                    path: '/places/new',
+                    element: <NewPlace />,
+                },
+                {
+                    path: '/:uid/places',
+                    element: <UserPlaces />,
+                },
+            ],
         },
-        {
-            path: '/places/new',
-            element: <NewPlace />,
-        },
+
         {
             path: '*',
             element: <Navigate to="/" replace />,
