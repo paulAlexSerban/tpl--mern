@@ -130,3 +130,4 @@ dist
 .pnp.*
 lib
 package
+database/_data/*

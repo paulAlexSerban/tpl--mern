@@ -1,0 +1,42 @@
+---
+version: '3.7'
+networks:
+    magic-world-network:
+        driver: bridge
+services:
+    # ---------------------------------------------------------------------
+    # | PostgreSQL                                                        |
+    # ---------------------------------------------------------------------
+    postgres:
+        image: postgres:latest
+        container_name: container-magic-world-postgres
+        restart: always
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: magic-world
+        ports:
+            - 15432:5432
+        volumes:
+            - ../../database/_data/magic-world-db:/var/lib/postgresql/data
+            - ../../database/seeds/magic-world-db/init.sql:/docker-entrypoint-initdb.d/init.sql
+        networks:
+            - magic-world-network
+
+    # ---------------------------------------------------------------------
+    # | PgAdmin                                                           |
+    # ---------------------------------------------------------------------
+    pgadmin:
+        image: dpage/pgadmin4
+        ports:
+            - 15433:80
+        environment:
+            POSTGRES_USER: postgres
+            PGADMIN_DEFAULT_EMAIL: admin@test.com
+            PGADMIN_DEFAULT_PASSWORD: postgres
+        depends_on:
+            - postgres
+        networks:
+            - magic-world-network
+        volumes:
+            - ../../database/_data/magic-world-pgadmin-data/:/var/lib/pgadmin/
