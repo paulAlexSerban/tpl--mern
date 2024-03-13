@@ -20,6 +20,7 @@ services:
         volumes:
             - ../../database/_data/magic-world-db:/var/lib/postgresql/data
             - ../../database/seeds/magic-world-db/init.sql:/docker-entrypoint-initdb.d/init.sql
+            - ../../database/seeds/magic-world-db/magic-world.sql:/docker-entrypoint-initdb.d/magic-world.sql
         networks:
             - magic-world-network
 
