@@ -19,6 +19,7 @@
         "develop:compose:down:spot-share": "bash ./tools/develop-scripts/spot-share-compose-down.bash",
         "develop:compose:down:to-do": "bash ./tools/develop-scripts/to-do-compose-down.bash",
         "////": "LOCAL",
+        "develop:local:emaily-user-feedback": "yarn lerna run develop:emaily-user-feedback",
         "develop:local:food-order": "yarn lerna run develop:food-order",
         "develop:local:performance-n-clustering": "yarn lerna run develop:performance-n-clustering",
         "develop:local:place-picker": "yarn lerna run develop:place-picker",
