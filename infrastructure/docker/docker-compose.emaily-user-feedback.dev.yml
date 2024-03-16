@@ -31,6 +31,9 @@ services:
         image: paulserbandev/emaily-user-feedback-api
         container_name: container-emaily-user-feedback-api
         restart: always
+        env_file:
+            - ../../shared/config/emaily-user-feedback.compose.env
+            - ../../.env
         volumes:
             - ../../backend/api/emaily-user-feedback-api:/usr/src/app/
             - /usr/src/app/node_modules
