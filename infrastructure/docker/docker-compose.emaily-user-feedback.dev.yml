@@ -34,8 +34,35 @@ services:
         env_file:
             - ../../shared/config/emaily-user-feedback.compose.env
             - ../../.env
+        depends_on:
+            - mongo-database-service
+        environment:
+            - DB_ATLAS_URI=${DB_ATLAS_URI}
+            - DB_LOCAL_URI=${DB_LOCAL_URI}
+            - MONGO_USERNAME=${MONGO_USERNAME}
+            - MONGO_PASSWORD=${MONGO_PASSWORD}
+            - MONGO_HOSTNAME=${MONGO_HOSTNAME}
+            - MONGO_PORT=${MONGO_PORT}
+            - MONGO_DB=${MONGO_DB}
+            - NODE_ENV=${NODE_ENV}
+            - PORT=${NODE_PORT}
         volumes:
             - ../../backend/api/emaily-user-feedback-api:/usr/src/app/
             - /usr/src/app/node_modules
+        networks:
+            - emaily-user-feedback-network
+    # ---------------------------------------------------------------------
+    # | MongoDB Database Server                                            |
+    # ---------------------------------------------------------------------
+    mongo-database-service:
+        image: mongo:latest
+        container_name: mongo-database-container
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+            - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+        volumes:
+            - ../../database/.tmp-data:/data/db
+        ports:
+            - '27017:27017'
         networks:
             - emaily-user-feedback-network
