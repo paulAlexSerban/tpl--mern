@@ -61,7 +61,7 @@ services:
             - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
             - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
         volumes:
-            - ../../database/.tmp-data:/data/db
+            - ../../database/.tmp-data/emaily-data:/data/db
         ports:
             - '27017:27017'
         networks:
