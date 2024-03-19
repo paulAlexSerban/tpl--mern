@@ -132,3 +132,4 @@ lib
 package
 database/_data/*
 .tmp-data
+*.env

@@ -7,6 +7,6 @@ cd "$(dirname "$0")" || exit
 
 # echo "[ 🟢 🐳 compose up ] $PROJECT_NAME:$PROJECT_VERSION"
 
-docker compose --env-file ../../shared/config/emaily-user-feedback.compose.env \
+docker compose --env-file ../../infrastructure/env/emaily-user-feedback.compose.env \
   --file ../../infrastructure/docker/docker-compose.emaily-user-feedback.dev.yml \
   up --detach --build
