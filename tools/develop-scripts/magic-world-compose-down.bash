@@ -7,6 +7,6 @@ cd "$(dirname "$0")" || exit
 
 # echo "[ 🛑 🐳 compose down ] $PROJECT_NAME:$PROJECT_VERSION"
 
-docker compose --env-file ../../shared/config/magic-world.compose.env \
+docker compose --env-file ../../infrastructure/env/magic-world.compose.env \
   --file ../../infrastructure/docker/docker-compose.magic-world.dev.yml \
   down --volumes --rmi all

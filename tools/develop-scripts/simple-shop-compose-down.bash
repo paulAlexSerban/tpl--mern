@@ -7,6 +7,6 @@ cd "$(dirname "$0")" || exit
 
 # echo "[ 🛑 🐳 compose down ] $PROJECT_NAME:$PROJECT_VERSION"
 
-docker compose --env-file ../../shared/config/simple-shop.compose.env \
+docker compose --env-file ../../infrastructure/env/simple-shop.compose.env \
   --file ../../infrastructure/docker/docker-compose.simple-shop.dev.yml \
   down --volumes --rmi all

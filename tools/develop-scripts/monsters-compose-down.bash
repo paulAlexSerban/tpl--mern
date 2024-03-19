@@ -7,6 +7,6 @@ cd "$(dirname "$0")" || exit
 
 # echo "[ 🛑 🐳 compose down ] $PROJECT_NAME:$PROJECT_VERSION"
 
-docker compose --env-file ../../shared/config/monsters.compose.env \
+docker compose --env-file ../../infrastructure/env/monsters.compose.env \
   --file ../../infrastructure/docker/docker-compose.monsters.dev.yml \
   down --volumes --rmi all

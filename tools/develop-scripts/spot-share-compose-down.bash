@@ -7,6 +7,6 @@ cd "$(dirname "$0")" || exit
 
 # echo "[ 🛑 🐳 compose down ] $PROJECT_NAME:$PROJECT_VERSION"
 
-docker compose --env-file ../../shared/config/spot-share.compose.env \
+docker compose --env-file ../../infrastructure/env/spot-share.compose.env \
   --file ../../infrastructure/docker/docker-compose.spot-share.dev.yml \
   down --volumes --rmi all

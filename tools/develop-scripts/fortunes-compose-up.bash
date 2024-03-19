@@ -7,6 +7,6 @@ cd "$(dirname "$0")" || exit
 
 # echo "[ 🟢 🐳 compose up ] $PROJECT_NAME:$PROJECT_VERSION"
 
-docker compose --env-file ../../shared/config/fortunes.compose.env \
+docker compose --env-file ../../infrastructure/env/fortunes.compose.env \
   --file ../../infrastructure/docker/docker-compose.fortunes.dev.yml \
   up --detach --build
