@@ -27,11 +27,45 @@ services:
         build:
             context: ../../frontend/apps/shopping-cart-redux
             dockerfile: dev.Dockerfile
-        # ports:
-        #     - '3000:5173' # Expose the port your app runs on
         volumes:
             - ../../frontend/apps/shopping-cart-redux:/usr/src/app # Mount the app directory to the container
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+        networks:
+            - shopping-cart-redux-network
+
+    # ---------------------------------------------------------------------
+    # | ExpressJS API                                                     |
+    # ---------------------------------------------------------------------
+    express-shopping-cart-redux-api:
+        build:
+            context: ../../backend/api/shopping-cart-redux-api
+            dockerfile: dev.Dockerfile
+        image: paulserbandev/shopping-cart-redux-api
+        container_name: container-shopping-cart-redux-api
+        restart: always
+        env_file:
+            - ../../infrastructure/env/shopping-cart-redux.compose.env
+            - ../../.env
+        depends_on:
+            - mongo-database-service
+        volumes:
+            - ../../backend/api/shopping-cart-redux-api:/usr/src/app/
+            - /usr/src/app/node_modules
+        networks:
+            - shopping-cart-redux-network
+    # ---------------------------------------------------------------------
+    # | MongoDB Database Server                                            |
+    # ---------------------------------------------------------------------
+    mongo-database-service:
+        image: mongo:latest
+        container_name: mongo-database-container
+        env_file:
+            - ../../infrastructure/env/shopping-cart-redux.compose.env
+            - ../../.env
+        volumes:
+            - ../../database/.tmp-data/shopping-cart-redux-data:/data/db
+        ports:
+            - '27017:27017'
         networks:
             - shopping-cart-redux-network
 
