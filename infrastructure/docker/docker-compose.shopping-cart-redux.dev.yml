@@ -1,0 +1,23 @@
+---
+version: '3.8'
+
+services:
+    # ---------------------------------------------------------------------
+    # UI React SPA
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa-container
+        build:
+            context: ../../frontend/apps/shopping-cart-redux
+            dockerfile: dev.Dockerfile
+        ports:
+            - '3000:5173' # Expose the port your app runs on
+        volumes:
+            - ../../frontend/apps/shopping-cart-redux:/usr/src/app # Mount the app directory to the container
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+        networks:
+            - shopping-cart-redux-network
+
+networks:
+    shopping-cart-redux-network:
+        driver: bridge
