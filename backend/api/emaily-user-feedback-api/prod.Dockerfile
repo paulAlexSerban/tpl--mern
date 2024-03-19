@@ -16,9 +16,8 @@ RUN yarn install
 # Bundle app source
 COPY . /usr/src/app/
 
-# Command to run when the container is ready
-# Separate arguments as separate values in the array
-CMD [ "yarn", "run", "build:prod"]
+# Build your application
+RUN yarn run build:prod
 
 FROM node:18.17.1
 
