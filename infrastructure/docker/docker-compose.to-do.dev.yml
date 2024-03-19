@@ -30,15 +30,9 @@ services:
         ports:
             - '3000:3000'
         restart: always
-        environment:
-            - DB_ATLAS_URI=${DB_ATLAS_URI}
-            - DB_LOCAL_URI=${DB_LOCAL_URI}
-            - MONGO_USERNAME=${MONGO_USERNAME}
-            - MONGO_PASSWORD=${MONGO_PASSWORD}
-            - MONGO_HOSTNAME=${MONGO_HOSTNAME}
-            - MONGO_PORT=${MONGO_PORT}
-            - MONGO_DB=${MONGO_DB}
-            - NODE_ENV=${NODE_ENV}
+        env_file:
+            - ../../infrastructure/env/to-do.compose.env
+            - ../../.env
         depends_on:
             - database
         networks:
@@ -52,9 +46,11 @@ services:
         container_name: mongo-db
         ports:
             - '27017:27017'
-        environment:
-            - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
-            - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+        env_file:
+            - ../../infrastructure/env/emaily-user-feedback.compose.env
+            - ../../.env
+        volumes:
+            - ../../database/.tmp-data/to-do-data:/data/db
         networks:
             - to-do-networks
 

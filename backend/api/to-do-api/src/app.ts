@@ -9,10 +9,17 @@ import tasksRoute from './routes/tasks';
 
 dotenv.config();
 
+const { DB_URI } = process.env;
+
+if (!DB_URI) {
+    console.error('No DB_URI provided');
+    process.exit(1);
+}
+
 const connectDB = async () => {
     try {
         // Corrected the MongoDB connection URI scheme here
-        const conn = await mongoose.connect(process.env.MONGO_URI || 'mongodb://mongo-db:27017/ToDoAppDb');
+        const conn = await mongoose.connect(DB_URI);
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (err) {
         // Corrected error handling
@@ -51,7 +58,7 @@ app.use((req, res, next) => {
 // e.g., app.use('/tasks', tasksRoute); if tasksRoute should be under "/tasks"
 // app.use('/', indexRouter);
 app.use('/tasks', tasksRoute); // Adjusted for clarity and potential intended usage
-
+app.use('/', indexRouter); // Adjusted for clarity and potential intended usage
 // 404
 app.use((req, res, next) => {
     if (req.method === 'OPTIONS') {

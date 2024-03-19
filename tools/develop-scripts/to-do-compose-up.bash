@@ -7,6 +7,6 @@ cd "$(dirname "$0")" || exit
 
 # echo "[ 🟢 🐳 compose up ] $PROJECT_NAME:$PROJECT_VERSION"
 
-docker compose --env-file ../../shared/config/to-do.compose.env \
+docker compose --env-file ../../infrastructure/env/to-do.compose.env \
   --file ../../infrastructure/docker/docker-compose.to-do.dev.yml \
   up --detach --build
