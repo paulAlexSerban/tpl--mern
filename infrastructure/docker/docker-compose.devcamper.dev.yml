@@ -31,23 +31,13 @@ services:
         container_name: v1-api
         restart: always
         env_file:
-            - ../../shared/config/devcamper.compose.env
+            - ../../infrastructure/env/devcamper.compose.env
             - ../../.env
         volumes:
             - ../../backend/api/devcamper-api:/usr/src/app/
             - /usr/src/app/node_modules
         depends_on:
             - mongo-database-service
-        environment:
-            - DB_ATLAS_URI=${DB_ATLAS_URI}
-            - DB_LOCAL_URI=${DB_LOCAL_URI}
-            - MONGO_USERNAME=${MONGO_USERNAME}
-            - MONGO_PASSWORD=${MONGO_PASSWORD}
-            - MONGO_HOSTNAME=${MONGO_HOSTNAME}
-            - MONGO_PORT=${MONGO_PORT}
-            - MONGO_DB=${MONGO_DB}
-            - NODE_ENV=${NODE_ENV}
-            - PORT=${NODE_PORT}
         networks:
             - devcamper-networks
 
@@ -57,9 +47,9 @@ services:
     mongo-database-service:
         image: mongo:latest
         container_name: mongo-database-container
-        environment:
-            - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
-            - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+        env_file:
+            - ../../infrastructure/env/devcamper.compose.env
+            - ../../.env
         volumes:
             - ../../database/.tmp-data/devcamper-data:/data/db
         ports:
