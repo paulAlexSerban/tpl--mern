@@ -3,7 +3,6 @@ import logger from '../utils/miscLogger';
 
 const { DB_URI } = process.env;
 
-
 if (!DB_URI) {
     logger.error('No database URL provided');
     process.exit(1);

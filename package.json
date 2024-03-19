@@ -35,6 +35,7 @@
         "develop:local:performance-n-clustering": "yarn lerna run develop:performance-n-clustering",
         "develop:local:place-picker": "yarn lerna run develop:place-picker",
         "develop:local:sign-up-form": "yarn lerna run develop:sign-up-form",
+        "develop:local:shopping-cart-redux": "yarn lerna run develop:shopping-cart-redux",
         "develop:local:simple-shop": "yarn lerna run develop:simple-shop",
         "develop:local:spot-share": "yarn lerna run develop:spot-share",
         "develop:local:to-do": "yarn lerna run develop:to-do",
