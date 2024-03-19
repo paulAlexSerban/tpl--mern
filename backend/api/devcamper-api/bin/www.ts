@@ -4,18 +4,9 @@
 
 import app from '../src/app';
 import debug from 'debug';
+const debugLog: debug.IDebugger = debug('api-ts-boilerplate:server');
 import http from 'http';
 import { normalizePort } from './utils';
-const debugLog: debug.IDebugger = debug('api-ts-boilerplate:server');
-
-// Set communication endpoint, prefer API_PORT if defined
-const PORT = normalizePort(process.env.API_PORT || process.env.PORT || '5000');
-const HOSTNAME = process.env.HOSTNAME || 'localhost';
-
-/**
- * Get port from environment and store in Express.
- */
-app.set('port', PORT);
 
 /**
  * Event listener for HTTP server "error" event.
@@ -26,9 +17,9 @@ const onError = (error: { syscall: string; code: string }) => {
         throw error;
     }
 
-    const bind = typeof PORT === 'string' ? 'Pipe ' + PORT : 'Port ' + PORT;
+    const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
-    // Handle specific listen errors with friendly messages
+    // handle specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
             console.error(bind + ' requires elevated privileges');
@@ -44,8 +35,16 @@ const onError = (error: { syscall: string; code: string }) => {
 };
 
 /**
+ * Get port from environment and store in Express.
+ */
+
+const port = normalizePort(process.env.PORT || '5000');
+app.set('port', port);
+
+/**
  * Event listener for HTTP server "listening" event.
  */
+
 const onListening = () => {
     const addr = server.address();
     const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr?.port;
@@ -55,24 +54,13 @@ const onListening = () => {
 /**
  * Create HTTP server.
  */
+
 const server = http.createServer(app);
 
 /**
- * Handle unhandled promise rejections.
+ * Listen on provided port, on all network interfaces.
  */
-process.on('unhandledRejection', (err: any) => {
-    console.error(`Error: ${err.message}`);
-    console.info('Shutting down the server due to Unhandled Promise rejection');
-    server.close(() => {
-        process.exit(1);
-    });
-});
 
-/**
- * Start server with explicit hostname and port.
- */
-server.listen(PORT as number, HOSTNAME, () => {
-    console.info(`Server running in ${process.env.NODE_ENV} mode on http://${HOSTNAME}:${PORT}`);
-});
+server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
