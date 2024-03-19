@@ -9,7 +9,7 @@ import { normalizePort } from './utils';
 const debugLog: debug.IDebugger = debug('api-ts-boilerplate:server');
 
 // Set communication endpoint, prefer API_PORT if defined
-const PORT = normalizePort(process.env.API_PORT || process.env.PORT || '4000');
+const PORT = normalizePort(process.env.API_PORT || process.env.PORT || '5000');
 const HOSTNAME = process.env.HOSTNAME || 'localhost';
 
 /**

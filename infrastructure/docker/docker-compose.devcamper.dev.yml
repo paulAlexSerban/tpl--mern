@@ -2,7 +2,7 @@
 version: '3.7'
 services:
     # ---------------------------------------------------------------------
-    # | Component Library - Nginx-Service                                                     |
+    # | FE Service - Nginx-Service                                                     |
     # ---------------------------------------------------------------------
     devcamper-fe-proxy:
         build:

@@ -5,8 +5,10 @@
     "license": "MIT",
     "scripts": {
         "////////": "RUN IMAGE",
+        "run:image:devcamper": "bash ./tools/run-scripts/devcamper-docker-run.prod.bash",
         "run:image:emaily-user-feedback": "bash ./tools/run-scripts/emaily-user-feedback-docker-run.prod.bash",
         "///////": "BUILD IMAGE",
+        "build:image:devcamper": "bash ./tools/build-scripts/devcamper-docker-build.prod.bash",
         "build:image:emaily-user-feedback": "bash ./tools/build-scripts/emaily-user-feedback-docker-build.prod.bash",
         "/////": "COMPOSE UP",
         "develop:compose:up:devcamper": "bash ./tools/develop-scripts/devcamper-compose-up.bash",

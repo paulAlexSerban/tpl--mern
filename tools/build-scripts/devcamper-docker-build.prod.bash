@@ -2,8 +2,8 @@
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
-PROJECT_NAME=$(node -p "require('./package.json').name.split('/').pop()")
-PROJECT_VERSION=$(node -p "require('./package.json').version")
+PROJECT_NAME=$(node -p "require('../../backend/api/devcamper-api/package.json').name.split('/').pop()")
+PROJECT_VERSION=$(node -p "require('../../backend/api/devcamper-api/package.json').version")
 
 echo "Building $PROJECT_NAME:$PROJECT_VERSION"
 
@@ -14,4 +14,4 @@ docker rmi $(docker images -q $PROJECT_NAME:latest)
 
 docker build --tag "paulserbandev/$PROJECT_NAME:$PROJECT_VERSION" \
              --tag "paulserbandev/$PROJECT_NAME:latest" \
-             --file ./prod.Dockerfile ./
+             --file ../../backend/api/devcamper-api/prod.Dockerfile ../../backend/api/devcamper-api/

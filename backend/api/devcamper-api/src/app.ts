@@ -76,13 +76,13 @@ app.get('/api/v1/slow', async (req, res) => {
     end({ route, code: res.statusCode, method: req.method });
 });
 
-app.get('/api/v1/seed/import/bootcamps', async (req, res) => {
-    const end = httpRequestTimer.startTimer();
-    const route = req.route.path;
-    await importData();
-    res.send('Bootcamps Data Imported');
-    end({ route, code: res.statusCode, method: req.method });
-});
+// app.get('/api/v1/seed/import/bootcamps', async (req, res) => {
+//     const end = httpRequestTimer.startTimer();
+//     const route = req.route.path;
+//     await importData();
+//     res.send('Bootcamps Data Imported');
+//     end({ route, code: res.statusCode, method: req.method });
+// });
 
 // app.get("/api/v1/seed/delete/bootcamps", async (req, res) => {
 //     const end = httpRequestTimer.startTimer();
