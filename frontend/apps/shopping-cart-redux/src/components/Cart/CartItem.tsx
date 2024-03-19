@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import classes from './CartItem.module.scss';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../hooks';
 import { addItemToCart, removeItemFromCart } from '../../store/cart-slice';
 export interface ICartItem {
     id: string;
@@ -15,7 +15,7 @@ export type CartItemProps = {
 };
 
 const CartItem: FC<CartItemProps> = ({ item: { id, title, quantity, total, price } }) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const removeItemHandler = () => {
         dispatch(removeItemFromCart(id));
     };

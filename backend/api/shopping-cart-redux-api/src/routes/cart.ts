@@ -1,12 +1,28 @@
 import express, { Router, Request, Response, NextFunction } from 'express';
 const router: Router = express.Router();
 
-let cart: never[] = [];
+type CartItem = {
+    id: string;
+    title: string;
+    quantity: number;
+    total: number;
+    price: number;
+};
+
+type Cart = {
+    items: CartItem[];
+    totalQuantity: number;
+};
+
+let cart: Cart = {
+    items: [],
+    totalQuantity: 0,
+};
 
 /* GET */
 router.get('/', function (req: Request, res: Response, next: NextFunction) {
     console.log('GET /cart');
-    res.status(200).json(cart as any);
+    res.status(200).json(cart);
 });
 
 /* PUT */

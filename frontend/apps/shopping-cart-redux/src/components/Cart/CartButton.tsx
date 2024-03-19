@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import classes from './CartButton.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { toggle } from '../../store/ui-slice';
 import { RootState } from '../../store/index';
 type CartButtonProps = {
@@ -8,8 +8,8 @@ type CartButtonProps = {
 };
 
 const CartButton: FC<CartButtonProps> = () => {
-    const dispatch = useDispatch();
-    const cartQuantity = useSelector((state: RootState) => state.cart.totalQuantity);
+    const dispatch = useAppDispatch();
+    const cartQuantity = useAppSelector((state: RootState) => state.cart.totalQuantity);
     const toggleCartHandler = () => {
         dispatch(toggle());
     };
