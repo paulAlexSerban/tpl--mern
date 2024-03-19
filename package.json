@@ -4,6 +4,10 @@
     "author": "paulAlexSerban <paul.alex.serban@gmail.com>",
     "license": "MIT",
     "scripts": {
+        "////////": "RUN IMAGE",
+        "run:image:emaily-user-feedback": "bash ./tools/run-scripts/emaily-user-feedback-docker-run.prod.bash",
+        "///////": "BUILD IMAGE",
+        "build:image:emaily-user-feedback": "bash ./tools/build-scripts/emaily-user-feedback-docker-build.prod.bash",
         "/////": "COMPOSE UP",
         "develop:compose:up:devcamper": "bash ./tools/develop-scripts/devcamper-compose-up.bash",
         "develop:compose:up:emaily-user-feedback": "bash ./tools/develop-scripts/emaily-user-feedback-compose-up.bash",

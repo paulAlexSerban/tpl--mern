@@ -9,7 +9,7 @@
         "build:dev": "yarn tsc",
         "build:prod": "yarn tsc"
     },
-    "dependencies": {
+    "devDependencies": {
         "@types/cookie-parser": "^1.4.6",
         "@types/cookie-session": "^2.0.48",
         "@types/debug": "^4.1.12",

@@ -38,14 +38,14 @@ services:
             - mongo-database-service
         environment:
             - DB_ATLAS_URI=${DB_ATLAS_URI}
-            - DB_LOCAL_URI=${DB_LOCAL_URI}
+            - =${DB_LOCAL_URI}
             - MONGO_USERNAME=${MONGO_USERNAME}
             - MONGO_PASSWORD=${MONGO_PASSWORD}
             - MONGO_HOSTNAME=${MONGO_HOSTNAME}
             - MONGO_PORT=${MONGO_PORT}
             - MONGO_DB=${MONGO_DB}
             - NODE_ENV=${NODE_ENV}
-            - PORT=${NODE_PORT}
+            - PORT=${PORT}
         volumes:
             - ../../backend/api/emaily-user-feedback-api:/usr/src/app/
             - /usr/src/app/node_modules
