@@ -27,11 +27,11 @@ classDiagram
 
 ## API Endpoints
 ### `/api/users/...`
-| Method | Endpoint | Description       |
-|--------|----------|-------------------|
-| GET    | `/`      | Get all users     |
-| POST   | `/signup`| Create a new user |
-| POST   | `/login` | Login a user      |
+| Method | Endpoint | Description                  |
+|--------|----------|------------------------------|
+| GET    | `/`      | Retrieve / Get all users     |
+| POST   | `/signup`| Create a new user            |
+| POST   | `/login` | Login a user                 |
 
 ### `/api/places/...`
 | Method | Endpoint    | Description                                               |
@@ -47,7 +47,7 @@ classDiagram
 |-----------------|--------------|-------------------------------------------------|-----------------------------------------------|
 | `/`             | Home         | List of users                                   | (Public) always reachable                     |
 | `/:uid/places`  | Places       | List of places for a given user id (uid)        | (Public) always reachable                     |
-| `/authenticate` | Authenticate | Login & Signup page                             | (Public) only reachable if not authenticated  |
+| `/auth`         | Authenticate | Login & Signup page                             | (Public) only reachable if not authenticated  |
 | `/places/new`   | New Place    | Create a new place form                         | (Private) only reachable if authenticated     |
 | `/places/:pid`  | Place        | View a specific place by id (pid) & Update form | (Private) only reachable if authenticated     |
 

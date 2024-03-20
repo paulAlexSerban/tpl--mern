@@ -37,7 +37,7 @@ const DUMMY_PLACES = [
 ];
 
 const UpdatePlace: FC = () => {
-    const placeId = useParams().placeId;
+    const pid = useParams().pid;
     const [isLoading, setIsLoading] = useState(true);
 
     const [formState, inputHandler, setFormData] = useForm(
@@ -54,7 +54,7 @@ const UpdatePlace: FC = () => {
         true
     );
 
-    const identifiedPlace = DUMMY_PLACES.find((p) => p.id === placeId);
+    const identifiedPlace = DUMMY_PLACES.find((p) => p.id === pid);
 
     useEffect(() => {
         if (!identifiedPlace) {

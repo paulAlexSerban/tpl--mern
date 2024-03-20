@@ -34,7 +34,7 @@ function App() {
                             ...(isLoggedIn
                                 ? [
                                       { path: '/places/new', element: <NewPlace /> },
-                                      { path: '/places/:placeId', element: <UpdatePlace /> },
+                                      { path: '/places/:pid', element: <UpdatePlace /> },
                                   ]
                                 : [{ path: '/auth', element: <Auth /> }]),
                         ],
