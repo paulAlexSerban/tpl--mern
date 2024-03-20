@@ -1,7 +1,6 @@
 import { FC } from 'react';
-
 import Card from '../../shared/UIElements/Card';
-
+import Button from '../../shared/FormElements/Button';
 import './PlaceItem.scss';
 
 type PlaceItemProps = {
@@ -27,9 +26,11 @@ const PlaceItem: FC<PlaceItemProps> = (props) => {
                     <p>{props.description}</p>
                 </div>
                 <div className="place-item__actions">
-                    <button>VIEW ON MAP</button>
-                    <button>EDIT</button>
-                    <button>DELETE</button>
+                    <Button inverse to={`/places/${props.id}`}>
+                        View on Map
+                    </Button>
+                    <Button to={`/places/${props.id}/edit`}>Edit</Button>
+                    <Button danger>Delete</Button>
                 </div>
             </Card>
         </li>
