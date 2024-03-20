@@ -1,15 +1,11 @@
 import express, { Router, Request, Response, NextFunction } from 'express';
+
+import placesRouter from './places';
+import usersRouter from './users';
+
 const router: Router = express.Router();
 
-/* GET */
-router.get('/', function (req: Request, res: Response, next: NextFunction) {
-    res.send(
-        JSON.stringify({
-            id: 1,
-            name: 'John Doe',
-            email: 'jon@dow.com',
-        })
-    );
-});
+router.use('/places', placesRouter);
+router.use('/users', usersRouter);
 
 export default router;
