@@ -36,6 +36,42 @@ services:
         networks:
             - spot-share-network
 
+    # ---------------------------------------------------------------------
+    # | ExpressJS API                                                     |
+    # ---------------------------------------------------------------------
+    express-spot-share-api:
+        build:
+            context: ../../backend/api/spot-share-api
+            dockerfile: dev.Dockerfile
+        image: paulserbandev/spot-share-api
+        container_name: container-spot-share-api
+        restart: always
+        env_file:
+            - ../../infrastructure/env/spot-share.compose.env
+            - ../../.env
+        depends_on:
+            - mongo-database-service
+        volumes:
+            - ../../backend/api/spot-share-api:/usr/src/app/
+            - /usr/src/app/node_modules
+        networks:
+            - spot-share-network
+    # ---------------------------------------------------------------------
+    # | MongoDB Database Server                                            |
+    # ---------------------------------------------------------------------
+    mongo-database-service:
+        image: mongo:latest
+        container_name: mongo-database-container
+        env_file:
+            - ../../infrastructure/env/spot-share.compose.env
+            - ../../.env
+        volumes:
+            - ../../database/.tmp-data/spot-share-data:/data/db
+        ports:
+            - '27017:27017'
+        networks:
+            - spot-share-network
+
 networks:
     spot-share-network:
         driver: bridge
