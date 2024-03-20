@@ -3,7 +3,7 @@ import Card from '../../shared/UIElements/Card';
 import Button from '../../shared/FormElements/Button';
 import Modal from '../../shared/UIElements/Modal';
 import './PlaceItem.scss';
-
+import Map from '../../shared/UIElements/Map';
 type PlaceItemProps = {
     id: string;
     image: string;
@@ -48,7 +48,7 @@ const PlaceItem: FC<PlaceItemProps> = (props) => {
                 footer={<Button onClick={closeMapHandler}>Close</Button>}
             >
                 <div className="map-container">
-                    <h2>The Map!</h2>
+                    <Map center={props.coordinates} zoom={16} title={props.title} />
                 </div>
             </Modal>
         </>

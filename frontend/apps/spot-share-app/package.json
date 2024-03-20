@@ -12,21 +12,23 @@
         "package": "bash scripts/package.bash"
     },
     "dependencies": {
-        "@types/react-transition-group": "^4.4.10",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-router-dom": "^6.16.0",
-        "react-transition-group": "^4.4.5"
+        "react-router-dom": "^6.16.0"
     },
     "devDependencies": {
+        "@googlemaps/js-api-loader": "^1.16.6",
+        "@types/google.maps": "^3.55.5",
         "@types/react": "^18.2.27",
         "@types/react-dom": "^18.2.12",
+        "@types/react-transition-group": "^4.4.10",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
         "@typescript-eslint/parser": "^6.0.0",
         "@vitejs/plugin-react": "^4.0.3",
         "eslint": "^8.45.0",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.3",
+        "react-transition-group": "^4.4.5",
         "sass": "^1.69.5",
         "typescript": "^5.2.2",
         "vite": "^4.4.5"

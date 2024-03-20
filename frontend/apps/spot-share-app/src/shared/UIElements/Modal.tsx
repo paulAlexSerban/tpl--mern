@@ -1,4 +1,4 @@
-import { FC, CSSProperties, ReactNode } from 'react';
+import { FC, CSSProperties, ReactNode, useRef, forwardRef } from 'react';
 import { createPortal } from 'react-dom';
 import './Modal.scss';
 import Backdrop from './Backdrop';
@@ -15,34 +15,26 @@ type ModalOverlayProps = {
     footerClass?: string;
     footer: ReactNode;
     onCancel?: () => void;
+    ref: React.Ref<HTMLDivElement>;
 };
-
-const ModalOverlay: FC<ModalOverlayProps> = ({
-    children,
-    className,
-    style,
-    headerClass,
-    header,
-    onSubmit,
-    contentClass,
-    footerClass,
-    footer,
-}) => {
-    const content = (
-        <div className={`modal ${className}`} style={style}>
-            {header && (
-                <header className={`modal__header ${headerClass}`}>
-                    <h2>{header}</h2>
-                </header>
-            )}
-            <form onSubmit={onSubmit ? onSubmit : (event) => event.preventDefault()}>
-                <div className={`modal__content ${contentClass}`}>{children}</div>
-                <footer className={`modal__footer ${footerClass}`}>{footer}</footer>
-            </form>
-        </div>
-    );
-    return createPortal(content, document.getElementById('modal-hook')!);
-};
+const ModalOverlay = forwardRef<HTMLDivElement, ModalOverlayProps>(
+    ({ children, className, style, headerClass, header, onSubmit, contentClass, footerClass, footer }, ref) => {
+        const content = (
+            <div className={`modal ${className}`} style={style} ref={ref}>
+                {header && (
+                    <header className={`modal__header ${headerClass}`}>
+                        <h2>{header}</h2>
+                    </header>
+                )}
+                <form onSubmit={onSubmit ? onSubmit : (event) => event.preventDefault()}>
+                    <div className={`modal__content ${contentClass}`}>{children}</div>
+                    <footer className={`modal__footer ${footerClass}`}>{footer}</footer>
+                </form>
+            </div>
+        );
+        return createPortal(content, document.getElementById('modal-hook')!);
+    }
+);
 
 type ModalProps = {
     children: ReactNode;
@@ -56,11 +48,14 @@ type ModalProps = {
 };
 
 const Modal: FC<ModalProps> = (props) => {
+    const nodeRef = useRef(null);
     return (
         <>
             {props.show && <Backdrop onClick={props.onCancel} />}
-            <CSSTransition in={props.show} mountOnEnter unmountOnExit timeout={200} classNames="modal">
-                <ModalOverlay {...props}>{props.children}</ModalOverlay>
+            <CSSTransition in={props.show} mountOnEnter unmountOnExit timeout={200} nodeRef={nodeRef}>
+                <ModalOverlay {...props} ref={nodeRef}>
+                    {props.children}
+                </ModalOverlay>
             </CSSTransition>
         </>
     );
