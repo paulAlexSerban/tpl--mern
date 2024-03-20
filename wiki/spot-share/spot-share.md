@@ -36,8 +36,8 @@ classDiagram
 ### `/api/places/...`
 | Method | Endpoint    | Description                                               |
 |--------|-------------|-----------------------------------------------------------|
-| GET    | `/user/:id` | Retrieve a list of all places for a given user id (uid)   |
-| POST   | `/:pid`     | Get a specific place by id (pid)                          |
+| GET    | `/user/:uid` | Retrieve a list of all places for a given user id (uid)   |
+| GET   | `/:pid`      | Get a specific place by id (pid)                          |
 | POST   | `/`         | Create a new place                                        |
 | PATCH  | `/:pid`     | Update a place by id (pid)                                |
 | DELETE | `/:pid`     | Delete a place by id (pid)                                |

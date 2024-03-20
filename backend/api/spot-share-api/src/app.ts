@@ -1,8 +1,8 @@
-import express, { Express } from 'express';
+import express, { Express, Response, NextFunction, Request } from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-
 import routes from './routes';
+import HttpError from './models/http-error';
 
 const app: Express = express();
 
@@ -12,5 +12,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api', routes);
+
+app.use((error: HttpError, req: Request, res: Response, next: NextFunction) => {
+    if (res.headersSent) {
+        return next(error);
+    }
+    res.status(error.errorCode || 500).json({ message: error.message });
+});
 
 export default app;

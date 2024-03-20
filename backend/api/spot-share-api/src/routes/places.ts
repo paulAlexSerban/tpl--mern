@@ -1,18 +1,11 @@
 import express, { Router, Request, Response, NextFunction } from 'express';
+import HttpError from '../models/http-error';
+import { getPlaceById, getPlacesByUserId } from '../controllers/places';
 const router: Router = express.Router();
 
 /* GET */
-router.get('/user/:id', function (req: Request, res: Response, next: NextFunction) {
-    res.json({
-        message: 'retrive a list of all places for a given user id' + req.params.id,
-    });
-});
-
-router.post('/:pid', function (req: Request, res: Response, next: NextFunction) {
-    res.json({
-        message: 'get a specific place by id' + req.params.pid,
-    });
-});
+router.get('/user/:uid', getPlacesByUserId);
+router.get('/:pid', getPlaceById);
 
 router.post('/', function (req: Request, res: Response, next: NextFunction) {
     res.json({
