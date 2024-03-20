@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './UserList.scss';
 import UserItem from './UserItem';
-import Card from '../../shared/UIElements/Card';
+import Card from '../../shared/components/UIElements/Card';
 type UserListProps = {
     users: any[];
 };

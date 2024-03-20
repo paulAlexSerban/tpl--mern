@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './UserItem.scss';
-import Avatar from '../../shared/UIElements/Avatar';
-import Card from '../../shared/UIElements/Card';
+import Avatar from '../../shared/components/UIElements/Avatar';
+import Card from '../../shared/components/UIElements/Card';
 import { Link } from 'react-router-dom';
 type UserItemProps = {
     image: string;

@@ -3,6 +3,7 @@ import Root from './root/Root';
 import Users from './users/pages/Users';
 import NewPlace from './places/pages/NewPlace';
 import UserPlaces from './places/pages/UserPlaces';
+import UpdatePlace from './places/pages/UpdatePlace';
 const Router = createBrowserRouter(
     [
         {
@@ -15,12 +16,15 @@ const Router = createBrowserRouter(
                     element: <NewPlace />,
                 },
                 {
+                    path: '/places/:placeId',
+                    element: <UpdatePlace />,
+                },
+                {
                     path: '/:uid/places',
                     element: <UserPlaces />,
                 },
             ],
         },
-
         {
             path: '*',
             element: <Navigate to="/" replace />,

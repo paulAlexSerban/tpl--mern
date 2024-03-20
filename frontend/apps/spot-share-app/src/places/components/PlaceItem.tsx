@@ -1,9 +1,9 @@
 import { type FC, useState } from 'react';
-import Card from '../../shared/UIElements/Card';
-import Button from '../../shared/FormElements/Button';
-import Modal from '../../shared/UIElements/Modal';
+import Card from '../../shared/components/UIElements/Card';
+import Button from '../../shared/components/FormElements/Button';
+import Modal from '../../shared/components/UIElements/Modal';
 import './PlaceItem.scss';
-import Map from '../../shared/UIElements/Map';
+import Map from '../../shared/components/UIElements/Map';
 type PlaceItemProps = {
     id: string;
     image: string;
@@ -16,8 +16,15 @@ type PlaceItemProps = {
 
 const PlaceItem: FC<PlaceItemProps> = (props) => {
     const [showMap, setShowMap] = useState(false);
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
     const openMapHandler = () => setShowMap(true);
     const closeMapHandler = () => setShowMap(false);
+    const showDeleteWarningHandler = () => setShowConfirmModal(true);
+    const cancelDeleteHandler = () => setShowConfirmModal(false);
+    const confirmDeleteHandler = () => {
+        setShowConfirmModal(false);
+        console.log('DELETING...');
+    };
     return (
         <>
             <li className="place-item">
@@ -34,8 +41,10 @@ const PlaceItem: FC<PlaceItemProps> = (props) => {
                         <Button inverse type="button" onClick={openMapHandler}>
                             View on Map
                         </Button>
-                        <Button to={`/places/${props.id}/edit`}>Edit</Button>
-                        <Button danger>Delete</Button>
+                        <Button to={`/places/${props.id}`}>Edit</Button>
+                        <Button danger onClick={showDeleteWarningHandler}>
+                            Delete
+                        </Button>
                     </div>
                 </Card>
             </li>
@@ -50,6 +59,24 @@ const PlaceItem: FC<PlaceItemProps> = (props) => {
                 <div className="map-container">
                     <Map center={props.coordinates} zoom={16} title={props.title} />
                 </div>
+            </Modal>
+            <Modal
+                show={showConfirmModal}
+                onCancel={cancelDeleteHandler}
+                header="Are you sure?"
+                footerClass="place-item_modal-actions"
+                footer={
+                    <>
+                        <Button inverse onClick={cancelDeleteHandler}>
+                            Cancel
+                        </Button>
+                        <Button danger onClick={confirmDeleteHandler}>
+                            Delete
+                        </Button>
+                    </>
+                }
+            >
+                <p>Do you want to proceed and delete this place? Please note that it can't be undone thereafter.</p>
             </Modal>
         </>
     );
