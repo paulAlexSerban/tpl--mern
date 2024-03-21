@@ -1,7 +1,7 @@
 import express, { Router, Request, Response, NextFunction } from 'express';
 
-import placesRouter from './places';
-import usersRouter from './users';
+import placesRouter from './places-routes';
+import usersRouter from './users-routes';
 
 const router: Router = express.Router();
 

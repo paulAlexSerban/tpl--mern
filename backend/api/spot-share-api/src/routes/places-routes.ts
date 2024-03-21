@@ -5,7 +5,7 @@ import {
     createNewPlace,
     updatePlaceById,
     deletePlaceById,
-} from '../controllers/places';
+} from '../controllers/places-controllers';
 
 const router: Router = Router();
 
