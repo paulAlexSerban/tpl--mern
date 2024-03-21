@@ -2,7 +2,7 @@ import { Controller } from './.types';
 import HttpError from '../models/http-error';
 import { v4 as uuidv4 } from 'uuid';
 import { validationResult } from 'express-validator';
-import { getCoordsForAddress } from '../util/location';
+import { getCoordsForAddress } from '../utils/location';
 const DUMMY_PLACES = [
     {
         id: 'p1',

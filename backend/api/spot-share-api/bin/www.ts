@@ -6,7 +6,7 @@ import app from '../src/app';
 import debug from 'debug';
 const debugLog: debug.IDebugger = debug('api-ts-boilerplate:server');
 import http from 'http';
-
+import connectDB from '../src/config/database';
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -79,7 +79,12 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+connectDB()
+    .then(() => {
+        server.listen(port);
+        server.on('error', onError);
+        server.on('listening', onListening);
+    })
+    .catch((err) => {
+        console.error(err);
+    });
