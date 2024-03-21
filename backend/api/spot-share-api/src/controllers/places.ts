@@ -1,5 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
+import { Controller } from './.types';
 import HttpError from '../models/http-error';
+import { v4 as uuidv4 } from 'uuid';
 
 const DUMMY_PLACES = [
     {
@@ -30,7 +31,7 @@ const DUMMY_PLACES = [
     },
 ];
 
-const getPlaceById = async (req: Request, res: Response, next: NextFunction) => {
+const getPlaceById: Controller = async (req, res, next) => {
     const placeId = req.params.pid;
     const place = DUMMY_PLACES.find((place) => place.id === placeId);
 
@@ -45,7 +46,7 @@ const getPlaceById = async (req: Request, res: Response, next: NextFunction) => 
     });
 };
 
-const getPlacesByUserId = async (req: Request, res: Response, next: NextFunction) => {
+const getPlacesByUserId: Controller = async (req, res, next) => {
     const userId = req.params.uid;
     const loadedPlaces = DUMMY_PLACES.filter((place) => place.creator === userId);
 
@@ -59,10 +60,10 @@ const getPlacesByUserId = async (req: Request, res: Response, next: NextFunction
     });
 };
 
-const createNewPlace = async (req: Request, res: Response, next: NextFunction) => {
+const createNewPlace: Controller = async (req, res, next) => {
     const { title, description, imageUrl, address, location, creator } = req.body;
     const createdPlace = {
-        id: Math.random().toString(),
+        id: uuidv4(),
         title,
         description,
         imageUrl,
@@ -74,4 +75,34 @@ const createNewPlace = async (req: Request, res: Response, next: NextFunction) =
     return res.status(201).json({ place: createdPlace });
 };
 
-export { getPlaceById, getPlacesByUserId };
+const updatePlaceById: Controller = async (req, res, next) => {
+    const placeId = req.params.pid;
+    const { title, description } = req.body;
+    const placeIndex = DUMMY_PLACES.findIndex((place) => place.id === placeId);
+    if (placeIndex === -1) {
+        const error = new HttpError('Could not find place for the provided id.', 404);
+        return next(error);
+    }
+
+    const placeToUpdate = DUMMY_PLACES[placeIndex];
+    const updatedPlace = {
+        ...placeToUpdate,
+        title,
+        description,
+    };
+    DUMMY_PLACES[placeIndex] = updatedPlace;
+    return res.status(200).json({ place: updatedPlace });
+};
+
+const deletePlaceById: Controller = async (req, res, next) => {
+    const placeId = req.params.pid;
+    const placeIndex = DUMMY_PLACES.findIndex((place) => place.id === placeId);
+    if (placeIndex === -1) {
+        const error = new HttpError('Could not find place for the provided id.', 404);
+        return next(error);
+    }
+    DUMMY_PLACES.splice(placeIndex, 1);
+    return res.status(200).json({ message: 'Place deleted' });
+};
+
+export { getPlaceById, getPlacesByUserId, createNewPlace, updatePlaceById, deletePlaceById };

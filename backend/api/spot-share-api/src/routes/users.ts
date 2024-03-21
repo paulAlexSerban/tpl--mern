@@ -1,23 +1,11 @@
-import express, { Router, Request, Response, NextFunction } from 'express';
+import express, { Router } from 'express';
+
+import { getAllUsers, signup, login } from '../controllers/users';
+
 const router: Router = express.Router();
 
-/* GET */
-router.get('/', function (req: Request, res: Response, next: NextFunction) {
-    res.json({
-        message: 'get all users',
-    });
-});
-
-router.post('/signup', function (req: Request, res: Response, next: NextFunction) {
-    res.json({
-        message: 'create a new user',
-    });
-});
-
-router.post('/login', function (req: Request, res: Response, next: NextFunction) {
-    res.json({
-        message: 'login a user',
-    });
-});
+router.get('/', getAllUsers);
+router.post('/signup', signup);
+router.post('/login', login);
 
 export default router;

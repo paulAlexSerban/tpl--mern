@@ -13,6 +13,15 @@ app.use(cookieParser());
 
 app.use('/api', routes);
 
+// 404
+app.use((req, res, next) => {
+    if (req.method === 'OPTIONS') {
+        return next();
+    }
+    const error = new HttpError('404 - Not Found', 404);
+    throw error;
+});
+
 app.use((error: HttpError, req: Request, res: Response, next: NextFunction) => {
     if (res.headersSent) {
         return next(error);

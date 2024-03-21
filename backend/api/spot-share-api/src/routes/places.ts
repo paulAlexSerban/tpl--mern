@@ -1,28 +1,18 @@
-import express, { Router, Request, Response, NextFunction } from 'express';
-import HttpError from '../models/http-error';
-import { getPlaceById, getPlacesByUserId } from '../controllers/places';
-const router: Router = express.Router();
+import { Router } from 'express';
+import {
+    getPlaceById,
+    getPlacesByUserId,
+    createNewPlace,
+    updatePlaceById,
+    deletePlaceById,
+} from '../controllers/places';
 
-/* GET */
+const router: Router = Router();
+
 router.get('/user/:uid', getPlacesByUserId);
 router.get('/:pid', getPlaceById);
-
-router.post('/', function (req: Request, res: Response, next: NextFunction) {
-    res.json({
-        message: 'create a new place',
-    });
-});
-
-router.patch('/:pid', function (req: Request, res: Response, next: NextFunction) {
-    res.json({
-        message: 'update a place by id' + req.params.pid,
-    });
-});
-
-router.delete('/:pid', function (req: Request, res: Response, next: NextFunction) {
-    res.json({
-        message: 'delete a place by id' + req.params.pid,
-    });
-});
+router.post('/', createNewPlace);
+router.patch('/:pid', updatePlaceById);
+router.delete('/:pid', deletePlaceById);
 
 export default router;
