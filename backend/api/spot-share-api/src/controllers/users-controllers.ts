@@ -1,7 +1,7 @@
 import HttpError from '../models/http-error';
 import { Controller } from './.types';
 import { v4 as uuidv4 } from 'uuid';
-
+import { validationResult } from 'express-validator';
 const DUMMY_USERS = [
     {
         id: 'u1',
@@ -22,6 +22,11 @@ const getUsers: Controller = async (req, res, next) => {
 };
 
 const signup: Controller = async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        const error = new HttpError('Invalid inputs passed, please check your data.', 422);
+        return next(error);
+    }
     const { name, email, password } = req.body;
     if (DUMMY_USERS.find((user) => user.email === email)) {
         const error = new HttpError('User exists already, please login instead.', 422);
@@ -38,6 +43,11 @@ const signup: Controller = async (req, res, next) => {
 };
 
 const login: Controller = async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        const error = new HttpError('Invalid inputs passed, please check your data.', 422);
+        return next(error);
+    }
     const { email, password } = req.body;
     if (!email || !password) {
         const error = new HttpError('Invalid inputs passed, please check your data.', 422);
