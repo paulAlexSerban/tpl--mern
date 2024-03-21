@@ -2,6 +2,7 @@ import { Controller } from './.types';
 import HttpError from '../models/http-error';
 import { v4 as uuidv4 } from 'uuid';
 import { validationResult } from 'express-validator';
+import { getCoordsForAddress } from '../util/location';
 const DUMMY_PLACES = [
     {
         id: 'p1',
@@ -66,14 +67,22 @@ const createNewPlace: Controller = async (req, res, next) => {
         const error = new HttpError('Invalid inputs passed, please check your data.', 422);
         return next(error);
     }
-    const { title, description, imageUrl, address, location, creator } = req.body;
+    const { title, description, imageUrl, address, creator } = req.body;
+    let coordinates;
+
+    try {
+        coordinates = await getCoordsForAddress(address);
+    } catch (error) {
+        return next(error);
+    }
+
     const createdPlace = {
         id: uuidv4(),
         title,
         description,
         imageUrl,
         address,
-        location,
+        location: coordinates,
         creator,
     };
     DUMMY_PLACES.push(createdPlace);
