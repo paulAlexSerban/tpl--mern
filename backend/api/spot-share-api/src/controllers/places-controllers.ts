@@ -85,7 +85,7 @@ const createNewPlace: Controller = async (req, res, next) => {
         imageUrl,
         address,
         location: coordinates,
-        creator
+        creator,
     });
 
     let user;
@@ -100,8 +100,6 @@ const createNewPlace: Controller = async (req, res, next) => {
         const error = new HttpError('Could not find user for provided id.', 404);
         return next(error);
     }
-
-
 
     try {
         const sess = await mongoose.startSession();

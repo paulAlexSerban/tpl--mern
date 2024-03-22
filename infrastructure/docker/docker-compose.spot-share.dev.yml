@@ -49,8 +49,6 @@ services:
         env_file:
             - ../../infrastructure/env/spot-share.compose.env
             - ../../.env
-        depends_on:
-            - mongo-database-service
         volumes:
             - ../../backend/api/spot-share-api:/usr/src/app/
             - /usr/src/app/node_modules
@@ -59,18 +57,64 @@ services:
     # ---------------------------------------------------------------------
     # | MongoDB Database Server                                            |
     # ---------------------------------------------------------------------
-    mongo-database-service:
-        image: mongo:latest
-        container_name: mongo-database-container
-        env_file:
-            - ../../infrastructure/env/spot-share.compose.env
-            - ../../.env
+
+    mongo1:
+        container_name: mongo1
+        hostname: mongo1
+        image: mongo:6
         volumes:
-            - ../../database/.tmp-data/spot-share-data:/data/db
-        ports:
-            - '27017:27017'
+            - ../../database/.tmp-data/spot-share-data1:/data/db
         networks:
             - spot-share-network
+        ports:
+            - 27017:27017
+        links:
+            - mongo2
+            - mongo3
+        depends_on:
+            - mongo2
+            - mongo3
+        restart: always
+        entrypoint: ['mongod', '--replSet', 'myReplicaSet', '--bind_ip', 'localhost,mongo1']
+
+    mongo2:
+        container_name: mongo2
+        hostname: mongo2
+        image: mongo:6
+        volumes:
+            - ../../database/.tmp-data/spot-share-data2:/data/db
+        networks:
+            - spot-share-network
+        ports:
+            - 27018:27017
+        restart: always
+        entrypoint: ['mongod', '--replSet', 'myReplicaSet', '--bind_ip', 'localhost,mongo2']
+
+    mongo3:
+        container_name: mongo3
+        hostname: mongo3
+        image: mongo:6
+        volumes:
+            - ../../database/.tmp-data/spot-share-data3:/data/db
+        networks:
+            - spot-share-network
+        ports:
+            - 27019:27017
+        restart: always
+        entrypoint: ['mongod', '--replSet', 'myReplicaSet', '--bind_ip', 'localhost,mongo3']
+
+    mongosetup:
+        image: mongo:6
+        depends_on:
+            - mongo1
+            - mongo2
+            - mongo3
+        volumes:
+            - ./scripts:/scripts
+        networks:
+            - spot-share-network
+        restart: 'no'
+        entrypoint: ['bash', '/scripts/mongo_setup.sh']
 
 networks:
     spot-share-network:
