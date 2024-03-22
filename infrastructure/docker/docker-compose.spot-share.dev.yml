@@ -58,9 +58,9 @@ services:
     # | MongoDB Database Server                                            |
     # ---------------------------------------------------------------------
 
-    mongo1:
-        container_name: mongo1
-        hostname: mongo1
+    mongo-primary-service:
+        container_name: mongo-primary-container
+        hostname: mongo-primary-hostname
         image: mongo:6
         volumes:
             - ../../database/.tmp-data/spot-share-data1:/data/db
@@ -69,17 +69,17 @@ services:
         ports:
             - 27017:27017
         links:
-            - mongo2
-            - mongo3
+            - mongo-replica-service-1
+            - mongo-replica-service-2
         depends_on:
-            - mongo2
-            - mongo3
+            - mongo-replica-service-1
+            - mongo-replica-service-2
         restart: always
-        entrypoint: ['mongod', '--replSet', 'myReplicaSet', '--bind_ip', 'localhost,mongo1']
+        entrypoint: ['mongod', '--replSet', 'mongoReplicaSet', '--bind_ip', 'localhost,mongo-primary-service']
 
-    mongo2:
-        container_name: mongo2
-        hostname: mongo2
+    mongo-replica-service-1:
+        container_name: mongo-replica-container-1
+        hostname: mongo-replica-hostname-1
         image: mongo:6
         volumes:
             - ../../database/.tmp-data/spot-share-data2:/data/db
@@ -88,11 +88,11 @@ services:
         ports:
             - 27018:27017
         restart: always
-        entrypoint: ['mongod', '--replSet', 'myReplicaSet', '--bind_ip', 'localhost,mongo2']
+        entrypoint: ['mongod', '--replSet', 'mongoReplicaSet', '--bind_ip', 'localhost,mongo-replica-service-1']
 
-    mongo3:
-        container_name: mongo3
-        hostname: mongo3
+    mongo-replica-service-2:
+        container_name: mongo-replica-container-2
+        hostname: mongo-replica-hostname-2
         image: mongo:6
         volumes:
             - ../../database/.tmp-data/spot-share-data3:/data/db
@@ -101,16 +101,16 @@ services:
         ports:
             - 27019:27017
         restart: always
-        entrypoint: ['mongod', '--replSet', 'myReplicaSet', '--bind_ip', 'localhost,mongo3']
+        entrypoint: ['mongod', '--replSet', 'mongoReplicaSet', '--bind_ip', 'localhost,mongo-replica-service-2']
 
     mongosetup:
         image: mongo:6
         depends_on:
-            - mongo1
-            - mongo2
-            - mongo3
+            - mongo-primary-service
+            - mongo-replica-service-1
+            - mongo-replica-service-2
         volumes:
-            - ./scripts:/scripts
+            - ../scripts:/scripts
         networks:
             - spot-share-network
         restart: 'no'

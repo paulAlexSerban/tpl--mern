@@ -1,24 +1,24 @@
 #!/bin/bash
 sleep 10
 
-mongosh --host mongo1:27017 <<EOF
+mongosh --host mongo-primary-service:27017 <<EOF
   var cfg = {
-    "_id": "myReplicaSet",
+    "_id": "mongoReplicaSet",
     "version": 1,
     "members": [
       {
         "_id": 0,
-        "host": "mongo1:27017",
+        "host": "mongo-primary-hostname:27017",
         "priority": 2
       },
       {
         "_id": 1,
-        "host": "mongo2:27017",
+        "host": "mongo-replica-hostname-1:27017",
         "priority": 1
       },
       {
         "_id": 2,
-        "host": "mongo3:27017",
+        "host": "mongo-replica-hostname-2:27017",
         "priority": 1
       }
     ]
@@ -34,7 +34,7 @@ MAX_ATTEMPTS=10
 SLEEP_TIME=5
 
 while [ $ATTEMPTS -lt $MAX_ATTEMPTS ]; do
-  PRIMARY_EXISTS=$(mongosh --host mongo1:27017 --quiet --eval "rs.isMaster().ismaster")
+  PRIMARY_EXISTS=$(mongosh --host mongo-primary-service:27017 --quiet --eval "rs.isMaster().ismaster")
   if [ "$PRIMARY_EXISTS" = "true" ]; then
     echo "Primary node found, proceeding to create user."
     break
@@ -51,7 +51,7 @@ if [ $ATTEMPTS -eq $MAX_ATTEMPTS ]; then
 fi
 
 # Proceed to create user
-mongosh --host mongo1:27017 <<EOF
+mongosh --host mongo-primary-service:27017 <<EOF
   use admin
   db.createUser({
     user: "root",
