@@ -1,23 +1,7 @@
 import HttpError from '../models/HttpError';
 import { Controller } from './.types';
-import { v4 as uuidv4 } from 'uuid';
 import { validationResult } from 'express-validator';
 import UserSchema from '../models/UserSchema';
-
-const DUMMY_USERS = [
-    {
-        id: 'u1',
-        name: 'Max Schwarz',
-        email: 'test@test.com',
-        password: 'testers',
-    },
-    {
-        id: 'u2',
-        name: 'Manuel Lorenz',
-        email: 'test@tesing.com',
-        password: 'testing',
-    },
-];
 
 const getUsers: Controller = async (req, res, next) => {
     let users = [];

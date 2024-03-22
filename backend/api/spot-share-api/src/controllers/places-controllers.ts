@@ -1,32 +1,10 @@
 import { Controller } from './.types';
 import HttpError from '../models/HttpError';
-import { v4 as uuidv4 } from 'uuid';
 import { validationResult } from 'express-validator';
 import { getCoordsForAddress } from '../utils/location';
 import PlaceSchema from '../models/PlaceSchema';
 import UserSchema from '../models/UserSchema';
 import mongoose from 'mongoose';
-import { ObjectId } from 'mongoose';
-const DUMMY_PLACES = [
-    {
-        title: 'Empire State Building',
-        description: 'One of the most famous sky scrapers in the world!',
-        imageUrl:
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg',
-        address: '20 W 34th St, New York, NY 10001',
-
-        creator: 'u1',
-    },
-    {
-        title: 'Emp State Building',
-        description: 'One of the most famous sky scrapers in the world!',
-        imageUrl:
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg',
-        address: '20 W 34th St, New York, NY 10001',
-
-        creator: 'u2',
-    },
-];
 
 const getPlaceById: Controller = async (req, res, next) => {
     const placeId = req.params.pid;
@@ -50,8 +28,12 @@ const getPlaceById: Controller = async (req, res, next) => {
 const getPlacesByUserId: Controller = async (req, res, next) => {
     const userId = req.params.uid;
     let places;
+    let userWithPlaces;
     try {
         places = await PlaceSchema.find({ creator: userId });
+        // with populate we get access to the corresponding places the user has
+        userWithPlaces = await UserSchema.findById(userId).populate('places');
+        console.log(userWithPlaces);
     } catch (err) {
         const error = new HttpError('Fetching places failed, please try again later.', 500);
         return next(error);
@@ -105,9 +87,7 @@ const createNewPlace: Controller = async (req, res, next) => {
         const sess = await mongoose.startSession();
         sess.startTransaction();
         await createdPlace.save({ session: sess });
-        console.log(createdPlace);
         user.places.push(createdPlace._id);
-
         await user.save({ session: sess });
         await sess.commitTransaction();
     } catch (err) {
@@ -153,7 +133,10 @@ const deletePlaceById: Controller = async (req, res, next) => {
     const placeId = req.params.pid;
     let place;
     try {
-        place = await PlaceSchema.findByIdAndDelete(placeId);
+        // this will also delete the place from the user's places array
+        // it works because of the 'ref' in the PlaceSchema model and the 'ref' in the UserSchema model
+        // it will
+        place = await PlaceSchema.findById(placeId).populate('creator');
     } catch (err) {
         const error = new HttpError('Something went wrong, could not delete place.', 500);
         return next(error);
@@ -162,6 +145,26 @@ const deletePlaceById: Controller = async (req, res, next) => {
         const error = new HttpError('Could not find place for the provided id.', 404);
         return next(error);
     }
+    try {
+        const sess = await mongoose.startSession();
+        sess.startTransaction();
+        await PlaceSchema.deleteOne({ _id: placeId }, { session: sess });
+        const user = await UserSchema.findById(place.creator);
+        if (user) {
+            // Pull the place from the user's places array
+            user.places.pull(placeId);
+            await user.save({ session: sess });
+        } else {
+            const error = new HttpError('Could not find user for this place.', 404);
+            return next(error);
+        }
+
+        await sess.commitTransaction();
+    } catch (err) {
+        const error = new HttpError('Something went wrong, could not delete place.', 500);
+        return next(error);
+    }
+
     return res.status(200).json({ message: 'Deleted place.' });
 };
 

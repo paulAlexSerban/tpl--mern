@@ -1,4 +1,4 @@
-import mongoose, { Types, Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 
 interface IPlaceSchema extends Document {
     title: string;
@@ -9,7 +9,7 @@ interface IPlaceSchema extends Document {
         lat: number;
         lng: number;
     };
-    creator: Types.ObjectId;
+    creator: Schema.Types.ObjectId;
 }
 
 const PlaceSchema: Schema<IPlaceSchema> = new Schema({

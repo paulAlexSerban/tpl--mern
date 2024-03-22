@@ -1,27 +1,14 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Types, Schema, Document } from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 
-const DUMMY_USERS = [
-    {
-        id: 'u1',
-        name: 'Max Schwarz',
-        email: 'test@test.com',
-        password: 'testers',
-    },
-    {
-        id: 'u2',
-        name: 'Manuel Lorenz',
-        email: 'test@tesing.com',
-        password: 'testing',
-    },
-];
-
-interface IUserSchema extends Document {
+export interface IUserSchema extends Document {
     name: string;
     email: string;
     password: string;
     image: string;
-    places: mongoose.Types.ObjectId[];
+    // By using Types.Array<Types.ObjectId>, you explicitly tell TypeScript that places
+    // is a Mongoose array, which has methods like pull for removing elements based on their value.
+    places: Types.Array<Types.ObjectId>;
 }
 
 const UserSchema: Schema<IUserSchema> = new Schema({
@@ -45,7 +32,7 @@ const UserSchema: Schema<IUserSchema> = new Schema({
     },
     places: [
         {
-            type: mongoose.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             required: true,
             ref: 'Place',
         },

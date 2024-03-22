@@ -1,0 +1,70 @@
+[
+    {
+        "_id": {
+            "$oid": "65fdbc1342c1e7c3fd417c6a"
+        },
+        "title": "Marienplatzs",
+        "description": "A place to visit in Munich",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg",
+        "address": "Marienplatz, Munchen",
+        "location": {
+            "lat": 48.1370339,
+            "lng": 11.5758134
+        },
+        "creator": {
+            "$oid": "65fd7ada25276f6b64a45818"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "65fdbc7f42c1e7c3fd417c71"
+        },
+        "title": "Empire State Building",
+        "description": "One of the most famous sky scrapers in the world!",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg",
+        "address": "20 W 34th St, New York, NY 10001",
+        "location": {
+            "lat": 40.748682,
+            "lng": -73.98555790000002
+        },
+        "creator": {
+            "$oid": "65fd7ada25276f6b64a45818"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "65fdbc9042c1e7c3fd417c76"
+        },
+        "title": "Empire State Building",
+        "description": "One of the most famous sky scrapers in the world!",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg",
+        "address": "20 W 34th St, New York, NY 10001",
+        "location": {
+            "lat": 40.748682,
+            "lng": -73.98555790000002
+        },
+        "creator": {
+            "$oid": "65fd797925276f6b64a4580f"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "65fdbc9142c1e7c3fd417c7a"
+        },
+        "title": "Empire State Building",
+        "description": "One of the most famous sky scrapers in the world!",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg",
+        "address": "20 W 34th St, New York, NY 10001",
+        "location": {
+            "lat": 40.748682,
+            "lng": -73.98555790000002
+        },
+        "creator": {
+            "$oid": "65fd797925276f6b64a4580f"
+        },
+        "__v": 0
+    }
+]
