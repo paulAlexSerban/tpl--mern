@@ -2,7 +2,7 @@ import express, { Express, Response, NextFunction, Request } from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import routes from './routes';
-import HttpError from './models/http-error';
+import HttpError from './models/HttpError';
 
 const app: Express = express();
 

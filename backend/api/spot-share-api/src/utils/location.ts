@@ -1,4 +1,4 @@
-import HttpError from '../models/http-error';
+import HttpError from '../models/HttpError';
 import { Coords, GeocodeResponse } from './.types';
 
 const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
