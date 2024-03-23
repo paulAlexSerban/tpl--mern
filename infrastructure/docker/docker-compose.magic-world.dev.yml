@@ -18,7 +18,7 @@ services:
         ports:
             - 15432:5432
         volumes:
-            - ../../database/_data/magic-world-db:/var/lib/postgresql/data
+            - ../../database/.tmp-data/magic-world-db:/var/lib/postgresql/data
             - ../../database/seeds/magic-world-db/init.sql:/docker-entrypoint-initdb.d/init.sql
             - ../../database/seeds/magic-world-db/magic-world.sql:/docker-entrypoint-initdb.d/magic-world.sql
         networks:
@@ -40,4 +40,4 @@ services:
         networks:
             - magic-world-network
         volumes:
-            - ../../database/_data/magic-world-pgadmin-data/:/var/lib/pgadmin/
+            - ../../database/.tmp-data/magic-world-pgadmin-data/:/var/lib/pgadmin/

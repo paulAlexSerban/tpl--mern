@@ -58,7 +58,7 @@ services:
         ports:
             - 15432:5432
         volumes:
-            - ../../database/_data/monsters-db:/var/lib/postgresql/data
+            - ../../database/.tmp-data/monsters-db:/var/lib/postgresql/data
             - ../../database/seeds/monsters-db/monsters.sql:/docker-entrypoint-initdb.d/monsters.sql
         networks:
             - monsters-network
@@ -79,4 +79,4 @@ services:
         networks:
             - monsters-network
         volumes:
-            - ../../database/_data/monsters-pgadmin-data/:/var/lib/pgadmin/
+            - ../../database/.tmp-data/monsters-pgadmin-data/:/var/lib/pgadmin/
