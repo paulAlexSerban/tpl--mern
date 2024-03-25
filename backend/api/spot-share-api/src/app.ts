@@ -3,7 +3,8 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import routes from './routes';
 import HttpError from './models/HttpError';
-
+import fs from 'fs';
+import path from 'path';
 const app: Express = express();
 
 app.use(logger('dev'));
@@ -22,7 +23,7 @@ app.use(cookieParser());
 //     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Origin, X-Requested-With, Accept');
 //     next();
 // });
-
+app.use('/uploads/images', express.static(path.join(__dirname, 'public', 'uploads', 'images')));
 app.use('/api', routes);
 
 // 404
@@ -35,6 +36,12 @@ app.use((req, res, next) => {
 });
 
 app.use((error: HttpError, req: Request, res: Response, next: NextFunction) => {
+    if (req.file) {
+        // Delete the file if an error occurred
+        fs.unlink(req.file.path, (err) => {
+            console.log(err);
+        });
+    }
     if (res.headersSent) {
         return next(error);
     }

@@ -53,18 +53,13 @@ const Auth = () => {
             }
         } else {
             try {
-                const responseData = await sendRequest(
-                    'http://localhost:3000/api/users/signup',
-                    'POST',
-                    JSON.stringify({
-                        name: formState.inputs.name.value,
-                        email: formState.inputs.email.value,
-                        password: formState.inputs.password.value,
-                    }),
-                    {
-                        'Content-Type': 'application/json',
-                    }
-                );
+                const formData = new FormData();
+                formData.append('email', formState.inputs.email.value as string);
+                formData.append('name', formState.inputs.name.value as string);
+                formData.append('password', formState.inputs.password.value as string);
+                formData.append('image', formState.inputs.image.value as File);
+                const responseData = await sendRequest('http://localhost:3000/api/users/signup', 'POST', formData);
+                console.log({ responseData });
                 const { user } = responseData;
                 login(user.id);
             } catch (err) {

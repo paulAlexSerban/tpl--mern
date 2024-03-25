@@ -22,6 +22,7 @@ const signup: Controller = async (req, res, next) => {
         return next(error);
     }
     const { name, email, password } = req.body;
+    console.log(req.body);
     let existingUser;
     try {
         existingUser = await UserSchema.findOne({
@@ -35,10 +36,16 @@ const signup: Controller = async (req, res, next) => {
         const error = new HttpError('User exists already, please login instead.', 422);
         return next(error);
     }
+    if (!req.file) {
+        const error = new HttpError('Image file is required.', 422);
+        return next(error);
+    }
+    // if starts with dist, remove dist/src/public
+    const filePath = req.file.path.replace(/^dist\/src\/public\//, '');
     const createdUser = new UserSchema({
         name,
         email,
-        image: 'https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg',
+        image: filePath,
         password,
         places: [],
     });

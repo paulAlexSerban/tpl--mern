@@ -17,7 +17,7 @@ const UserItem: FC<UserItemProps> = ({ image, name, placeCount, id, ...props }) 
                 <Link to={`/${id}/places`}>
                     <div className="user-item__image">
                         <Avatar
-                            image={image}
+                            image={`http://localhost:3000/${image}`}
                             alt={name}
                             width="60px"
                             className="avatar"

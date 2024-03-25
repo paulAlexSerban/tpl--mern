@@ -34,6 +34,12 @@ export const useHttpClient = () => {
                     headers,
                     signal: httpAbortCtrl.signal,
                 });
+                const contentType = response.headers.get('Content-Type');
+                console.log(response.statusText);
+                if (!contentType || !contentType.includes('application/json')) {
+                    throw new Error('Received non-JSON response');
+                }
+
                 const responseData = await response.json();
 
                 // Cleanup only if component is not mounted
@@ -44,7 +50,7 @@ export const useHttpClient = () => {
                 }
 
                 if (!response.ok) {
-                    throw new Error(responseData.message);
+                    throw new Error(responseData.message || 'An error occurred');
                 }
                 setIsLoading(false);
                 return responseData;

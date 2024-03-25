@@ -1,6 +1,8 @@
 import { Request } from 'express';
 import multer, { FileFilterCallback } from 'multer';
 import { v1 as uuidv1 } from 'uuid';
+import { createFolder } from '../utils/file';
+import path from 'path';
 type DestinationCallback = (error: Error | null, destination: string) => void;
 type FileNameCallback = (error: Error | null, filename: string) => void;
 
@@ -16,17 +18,25 @@ const fileFilter = (request: Request, file: Express.Multer.File, callback: FileF
     callback(error as any, isValid);
 };
 
-const storageDestination = (request: Request, file: Express.Multer.File, callback: DestinationCallback): void => {
-    callback(null, 'uploads/images');
+const storageDestination = async (
+    request: Request,
+    file: Express.Multer.File,
+    callback: DestinationCallback
+): Promise<void> => {
+    const pathString = path.join('dist/src/public/uploads/images');
+    await createFolder(pathString);
+    callback(null, pathString);
 };
 
 const storageFilename = (request: Request, file: Express.Multer.File, callback: FileNameCallback): void => {
     const ext = MIME_TYPE_MAP[file.mimetype];
-    callback(null, uuidv1() + '.' + ext);
+    const filename = file.originalname.toLowerCase().split(' ').join('-').split('.').slice(0, -1).join('.');
+    const uniqueId = uuidv1();
+    callback(null, `${uniqueId}-${filename}.${ext}`);
 };
 
 export const fileUpload = multer({
-    limits: { fileSize: 500000 },
+    limits: { fileSize: 60 * 1024 * 1024 }, // 60MB
     storage: multer.diskStorage({
         destination: storageDestination,
         filename: storageFilename,
