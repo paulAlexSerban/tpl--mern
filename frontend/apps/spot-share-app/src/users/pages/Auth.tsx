@@ -7,15 +7,14 @@ import { useForm } from '../../shared/hooks/form-hook';
 import { AuthContext } from '../../shared/context/auth-context';
 import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
-
+import { useHttpClient } from '../../shared/hooks/http-hook';
 import './Auth.scss';
 
 const Auth = () => {
     const auth = useContext(AuthContext);
     const { login } = auth;
+    const { isLoading, error, sendRequest, clearError } = useHttpClient();
     const [isLogin, setIsLogin] = useState(true);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState<null | string>(null);
     const [formState, inputHandler, setFormData] = useForm(
         {
             email: {
@@ -35,56 +34,40 @@ const Auth = () => {
 
         if (isLogin) {
             try {
-                setIsLoading(true);
-                const response = await fetch('http://localhost:3000/api/users/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
+                const responseData = await sendRequest(
+                    'http://localhost:3000/api/users/login',
+                    'POST',
+                    JSON.stringify({
                         email: formState.inputs.email.value,
                         password: formState.inputs.password.value,
                     }),
-                });
-                const responseData = await response.json();
-                if (!response.ok) {
-                    throw new Error(responseData.message);
-                } else {
-                    console.log(responseData);
-                    setIsLoading(false);
-                    login();
-                }
+                    {
+                        'Content-Type': 'application/json',
+                    }
+                );
+                const { user } = responseData;
+                login(user.id);
             } catch (err) {
-                const error = err as Error;
-                setError(error.message || 'Something went wrong, please try again.');
-                setIsLoading(false);
+                console.error(err);
             }
         } else {
             try {
-                setIsLoading(true);
-                const response = await fetch('http://localhost:3000/api/users/signup', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
+                const responseData = await sendRequest(
+                    'http://localhost:3000/api/users/signup',
+                    'POST',
+                    JSON.stringify({
                         name: formState.inputs.name.value,
                         email: formState.inputs.email.value,
                         password: formState.inputs.password.value,
                     }),
-                });
-                const responseData = await response.json();
-                if (!response.ok) {
-                    throw new Error(responseData.message);
-                } else {
-                    console.log(responseData);
-                    setIsLoading(false);
-                    login();
-                }
+                    {
+                        'Content-Type': 'application/json',
+                    }
+                );
+                const { user } = responseData;
+                login(user.id);
             } catch (err) {
-                const error = err as Error;
-                setError(error.message || 'Something went wrong, please try again.');
-                setIsLoading(false);
+                console.error(err);
             }
         }
     };
@@ -113,7 +96,7 @@ const Auth = () => {
 
     return (
         <>
-            {error && <ErrorModal error={error} onClear={() => setError(null)} />}
+            {error && <ErrorModal error={error} onClear={clearError} />}
             <Card className="authentication">
                 {isLoading && <LoadingSpinner asOverlay />}
                 <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
@@ -125,7 +108,7 @@ const Auth = () => {
                             id="name"
                             type="text"
                             label="Your Name"
-                            validators={[VALIDATOR_MINLENGTH(5)]}
+                            validators={[VALIDATOR_MINLENGTH(6)]}
                             errorText="Please enter a name."
                             onInput={inputHandler}
                         />

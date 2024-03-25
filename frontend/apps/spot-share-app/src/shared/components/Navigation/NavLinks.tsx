@@ -9,7 +9,7 @@ type NavLinksProps = {};
 
 const NavLinks: FC<NavLinksProps> = ({}) => {
     const auth = useContext(AuthContext);
-    const { isLoggedIn, logout } = auth;
+    const { isLoggedIn, logout, userId } = auth;
 
     return (
         <ul className="nav-links">
@@ -19,7 +19,7 @@ const NavLinks: FC<NavLinksProps> = ({}) => {
             {isLoggedIn && (
                 <>
                     <li>
-                        <NavLink to="/u1/places">MY PLACES</NavLink>
+                        <NavLink to={`${userId}/places`}>MY PLACES</NavLink>
                     </li>
                     <li>
                         <NavLink to="/places/new">ADD PLACE</NavLink>

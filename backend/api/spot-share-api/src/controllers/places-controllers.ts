@@ -64,7 +64,7 @@ const createNewPlace: Controller = async (req, res, next) => {
     const createdPlace = new PlaceSchema({
         title,
         description,
-        imageUrl,
+        imageUrl: 'https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg', // 'https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg
         address,
         location: coordinates,
         creator,
