@@ -20,7 +20,13 @@ const UserList: FC<UserListProps> = ({ users }) => {
     return (
         <ul className="users-list">
             {users.map((user) => (
-                <UserItem key={user.id} id={user.id} image={user.image} name={user.name} placeCount={user.places} />
+                <UserItem
+                    key={user.id}
+                    id={user.id}
+                    image={user.image}
+                    name={user.name}
+                    placeCount={user.places.length}
+                />
             ))}
         </ul>
     );
