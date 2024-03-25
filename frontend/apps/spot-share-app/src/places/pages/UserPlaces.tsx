@@ -1,4 +1,4 @@
-import PlaceList, { PlaceListProps } from '../components/PlaceList';
+import PlaceList from '../components/PlaceList';
 import { useParams } from 'react-router-dom';
 import { useHttpClient } from '../../shared/hooks/http-hook';
 import { useEffect, useState } from 'react';

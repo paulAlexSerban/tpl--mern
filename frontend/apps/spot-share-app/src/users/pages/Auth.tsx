@@ -2,6 +2,7 @@ import { FormEvent, useState, useContext } from 'react';
 import Button from '../../shared/components/FormElements/Button';
 import Card from '../../shared/components/UIElements/Card';
 import Input from '../../shared/components/FormElements/Input';
+import ImageUpload from '../../shared/components/FormElements/ImageUpload';
 import { VALIDATOR_EMAIL, VALIDATOR_MINLENGTH } from '../../shared/util/validators';
 import { useForm } from '../../shared/hooks/form-hook';
 import { AuthContext } from '../../shared/context/auth-context';
@@ -87,6 +88,10 @@ const Auth = () => {
                         value: '',
                         isValid: false,
                     },
+                    image: {
+                        value: null,
+                        isValid: false,
+                    },
                 },
                 false
             );
@@ -113,6 +118,7 @@ const Auth = () => {
                             onInput={inputHandler}
                         />
                     )}
+                    {!isLogin && <ImageUpload center id="image" onInput={inputHandler as any} errorText="Error Text" />}
                     <Input
                         element="input"
                         id="email"
