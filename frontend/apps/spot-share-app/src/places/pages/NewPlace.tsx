@@ -14,7 +14,7 @@ const NewPlace: FC = () => {
     const navigate = useNavigate();
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
     const auth = useContext(AuthContext);
-    const { userId } = auth;
+    const { userId, token } = auth;
     const [formState, inputHandler] = useForm(
         {
             title: {
@@ -46,7 +46,9 @@ const NewPlace: FC = () => {
             formData.append('address', formState.inputs.address.value as string);
             formData.append('creator', userId as string);
             formData.append('image', formState.inputs.image.value as File);
-            await sendRequest('http://localhost:3000/api/places', 'POST', formData);
+            await sendRequest('http://localhost:3000/api/places', 'POST', formData, {
+                Authorization: `Bearer ${token}`,
+            });
             navigate(`/${userId}/places`);
         } catch (err) {
             console.error(err);

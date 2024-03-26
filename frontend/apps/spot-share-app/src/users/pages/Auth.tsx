@@ -46,8 +46,8 @@ const Auth = () => {
                         'Content-Type': 'application/json',
                     }
                 );
-                const { user } = responseData;
-                login(user.id);
+                const { userId, token } = responseData;
+                login(userId, token);
             } catch (err) {
                 console.error(err);
             }
@@ -59,8 +59,8 @@ const Auth = () => {
                 formData.append('password', formState.inputs.password.value as string);
                 formData.append('image', formState.inputs.image.value as File);
                 const responseData = await sendRequest('http://localhost:3000/api/users/signup', 'POST', formData);
-                const { user } = responseData;
-                login(user.id);
+                const { userId, token } = responseData;
+                login(userId, token);
             } catch (err) {
                 console.error(err);
             }

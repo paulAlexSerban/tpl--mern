@@ -23,7 +23,7 @@ export type PlaceItemProps = {
 const PlaceItem: FC<PlaceItemProps> = (props) => {
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
     const auth = useContext(AuthContext);
-    const { isLoggedIn, userId } = auth;
+    const { isLoggedIn, userId, token } = auth;
     const [showMap, setShowMap] = useState(false);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
     const openMapHandler = () => setShowMap(true);
@@ -34,7 +34,9 @@ const PlaceItem: FC<PlaceItemProps> = (props) => {
         setShowConfirmModal(false);
         const deletePlace = async () => {
             try {
-                await sendRequest(`http://localhost:3000/api/places/${props.id}`, 'DELETE');
+                await sendRequest(`http://localhost:3000/api/places/${props.id}`, 'DELETE', null, {
+                    Authorization: `Bearer ${token}`,
+                });
                 props.onDelete(props.id);
             } catch (err) {
                 console.error(err);

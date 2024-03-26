@@ -1,4 +1,4 @@
-import { Controller } from './.types';
+import { Controller, ExtendedController } from './.types';
 import HttpError from '../models/HttpError';
 import { validationResult } from 'express-validator';
 import { getCoordsForAddress } from '../utils/location';
@@ -6,6 +6,7 @@ import PlaceSchema from '../models/PlaceSchema';
 import UserSchema from '../models/UserSchema';
 import mongoose from 'mongoose';
 import fs from 'fs';
+
 const getPlaceById: Controller = async (req, res, next) => {
     const placeId = req.params.pid;
     let place;
@@ -46,13 +47,27 @@ const getPlacesByUserId: Controller = async (req, res, next) => {
     return res.status(200).json({ places: places.map((place) => place.toObject({ getters: true })) });
 };
 
-const createNewPlace: Controller = async (req, res, next) => {
+const createNewPlace: ExtendedController = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         const error = new HttpError('Invalid inputs passed, please check your data.', 422);
         return next(error);
     }
-    const { title, description, imageUrl, address, creator } = req.body;
+    const { title, description, address, creator } = req.body;
+
+    /**
+     * Authorization check
+     * If the user is not the creator of the place, they are not allowed to create it.
+     */
+    if (!req.userData) {
+        const error = new HttpError('You are not allowed to create a place for this user.', 401);
+        return next(error);
+    }
+    if (req.userData && creator !== req.userData.userId) {
+        const error = new HttpError('You are not allowed to create a place for this user.', 401);
+        return next(error);
+    }
+
     let coordinates;
 
     try {
@@ -64,6 +79,7 @@ const createNewPlace: Controller = async (req, res, next) => {
         const error = new HttpError('Image file is required.', 422);
         return next(error);
     }
+
     const filePath = req.file.path.replace(/^dist\/src\/public\//, '');
     const createdPlace = new PlaceSchema({
         title,
@@ -103,7 +119,7 @@ const createNewPlace: Controller = async (req, res, next) => {
     return res.status(201).json({ place: createdPlace });
 };
 
-const updatePlaceById: Controller = async (req, res, next) => {
+const updatePlaceById: ExtendedController = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         const error = new HttpError('Invalid inputs passed, please check your data.', 422);
@@ -122,6 +138,20 @@ const updatePlaceById: Controller = async (req, res, next) => {
         const error = new HttpError('Could not find place for the provided id.', 404);
         return next(error);
     }
+
+    /**
+     * Authorization check
+     * If the user is not the creator of the place, they are not allowed to edit it.
+     */
+    if (!req.userData) {
+        const error = new HttpError('You are not allowed to create a place for this user.', 401);
+        return next(error);
+    }
+    if (req.userData && place.creator.toString() !== req.userData.userId) {
+        const error = new HttpError('You are not allowed to edit this place.', 401);
+        return next(error);
+    }
+
     place.title = title;
     place.description = description;
     try {
@@ -133,7 +163,7 @@ const updatePlaceById: Controller = async (req, res, next) => {
     return res.status(200).json({ place: place.toObject({ getters: true }) });
 };
 
-const deletePlaceById: Controller = async (req, res, next) => {
+const deletePlaceById: ExtendedController = async (req, res, next) => {
     const placeId = req.params.pid;
     let place;
     try {
@@ -147,6 +177,19 @@ const deletePlaceById: Controller = async (req, res, next) => {
     }
     if (!place) {
         const error = new HttpError('Could not find place for the provided id.', 404);
+        return next(error);
+    }
+
+    /**
+     * Authorization check
+     * If the user is not the creator of the place, they are not allowed to delete it.
+     */
+    if (!req.userData) {
+        const error = new HttpError('You are not allowed to create a place for this user.', 401);
+        return next(error);
+    }
+    if (req.userData && place.creator.toString() !== req.userData.userId) {
+        const error = new HttpError('You are not allowed to delete this place.', 401);
         return next(error);
     }
 

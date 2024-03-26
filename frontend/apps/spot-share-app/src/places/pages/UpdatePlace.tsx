@@ -28,7 +28,7 @@ type Place = {
 const UpdatePlace: FC = () => {
     const navigate = useNavigate();
     const auth = useContext(AuthContext);
-    const { userId } = auth;
+    const { userId, token } = auth;
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
     const pid = useParams().pid;
     const [loadedPlace, setLoadedPlace] = useState<Place>();
@@ -103,6 +103,7 @@ const UpdatePlace: FC = () => {
                 }),
                 {
                     'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
                 }
             );
             navigate(`/${userId}/places`);

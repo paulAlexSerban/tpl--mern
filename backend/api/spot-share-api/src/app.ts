@@ -28,6 +28,10 @@ app.use('/api', routes);
 
 // 404
 app.use((req, res, next) => {
+    /**
+     * The browser sends an OPTIONS request before the actual request to check if the server allows the request.
+     * If the server does not allow the request, the browser will not send the actual request.
+     */
     if (req.method === 'OPTIONS') {
         return next();
     }

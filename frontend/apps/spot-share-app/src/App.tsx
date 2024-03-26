@@ -11,17 +11,17 @@ import Auth from './users/pages/Auth';
 import { AuthContext } from './shared/context/auth-context';
 
 function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [token, setToken] = useState<string | null>(null);
     const [userId, setUserId] = useState<string | null>(null);
 
-    const login = useCallback((uid: string) => {
+    const login = useCallback((uid: string, token: string) => {
         setUserId(uid);
-        setIsLoggedIn(true);
+        setToken(token);
     }, []);
 
     const logout = useCallback(() => {
         setUserId(null);
-        setIsLoggedIn(false);
+        setToken(null);
     }, []);
 
     const router = useMemo(
@@ -34,7 +34,7 @@ function App() {
                         children: [
                             { index: true, element: <Users /> },
                             { path: '/:uid/places', element: <UserPlaces /> },
-                            ...(isLoggedIn
+                            ...(token
                                 ? [
                                       { path: '/places/new', element: <NewPlace /> },
                                       { path: '/places/:pid', element: <UpdatePlace /> },
@@ -43,17 +43,17 @@ function App() {
                         ],
                     },
                     // Fallback route
-                    { path: '*', element: <Navigate to={isLoggedIn ? '/' : '/auth'} replace /> },
+                    { path: '*', element: <Navigate to={token ? '/' : '/auth'} replace /> },
                 ],
                 {
                     basename: import.meta.env.DEV ? '/' : `/`,
                 }
             ),
-        [isLoggedIn]
+        [token]
     );
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, login, logout, userId }}>
+        <AuthContext.Provider value={{ isLoggedIn: !!token, token, login, logout, userId }}>
             <RouterProvider router={router} />
         </AuthContext.Provider>
     );
