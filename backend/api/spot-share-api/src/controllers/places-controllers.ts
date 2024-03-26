@@ -5,7 +5,7 @@ import { getCoordsForAddress } from '../utils/location';
 import PlaceSchema from '../models/PlaceSchema';
 import UserSchema from '../models/UserSchema';
 import mongoose from 'mongoose';
-
+import fs from 'fs';
 const getPlaceById: Controller = async (req, res, next) => {
     const placeId = req.params.pid;
     let place;
@@ -60,11 +60,15 @@ const createNewPlace: Controller = async (req, res, next) => {
     } catch (error) {
         return next(error);
     }
-
+    if (!req.file) {
+        const error = new HttpError('Image file is required.', 422);
+        return next(error);
+    }
+    const filePath = req.file.path.replace(/^dist\/src\/public\//, '');
     const createdPlace = new PlaceSchema({
         title,
         description,
-        imageUrl: 'https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg', // 'https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg
+        imageUrl: filePath, // 'https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg
         address,
         location: coordinates,
         creator,
@@ -145,6 +149,10 @@ const deletePlaceById: Controller = async (req, res, next) => {
         const error = new HttpError('Could not find place for the provided id.', 404);
         return next(error);
     }
+
+    const imagePath = place.imageUrl;
+    const localImagePath = 'dist/src/public/' + imagePath;
+
     try {
         const sess = await mongoose.startSession();
         sess.startTransaction();
@@ -165,6 +173,11 @@ const deletePlaceById: Controller = async (req, res, next) => {
         return next(error);
     }
 
+    fs.unlink(localImagePath, (err) => {
+        if (err) {
+            console.error(err);
+        }
+    });
     return res.status(200).json({ message: 'Deleted place.' });
 };
 

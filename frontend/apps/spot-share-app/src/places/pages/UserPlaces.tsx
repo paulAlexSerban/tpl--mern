@@ -14,13 +14,16 @@ const UserPlaces = () => {
         const fetchPlaces = async () => {
             try {
                 const responseData = await sendRequest(`http://localhost:3000/api/places/user/${userId}`);
-                setLoadedPlaces(responseData.places);
+                if (!responseData) {
+                    return;
+                }
+                const { places } = responseData;
+                setLoadedPlaces(places);
             } catch (err) {
                 console.error(err);
             }
         };
         fetchPlaces();
-        console.log({ loadedPlaces });
     }, [sendRequest, userId]);
 
     const placeDeletedHandler = (deletedPlaceId: string) => {

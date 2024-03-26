@@ -59,7 +59,6 @@ const Auth = () => {
                 formData.append('password', formState.inputs.password.value as string);
                 formData.append('image', formState.inputs.image.value as File);
                 const responseData = await sendRequest('http://localhost:3000/api/users/signup', 'POST', formData);
-                console.log({ responseData });
                 const { user } = responseData;
                 login(user.id);
             } catch (err) {
@@ -113,7 +112,14 @@ const Auth = () => {
                             onInput={inputHandler}
                         />
                     )}
-                    {!isLogin && <ImageUpload center id="image" onInput={inputHandler as any} errorText="Error Text" />}
+                    {!isLogin && (
+                        <ImageUpload
+                            center
+                            id="image"
+                            onInput={inputHandler as any}
+                            errorText="Please upload a profile image."
+                        />
+                    )}
                     <Input
                         element="input"
                         id="email"

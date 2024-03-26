@@ -22,7 +22,6 @@ const signup: Controller = async (req, res, next) => {
         return next(error);
     }
     const { name, email, password } = req.body;
-    console.log(req.body);
     let existingUser;
     try {
         existingUser = await UserSchema.findOne({
