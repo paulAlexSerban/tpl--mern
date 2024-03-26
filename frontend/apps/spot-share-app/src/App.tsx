@@ -1,16 +1,16 @@
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
-import { useMemo } from 'react';
+import { useMemo, lazy, Suspense } from 'react';
 
 import Root from './root/Root';
-import Users from './users/pages/Users';
-import NewPlace from './places/pages/NewPlace';
-import UserPlaces from './places/pages/UserPlaces';
-import UpdatePlace from './places/pages/UpdatePlace';
-import Auth from './users/pages/Auth';
-
+import LoadingSpinner from './shared/components/UIElements/LoadingSpinner';
 import { AuthContext } from './shared/context/auth-context';
-
 import { useAuth } from './shared/hooks/auth-hook';
+
+const Users = lazy(() => import('./users/pages/Users'));
+const NewPlace = lazy(() => import('./places/pages/NewPlace'));
+const UserPlaces = lazy(() => import('./places/pages/UserPlaces'));
+const UpdatePlace = lazy(() => import('./places/pages/UpdatePlace'));
+const Auth = lazy(() => import('./users/pages/Auth'));
 
 function App() {
     const { token, login, logout, userId } = useAuth();
@@ -27,9 +27,9 @@ function App() {
                             { path: '/:uid/places', element: <UserPlaces /> },
                             ...(token
                                 ? [
-                                      { path: '/places/new', element: <NewPlace /> },
-                                      { path: '/places/:pid', element: <UpdatePlace /> },
-                                  ]
+                                    { path: '/places/new', element: <NewPlace /> },
+                                    { path: '/places/:pid', element: <UpdatePlace /> },
+                                ]
                                 : [{ path: '/auth', element: <Auth /> }]),
                         ],
                     },
@@ -45,7 +45,15 @@ function App() {
 
     return (
         <AuthContext.Provider value={{ isLoggedIn: !!token, token, login, logout, userId }}>
-            <RouterProvider router={router} />
+
+            <Suspense fallback={
+                <div className='center'>
+                    <LoadingSpinner />
+                </div>
+            }>
+                <RouterProvider router={router} />
+            </Suspense>
+
         </AuthContext.Provider>
     );
 }
