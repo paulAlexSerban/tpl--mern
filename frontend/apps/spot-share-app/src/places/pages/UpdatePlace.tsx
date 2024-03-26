@@ -50,20 +50,23 @@ const UpdatePlace: FC = () => {
         const fetchPlace = async () => {
             try {
                 const responseData = await sendRequest(`http://localhost:3000/api/places/${pid}`);
-                setLoadedPlace(responseData.place);
-                setFormData(
-                    {
-                        title: {
-                            value: responseData.place.title,
-                            isValid: true,
+                if(responseData) {
+                    setLoadedPlace(responseData.place);
+                    setFormData(
+                        {
+                            title: {
+                                value: responseData.place.title,
+                                isValid: true,
+                            },
+                            description: {
+                                value: responseData.place.description,
+                                isValid: true,
+                            },
                         },
-                        description: {
-                            value: responseData.place.description,
-                            isValid: true,
-                        },
-                    },
-                    true
-                );
+                        true
+                    );
+                }
+
             } catch (err) {
                 console.error(err);
             }
