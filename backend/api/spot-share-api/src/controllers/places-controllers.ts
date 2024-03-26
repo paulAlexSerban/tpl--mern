@@ -53,7 +53,7 @@ const createNewPlace: ExtendedController = async (req, res, next) => {
         const error = new HttpError('Invalid inputs passed, please check your data.', 422);
         return next(error);
     }
-    const { title, description, address, creator } = req.body;
+    const { title, description, address } = req.body;
 
     /**
      * Authorization check
@@ -63,10 +63,8 @@ const createNewPlace: ExtendedController = async (req, res, next) => {
         const error = new HttpError('You are not allowed to create a place for this user.', 401);
         return next(error);
     }
-    if (req.userData && creator !== req.userData.userId) {
-        const error = new HttpError('You are not allowed to create a place for this user.', 401);
-        return next(error);
-    }
+    // The user id is stored in the token
+    const authorizedCreator = req.userData.userId;
 
     let coordinates;
 
@@ -87,12 +85,12 @@ const createNewPlace: ExtendedController = async (req, res, next) => {
         imageUrl: filePath, // 'https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg
         address,
         location: coordinates,
-        creator,
+        creator: authorizedCreator,
     });
 
     let user;
     try {
-        user = await UserSchema.findById(creator);
+        user = await UserSchema.findById(authorizedCreator);
     } catch (err) {
         const error = new HttpError('Creating place failed, please try again.', 500);
         return next(error);

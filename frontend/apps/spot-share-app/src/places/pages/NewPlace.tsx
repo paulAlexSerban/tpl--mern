@@ -44,7 +44,6 @@ const NewPlace: FC = () => {
             formData.append('title', formState.inputs.title.value as string);
             formData.append('description', formState.inputs.description.value as string);
             formData.append('address', formState.inputs.address.value as string);
-            formData.append('creator', userId as string);
             formData.append('image', formState.inputs.image.value as File);
             await sendRequest('http://localhost:3000/api/places', 'POST', formData, {
                 Authorization: `Bearer ${token}`,

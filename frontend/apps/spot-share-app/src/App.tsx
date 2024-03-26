@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
-import { useState, useCallback, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import Root from './root/Root';
 import Users from './users/pages/Users';
@@ -10,19 +10,10 @@ import Auth from './users/pages/Auth';
 
 import { AuthContext } from './shared/context/auth-context';
 
+import { useAuth } from './shared/hooks/auth-hook';
+
 function App() {
-    const [token, setToken] = useState<string | null>(null);
-    const [userId, setUserId] = useState<string | null>(null);
-
-    const login = useCallback((uid: string, token: string) => {
-        setUserId(uid);
-        setToken(token);
-    }, []);
-
-    const logout = useCallback(() => {
-        setUserId(null);
-        setToken(null);
-    }, []);
+    const { token, login, logout, userId } = useAuth();
 
     const router = useMemo(
         () =>
