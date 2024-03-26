@@ -13,6 +13,7 @@ const ImageUpload: FC<ImageUploadProps> = ({ center, onInput, id, errorText }) =
     const [file, setFile] = useState<File | null>(null);
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
     const [isValid, setIsValid] = useState<boolean>(false);
+    const [isTouched, setIsTouched] = useState<boolean>(false);
 
     const filePickerRef = useRef<HTMLInputElement>(null);
 
@@ -53,8 +54,12 @@ const ImageUpload: FC<ImageUploadProps> = ({ center, onInput, id, errorText }) =
         }
     };
 
+    const touchHandler = () => {
+        setIsTouched(true);
+    };
+
     return (
-        <div className="form-control">
+        <div className={`form-control ${isValid ? 'form-control--invalid' : ''}`}>
             <input
                 type="file"
                 accept="image/png, image/jpg, image/jpeg"
@@ -62,6 +67,7 @@ const ImageUpload: FC<ImageUploadProps> = ({ center, onInput, id, errorText }) =
                 style={{ display: 'none' }}
                 ref={filePickerRef}
                 onChange={pickedHandler}
+                onBlur={touchHandler}
             />
             <div className={`image-upload ${center && 'center'}`}>
                 <div className="image-upload__preview">
@@ -72,7 +78,7 @@ const ImageUpload: FC<ImageUploadProps> = ({ center, onInput, id, errorText }) =
                     Pick Image
                 </Button>
             </div>
-            {!isValid && <p>{errorText}</p>}
+            {!isValid && isTouched && <p>{errorText}</p>}
         </div>
     );
 };

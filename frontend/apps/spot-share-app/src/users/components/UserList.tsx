@@ -7,7 +7,6 @@ type UserListProps = {
 };
 
 const UserList: FC<UserListProps> = ({ users }) => {
-    console.log(users);
     if (users.length === 0) {
         return (
             <div className="center">

@@ -35,7 +35,7 @@ export const useHttpClient = () => {
                     signal: httpAbortCtrl.signal,
                 });
                 const contentType = response.headers.get('Content-Type');
-                console.log(response.statusText);
+
                 if (!contentType || !contentType.includes('application/json')) {
                     throw new Error('Received non-JSON response');
                 }
@@ -56,11 +56,13 @@ export const useHttpClient = () => {
                 return responseData;
             } catch (err) {
                 const error = err as Error;
+
                 if (error.name !== 'AbortError') {
                     setError(error.message || 'Something went wrong, please try again.');
                     setIsLoading(false);
+                    console.error(error.name);
+                    throw error;
                 }
-                throw error;
             }
         },
         []

@@ -18,9 +18,13 @@ const Users: FC = () => {
         const fetchUsers = async () => {
             try {
                 const responseData = await sendRequest('http://localhost:3000/api/users');
+                if (!responseData) {
+                    return;
+                }
                 setLoaderUsers(responseData.users);
             } catch (err) {
-                console.error(err);
+                const error = err as Error;
+                console.error(error);
             }
         };
         fetchUsers();
