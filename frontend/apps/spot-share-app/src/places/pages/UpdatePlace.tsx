@@ -50,7 +50,7 @@ const UpdatePlace: FC = () => {
         const fetchPlace = async () => {
             try {
                 const responseData = await sendRequest(`http://localhost:3000/api/places/${pid}`);
-                if(responseData) {
+                if (responseData) {
                     setLoadedPlace(responseData.place);
                     setFormData(
                         {
@@ -66,7 +66,6 @@ const UpdatePlace: FC = () => {
                         true
                     );
                 }
-
             } catch (err) {
                 console.error(err);
             }

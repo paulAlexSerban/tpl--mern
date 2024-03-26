@@ -19,6 +19,7 @@
         "develop:compose:up:shopping-cart-redux": "bash ./tools/develop-scripts/shopping-cart-redux-compose-up.bash",
         "develop:compose:up:simple-shop": "bash ./tools/develop-scripts/simple-shop-compose-up.bash",
         "develop:compose:up:spot-share": "bash ./tools/develop-scripts/spot-share-compose-up.bash",
+        "develop:compose:up:spot-share:prod": "bash ./tools/develop-scripts/spot-share-compose-up.prod.bash",
         "develop:compose:up:to-do": "bash ./tools/develop-scripts/to-do-compose-up.bash",
         "//////": "COOMPOSE DOWN",
         "develop:compose:down:devcamper": "bash ./tools/develop-scripts/devcamper-compose-down.bash",
