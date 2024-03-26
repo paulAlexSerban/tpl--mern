@@ -9,11 +9,17 @@ export default defineConfig(({ command }) => {
     const config = {
         plugins: [react()],
         base: '/',
+        server: {
+            port: 5173,
+        },
+        preview: {
+            port: 5173,
+        },
     };
 
-    if (command !== 'serve') {
-        config.base = `${BASE_URL}apps/${PROJECT_NAME}`;
-    }
+    // if (command !== 'serve') {
+    //     config.base = `${BASE_URL}apps/${PROJECT_NAME}`;
+    // }
 
     return config;
 });

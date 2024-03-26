@@ -4,7 +4,7 @@ type AuthContextType = {
     isLoggedIn: boolean;
     userId: string | null;
     token: string | null;
-    login: (uid: string, token: string, expirationDate: Date) => void;
+    login: (uid: string, token: string, expirationDate?: Date) => void;
     logout: () => void;
 };
 

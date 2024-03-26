@@ -12,6 +12,8 @@ import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 
 import { AuthContext } from '../../shared/context/auth-context';
 
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+
 type Place = {
     id: string;
     title: string;
@@ -49,7 +51,7 @@ const UpdatePlace: FC = () => {
     useEffect(() => {
         const fetchPlace = async () => {
             try {
-                const responseData = await sendRequest(`http://localhost:3000/api/places/${pid}`);
+                const responseData = await sendRequest(`${BACKEND_URL}/places/${pid}`);
                 if (responseData) {
                     setLoadedPlace(responseData.place);
                     setFormData(
@@ -97,7 +99,7 @@ const UpdatePlace: FC = () => {
         event.preventDefault();
         try {
             await sendRequest(
-                `http://localhost:3000/api/places/${pid}`,
+                `${BACKEND_URL}/places/${pid}`,
                 'PATCH',
                 JSON.stringify({
                     title: formState.inputs.title.value,

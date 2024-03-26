@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 
-let logoutTimer: NodeJS.Timeout;
+let logoutTimer: ReturnType<typeof setTimeout>;
 
 export const useAuth = () => {
     const [token, setToken] = useState<string | null>(null);
     const [userId, setUserId] = useState<string | null>(null);
     const [tokenExpirationDate, setTokenExpirationDate] = useState<Date | null>(null);
 
-    const login = useCallback((uid: string, token: string, expirationDate: Date) => {
+    const login = useCallback((uid: string, token: string, expirationDate?: Date) => {
         setUserId(uid);
         setToken(token);
         const loginTokenExpirationDate = expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60); // 1 hour

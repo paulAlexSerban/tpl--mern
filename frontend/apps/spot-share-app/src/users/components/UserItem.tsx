@@ -3,12 +3,15 @@ import './UserItem.scss';
 import Avatar from '../../shared/components/UIElements/Avatar';
 import Card from '../../shared/components/UIElements/Card';
 import { Link } from 'react-router-dom';
+
 type UserItemProps = {
     image: string;
     name: string;
     id: string;
     placeCount: number;
 };
+
+const ASSET_URL = import.meta.env.VITE_APP_ASSET_URL as string;
 
 const UserItem: FC<UserItemProps> = ({ image, name, placeCount, id, ...props }) => {
     return (
@@ -17,7 +20,7 @@ const UserItem: FC<UserItemProps> = ({ image, name, placeCount, id, ...props }) 
                 <Link to={`/${id}/places`}>
                     <div className="user-item__image">
                         <Avatar
-                            image={`http://localhost:3000/${image}`}
+                            image={`${ASSET_URL}/${image}`}
                             alt={name}
                             width="60px"
                             className="avatar"

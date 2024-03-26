@@ -25,12 +25,11 @@ services:
     # ---------------------------------------------------------------------
     ui-react-spa:
         container_name: ui-react-spa-container
-        build:
-            context: ../../frontend/apps/spot-share-app
-            dockerfile: dev.Dockerfile
+        image: paulserbandev/spot-share-app
         volumes:
             - ../../frontend/apps/spot-share-app:/usr/src/app # Mount the app directory to the container
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - /usr/src/app/dist
         env_file:
             - ../../infrastructure/env/spot-share.compose.env
         networks:

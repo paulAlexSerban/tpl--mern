@@ -10,6 +10,9 @@ import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import ImageUpload from '../../shared/components/FormElements/ImageUpload';
 import { useNavigate } from 'react-router-dom';
+
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+
 const NewPlace: FC = () => {
     const navigate = useNavigate();
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -45,7 +48,7 @@ const NewPlace: FC = () => {
             formData.append('description', formState.inputs.description.value as string);
             formData.append('address', formState.inputs.address.value as string);
             formData.append('image', formState.inputs.image.value as File);
-            await sendRequest('http://localhost:3000/api/places', 'POST', formData, {
+            await sendRequest(`${BACKEND_URL}/places`, 'POST', formData, {
                 Authorization: `Bearer ${token}`,
             });
             navigate(`/${userId}/places`);

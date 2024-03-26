@@ -10,6 +10,7 @@
         "///////": "BUILD IMAGE",
         "build:image:devcamper": "bash ./tools/build-scripts/devcamper-docker-build.prod.bash",
         "build:image:emaily-user-feedback": "bash ./tools/build-scripts/emaily-user-feedback-docker-build.prod.bash",
+        "build:image:spot-share-spa-app": "bash ./tools/build-scripts/spot-share-spa-app-docker-build.prod.bash",
         "/////": "COMPOSE UP",
         "develop:compose:up:devcamper": "bash ./tools/develop-scripts/devcamper-compose-up.bash",
         "develop:compose:up:emaily-user-feedback": "bash ./tools/develop-scripts/emaily-user-feedback-compose-up.bash",

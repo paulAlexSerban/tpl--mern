@@ -9,6 +9,8 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+const ASSET_URL = import.meta.env.VITE_APP_ASSET_URL as string;
 export type PlaceItemProps = {
     id: string;
     imageUrl: string;
@@ -34,7 +36,7 @@ const PlaceItem: FC<PlaceItemProps> = (props) => {
         setShowConfirmModal(false);
         const deletePlace = async () => {
             try {
-                await sendRequest(`http://localhost:3000/api/places/${props.id}`, 'DELETE', null, {
+                await sendRequest(`${BACKEND_URL}/places/${props.id}`, 'DELETE', null, {
                     Authorization: `Bearer ${token}`,
                 });
                 props.onDelete(props.id);
@@ -56,7 +58,7 @@ const PlaceItem: FC<PlaceItemProps> = (props) => {
             <li className="place-item">
                 <Card className="place-item__content">
                     <div className="place-item__image">
-                        <img src={`http://localhost:3000/${props.imageUrl}`} alt={props.title} />
+                        <img src={`${ASSET_URL}/${props.imageUrl}`} alt={props.title} />
                     </div>
                     <div className="place-item__info">
                         <h2>{props.title}</h2>

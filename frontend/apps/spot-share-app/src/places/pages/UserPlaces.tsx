@@ -5,6 +5,9 @@ import { useEffect, useState } from 'react';
 import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import { PlaceItemProps } from '../components/PlaceItem';
+
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+
 const UserPlaces = () => {
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
     const userId = useParams().uid;
@@ -13,7 +16,7 @@ const UserPlaces = () => {
     useEffect(() => {
         const fetchPlaces = async () => {
             try {
-                const responseData = await sendRequest(`http://localhost:3000/api/places/user/${userId}`);
+                const responseData = await sendRequest(`${BACKEND_URL}/places/user/${userId}`);
                 if (!responseData) {
                     return;
                 }

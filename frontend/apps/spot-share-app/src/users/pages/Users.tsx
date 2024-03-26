@@ -10,6 +10,8 @@ type User = {
     places: number;
 };
 
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
+
 const Users: FC = () => {
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
     const [loaderUsers, setLoaderUsers] = useState<User[] | null>([]);
@@ -17,7 +19,7 @@ const Users: FC = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const responseData = await sendRequest('http://localhost:3000/api/users');
+                const responseData = await sendRequest(`${BACKEND_URL}/users`);
                 if (!responseData) {
                     return;
                 }

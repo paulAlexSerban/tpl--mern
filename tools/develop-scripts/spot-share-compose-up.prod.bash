@@ -8,6 +8,6 @@ cd "$(dirname "$0")" || exit
 # echo "[ 🟢 🐳 compose up ] $PROJECT_NAME:$PROJECT_VERSION"
 
 docker compose --env-file ../../infrastructure/env/spot-share.compose.env \
-  --file ../../infrastructure/docker/docker-compose.spot-share.dev.yml \
+  --file ../../infrastructure/docker/docker-compose.spot-share.prod.yml \
   up --detach --build --wait
 

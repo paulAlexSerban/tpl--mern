@@ -11,6 +11,8 @@ import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import { useHttpClient } from '../../shared/hooks/http-hook';
 import './Auth.scss';
 
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+
 const Auth = () => {
     const auth = useContext(AuthContext);
     const { login } = auth;
@@ -36,7 +38,7 @@ const Auth = () => {
         if (isLogin) {
             try {
                 const responseData = await sendRequest(
-                    'http://localhost:3000/api/users/login',
+                    `${BACKEND_URL}/users/login`,
                     'POST',
                     JSON.stringify({
                         email: formState.inputs.email.value,
@@ -58,7 +60,7 @@ const Auth = () => {
                 formData.append('name', formState.inputs.name.value as string);
                 formData.append('password', formState.inputs.password.value as string);
                 formData.append('image', formState.inputs.image.value as File);
-                const responseData = await sendRequest('http://localhost:3000/api/users/signup', 'POST', formData);
+                const responseData = await sendRequest(`${BACKEND_URL}/users/signup`, 'POST', formData);
                 const { userId, token } = responseData;
                 login(userId, token);
             } catch (err) {
