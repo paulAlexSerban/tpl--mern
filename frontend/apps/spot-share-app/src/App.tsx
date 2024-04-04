@@ -27,9 +27,9 @@ function App() {
                             { path: '/:uid/places', element: <UserPlaces /> },
                             ...(token
                                 ? [
-                                    { path: '/places/new', element: <NewPlace /> },
-                                    { path: '/places/:pid', element: <UpdatePlace /> },
-                                ]
+                                      { path: '/places/new', element: <NewPlace /> },
+                                      { path: '/places/:pid', element: <UpdatePlace /> },
+                                  ]
                                 : [{ path: '/auth', element: <Auth /> }]),
                         ],
                     },
@@ -45,15 +45,15 @@ function App() {
 
     return (
         <AuthContext.Provider value={{ isLoggedIn: !!token, token, login, logout, userId }}>
-
-            <Suspense fallback={
-                <div className='center'>
-                    <LoadingSpinner />
-                </div>
-            }>
+            <Suspense
+                fallback={
+                    <div className="center">
+                        <LoadingSpinner />
+                    </div>
+                }
+            >
                 <RouterProvider router={router} />
             </Suspense>
-
         </AuthContext.Provider>
     );
 }

@@ -1,4 +1,4 @@
-FROM node:18.17.1 as builder
+FROM node:20.12.0 as builder
 
 # Create app directory
 RUN mkdir -p /usr/src/app
@@ -19,7 +19,7 @@ COPY . /usr/src/app/
 # Build your application
 RUN yarn run build:prod
 
-FROM node:18.17.1
+FROM node:20.12.0
 
 # Create app directory
 RUN mkdir -p /usr/src/app

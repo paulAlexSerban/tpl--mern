@@ -4,9 +4,9 @@
         "module": "commonjs",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "esModuleInterop": true,
+        "esModuleInterop": true
     },
     "typeRoots": ["./node_modules/@types", "./types"],
     "include": ["src/**/*", "types/**/*"],
-    "exclude": ["node_modules"],
+    "exclude": ["node_modules"]
 }

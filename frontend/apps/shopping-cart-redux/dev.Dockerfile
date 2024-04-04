@@ -1,4 +1,4 @@
-FROM node:18.17.1 as base
+FROM node:20.12.0 as base
 
 # Create app directory
 RUN mkdir -p /usr/src/app
