@@ -2,9 +2,22 @@ import fs from 'fs/promises';
 import { v4 as generateId } from 'uuid';
 import { NotFoundError } from '../util/errors';
 
+let data = {
+    events: [
+        {
+            id: 'e1',
+            title: 'A dummy event',
+            date: '2023-02-22',
+            image: 'https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg',
+            description: 'Join this amazing event and connect with fellow developers.',
+        },
+    ],
+};
+
 async function readData() {
-    const data = await fs.readFile('../../events.json', 'utf8');
-    return JSON.parse(data);
+    // const data = await fs.readFile('../../events.json', 'utf8');
+    // return JSON.parse(data);
+    return data;
 }
 
 type Event = {
@@ -20,7 +33,8 @@ type Data = {
 };
 
 async function writeData(data: Data) {
-    await fs.writeFile('events.json', JSON.stringify(data));
+    // await fs.writeFile('events.json', JSON.stringify(data));
+    data = data;
 }
 
 async function getAll() {
@@ -45,13 +59,22 @@ async function get(id: string) {
     return event;
 }
 
-async function add(data: Data) {
+// Adjust the type of the parameter to be Event instead of Data
+async function add(event: Event) {
     const storedData = await readData();
-    storedData.events.unshift({ ...data, id: generateId() });
-    await writeData(storedData);
+    if (!storedData.events) {
+        storedData.events = [];
+    }
+
+    // Since now the function expects an Event object,
+    // we can add it directly to the array without destructuring
+    storedData.events.unshift({ ...event, id: generateId() });
+
+    // Assuming writeData is correctly implemented to write the entire Data object back to storage
+    // await writeData(storedData);
 }
 
-async function replace(id: string, data: Data) {
+async function replace(id: string, newEventData: Event) {
     const storedData = await readData();
     if (!storedData.events || storedData.events.length === 0) {
         throw new NotFoundError('Could not find any events.');
@@ -62,8 +85,10 @@ async function replace(id: string, data: Data) {
         throw new NotFoundError('Could not find event for id ' + id);
     }
 
-    storedData.events[index] = { ...data, id };
+    // Correctly assign the new event data, preserving the original event ID
+    storedData.events[index] = { ...newEventData, id };
 
+    // Update the data store with the modified events array
     await writeData(storedData);
 }
 

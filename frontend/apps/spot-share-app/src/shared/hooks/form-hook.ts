@@ -63,7 +63,7 @@ type UseForm = (
 ) => [
     FormState,
     (id: string, value: string, isValid: boolean) => void,
-    (inputData: FormState['inputs'], formValidity: boolean) => void,
+    (inputData: FormState['inputs'], formValidity: boolean) => void
 ];
 
 export const useForm: UseForm = (initialInputs, initialFormValidity) => {

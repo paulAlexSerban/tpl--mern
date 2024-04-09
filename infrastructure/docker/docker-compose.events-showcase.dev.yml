@@ -30,6 +30,8 @@ services:
         volumes:
             - ../../frontend/apps/events-showcase-app:/usr/src/app # Mount the app directory to the container
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+        env_file:
+            - ../../infrastructure/env/events-showcase.compose.env
         networks:
             - events-showcase-network
 

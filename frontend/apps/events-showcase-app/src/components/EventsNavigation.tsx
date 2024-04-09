@@ -1,15 +1,19 @@
-import classes from './EventsNavigation.module.css';
-
+import classes from './EventsNavigation.module.scss';
+import { NavLink } from 'react-router-dom';
 function EventsNavigation() {
     return (
         <header className={classes.header}>
             <nav>
                 <ul className={classes.list}>
                     <li>
-                        <a href="/events">All Events</a>
+                        <NavLink to="/events" className={({ isActive }) => (isActive ? classes.active : '')} end>
+                            All Events
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="/events/new">New Event</a>
+                        <NavLink to="/events/new" className={({ isActive }) => (isActive ? classes.active : '')}>
+                            New Event
+                        </NavLink>
                     </li>
                 </ul>
             </nav>

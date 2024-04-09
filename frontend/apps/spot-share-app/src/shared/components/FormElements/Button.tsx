@@ -19,7 +19,9 @@ const Button: FC<ButtonProps> = ({ href, size, inverse, danger, children, to, ty
     if (href) {
         return (
             <a
-                className={`button button--${size || 'default'} ${inverse && 'button--inverse'} ${danger && 'button--danger'}`}
+                className={`button button--${size || 'default'} ${inverse && 'button--inverse'} ${
+                    danger && 'button--danger'
+                }`}
                 href={href}
             >
                 {children}
@@ -30,9 +32,9 @@ const Button: FC<ButtonProps> = ({ href, size, inverse, danger, children, to, ty
         return (
             <Link
                 to={to}
-                className={`button button--${size || 'default'} ${
-                    inverse && 'button--inverse'
-                } ${danger && 'button--danger'}`}
+                className={`button button--${size || 'default'} ${inverse && 'button--inverse'} ${
+                    danger && 'button--danger'
+                }`}
             >
                 {children}
             </Link>
@@ -40,9 +42,9 @@ const Button: FC<ButtonProps> = ({ href, size, inverse, danger, children, to, ty
     }
     return (
         <button
-            className={`button button--${size || 'default'} ${
-                inverse && 'button--inverse'
-            } ${danger && 'button--danger'}`}
+            className={`button button--${size || 'default'} ${inverse && 'button--inverse'} ${
+                danger && 'button--danger'
+            }`}
             type={type}
             onClick={onClick}
             disabled={disabled}

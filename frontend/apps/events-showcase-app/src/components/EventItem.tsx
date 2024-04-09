@@ -1,4 +1,4 @@
-import classes from './EventItem.module.css';
+import classes from './EventItem.module.scss';
 import { FC } from 'react';
 
 export type EventItemProps = {
