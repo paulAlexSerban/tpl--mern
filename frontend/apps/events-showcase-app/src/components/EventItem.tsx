@@ -1,17 +1,9 @@
 import classes from './EventItem.module.scss';
 import { FC } from 'react';
-
-export type EventItemProps = {
-    event: {
-        id: string;
-        title: string;
-        date: string;
-        description: string;
-        image: string;
-    };
-};
+import type { EventItemProps } from '../types';
 
 const EventItem: FC<EventItemProps> = ({ event }) => {
+    console.log(event);
     function startDeleteHandler() {
         // ...
     }

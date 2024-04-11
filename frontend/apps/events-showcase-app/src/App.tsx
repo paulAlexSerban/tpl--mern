@@ -1,20 +1,23 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import HomePage from './pages/Home';
-import EventsPage from './pages/Events';
-import EventDetailPage from './pages/EventDetail';
-import NewEventPage from './pages/NewEvent';
-import EditEventPage from './pages/EditEvent';
+// layouts
 import RootLayout from './pages/Root';
 import EventsRootLayout from './pages/EventsRoot';
 
-const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+// pages
+import HomePage from './pages/Home';
+import EventsPage, { loader as eventsLoader } from './pages/Events';
+import EventDetailPage, { loader as eventsDetailLoader } from './pages/EventDetail';
+import NewEventPage from './pages/NewEvent';
+import EditEventPage from './pages/EditEvent';
+import ErrorPage from './pages/Error';
 
 const router = createBrowserRouter(
     [
         {
             path: '/',
             element: <RootLayout />,
+            errorElement: <ErrorPage />,
             children: [
                 { index: true, element: <HomePage /> },
                 {
@@ -24,18 +27,10 @@ const router = createBrowserRouter(
                         {
                             index: true,
                             element: <EventsPage />,
-                            loader: async () => {
-                                const response = await fetch(`${BACKEND_URL}/events`);
-
-                                if (!response.ok) {
-                                    // incorect response handling
-                                } else {
-                                    const resData = await response.json();
-                                    return resData.events;
-                                }
-                            },
+                            // the loader will delay the rendering of the page until the data is fetched
+                            loader: eventsLoader,
                         },
-                        { path: ':id', element: <EventDetailPage /> },
+                        { path: ':id', element: <EventDetailPage />, loader: eventsDetailLoader },
                         { path: 'new', element: <NewEventPage /> },
                         { path: ':id/edit', element: <EditEventPage /> },
                     ],
