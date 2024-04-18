@@ -7,8 +7,8 @@ import EventsRootLayout from './pages/EventsRoot';
 // pages
 import HomePage from './pages/Home';
 import EventsPage, { loader as eventsLoader } from './pages/Events';
-import EventDetailPage, { loader as eventsDetailLoader } from './pages/EventDetail';
-import NewEventPage from './pages/NewEvent';
+import EventDetailPage, { loader as eventsDetailLoader, action as deleteEventAction } from './pages/EventDetail';
+import NewEventPage, { action as newEventAction } from './pages/NewEvent';
 import EditEventPage from './pages/EditEvent';
 import ErrorPage from './pages/Error';
 
@@ -30,9 +30,28 @@ const router = createBrowserRouter(
                             // the loader will delay the rendering of the page until the data is fetched
                             loader: eventsLoader,
                         },
-                        { path: ':id', element: <EventDetailPage />, loader: eventsDetailLoader },
-                        { path: 'new', element: <NewEventPage /> },
-                        { path: ':id/edit', element: <EditEventPage /> },
+                        {
+                            path: ':id',
+                            id: 'event-detail',
+                            loader: eventsDetailLoader,
+                            children: [
+                                {
+                                    index: true,
+                                    element: <EventDetailPage />,
+                                    action: deleteEventAction,
+                                },
+                                {
+                                    path: 'edit',
+                                    element: <EditEventPage />,
+                                },
+                            ],
+                        },
+
+                        {
+                            path: 'new',
+                            element: <NewEventPage />,
+                            action: newEventAction,
+                        },
                     ],
                 },
             ],

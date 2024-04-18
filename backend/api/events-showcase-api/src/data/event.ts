@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import { v4 as generateId } from 'uuid';
 import { NotFoundError } from '../util/errors';
 
-let data = {
+let DBdata = {
     events: [
         {
             id: 'e1',
@@ -17,7 +17,7 @@ let data = {
 async function readData() {
     // const data = await fs.readFile('../../events.json', 'utf8');
     // return JSON.parse(data);
-    return data;
+    return DBdata;
 }
 
 type Event = {
@@ -34,7 +34,8 @@ type Data = {
 
 async function writeData(data: Data) {
     // await fs.writeFile('events.json', JSON.stringify(data));
-    data = data;
+    DBdata = data;
+    console.log(data);
 }
 
 async function getAll() {
@@ -95,6 +96,7 @@ async function replace(id: string, newEventData: Event) {
 async function remove(id: string) {
     const storedData = await readData();
     const updatedData = storedData.events.filter((ev: Event) => ev.id !== id);
+    console.log(updatedData);
     await writeData({ events: updatedData });
 }
 

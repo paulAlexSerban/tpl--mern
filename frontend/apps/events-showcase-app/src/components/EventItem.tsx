@@ -1,11 +1,16 @@
 import classes from './EventItem.module.scss';
 import { FC } from 'react';
 import type { EventItemProps } from '../types';
+import { Link, useSubmit } from 'react-router-dom';
 
 const EventItem: FC<EventItemProps> = ({ event }) => {
-    console.log(event);
+    const submit = useSubmit();
     function startDeleteHandler() {
-        // ...
+        const proceed = window.confirm('Are you sure you want to delete this event?');
+
+        if (proceed) {
+            submit(null, { method: 'DELETE' });
+        }
     }
 
     return (
@@ -15,7 +20,7 @@ const EventItem: FC<EventItemProps> = ({ event }) => {
             <time>{event.date}</time>
             <p>{event.description}</p>
             <menu className={classes.actions}>
-                <a href="edit">Edit</a>
+                <Link to="edit">Edits</Link>
                 <button onClick={startDeleteHandler}>Delete</button>
             </menu>
         </article>

@@ -1,19 +1,19 @@
-import { json, LoaderFunction, useLoaderData } from 'react-router-dom';
+import { json, LoaderFunction, ActionFunction, useRouteLoaderData, redirect } from 'react-router-dom';
 import EventItem from '../components/EventItem';
 import { EventItemProps } from '../types';
 
 const EventDetailPage = () => {
-    const data = useLoaderData() as EventItemProps;
+    const data = useRouteLoaderData('event-detail') as EventItemProps;
 
     return <EventItem event={data.event} />;
 };
 
 export default EventDetailPage;
 
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+
 // The loader function will fetch the event details from the backen
 export const loader: LoaderFunction = async ({ params }) => {
-    const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
-
     // Ensure that 'id' exists in 'params'
     const eventId = params.id;
     if (!eventId) {
@@ -30,4 +30,17 @@ export const loader: LoaderFunction = async ({ params }) => {
         const event = await response.json();
         return json(event);
     }
+};
+
+export const action: ActionFunction = async ({ params, request }) => {
+    const eventId = params.id;
+    const response = await fetch(`${BACKEND_URL}/events/${eventId}`, {
+        method: request.method,
+    });
+
+    if (!response.ok) {
+        return json({ message: 'Could not delete event.' }, { status: response.status });
+    }
+
+    return redirect('/events');
 };
