@@ -8,9 +8,11 @@ import EventsRootLayout from './pages/EventsRoot';
 import HomePage from './pages/Home';
 import EventsPage, { loader as eventsLoader } from './pages/Events';
 import EventDetailPage, { loader as eventsDetailLoader, action as deleteEventAction } from './pages/EventDetail';
-import NewEventPage, { action as newEventAction } from './pages/NewEvent';
+import NewEventPage from './pages/NewEvent';
 import EditEventPage from './pages/EditEvent';
 import ErrorPage from './pages/Error';
+
+import { action as newEventAction } from './components/EventForm';
 
 const router = createBrowserRouter(
     [
