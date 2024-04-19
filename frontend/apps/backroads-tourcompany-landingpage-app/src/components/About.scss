@@ -1,0 +1,43 @@
+/*
+  =============== 
+  About
+  ===============
+  */
+/* section added to globals */
+/* title added to globals */
+/* section center added to globals */
+.about-img,
+.about-info {
+    margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 992px) {
+    .about-center {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }
+    .about-img,
+    .about-info {
+        margin-bottom: 0;
+    }
+}
+@media screen and (min-width: 1170px) {
+    .about-img::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 0.5rem solid var(--clr-primary-5);
+        box-sizing: border-box;
+        top: -1.5rem;
+        left: -1.5rem;
+    }
+
+    .about-img {
+        position: relative;
+    }
+    .about-photo {
+        position: relative;
+    }
+}
