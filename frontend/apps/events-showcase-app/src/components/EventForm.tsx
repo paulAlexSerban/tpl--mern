@@ -4,7 +4,7 @@ import classes from './EventForm.module.scss';
 import { EventItemProps } from '../types';
 
 type EventFormProps = {
-    method: 'POST' | 'PUT';
+    method: 'POST' | 'PATCH';
     event?: EventItemProps['event'];
 };
 
@@ -60,6 +60,7 @@ export default EventForm;
 export const action: ActionFunction = async ({ request, params }) => {
     const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
     const data = await request.formData();
+    const method = request.method;
 
     const eventData = {
         title: data.get('title') as string,
@@ -68,8 +69,15 @@ export const action: ActionFunction = async ({ request, params }) => {
         image: data.get('image') as string,
     };
 
-    const response = await fetch(`${BACKEND_URL}/events`, {
-        method: 'POST',
+    let url = `${BACKEND_URL}/events`;
+
+    if (method === 'PATCH') {
+        const id = params.id;
+        url += `/${id}`;
+    }
+
+    const response = await fetch(url, {
+        method,
         headers: {
             'Content-Type': 'application/json',
         },

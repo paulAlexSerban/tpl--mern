@@ -12,7 +12,7 @@ import NewEventPage from './pages/NewEvent';
 import EditEventPage from './pages/EditEvent';
 import ErrorPage from './pages/Error';
 
-import { action as newEventAction } from './components/EventForm';
+import { action as manipulateEventAction } from './components/EventForm';
 
 const router = createBrowserRouter(
     [
@@ -45,6 +45,7 @@ const router = createBrowserRouter(
                                 {
                                     path: 'edit',
                                     element: <EditEventPage />,
+                                    action: manipulateEventAction,
                                 },
                             ],
                         },
@@ -52,7 +53,7 @@ const router = createBrowserRouter(
                         {
                             path: 'new',
                             element: <NewEventPage />,
-                            action: newEventAction,
+                            action: manipulateEventAction,
                         },
                     ],
                 },
