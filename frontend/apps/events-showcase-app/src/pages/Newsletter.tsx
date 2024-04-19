@@ -2,13 +2,13 @@ import NewsletterSignup from '../components/NewsletterSignup';
 import PageContent from '../components/PageContent';
 import { ActionFunction } from 'react-router-dom';
 
-function NewsletterPage() {
+const NewsletterPage = () => {
     return (
         <PageContent title="Join our awesome newsletter!">
             <NewsletterSignup />
         </PageContent>
     );
-}
+};
 
 export default NewsletterPage;
 

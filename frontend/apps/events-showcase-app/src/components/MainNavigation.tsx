@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
 
-import classes from './MainNavigation.module.css';
+import classes from './MainNavigation.module.scss';
 import NewsletterSignup from './NewsletterSignup';
 
-function MainNavigation() {
+const MainNavigation = () => {
     return (
         <header className={classes.header}>
             <nav>
@@ -28,6 +28,6 @@ function MainNavigation() {
             <NewsletterSignup />
         </header>
     );
-}
+};
 
 export default MainNavigation;
