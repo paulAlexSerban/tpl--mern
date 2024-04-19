@@ -9,7 +9,7 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../backend/services/emaily-user-feedback-proxy
+            context: ../../backend/middleware/emaily-user-feedback-proxy
             dockerfile: dev.Dockerfile
         container_name: container-emaily-user-feedback-proxy
         image: paulserbandev/emaily-user-feedback-proxy
@@ -17,8 +17,8 @@ services:
         ports:
             - '3000:80'
         volumes:
-            - ../../backend/services/emaily-user-feedback-proxy/default.conf:/etc/nginx/conf.d/default.conf
-            - ../../backend/services/emaily-user-feedback-proxy/logs:/var/log/nginx
+            - ../../backend/middleware/emaily-user-feedback-proxy/default.conf:/etc/nginx/conf.d/default.conf
+            - ../../backend/middleware/emaily-user-feedback-proxy/logs:/var/log/nginx
         networks:
             - emaily-user-feedback-network
     # ---------------------------------------------------------------------

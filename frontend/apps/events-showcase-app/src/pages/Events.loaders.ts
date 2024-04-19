@@ -1,4 +1,4 @@
-import { json, defer, LoaderFunction } from 'react-router-dom';
+import { json } from 'react-router-dom';
 import { Event } from '../types';
 
 const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
