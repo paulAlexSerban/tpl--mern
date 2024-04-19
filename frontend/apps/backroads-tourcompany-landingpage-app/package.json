@@ -1,10 +1,10 @@
 {
-    "name": "@wbk--mern-playground/_vite-react-ts-boilerplate",
+    "name": "@wbk--mern-playground/backroads-tourcompany-landingpage-app",
     "private": true,
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "develop": "vite --host",
+        "develop:backroads-tourcompany-landingpage-app": "vite --host",
         "build:dev": "export NODE_ENV=development && tsc && vite build",
         "build:prod": "export NODE_ENV=production && tsc && vite build",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
