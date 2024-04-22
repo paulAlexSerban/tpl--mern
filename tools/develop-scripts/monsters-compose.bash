@@ -7,6 +7,8 @@ function up() {
     docker compose --env-file ../../infrastructure/env/monsters.compose.env \
     --file ../../infrastructure/docker/docker-compose.monsters.dev.yml \
     up --detach --build
+    docker compose --env-file ../../infrastructure/env/monsters.compose.env \
+    ps
 }
 
 function down() {
@@ -14,6 +16,8 @@ function down() {
     docker compose --env-file ../../infrastructure/env/monsters.compose.env \
     --file ../../infrastructure/docker/docker-compose.monsters.dev.yml \
     down --volumes --rmi all
+    docker compose --env-file ../../infrastructure/env/monsters.compose.env \
+    ps
 }
 
 function logs() {

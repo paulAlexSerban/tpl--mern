@@ -7,6 +7,8 @@ function up() {
     docker compose --env-file ../../infrastructure/env/spot-share.compose.env \
     --file ../../infrastructure/docker/docker-compose.spot-share.dev.yml \
     up --detach --build
+    docker compose --env-file ../../infrastructure/env/spot-share.compose.env \
+    ps
 }
 
 function down() {
@@ -14,6 +16,8 @@ function down() {
     docker compose --env-file ../../infrastructure/env/spot-share.compose.env \
     --file ../../infrastructure/docker/docker-compose.spot-share.dev.yml \
     down --volumes --rmi all
+    docker compose --env-file ../../infrastructure/env/spot-share.compose.env \
+    ps
 }
 
 function logs() {
@@ -28,6 +32,8 @@ function up-prod() {
     docker compose --env-file ../../infrastructure/env/spot-share.compose.env \
     --file ../../infrastructure/docker/docker-compose.spot-share.prod.yml \
     up --detach --build --wait
+    docker compose --env-file ../../infrastructure/env/spot-share.compose.env \
+    ps
 }
 
 function help() {

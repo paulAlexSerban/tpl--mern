@@ -7,6 +7,8 @@ function up() {
     docker compose --env-file ../../infrastructure/env/emaily-user-feedback.compose.env \
     --file ../../infrastructure/docker/docker-compose.emaily-user-feedback.dev.yml \
     up --detach --build
+    docker compose --env-file ../../infrastructure/env/emaily-user-feedback.compose.env \
+    ps
 }
 
 function down() {

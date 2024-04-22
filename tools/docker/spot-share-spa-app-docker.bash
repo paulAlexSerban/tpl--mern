@@ -22,3 +22,5 @@ function build() {
         --build-arg VITE_APP_ASSET_URL=$VITE_APP_ASSET_URL \
         --build-arg VITE_GOOGLE_MAPS_API_KEY=$VITE_GOOGLE_MAPS_API_KEY
 }
+
+$1

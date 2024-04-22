@@ -7,6 +7,8 @@ function up() {
     docker compose --env-file ../../infrastructure/env/simple-shop.compose.env \
     --file ../../infrastructure/docker/docker-compose.simple-shop.dev.yml \
     up --detach --build
+    docker compose --env-file ../../infrastructure/env/simple-shop.compose.env \
+    ps
 }
 
 function down() {
@@ -14,6 +16,8 @@ function down() {
     docker compose --env-file ../../infrastructure/env/simple-shop.compose.env \
     --file ../../infrastructure/docker/docker-compose.simple-shop.dev.yml \
     down --volumes --rmi all
+    docker compose --env-file ../../infrastructure/env/simple-shop.compose.env \
+    ps
 }
 
 function logs() {

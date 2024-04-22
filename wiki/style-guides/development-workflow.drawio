@@ -1,0 +1,116 @@
+<mxfile host="65bd71144e">
+    <diagram id="JfFq4kZCKXKTPTKB8bXi" name="Page-1">
+        <mxGraphModel dx="505" dy="1045" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="5" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Developer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=none;strokeWidth=3;strokeColor=#CCCCCC;" vertex="1" parent="1">
+                    <mxGeometry x="365" y="840" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=none;html=1;" edge="1" parent="1" source="4" target="8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="pull request" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="9">
+                    <mxGeometry y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="feature" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="710" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Branches" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="725" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="710" width="20" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" style="edgeStyle=none;html=1;" edge="1" parent="1" source="8" target="12">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="master" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="710" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Github Reop" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="650" width="360" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" style="edgeStyle=none;html=1;" edge="1" parent="1" source="12" target="14">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Travis CI" style="whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+                    <mxGeometry x="760" y="710" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="AWS Hosting" style="whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+                    <mxGeometry x="960" y="710" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Dev (phase)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="1040" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="Create/change features" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="1040" width="240" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="18" target="19">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Make changes on a NON-master branch" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="1080" width="240" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" style="edgeStyle=none;html=1;" edge="1" parent="1" source="19" target="22">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Push to Github" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="1160" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=none;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="22" target="25">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Create pull-request to merge with master" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="1240" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Test (phase)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="1320" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Code pushed to Travis CI" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="1320" width="240" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="26" target="30">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Tests run" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="1360" width="240" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="Deploy to AWS Elastic Beanstalk" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="1600" width="240" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Prod (phase)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="1520" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" style="edgeStyle=none;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="30" target="32">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Merge PR with master" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="1440" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="Code pushed to Travis CI" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="1520" width="240" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="Tests run" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="1560" width="240" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="280" y="1040" as="sourcePoint"/>
+                        <mxPoint x="280" y="1640" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="36" value="Flow" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="35">
+                    <mxGeometry x="-0.5417" y="-2" relative="1" as="geometry">
+                        <mxPoint x="-23" y="-117" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

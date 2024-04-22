@@ -1,4 +1,4 @@
-FROM node:20.12.0 as base
+FROM node:20.12.0 as builder
 
 # Create app directory
 RUN mkdir -p /usr/src/app
@@ -28,4 +28,14 @@ RUN yarn run build:prod
 
 # Command to run when the container is ready
 # Separate arguments as separate values in the array
-CMD [ "yarn", "run", "preview"]
+# CMD [ "yarn", "run", "preview"]
+
+# Stage 2
+FROM nginx:latest
+
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+	&& ln -sf /dev/stderr /var/log/nginx/error.log
+ 
+COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
+
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
