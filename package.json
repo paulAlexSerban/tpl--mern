@@ -16,6 +16,7 @@
         "develop:compose:birthday-buddy:up": "bash ./tools/develop-scripts/birthday-buddy-compose.bash up",
         "develop:compose:devcamper:up": "bash ./tools/develop-scripts/devcamper-compose.bash up",
         "develop:compose:ecommerce-monolith-mvc:up": "bash ./tools/develop-scripts/ecommerce-monolith-mvc-compose.bash up",
+        "develop:compose:ecommerce-arch-journey-monolith:up": "bash ./tools/develop-scripts/ecommerce-arch-journey-monolith-compose.bash up",
         "develop:compose:emaily-user-feedback:up": "bash ./tools/develop-scripts/emaily-user-feedback-compose.bash up",
         "develop:compose:events-showcase:up": "bash ./tools/develop-scripts/events-showcase-compose.bash up",
         "develop:compose:fortunes:up": "bash ./tools/develop-scripts/fortunes-compose.bash up",
