@@ -1,5 +1,5 @@
 import { useState, FC } from 'react';
-import { TourProps } from '../types.d';
+import { TourProps } from '../types';
 
 const EXCERPT_SIZE: number = 200;
 

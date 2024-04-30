@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ToursProps } from '../types.d';
+import { ToursProps } from '../types';
 import Tour from './Tour';
 
 const Tours: FC<ToursProps> = ({ tours, removeTour }) => {

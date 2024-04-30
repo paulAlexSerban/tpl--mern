@@ -1,7 +1,7 @@
 ---
 version: '3.7'
 networks:
-    tours-booking-network:
+    tours-listing-network:
         driver: bridge
 services:
     # ---------------------------------------------------------------------
@@ -9,18 +9,18 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../backend/middleware/tours-booking-proxy
+            context: ../../backend/middleware/tours-listing-proxy
             dockerfile: dev.Dockerfile
-        container_name: container-tours-booking-proxy
-        image: paulserbandev/tours-booking-proxy
+        container_name: container-tours-listing-proxy
+        image: paulserbandev/tours-listing-proxy
         restart: unless-stopped
         ports:
             - '3000:80'
         volumes:
-            - ../../backend/middleware/tours-booking-proxy/default.conf:/etc/nginx/conf.d/default.conf
-            - ../../backend/middleware/tours-booking-proxy/logs:/var/log/nginx
+            - ../../backend/middleware/tours-listing-proxy/default.conf:/etc/nginx/conf.d/default.conf
+            - ../../backend/middleware/tours-listing-proxy/logs:/var/log/nginx
         networks:
-            - tours-booking-network
+            - tours-listing-network
 
     # ---------------------------------------------------------------------
     # UI React SPA
@@ -28,10 +28,10 @@ services:
     ui-react-spa:
         container_name: ui-react-spa-container
         build:
-            context: ../../frontend/apps/tours-booking-app
+            context: ../../frontend/apps/tours-listing-app
             dockerfile: dev.Dockerfile
         volumes:
-            - ../../frontend/apps/tours-booking-app:/usr/src/app # Mount the app directory to the container
+            - ../../frontend/apps/tours-listing-app:/usr/src/app # Mount the app directory to the container
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
         networks:
-            - tours-booking-network
+            - tours-listing-network

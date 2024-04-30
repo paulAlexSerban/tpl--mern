@@ -4,26 +4,26 @@ cd "$(dirname "$0")" || exit
 
 function up() {
     echo "[ 🟢 🐳 compose up ]"
-    docker compose --env-file ../../infrastructure/env/tours-booking.compose.env \
-    --file ../../infrastructure/docker/docker-compose.tours-booking.dev.yml \
+    docker compose --env-file ../../infrastructure/env/tours-listing.compose.env \
+    --file ../../infrastructure/docker/docker-compose.tours-listing.dev.yml \
     up --detach --build
-    docker compose --env-file ../../infrastructure/env/tours-booking.compose.env \
+    docker compose --env-file ../../infrastructure/env/tours-listing.compose.env \
     ps
 }
 
 function down() {
     echo "[ 🛑 🐳 compose down ]"
-    docker compose --env-file ../../infrastructure/env/tours-booking.compose.env \
-    --file ../../infrastructure/docker/docker-compose.tours-booking.dev.yml \
+    docker compose --env-file ../../infrastructure/env/tours-listing.compose.env \
+    --file ../../infrastructure/docker/docker-compose.tours-listing.dev.yml \
     down --volumes --rmi all
-    docker compose --env-file ../../infrastructure/env/tours-booking.compose.env \
+    docker compose --env-file ../../infrastructure/env/tours-listing.compose.env \
     ps
 }
 
 function logs() {
     echo "[ 📜 🐳 compose logs ]"
-    docker compose --env-file ../../infrastructure/env/tours-booking.compose.env \
-    --file ../../infrastructure/docker/docker-compose.tours-booking.dev.yml \
+    docker compose --env-file ../../infrastructure/env/tours-listing.compose.env \
+    --file ../../infrastructure/docker/docker-compose.tours-listing.dev.yml \
     logs --follow
 }
 
