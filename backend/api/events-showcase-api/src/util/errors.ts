@@ -12,4 +12,22 @@ class NotFoundError extends Error implements INotFoundError {
     }
 }
 
-export { NotFoundError };
+interface INotAuthError {
+    message: string;
+    status: number;
+}
+
+class NotAuthError extends Error implements INotAuthError {
+    status: number;
+
+    constructor(message: string) {
+        super(message);
+        this.status = 401;
+    }
+}
+
+export type Errors = {
+    [key: string]: string;
+};
+
+export { NotFoundError, NotAuthError };

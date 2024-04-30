@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { getAll, get, add, replace, remove } from '../data/event';
 import { isValidText, isValidDate, isValidImageUrl } from '../util/validation';
-
+import { type Errors } from '../util/errors';
 const router = Router();
 
 router.get('/', async (req, res, next) => {
@@ -23,10 +23,6 @@ router.get('/:id', async (req, res, next) => {
         next(error);
     }
 });
-
-type Errors = {
-    [key: string]: string;
-};
 
 router.post('/', async (req, res, next) => {
     const data = req.body;

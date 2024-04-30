@@ -1,5 +1,5 @@
-function isValidText(value: string) {
-    return value && value.trim().length > 0;
+function isValidText(value: string, minLength = 1) {
+    return value && value.trim().length >= minLength;
 }
 
 function isValidDate(value: Date | string) {
@@ -11,4 +11,7 @@ function isValidImageUrl(value: string) {
     return value && value.startsWith('http');
 }
 
-export { isValidText, isValidDate, isValidImageUrl };
+function isValidEmail(value: string) {
+    return value && value.includes('@');
+}
+export { isValidText, isValidDate, isValidImageUrl, isValidEmail };

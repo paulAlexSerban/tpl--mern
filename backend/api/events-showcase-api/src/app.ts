@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import HttpError from './models/HttpError';
 import indexRouter from './routes/index';
+import authRouter from './routes/auth';
 import eventsRouter from './routes/events';
 
 const app: Express = express();
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api', indexRouter);
+app.use('/api/auth', authRouter);
 app.use('/api/events', eventsRouter);
 
 app.use((req, res, next) => {
