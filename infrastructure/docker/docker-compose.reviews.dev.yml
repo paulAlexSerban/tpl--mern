@@ -1,0 +1,37 @@
+---
+version: '3.7'
+networks:
+    reviews-network:
+        driver: bridge
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        build:
+            context: ../../backend/middleware/reviews-proxy
+            dockerfile: dev.Dockerfile
+        container_name: container-reviews-proxy
+        image: paulserbandev/reviews-proxy
+        restart: unless-stopped
+        ports:
+            - '3000:80'
+        volumes:
+            - ../../backend/middleware/reviews-proxy/default.conf:/etc/nginx/conf.d/default.conf
+            - ../../backend/middleware/reviews-proxy/logs:/var/log/nginx
+        networks:
+            - reviews-network
+
+    # ---------------------------------------------------------------------
+    # UI React SPA
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa-container
+        build:
+            context: ../../frontend/apps/reviews-app
+            dockerfile: dev.Dockerfile
+        volumes:
+            - ../../frontend/apps/reviews-app:/usr/src/app # Mount the app directory to the container
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+        networks:
+            - reviews-network
