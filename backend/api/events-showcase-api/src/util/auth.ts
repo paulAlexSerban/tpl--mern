@@ -17,10 +17,12 @@ function validateJSONToken(token: string) {
 }
 
 function isValidPassword(password: string, storedPassword: string) {
-    return compare(password, storedPassword);
+    // return compare(password, storedPassword);
+    return password === storedPassword;
 }
 
 function checkAuthMiddleware(req: Request, res: Response, next: NextFunction) {
+    console.log('CHECKING AUTH.');
     if (req.method === 'OPTIONS') {
         return next();
     }

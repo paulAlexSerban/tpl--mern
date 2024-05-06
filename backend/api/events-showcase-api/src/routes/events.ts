@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { getAll, get, add, replace, remove } from '../data/event';
 import { isValidText, isValidDate, isValidImageUrl } from '../util/validation';
+import { checkAuthMiddleware } from '../util/auth';
 import { type Errors } from '../util/errors';
 const router = Router();
 
@@ -23,6 +24,8 @@ router.get('/:id', async (req, res, next) => {
         next(error);
     }
 });
+
+router.use(checkAuthMiddleware);
 
 router.post('/', async (req, res, next) => {
     const data = req.body;

@@ -44,6 +44,11 @@ router.post('/login', async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
+    console.log({
+        email,
+        password,
+    });
+
     let user;
     try {
         user = await get(email);
@@ -52,6 +57,7 @@ router.post('/login', async (req, res) => {
     }
 
     const pwIsValid = await isValidPassword(password, user.password);
+    console.log({ pwIsValid, password: user.password, password2: password });
     if (!pwIsValid) {
         return res.status(422).json({
             message: 'Invalid credentials.',

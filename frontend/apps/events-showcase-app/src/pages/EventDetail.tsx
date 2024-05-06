@@ -4,7 +4,7 @@ import EventsList from '../components/EventsList';
 import { EventItemProps, EventsListProps } from '../types';
 import { loadEvents, loadEvent } from './Events.loaders';
 import { Suspense } from 'react';
-
+import { getAuthToken } from '../util/auth';
 type CombinedEventData = EventItemProps & EventsListProps;
 
 const EventDetailPage = () => {
@@ -50,8 +50,13 @@ export const loader: LoaderFunction = async ({ params }) => {
 
 export const action: ActionFunction = async ({ params, request }) => {
     const eventId = params.id;
+    const token = getAuthToken();
     const response = await fetch(`${BACKEND_URL}/events/${eventId}`, {
         method: request.method,
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
     });
 
     if (!response.ok) {

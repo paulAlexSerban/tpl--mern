@@ -2,7 +2,7 @@ import { useNavigate, Form, useNavigation, useActionData, ActionFunction, redire
 import { FC } from 'react';
 import classes from './EventForm.module.scss';
 import { EventItemProps } from '../types';
-
+import { getAuthToken } from '../util/auth';
 type EventFormProps = {
     method: 'POST' | 'PATCH';
     event?: EventItemProps['event'];
@@ -75,11 +75,12 @@ export const action: ActionFunction = async ({ request, params }) => {
         const id = params.id;
         url += `/${id}`;
     }
-
+    const token = getAuthToken();
     const response = await fetch(url, {
         method,
         headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(eventData),
     });

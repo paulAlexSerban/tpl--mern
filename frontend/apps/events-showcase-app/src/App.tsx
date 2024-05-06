@@ -5,6 +5,7 @@ import EventsRootLayout from './pages/EventsRoot';
 import RootLayout from './pages/Root';
 
 // pages
+import AuthenticationPage from './pages/Authentication';
 import EditEventPage from './pages/EditEvent';
 import ErrorPage from './pages/Error';
 import EventsPage from './pages/Events';
@@ -13,12 +14,15 @@ import HomePage from './pages/Home';
 import NewEventPage from './pages/NewEvent';
 import NewsletterPage from './pages/Newsletter';
 
-// page actions
+// route laders
 import { loader as eventsLoader } from './pages/Events';
 import { loader as eventDetailLoader } from './pages/EventDetail';
+import { tokenLoader, checkAuthLoader } from './util/auth';
 
-// component actions
+// route actions
+import { action as authAction } from './pages/Authentication';
 import { action as deleteEventAction } from './pages/EventDetail';
+import { action as logoutAction } from './pages/Logout';
 import { action as manipulateEventAction } from './components/EventForm';
 import { action as newsletterAction } from './pages/Newsletter';
 
@@ -27,8 +31,16 @@ const router = createBrowserRouter([
         path: '/',
         element: <RootLayout />,
         errorElement: <ErrorPage />,
+        id: 'root',
+        // this will be called on every navigation action
+        loader: tokenLoader,
         children: [
             { index: true, element: <HomePage /> },
+            {
+                path: 'auth',
+                element: <AuthenticationPage />,
+                action: authAction,
+            },
             {
                 path: 'events',
                 element: <EventsRootLayout />,
@@ -52,6 +64,7 @@ const router = createBrowserRouter([
                                 path: 'edit',
                                 element: <EditEventPage />,
                                 action: manipulateEventAction,
+                                loader: checkAuthLoader,
                             },
                         ],
                     },
@@ -59,6 +72,7 @@ const router = createBrowserRouter([
                         path: 'new',
                         element: <NewEventPage />,
                         action: manipulateEventAction,
+                        loader: checkAuthLoader,
                     },
                 ],
             },
@@ -66,6 +80,10 @@ const router = createBrowserRouter([
                 path: 'newsletter',
                 element: <NewsletterPage />,
                 action: newsletterAction,
+            },
+            {
+                path: 'logout',
+                action: logoutAction,
             },
         ],
     },

@@ -7,8 +7,8 @@ let DBdata = {
     users: [
         {
             id: 'u1',
-            email: 'user@test.com',
-            password: '$2b$12$3',
+            email: 'test@test.com',
+            password: '123123',
         },
     ],
 };
