@@ -5,9 +5,6 @@
 
 import type { Config } from 'jest';
 
-const baseDir = `<rootDir>/src/tools`;
-const baseTestDir = `<rootDir>/tests/tools`;
-
 const config: Config = {
     // All imported modules in your tests should be mocked automatically
     // automock: false,
@@ -20,25 +17,12 @@ const config: Config = {
 
     // Automatically clear mock calls, instances, contexts and results before every test
     clearMocks: true,
-    collectCoverage: true, // Indicates whether the coverage information should be collected while executing the test
-    collectCoverageFrom: [
-        // An array of glob patterns indicating a set of files for which coverage information should be collected
-        `${baseDir}/**/*.ts`,
-    ],
-    roots: [
-        // A list of paths to directories that Jest should use to search for files in
-        '<rootDir>/tests',
-    ],
 
-    // The glob patterns Jest uses to detect test files
-    testMatch: [
-        `${baseTestDir}/**/*.ts`,
-        //   "**/__tests__/**/*.[jt]s?(x)",
-        //   "**/?(*.)+(spec|test).[tj]s?(x)"
-    ],
+    // Indicates whether the coverage information should be collected while executing the test
+    collectCoverage: true,
 
-    // The regexp pattern or array of patterns that Jest uses to detect test files
-    // testRegex: '(/.*\\.test)\\.ts$',
+    // An array of glob patterns indicating a set of files for which coverage information should be collected
+    collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
 
     // The directory where Jest should output its coverage files
     coverageDirectory: 'coverage',
@@ -141,6 +125,9 @@ const config: Config = {
     // The root directory that Jest should scan for tests and modules within
     // rootDir: undefined,
 
+    // A list of paths to directories that Jest should use to search for files in
+    roots: ['<rootDir>/tests'],
+
     // Allows you to use a custom runner instead of Jest's default test runner
     // runner: "jest-runner",
 
@@ -165,10 +152,19 @@ const config: Config = {
     // Adds a location field to test results
     // testLocationInResults: false,
 
+    // The glob patterns Jest uses to detect test files
+    // testMatch: [
+    //   "**/__tests__/**/*.[jt]s?(x)",
+    //   "**/?(*.)+(spec|test).[tj]s?(x)"
+    // ],
+
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
     // testPathIgnorePatterns: [
     //   "/node_modules/"
     // ],
+
+    // The regexp pattern or array of patterns that Jest uses to detect test files
+    testRegex: '(/.*\\.test)\\.ts$',
 
     // This option allows the use of a custom results processor
     // testResultsProcessor: undefined,
