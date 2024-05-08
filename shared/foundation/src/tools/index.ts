@@ -1,3 +1,3 @@
 import randomWord from './_randomWord';
-
-export { randomWord };
+import PasswordChecker, { IPasswordChecker } from './_PasswordChecker';
+export { randomWord, PasswordChecker, IPasswordChecker };
