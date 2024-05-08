@@ -4,6 +4,8 @@
     "author": "paulAlexSerban <paul.alex.serban@gmail.com>",
     "license": "MIT",
     "scripts": {
+        "/////////": "TEST",
+        "test": "lerna run test --parallel",
         "////////": "RUN IMAGE",
         "run:image:devcamper": "bash ./tools/run-scripts/devcamper-docker.bash run",
         "run:image:emaily-user-feedback": "bash ./tools/run-scripts/emaily-user-feedback-docker.bash run",
