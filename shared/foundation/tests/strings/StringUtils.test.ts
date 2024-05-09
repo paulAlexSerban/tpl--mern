@@ -1,4 +1,4 @@
-import StringUtils from '../../src/strings/Utils';
+import { StringUtils, OtherStringUtils } from '../../src/strings/Utils';
 
 describe('StringUtils test suite', () => {
     let SUT: StringUtils;
@@ -64,5 +64,47 @@ describe('StringUtils test suite', () => {
             expect(error).toHaveProperty('message', 'Invalid argument! str is required.');
             done();
         }
+    });
+});
+
+describe('OtherStringUtils test suite', () => {
+    describe('test with spies', () => {
+        let SUT: OtherStringUtils;
+        let toUpperCaseSpy: jest.SpyInstance;
+        let consoleSpy: jest.SpyInstance;
+        let externalServiceSpy: jest.SpyInstance;
+
+        beforeEach(() => {
+            SUT = new OtherStringUtils();
+        });
+
+        test('should call toUpperCase', () => {
+            const str = 'hello';
+            toUpperCaseSpy = jest.spyOn(SUT, 'toUpperCase');
+            SUT.toUpperCase(str);
+            expect(toUpperCaseSpy).toHaveBeenCalledWith(str);
+        });
+
+        test('should call console.log', () => {
+            const str = 'hello';
+            // example of spying on external module
+            consoleSpy = jest.spyOn(console, 'log');
+            SUT.logString(str);
+            expect(consoleSpy).toHaveBeenCalledWith(str);
+        });
+
+        // use SPY to replace implementation method
+        test('should call external service', () => {
+            /**
+             * THIS IS A BAD PRACTICE
+             * This example is just to show how to spy on private method
+             */
+            // SUT as any - hack to access private method and spy on it
+            externalServiceSpy = jest.spyOn(SUT as any, 'callExternalService').mockImplementation(() => {
+                console.log('Calling mocked external service...');
+            });
+            (SUT as any).callExternalService();
+            expect(externalServiceSpy).toHaveBeenCalled();
+        });
     });
 });

@@ -12,7 +12,7 @@ export type StingInfo = {
  * @returns {StingInfo}
  */
 
-const getStringInfo = (str: string): StingInfo => {
+export const getStringInfo = (str: string): StingInfo => {
     const lowerCase = str.toLowerCase();
     const upperCase = str.toUpperCase();
     const characters = Array.from(str);
@@ -31,5 +31,3 @@ const getStringInfo = (str: string): StingInfo => {
 export const calculateComplexity = (stringInfo: StingInfo): number => {
     return Object.keys(stringInfo.extraInfo).length + stringInfo.length;
 };
-
-export default getStringInfo;

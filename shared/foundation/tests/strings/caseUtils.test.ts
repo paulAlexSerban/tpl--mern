@@ -1,4 +1,3 @@
-import { action } from './../../../../frontend/apps/events-showcase-app/src/pages/Newsletter';
 import { toUpperCase, toUpperCaseWithCallback } from '../../src/strings';
 
 describe('toUpperString for str hello should', () => {
