@@ -1,3 +1,3 @@
-import toUpperCase from './_toUpperCase';
-import getStringInfo from './_getStringInfo';
-export { toUpperCase, getStringInfo };
+import toUpperCase, { toUpperCaseWithCallback } from './_toUpperCase';
+import getStringInfo, { calculateComplexity } from './_getStringInfo';
+export { toUpperCase, toUpperCaseWithCallback, getStringInfo, calculateComplexity };

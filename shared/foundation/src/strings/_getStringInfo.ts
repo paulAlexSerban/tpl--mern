@@ -28,4 +28,8 @@ const getStringInfo = (str: string): StingInfo => {
     };
 };
 
+export const calculateComplexity = (stringInfo: StingInfo): number => {
+    return Object.keys(stringInfo.extraInfo).length + stringInfo.length;
+};
+
 export default getStringInfo;

@@ -1,4 +1,4 @@
-import { getStringInfo } from '../../src/strings';
+import { getStringInfo, calculateComplexity } from '../../src/strings';
 
 describe('getStringInfo for str hello should', () => {
     it('return info about a string', () => {
@@ -34,57 +34,54 @@ describe('getStringInfo for str My-String should', () => {
     const str = 'My-String';
 
     it('return right length', () => {
-        // Arrange
         const expected = 9;
-
-        // Act
         const actual = SUT(str).length;
-
-        // Assert
         expect(actual).toBe(expected);
     });
 
     it('return right lower case', () => {
-        // Arrange
         const expected = 'my-string';
-
-        // Act
         const actual = SUT(str).lowerCase;
-
-        // Assert
         expect(actual).toBe(expected);
     });
 
     test('return right upper case', () => {
-        // Arrange
         const expected = 'MY-STRING';
-
-        // Act
         const actual = SUT(str).upperCase;
-
-        // Assert
         expect(actual).toBe(expected);
     });
 
     it('return right characters', () => {
-        // Arrange
         const expected = ['M', 'y', '-', 'S', 't', 'r', 'i', 'n', 'g'];
-
-        // Act
         const actual = SUT(str).characters;
-
-        // Assert
         expect(actual).toEqual(expected);
     });
 
     it('return right extraInfo', () => {
-        // Arrange
         const expected = {};
-
-        // Act
         const actual = SUT(str).extraInfo;
-
-        // Assert
         expect(actual).toEqual(expected);
+    });
+});
+
+describe('calculateComplexity test suite', () => {
+    it('calculates complexity of a string', () => {
+        /**
+         * Stub object to test the function
+         * Stub - incomplete / minimal implementation of an object
+         * Note - if TypeScript complains about the type, you can use any - it is a common practice in testing
+         */
+        const someInfo = {
+            length: 5,
+            extraInfo: {
+                field1: 'someInfo',
+                field2: 'someOtherInfo',
+            },
+        };
+
+        // someInfo is just a stub object to test the function, it does not have to be a StingInfo object
+        const actual = calculateComplexity(someInfo as any);
+        const expected = 7; // 5 + 2
+        expect(actual).toBe(expected);
     });
 });
