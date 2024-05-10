@@ -26,7 +26,9 @@ const Input = styled.input<InputProps>`
     color: ${({ $invalid }) => ($invalid ? '#EF4444' : '#374151')};
     border: 1px solid transparent;
     border-radius: 0.25rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow:
+        0 1px 3px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px 0 rgba(0, 0, 0, 0.06);
 `;
 
 type CustomInputProps = {
