@@ -11,6 +11,8 @@ router.get('/products', shopController.getProducts);
 router.get('/products/:pid');
 // GET /:root/cart
 router.get('/cart', shopController.getCart);
+// GET /:root/orders
+router.get('/orders', shopController.getOrders);
 // POST /:root/checkout
 router.get('/checkout', shopController.getCheckout);
 

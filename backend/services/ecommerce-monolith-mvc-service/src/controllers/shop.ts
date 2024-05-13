@@ -34,3 +34,10 @@ export const getCheckout = (req: Request, res: Response, next: NextFunction) => 
         pageTitle: 'Checkout',
     });
 };
+
+export const getOrders = (req: Request, res: Response, next: NextFunction) => {
+    res.render('shop/orders', {
+        path: '/orders',
+        pageTitle: 'Your Orders',
+    });
+};
