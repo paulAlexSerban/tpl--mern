@@ -74,7 +74,9 @@
         "formats:check": "yarn prettier --check .",
         "formats:write": "yarn prettier --write .",
         "/": "INSTALL",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "//////////": "GENERATE // $1 = NAME_SLUG $2 = NAME_FORMATTED",
+        "generate:simple-fe-app": "bash ./tools/generate-scripts/scripts/generate-simple-fe-app.bash"
     },
     "devDependencies": {
         "@commitlint/cli": "^18.6.0",
