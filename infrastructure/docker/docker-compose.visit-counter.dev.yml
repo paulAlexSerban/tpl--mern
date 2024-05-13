@@ -32,6 +32,9 @@ services:
             dockerfile: dev.Dockerfile
         image: paulserbandev/visit-counter-api
         container_name: container-visit-counter-api
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         restart: always
         volumes:
             - ../../backend/api/visit-counter-api:/usr/src/app/
@@ -50,6 +53,9 @@ services:
     redis-cache-middleware:
         image: redis:latest
         container_name: container-visit-counter-redis
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         restart: always
         ports:
             - '6379:6379'

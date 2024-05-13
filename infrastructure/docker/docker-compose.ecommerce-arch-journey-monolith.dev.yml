@@ -30,6 +30,9 @@ services:
             dockerfile: dev.Dockerfile
         image: paulserbandev/ecommerce-arch-journey-monolith-service
         container_name: container-ecommerce-arch-journey-monolith-service
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         restart: always
         volumes:
             - ../../backend/services/ecommerce-arch-journey-monolith-service:/usr/src/app/

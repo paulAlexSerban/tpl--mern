@@ -27,6 +27,9 @@ services:
             context: ../../backend/api/to-do-api
             dockerfile: dev.Dockerfile
         container_name: node-api
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         ports:
             - '3000:3000'
         restart: always
@@ -44,6 +47,9 @@ services:
     database:
         image: mongo
         container_name: mongo-db
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         ports:
             - '27017:27017'
         env_file:

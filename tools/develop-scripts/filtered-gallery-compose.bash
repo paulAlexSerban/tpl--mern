@@ -2,6 +2,9 @@
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
+export HOST_USER_ID=$(id -u)
+export HOST_GROUP_ID=$(id -g)
+
 function up() {
     echo "[ 🟢 🐳 compose up ]"
     docker compose --env-file ../../infrastructure/env/filtered-gallery.compose.env \

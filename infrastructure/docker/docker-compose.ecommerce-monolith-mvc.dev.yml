@@ -29,6 +29,9 @@ services:
             context: ../../backend/services/ecommerce-monolith-mvc-service
             dockerfile: dev.Dockerfile
         image: paulserbandev/ecommerce-monolith-mvc-service
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         container_name: container-ecommerce-monolith-mvc-service
         restart: always
         volumes:

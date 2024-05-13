@@ -30,6 +30,9 @@ services:
         build:
             context: ../../frontend/apps/reviews-app
             dockerfile: dev.Dockerfile
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         volumes:
             - ../../frontend/apps/reviews-app:/usr/src/app # Mount the app directory to the container
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume

@@ -23,6 +23,9 @@ services:
     # ---------------------------------------------------------------------
     nodejs-api:
         container_name: nodejs-api-container
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         build:
             context: ../../backend/api/simple-shop-api
             dockerfile: dev.Dockerfile

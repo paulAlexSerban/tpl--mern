@@ -46,6 +46,9 @@ services:
             dockerfile: prod.Dockerfile
         image: paulserbandev/spot-share-api
         container_name: container-spot-share-api
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         restart: always
         env_file:
             - ../../infrastructure/env/spot-share.compose.env
@@ -64,6 +67,9 @@ services:
         container_name: mongo-primary-container
         hostname: mongo-primary-hostname
         image: mongo:6
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         volumes:
             - ../../database/.tmp-data/spot-share-data1:/data/db
         networks:
@@ -83,6 +89,9 @@ services:
         container_name: mongo-replica-container-1
         hostname: mongo-replica-hostname-1
         image: mongo:6
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         volumes:
             - ../../database/.tmp-data/spot-share-data2:/data/db
         networks:
@@ -96,6 +105,9 @@ services:
         container_name: mongo-replica-container-2
         hostname: mongo-replica-hostname-2
         image: mongo:6
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         volumes:
             - ../../database/.tmp-data/spot-share-data3:/data/db
         networks:
@@ -107,6 +119,9 @@ services:
 
     mongosetup:
         image: mongo:6
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         depends_on:
             - mongo-primary-service
             - mongo-replica-service-1

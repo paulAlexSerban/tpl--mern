@@ -45,6 +45,9 @@ services:
         image: paulserbandev/events-showcase-api
         container_name: container-events-showcase-api
         restart: always
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         env_file:
             - ../../infrastructure/env/events-showcase.compose.env
             - ../../.env

@@ -45,6 +45,9 @@ services:
             dockerfile: dev.Dockerfile
         image: paulserbandev/spot-share-api
         container_name: container-spot-share-api
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         restart: always
         env_file:
             - ../../infrastructure/env/spot-share.compose.env
@@ -62,6 +65,9 @@ services:
         container_name: mongo-primary-container
         hostname: mongo-primary-hostname
         image: mongo:6
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         volumes:
             - ../../database/.tmp-data/spot-share-data1:/data/db
         networks:
@@ -80,6 +86,9 @@ services:
     mongo-replica-service-1:
         container_name: mongo-replica-container-1
         hostname: mongo-replica-hostname-1
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         image: mongo:6
         volumes:
             - ../../database/.tmp-data/spot-share-data2:/data/db
@@ -93,6 +102,9 @@ services:
     mongo-replica-service-2:
         container_name: mongo-replica-container-2
         hostname: mongo-replica-hostname-2
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         image: mongo:6
         volumes:
             - ../../database/.tmp-data/spot-share-data3:/data/db

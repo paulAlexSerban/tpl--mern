@@ -27,6 +27,9 @@ services:
         build:
             context: ../../frontend/apps/shopping-cart-redux
             dockerfile: dev.Dockerfile
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         volumes:
             - ../../frontend/apps/shopping-cart-redux:/usr/src/app # Mount the app directory to the container
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
@@ -43,6 +46,9 @@ services:
         image: paulserbandev/shopping-cart-redux-api
         container_name: container-shopping-cart-redux-api
         restart: always
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         env_file:
             - ../../infrastructure/env/shopping-cart-redux.compose.env
             - ../../.env
@@ -59,6 +65,9 @@ services:
     mongo-database-service:
         image: mongo:latest
         container_name: mongo-database-container
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         env_file:
             - ../../infrastructure/env/shopping-cart-redux.compose.env
             - ../../.env
