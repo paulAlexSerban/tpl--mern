@@ -1,23 +1,18 @@
-import { products } from './../../../ecommerce-arch-journey-monolith-service/src/data';
 import { Request, Response, NextFunction } from 'express';
-
-import Product from '../models/product';
+import Product, { IProductImage } from '../models/product';
 
 export const getProducts = (req: Request, res: Response, next: NextFunction) => {
     Product.fetchAll((products) => {
-        res.render('shop', {
+        res.render('admin/products', {
             prods: products,
-            pageTitle: 'Shop',
-            path: '/',
-            hasProducts: products.length > 0,
-            activeShop: true,
-            productCss: true,
+            pageTitle: 'Admin Products',
+            path: '/admin/products',
         });
     });
 };
 
 export const getAddProduct = (req: Request, res: Response, next: NextFunction) => {
-    res.render('add-product', {
+    res.render('admin/add-product', {
         pageTitle: 'Add Product',
         path: '/admin/add-product',
         formsCss: true,
@@ -27,8 +22,9 @@ export const getAddProduct = (req: Request, res: Response, next: NextFunction) =
 };
 
 export const postAddProduct = (req: Request, res: Response, next: NextFunction) => {
-    const { title, price, description } = req.body;
-    const product = new Product(title, price, description);
+    const { title, price, description, imageSrc, imageAlt } = req.body;
+    const img: IProductImage = { src: imageSrc, alt: imageAlt };
+    const product = new Product(title, price, description, img);
     product.save();
     res.redirect('/');
 };
