@@ -2,7 +2,5 @@
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
-NAME_SLUG='test'
-
 # copy content of template folder to ../../../backend/middleware/$NAME_SLUG-proxy folder
 cp -r ../_templates/backend_middleware_simple-proxy ../../../backend/middleware/$NAME_SLUG-proxy

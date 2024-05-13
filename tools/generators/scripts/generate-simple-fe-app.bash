@@ -7,3 +7,4 @@ export NAME_FORMATTED='Test App'
 
 bash ./_frontend_apps_vite-react-ts-app.bash
 bash ./_backend_middleware_simple-proxy.bash
+bash ./_infrastructure_docker-simple-fe-setup.bash

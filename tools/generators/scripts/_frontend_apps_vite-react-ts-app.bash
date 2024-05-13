@@ -2,9 +2,6 @@
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
-NAME_SLUG='test'
-NAME_FORMATTED='Test App'
-
 # copy content of template folder to ../../../frontend/apps/$NAME_SLUG folder
 mkdir -p ../../../frontend/apps/${NAME_SLUG}-app
 cp -rfv ../_templates/frontend_apps_vite-react-ts-app/* ../../../frontend/apps/$NAME_SLUG-app/
