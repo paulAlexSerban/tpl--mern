@@ -30,7 +30,7 @@ services:
             context: ../../frontend/apps/{{infrastructure_docker-simple-slug}}-app
             dockerfile: dev.Dockerfile
         volumes:
-            - ../../frontend/apps/{{infrastructure_docker-simple-slug}}-app:/usr/src/app # Mount the app directory to the container
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - ../../frontend/apps/{{infrastructure_docker-simple-slug}}-app:/usr/src/app # Mount the app directory to the container
         networks:
             - {{infrastructure_docker-simple-slug}}-network
