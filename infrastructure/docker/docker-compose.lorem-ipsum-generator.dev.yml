@@ -1,0 +1,36 @@
+---
+version: '3.7'
+networks:
+    lorem-ipsum-generator-network:
+        driver: bridge
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        build:
+            context: ../../backend/middleware/lorem-ipsum-generator-proxy
+            dockerfile: dev.Dockerfile
+        container_name: container-lorem-ipsum-generator-proxy
+        image: paulserbandev/lorem-ipsum-generator-proxy
+        restart: unless-stopped
+        ports:
+            - '3000:80'
+        volumes:
+            - ../../backend/middleware/lorem-ipsum-generator-proxy/default.conf:/etc/nginx/conf.d/default.conf
+        networks:
+            - lorem-ipsum-generator-network
+
+    # ---------------------------------------------------------------------
+    # UI React SPA
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa-container
+        build:
+            context: ../../frontend/apps/lorem-ipsum-generator-app
+            dockerfile: dev.Dockerfile
+        volumes:
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - ../../frontend/apps/lorem-ipsum-generator-app:/usr/src/app # Mount the app directory to the container
+        networks:
+            - lorem-ipsum-generator-network
