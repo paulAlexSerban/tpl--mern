@@ -30,7 +30,7 @@ services:
             context: ../../frontend/apps/slider-w-buttons-app
             dockerfile: dev.Dockerfile
         volumes:
-            - ../../frontend/apps/slider-w-buttons-app:/usr/src/app # Mount the app directory to the container
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - ../../frontend/apps/slider-w-buttons-app:/usr/src/app # Mount the app directory to the container
         networks:
             - slider-w-buttons-network
