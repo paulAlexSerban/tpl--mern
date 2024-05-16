@@ -7,7 +7,7 @@ cd "$(dirname "$0")" || exit
 cp -r ../_templates/tools_develop-scripts/* ../../../tools/develop-scripts/
 
 # search and replace {{tools_develop-scripts-slug}} with the name of the frontend app
-find ../../../tools/develop-scripts -type f -exec sed -i '' -e "s/{{tools_develop-scripts-slug}}/${NAME_SLUG}/g" {} \;
+find ../../../tools/develop-scripts -type f -exec sed -i '' -e "s/{{tools_develop-scripts-slug}}/${PROJECT_NAME_SLUG}/g" {} \;
 
-# find files ending with .template and rename it to ${NAME_SLUG}-compose.bash
-find ../../../tools/develop-scripts -type f -name "*.template" -exec bash -c 'mv "$1" "../../../tools/develop-scripts/${NAME_SLUG}-compose.bash"' - '{}' \;
+# find files ending with .template and rename it to ${PROJECT_NAME_SLUG}-compose.bash
+find ../../../tools/develop-scripts -type f -name "*.template" -exec bash -c 'mv "$1" "../../../tools/develop-scripts/${PROJECT_NAME_SLUG}-compose.bash"' - '{}' \;
