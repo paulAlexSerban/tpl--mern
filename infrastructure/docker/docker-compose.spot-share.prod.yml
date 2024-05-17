@@ -8,14 +8,14 @@ services:
     nginx-proxy:
         build:
             context: ../../backend/middleware/spot-share-proxy
-            dockerfile: dev.Dockerfile
+            dockerfile: prod.Dockerfile
         container_name: container-spot-share-proxy
         image: paulserbandev/spot-share-proxy
         restart: unless-stopped
         ports:
             - '3000:80'
         volumes:
-            - ../../backend/middleware/spot-share-proxy/default.conf:/etc/nginx/conf.d/default.conf
+            - ../../backend/middleware/spot-share-proxy/default.prod.conf:/etc/nginx/conf.d/default.conf
             - ../../backend/middleware/spot-share-proxy/logs:/var/log/nginx
         depends_on:
             - ui-react-spa

@@ -40,7 +40,7 @@ function up-prod() {
 }
 
 function help() {
-    echo "Usage: $0 {up|down|logs}"
+    echo "Usage: $0 {up|down|up-prod|logs}"
 }
 
 $1
