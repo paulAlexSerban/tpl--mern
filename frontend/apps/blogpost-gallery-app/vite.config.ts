@@ -2,8 +2,8 @@ import { defineConfig, Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
 import path from 'path';
+import packageJson from './package.json';
 
-const packageJson = require('./package.json');
 const PROJECT_NAME = packageJson.name.split('/').pop();
 const BASE_URL = process.env.BASE_URL || '/';
 
@@ -40,9 +40,9 @@ export default defineConfig(({ command }) => {
         base: '/',
     };
 
-    if (command !== 'serve') {
-        config.base = `${BASE_URL}apps/${PROJECT_NAME}`;
-    }
+    // if (command !== 'serve') {
+    //     config.base = `${BASE_URL}apps/${PROJECT_NAME}`;
+    // }
 
     return config;
 });

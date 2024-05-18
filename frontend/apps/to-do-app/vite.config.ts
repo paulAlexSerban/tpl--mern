@@ -22,9 +22,9 @@ export default defineConfig(({ command }) => {
         },
     };
 
-    if (command !== 'serve') {
-        config.base = `${BASE_URL}apps/${PROJECT_NAME}`;
-    }
+    // if (command !== 'serve') {
+    //     config.base = `${BASE_URL}apps/${PROJECT_NAME}`;
+    // }
 
     return config;
 });

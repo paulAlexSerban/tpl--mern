@@ -69,9 +69,9 @@ export default defineConfig(({ command }) => {
         base: '/',
     };
 
-    if (command !== 'serve') {
-        config.base = `${BASE_URL}apps/${PROJECT_NAME}`;
-    }
+    // if (command !== 'serve') {
+    //     config.base = `${BASE_URL}apps/${PROJECT_NAME}`;
+    // }
 
     return config;
 });

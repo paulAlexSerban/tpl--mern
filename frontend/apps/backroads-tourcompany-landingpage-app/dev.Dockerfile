@@ -20,4 +20,4 @@ RUN echo "TEST ONE PAUL"
 
 # Command to run when the container is ready
 # Separate arguments as separate values in the array
-CMD [ "yarn", "run", "develop:backroads-tourcompany-landingpage-app"]
+CMD [ "yarn", "run", "develop"]
