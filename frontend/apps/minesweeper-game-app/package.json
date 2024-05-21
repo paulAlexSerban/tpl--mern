@@ -1,12 +1,14 @@
 {
-    "name": "@wbk--mern-playground/minesweeper-game",
+    "name": "@wbk--mern-playground/minesweeper-game-app",
     "formattedName": "Minesweeper Game",
     "description": "A Minesweeper game built with ReactJS and TypeScript.",
     "private": true,
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "develop": "vite",
+        "develop": "concurrently \"yarn compile:watch\" \"vite --host\"",
+        "compile": "yarn tsc --noEmit",
+        "compile:watch": "yarn tsc --noEmit --watch",
         "build:dev": "export NODE_ENV=development && tsc && vite build",
         "build:prod": "export NODE_ENV=production && tsc && vite build",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -14,24 +16,23 @@
         "package": "bash scripts/package.bash",
         "test": "jest"
     },
-    "dependencies": {
+    "devDependencies": {
         "@babel/preset-env": "^7.23.9",
         "@babel/preset-typescript": "^7.23.3",
         "@types/jest": "^29.5.12",
-        "jest": "^29.7.0",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
-    },
-    "devDependencies": {
         "@types/react": "^18.2.27",
         "@types/react-dom": "^18.2.12",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
         "@typescript-eslint/parser": "^6.0.0",
         "@vitejs/plugin-react": "^4.0.3",
+        "concurrently": "^8.2.2",
         "eslint": "^8.45.0",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.3",
+        "jest": "^29.7.0",
         "sass": "^1.69.5",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "typescript": "^5.2.2",
         "vite": "^4.4.5"
     }

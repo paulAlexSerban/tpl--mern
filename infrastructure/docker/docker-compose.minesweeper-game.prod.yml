@@ -1,0 +1,40 @@
+---
+version: '3.7'
+networks:
+    minesweeper-game-network:
+        driver: bridge
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        build:
+            context: ../../backend/middleware/minesweeper-game-proxy
+            dockerfile: prod.Dockerfile
+        container_name: container-minesweeper-game-proxy
+        image: paulserbandev/minesweeper-game-proxy
+        restart: unless-stopped
+        ports:
+            - '3000:80'
+        volumes:
+            - ../../backend/middleware/minesweeper-game-proxy/default.prod.conf:/etc/nginx/conf.d/default.conf
+            - ../../backend/middleware/minesweeper-game-proxy/logs:/var/log/nginx
+        depends_on:
+            - ui-react-spa
+        networks:
+            - minesweeper-game-network
+
+    # ---------------------------------------------------------------------
+    # UI React SPA
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa-container
+        image: paulserbandev/minesweeper-game-app
+        volumes:
+            - /usr/src/app/dist
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - ../../frontend/apps/minesweeper-game-app:/usr/src/app # Mount the app directory to the container
+        env_file:
+            - ../../infrastructure/env/minesweeper-game.compose.env
+        networks:
+            - minesweeper-game-network
