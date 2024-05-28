@@ -32,10 +32,6 @@ function logs() {
 
 function up-prod() {
     echo "[ 🟢 🐳 compose up production build ]"
-    # ../../backend/middleware/dummy-blog-proxy/logs
-    touch ../../backend/middleware/dummy-blog-proxy/logs/access.log
-    touch ../../backend/middleware/dummy-blog-proxy/logs/error.log
-    touch ../../backend/middleware/dummy-blog-proxy/logs/host.access.log
     docker compose --env-file ../../infrastructure/env/dummy-blog.compose.env \
     --file ../../infrastructure/docker/docker-compose.dummy-blog.prod.yml \
     up --detach --build --wait

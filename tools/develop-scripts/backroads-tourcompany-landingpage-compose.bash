@@ -30,6 +30,24 @@ function logs() {
     logs --follow
 }
 
+function up-prod() {
+    echo "[ 🟢 🐳 compose up production build ]"
+    docker compose --env-file ../../infrastructure/env/backroads-tourcompany-landingpage.compose.env \
+    --file ../../infrastructure/docker/docker-compose.backroads-tourcompany-landingpage.prod.yml \
+    up --detach --build --wait
+    docker compose --env-file ../../infrastructure/env/backroads-tourcompany-landingpage.compose.env \
+    ps
+}
+
+function down-prod() {
+    echo "[ 🛑 🐳 compose down production build ]"
+    docker compose --env-file ../../infrastructure/env/backroads-tourcompany-landingpage.compose.env \
+    --file ../../infrastructure/docker/docker-compose.backroads-tourcompany-landingpage.prod.yml \
+    down --volumes --rmi all
+    docker compose --env-file ../../infrastructure/env/backroads-tourcompany-landingpage.compose.env \
+    ps
+}
+
 function help() {
     echo "Usage: $0 {up|down|logs}"
 }
