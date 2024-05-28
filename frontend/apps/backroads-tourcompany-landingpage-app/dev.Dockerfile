@@ -16,8 +16,6 @@ RUN yarn install
 # Bundle app source
 COPY . /usr/src/app/
 
-RUN echo "TEST ONE PAUL"
-
 # Command to run when the container is ready
 # Separate arguments as separate values in the array
 CMD [ "yarn", "run", "develop"]
