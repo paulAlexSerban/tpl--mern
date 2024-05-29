@@ -21,7 +21,6 @@ export PROJECT_NAME_SLUG=$PROJECT_NAME
 export PROJECT_NAME_FORMATTED=$1
 
 bash ./_frontend_apps_vite-react-ts-app.bash
-bash ./_backend_middleware_simple-proxy.bash
 bash ./_infrastructure_docker-simple-fe-setup.bash
 bash ./_infrastructure_env-simple-env.bash
 bash ./_tools_develop-scripts.bash
