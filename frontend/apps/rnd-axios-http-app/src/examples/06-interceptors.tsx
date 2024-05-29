@@ -1,10 +1,19 @@
 import { useEffect } from 'react';
+import authFetch from '../axios/interceptors';
+const URL = 'https://www.course-api.com/react-store-products';
 
-const url = 'https://www.course-api.com/react-store-products';
+/**
+ * Interceptors are functions that are called for every request and response before they are handled by then or catch.
+ */
 
 const Interceptors = () => {
     const fetchData = async () => {
-        console.log('axios interceptors');
+        try {
+            const response = await authFetch.get(URL);
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     useEffect(() => {
