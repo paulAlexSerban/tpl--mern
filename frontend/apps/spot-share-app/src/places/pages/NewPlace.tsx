@@ -11,7 +11,7 @@ import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import ImageUpload from '../../shared/components/FormElements/ImageUpload';
 import { useNavigate } from 'react-router-dom';
 
-const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
 
 const NewPlace: FC = () => {
     const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import { json } from 'react-router-dom';
 import { Event } from '../types';
 
-const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
 
 export const loadEvents = async () => {
     const response = await fetch(`${BACKEND_URL}/events`); // Ensure the endpoint is correct

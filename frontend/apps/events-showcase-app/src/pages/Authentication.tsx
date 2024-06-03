@@ -6,7 +6,7 @@ const AuthenticationPage = () => {
 
 export default AuthenticationPage;
 
-const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
 
 export const action: ActionFunction = async ({ request }) => {
     const searchParams = new URL(request.url).searchParams;

@@ -9,8 +9,9 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 
-const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
-const ASSET_URL = import.meta.env.VITE_APP_ASSET_URL as string;
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
+const ASSET_URL = import.meta.env.VITE_APP_ASSET_URL;
+
 export type PlaceItemProps = {
     id: string;
     imageUrl: string;

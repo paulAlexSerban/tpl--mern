@@ -12,7 +12,7 @@ import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 
 import { AuthContext } from '../../shared/context/auth-context';
 
-const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
 
 type Place = {
     id: string;

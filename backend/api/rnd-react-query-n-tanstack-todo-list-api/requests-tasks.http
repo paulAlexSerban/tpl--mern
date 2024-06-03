@@ -1,0 +1,19 @@
+@host = http://localhost:3000
+
+GET {{host}}/api/tasks
+###
+POST {{host}}/api/tasks
+Content-Type: application/json
+
+{
+    "title": "Task 1"
+}
+###
+PATCH {{host}}/api/tasks/a328f44d-007a-4841-81a2-1f185c4ab439
+Content-Type: application/json
+
+{
+    "title": "Task 4"
+}
+###
+DELETE {{host}}/api/tasks/a328f44d-007a-4841-81a2-1f185c4ab439

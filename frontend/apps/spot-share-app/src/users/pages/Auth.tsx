@@ -11,7 +11,7 @@ import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import { useHttpClient } from '../../shared/hooks/http-hook';
 import './Auth.scss';
 
-const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
 
 const Auth = () => {
     const auth = useContext(AuthContext);

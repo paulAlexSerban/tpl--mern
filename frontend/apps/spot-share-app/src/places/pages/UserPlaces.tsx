@@ -6,7 +6,7 @@ import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import { PlaceItemProps } from '../components/PlaceItem';
 
-const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
 
 const UserPlaces = () => {
     const { isLoading, error, sendRequest, clearError } = useHttpClient();

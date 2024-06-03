@@ -58,7 +58,7 @@ const EventForm: FC<EventFormProps> = ({ method, event }) => {
 export default EventForm;
 
 export const action: ActionFunction = async ({ request, params }) => {
-    const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+    const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
     const data = await request.formData();
     const method = request.method;
 

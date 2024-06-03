@@ -29,11 +29,23 @@ services:
         build:
             context: ../../frontend/apps/rnd-react-query-n-tanstack-todo-list-app
             dockerfile: dev.Dockerfile
+        env_file:
+            - ../../infrastructure/env/rnd-react-query-n-tanstack-todo-list.compose.env
         volumes:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
             - ../../frontend/apps/rnd-react-query-n-tanstack-todo-list-app:/usr/src/app # Mount the app directory to the container
         networks:
             - rnd-react-query-n-tanstack-todo-list-network
+        develop:
+            watch:
+                - action: sync
+                  path: ../../frontend/apps/rnd-react-query-n-tanstack-todo-list-app
+                  target: /*
+                  ignore:
+                      - ../../frontend/apps/rnd-react-query-n-tanstack-todo-list-app/node_modules
+                - action: rebuild
+                  path: ../../frontend/apps/rnd-react-query-n-tanstack-todo-list-app/package.json
+                  target: /*
 
     # ---------------------------------------------------------------------
     # | ExpressJS API                                                     |
@@ -52,7 +64,17 @@ services:
             - ../../infrastructure/env/rnd-react-query-n-tanstack-todo-list.compose.env
             - ../../.env
         volumes:
-            - ../../backend/api/rnd-react-query-n-tanstack-todo-list-api:/usr/src/app/
             - /usr/src/app/node_modules
+            - ../../backend/api/rnd-react-query-n-tanstack-todo-list-api:/usr/src/app/
         networks:
             - rnd-react-query-n-tanstack-todo-list-network
+        develop:
+            watch:
+                - action: sync
+                  path: ../../backend/api/rnd-react-query-n-tanstack-todo-list-api
+                  target: /*
+                  ignore:
+                      - ../../backend/api/rnd-react-query-n-tanstack-todo-list-api/node_modules
+                - action: rebuild
+                  path: ../../backend/api/rnd-react-query-n-tanstack-todo-list-api/package.json
+                  target: /*

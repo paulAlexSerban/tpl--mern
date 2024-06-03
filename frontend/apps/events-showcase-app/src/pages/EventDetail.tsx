@@ -33,7 +33,7 @@ const EventDetailPage = () => {
 
 export default EventDetailPage;
 
-const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL as string;
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
 
 // The loader function will fetch the event details from the backend
 export const loader: LoaderFunction = async ({ params }) => {
