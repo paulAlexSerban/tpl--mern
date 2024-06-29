@@ -26,6 +26,7 @@
         "develop:compose:emaily-user-feedback": "bash ./tools/develop-scripts/emaily-user-feedback-compose.bash",
         "develop:compose:events-showcase": "bash ./tools/develop-scripts/events-showcase-compose.bash",
         "develop:compose:filtered-gallery": "bash ./tools/develop-scripts/filtered-gallery-compose.bash",
+        "develop:compose:flowrise-site": "bash ./tools/develop-scripts/flowrise-site-compose.bash",
         "develop:compose:fortunes": "bash ./tools/develop-scripts/fortunes-compose.bash",
         "develop:compose:frequently-asked-questions": "bash ./tools/develop-scripts/frequently-asked-questions-compose.bash",
         "develop:compose:lorem-ipsum-generator": "bash ./tools/develop-scripts/lorem-ipsum-generator-compose.bash",
