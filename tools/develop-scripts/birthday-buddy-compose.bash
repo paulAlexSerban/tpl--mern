@@ -7,27 +7,29 @@ export HOST_GROUP_ID=$(id -g)
 
 function up() {
     echo "[ 🟢 🐳 compose up ]"
+    docker compose \
+        --env-file ../../infrastructure/env/birthday-buddy.compose.env \
+        --file ../../infrastructure/docker/docker-compose.birthday-buddy.dev.yml up \
+        --detach --build
     docker compose --env-file ../../infrastructure/env/birthday-buddy.compose.env \
-    --file ../../infrastructure/docker/docker-compose.birthday-buddy.dev.yml \
-    up --detach --build
-    docker compose --env-file ../../infrastructure/env/birthday-buddy.compose.env \
-    ps
+        --file ../../infrastructure/docker/docker-compose.birthday-buddy.dev.yml ps
 }
 
 function down() {
     echo "[ 🛑 🐳 compose down ]"
+    docker compose \
+        --env-file ../../infrastructure/env/birthday-buddy.compose.env \
+        --file ../../infrastructure/docker/docker-compose.birthday-buddy.dev.yml down --volumes --rmi all
     docker compose --env-file ../../infrastructure/env/birthday-buddy.compose.env \
-    --file ../../infrastructure/docker/docker-compose.birthday-buddy.dev.yml \
-    down --volumes --rmi all
-    docker compose --env-file ../../infrastructure/env/birthday-buddy.compose.env \
-    ps
+        --file ../../infrastructure/docker/docker-compose.birthday-buddy.dev.yml ps
 }
 
 function logs() {
     echo "[ 📜 🐳 compose logs ]"
-    docker compose --env-file ../../infrastructure/env/birthday-buddy.compose.env \
-    --file ../../infrastructure/docker/docker-compose.birthday-buddy.dev.yml \
-    logs --follow
+    docker compose \
+        --env-file ../../infrastructure/env/birthday-buddy.compose.env \
+        --file ../../infrastructure/docker/docker-compose.birthday-buddy.dev.yml logs \
+        --follow
 }
 
 function help() {
