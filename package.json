@@ -33,6 +33,7 @@
         "develop:compose:megamenu-strapi-clone": "bash ./tools/develop-scripts/megamenu-strapi-clone-compose.bash",
         "develop:compose:minesweeper-game": "bash ./tools/develop-scripts/minesweeper-game-compose.bash",
         "develop:compose:monsters": "bash ./tools/develop-scripts/monsters-compose.bash",
+        "develop:compose:my-nextjs-site": "bash ./tools/develop-scripts/my-nextjs-site-compose.bash",
         "develop:compose:navbar-basic": "bash ./tools/develop-scripts/navbar-basic-compose.bash",
         "develop:compose:reservations-application": "bash ./tools/develop-scripts/reservations-application-compose.bash",
         "develop:compose:reviews": "bash ./tools/develop-scripts/reviews-compose.bash",

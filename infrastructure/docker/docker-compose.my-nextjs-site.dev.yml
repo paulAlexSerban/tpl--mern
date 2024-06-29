@@ -1,0 +1,36 @@
+---
+version: '3.7'
+networks:
+    my-nextjs-site-network:
+        driver: bridge
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        build:
+            context: ../../backend/middleware/simple-fe-only-spa-proxy
+            dockerfile: dev.Dockerfile
+        container_name: container-my-nextjs-site-proxy
+        image: paulserbandev/my-nextjs-site-proxy
+        restart: unless-stopped
+        ports:
+            - '3000:80'
+        volumes:
+            - ../../backend/middleware/simple-fe-only-spa-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+        networks:
+            - my-nextjs-site-network
+
+    # ---------------------------------------------------------------------
+    # UI React SPA
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa-container
+        build:
+            context: ../../frontend/sites/my-nextjs-site
+            dockerfile: dev.Dockerfile
+        volumes:
+            - ../../frontend/sites/my-nextjs-site:/usr/src/app # Mount the app directory to the container
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+        networks:
+            - my-nextjs-site-network
