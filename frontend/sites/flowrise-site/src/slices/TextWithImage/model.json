@@ -1,82 +1,82 @@
 {
-  "id": "text_with_image",
-  "type": "SharedSlice",
-  "name": "TextWithImage",
-  "description": "TextWithImage",
-  "variations": [
-    {
-      "id": "default",
-      "name": "Image Right",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
-      "primary": {
-        "heading": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Heading",
-            "placeholder": "Text with image heading",
-            "allowTargetBlank": true,
-            "multi": "heading2"
-          }
+    "id": "text_with_image",
+    "type": "SharedSlice",
+    "name": "TextWithImage",
+    "description": "TextWithImage",
+    "variations": [
+        {
+            "id": "default",
+            "name": "Image Right",
+            "docURL": "...",
+            "version": "initial",
+            "description": "Default",
+            "imageUrl": "",
+            "primary": {
+                "heading": {
+                    "type": "StructuredText",
+                    "config": {
+                        "label": "Heading",
+                        "placeholder": "Text with image heading",
+                        "allowTargetBlank": true,
+                        "multi": "heading2"
+                    }
+                },
+                "body": {
+                    "type": "StructuredText",
+                    "config": {
+                        "label": "Body",
+                        "placeholder": "Text with image body text",
+                        "allowTargetBlank": true,
+                        "multi": "paragraph,strong,em"
+                    }
+                },
+                "image": {
+                    "type": "Image",
+                    "config": {
+                        "label": "Image",
+                        "constraint": {},
+                        "thumbnails": []
+                    }
+                }
+            },
+            "items": {}
         },
-        "body": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Body",
-            "placeholder": "Text with image body text",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em"
-          }
-        },
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
+        {
+            "id": "imageLeft",
+            "name": "Image Left",
+            "docURL": "...",
+            "version": "initial",
+            "description": "Default",
+            "imageUrl": "",
+            "primary": {
+                "heading": {
+                    "type": "StructuredText",
+                    "config": {
+                        "label": "Heading",
+                        "placeholder": "Text with image heading",
+                        "allowTargetBlank": true,
+                        "multi": "heading2"
+                    }
+                },
+                "body": {
+                    "type": "StructuredText",
+                    "config": {
+                        "label": "Body",
+                        "placeholder": "Text with image body text",
+                        "allowTargetBlank": true,
+                        "multi": "paragraph,strong,em"
+                    }
+                },
+                "image": {
+                    "type": "Image",
+                    "config": {
+                        "label": "Image",
+                        "constraint": {},
+                        "thumbnails": []
+                    }
+                }
+            },
+            "items": {}
         }
-      },
-      "items": {}
-    },
-    {
-      "id": "imageLeft",
-      "name": "Image Left",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
-      "primary": {
-        "heading": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Heading",
-            "placeholder": "Text with image heading",
-            "allowTargetBlank": true,
-            "multi": "heading2"
-          }
-        },
-        "body": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Body",
-            "placeholder": "Text with image body text",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em"
-          }
-        },
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        }
-      },
-      "items": {}
-    }
-  ]
+    ]
 }

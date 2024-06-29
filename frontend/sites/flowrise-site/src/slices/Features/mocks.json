@@ -1,201 +1,201 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Joined"
-						}
-					}
-				]
-			},
-			"feature_list": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "calendar",
-									"type": "Select"
-								}
-							],
-							[
-								"title",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "heading3",
-											"content": {
-												"text": "Strong"
-											}
-										}
-									]
-								}
-							],
-							[
-								"description",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "paragraph",
-											"content": {
-												"text": "Amet et non cupidatat ex incididunt nulla laborum anim adipisicing officia dolore non ut elit ullamco. Sunt cillum minim consectetur incididunt incididunt ad deserunt esse laboris consectetur in id veniam. Consectetur elit esse ullamco voluptate irure ea eu cillum."
-											}
-										}
-									]
-								}
-							]
-						]
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"icon",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Select",
-									"value": "bargraph"
-								}
-							],
-							[
-								"title",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "heading3",
-											"content": {
-												"text": "Bargraph",
-												"spans": []
-											},
-											"direction": "ltr"
-										}
-									]
-								}
-							],
-							[
-								"description",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "paragraph",
-											"content": {
-												"text": "Amet et non cupidatat ex incididunt nulla laborum anim adipisicing officia dolore non ut elit ullamco. Sunt cillum minim consectetur incididunt incididunt ad deserunt esse laboris consectetur in id veniam. Consectetur elit esse ullamco voluptate irure ea eu cillum.",
-												"spans": []
-											},
-											"direction": "ltr"
-										}
-									]
-								}
-							]
-						]
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"icon",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Select",
-									"value": "clover"
-								}
-							],
-							[
-								"title",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "heading3",
-											"content": {
-												"text": "Clover",
-												"spans": []
-											},
-											"direction": "ltr"
-										}
-									]
-								}
-							],
-							[
-								"description",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "paragraph",
-											"content": {
-												"text": "Amet et non cupidatat ex incididunt nulla laborum anim adipisicing officia dolore non ut elit ullamco. Sunt cillum minim consectetur incididunt incididunt ad deserunt esse laboris consectetur in id veniam. Consectetur elit esse ullamco voluptate irure ea eu cillum.",
-												"spans": []
-											},
-											"direction": "ltr"
-										}
-									]
-								}
-							]
-						]
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"icon",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Select",
-									"value": "hourglass"
-								}
-							],
-							[
-								"title",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "heading3",
-											"content": {
-												"text": "Hourglass",
-												"spans": []
-											},
-											"direction": "ltr"
-										}
-									]
-								}
-							],
-							[
-								"description",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "paragraph",
-											"content": {
-												"text": "Amet et non cupidatat ex incididunt nulla laborum anim adipisicing officia dolore non ut elit ullamco. Sunt cillum minim consectetur incididunt incididunt ad deserunt esse laboris consectetur in id veniam. Consectetur elit esse ullamco voluptate irure ea eu cillum.",
-												"spans": []
-											},
-											"direction": "ltr"
-										}
-									]
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": []
-	}
+    {
+        "__TYPE__": "SharedSliceContent",
+        "variation": "default",
+        "primary": {
+            "heading": {
+                "__TYPE__": "StructuredTextContent",
+                "value": [
+                    {
+                        "type": "heading2",
+                        "content": {
+                            "text": "Joined"
+                        }
+                    }
+                ]
+            },
+            "feature_list": {
+                "__TYPE__": "GroupContentType",
+                "value": [
+                    {
+                        "__TYPE__": "GroupItemContent",
+                        "value": [
+                            [
+                                "icon",
+                                {
+                                    "__TYPE__": "FieldContent",
+                                    "value": "calendar",
+                                    "type": "Select"
+                                }
+                            ],
+                            [
+                                "title",
+                                {
+                                    "__TYPE__": "StructuredTextContent",
+                                    "value": [
+                                        {
+                                            "type": "heading3",
+                                            "content": {
+                                                "text": "Strong"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            [
+                                "description",
+                                {
+                                    "__TYPE__": "StructuredTextContent",
+                                    "value": [
+                                        {
+                                            "type": "paragraph",
+                                            "content": {
+                                                "text": "Amet et non cupidatat ex incididunt nulla laborum anim adipisicing officia dolore non ut elit ullamco. Sunt cillum minim consectetur incididunt incididunt ad deserunt esse laboris consectetur in id veniam. Consectetur elit esse ullamco voluptate irure ea eu cillum."
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "__TYPE__": "GroupItemContent",
+                        "value": [
+                            [
+                                "icon",
+                                {
+                                    "__TYPE__": "FieldContent",
+                                    "type": "Select",
+                                    "value": "bargraph"
+                                }
+                            ],
+                            [
+                                "title",
+                                {
+                                    "__TYPE__": "StructuredTextContent",
+                                    "value": [
+                                        {
+                                            "type": "heading3",
+                                            "content": {
+                                                "text": "Bargraph",
+                                                "spans": []
+                                            },
+                                            "direction": "ltr"
+                                        }
+                                    ]
+                                }
+                            ],
+                            [
+                                "description",
+                                {
+                                    "__TYPE__": "StructuredTextContent",
+                                    "value": [
+                                        {
+                                            "type": "paragraph",
+                                            "content": {
+                                                "text": "Amet et non cupidatat ex incididunt nulla laborum anim adipisicing officia dolore non ut elit ullamco. Sunt cillum minim consectetur incididunt incididunt ad deserunt esse laboris consectetur in id veniam. Consectetur elit esse ullamco voluptate irure ea eu cillum.",
+                                                "spans": []
+                                            },
+                                            "direction": "ltr"
+                                        }
+                                    ]
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "__TYPE__": "GroupItemContent",
+                        "value": [
+                            [
+                                "icon",
+                                {
+                                    "__TYPE__": "FieldContent",
+                                    "type": "Select",
+                                    "value": "clover"
+                                }
+                            ],
+                            [
+                                "title",
+                                {
+                                    "__TYPE__": "StructuredTextContent",
+                                    "value": [
+                                        {
+                                            "type": "heading3",
+                                            "content": {
+                                                "text": "Clover",
+                                                "spans": []
+                                            },
+                                            "direction": "ltr"
+                                        }
+                                    ]
+                                }
+                            ],
+                            [
+                                "description",
+                                {
+                                    "__TYPE__": "StructuredTextContent",
+                                    "value": [
+                                        {
+                                            "type": "paragraph",
+                                            "content": {
+                                                "text": "Amet et non cupidatat ex incididunt nulla laborum anim adipisicing officia dolore non ut elit ullamco. Sunt cillum minim consectetur incididunt incididunt ad deserunt esse laboris consectetur in id veniam. Consectetur elit esse ullamco voluptate irure ea eu cillum.",
+                                                "spans": []
+                                            },
+                                            "direction": "ltr"
+                                        }
+                                    ]
+                                }
+                            ]
+                        ]
+                    },
+                    {
+                        "__TYPE__": "GroupItemContent",
+                        "value": [
+                            [
+                                "icon",
+                                {
+                                    "__TYPE__": "FieldContent",
+                                    "type": "Select",
+                                    "value": "hourglass"
+                                }
+                            ],
+                            [
+                                "title",
+                                {
+                                    "__TYPE__": "StructuredTextContent",
+                                    "value": [
+                                        {
+                                            "type": "heading3",
+                                            "content": {
+                                                "text": "Hourglass",
+                                                "spans": []
+                                            },
+                                            "direction": "ltr"
+                                        }
+                                    ]
+                                }
+                            ],
+                            [
+                                "description",
+                                {
+                                    "__TYPE__": "StructuredTextContent",
+                                    "value": [
+                                        {
+                                            "type": "paragraph",
+                                            "content": {
+                                                "text": "Amet et non cupidatat ex incididunt nulla laborum anim adipisicing officia dolore non ut elit ullamco. Sunt cillum minim consectetur incididunt incididunt ad deserunt esse laboris consectetur in id veniam. Consectetur elit esse ullamco voluptate irure ea eu cillum.",
+                                                "spans": []
+                                            },
+                                            "direction": "ltr"
+                                        }
+                                    ]
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        "items": []
+    }
 ]
