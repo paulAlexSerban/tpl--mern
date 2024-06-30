@@ -5,56 +5,59 @@ cd "$(dirname "$0")" || exit
 export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
+ENV_FILE="../../infrastructure/env/dummy-blog.compose.env"
+COMPOSE_FILE_DEV="../../infrastructure/docker/docker-compose.dummy-blog.dev.yml"
+COMPOSE_FILE_PROD="../../infrastructure/docker/docker-compose.dummy-blog.prod.yml"
+
+function list() {
+    echo "[ 📜 🐳 compose list ]"
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} ps
+}
+
 function up() {
     echo "[ 🟢 🐳 compose up ]"
     docker compose \
-        --env-file ../../infrastructure/env/dummy-blog.compose.env \
-        --file ../../infrastructure/docker/docker-compose.dummy-blog.dev.yml up \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} up \
         --detach --build
-    docker compose \
-        --env-file ../../infrastructure/env/dummy-blog.compose.env \
-        --file ../../infrastructure/docker/docker-compose.dummy-blog.dev.yml ps
+    list
 }
 
 function down() {
     echo "[ 🛑 🐳 compose down ]"
     docker compose \
-        --env-file ../../infrastructure/env/dummy-blog.compose.env \
-        --file ../../infrastructure/docker/docker-compose.dummy-blog.dev.yml down \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} down \
         --volumes --rmi all
-    docker compose \
-        --env-file ../../infrastructure/env/dummy-blog.compose.env \
-        --file ../../infrastructure/docker/docker-compose.dummy-blog.dev.yml ps
+    list
 }
 
 function logs() {
     echo "[ 📜 🐳 compose logs ]"
     docker compose \
-        --env-file ../../infrastructure/env/dummy-blog.compose.env \
-        --file ../../infrastructure/docker/docker-compose.dummy-blog.dev.yml logs \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} logs \
         --follow
 }
 
 function up-prod() {
     echo "[ 🟢 🐳 compose up production build ]"
     docker compose \
-        -env-file ../../infrastructure/env/dummy-blog.compose.env \
-        --file ../../infrastructure/docker/docker-compose.dummy-blog.prod.yml up \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_PROD} up \
         --detach --build --wait
-    docker compose \
-        --env-file ../../infrastructure/env/dummy-blog.compose.env \
-        --file ../../infrastructure/docker/docker-compose.dummy-blog.prod.yml ps
+    list
 }
 
 function down-prod() {
     echo "[ 🛑 🐳 compose down production build ]"
     docker compose \
-        --env-file ../../infrastructure/env/dummy-blog.compose.env \
-        --file ../../infrastructure/docker/docker-compose.dummy-blog.prod.yml down \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_PROD} down \
         --volumes --rmi all
-    docker compose \
-        --env-file ../../infrastructure/env/dummy-blog.compose.env \
-        --file ../../infrastructure/docker/docker-compose.dummy-blog.prod.yml ps
+    list
 }
 
 function help() {

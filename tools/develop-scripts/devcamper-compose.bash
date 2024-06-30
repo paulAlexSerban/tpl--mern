@@ -5,32 +5,39 @@ cd "$(dirname "$0")" || exit
 export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
+ENV_FILE="../../infrastructure/env/devcamper.compose.env"
+COMPOSE_FILE_DEV="../../infrastructure/docker/docker-compose.devcamper.dev.yml"
+
+function list() {
+    echo "[ 📜 🐳 compose list ]"
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} ps
+}
+
 function up() {
     echo "[ 🟢 🐳 compose up ]"
     docker compose \
-        --env-file ../../infrastructure/env/devcamper.compose.env \
-        --file ../../infrastructure/docker/docker-compose.devcamper.dev.yml up \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} up \
         --detach --build
-    docker compose \
-        --env-file ../../infrastructure/env/devcamper.compose.env \
-        --file ../../infrastructure/docker/docker-compose.devcamper.dev.yml ps
+    list
 }
 
 function down() {
     echo "[ 🛑 🐳 compose down ]"
     docker compose \
-        --env-file ../../infrastructure/env/devcamper.compose.env \
-        --file ../../infrastructure/docker/docker-compose.devcamper.dev.yml down \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} down \
         --volumes --rmi all
-    docker compose \
-        --env-file ../../infrastructure/env/devcamper.compose.env \
-        --file ../../infrastructure/docker/docker-compose.devcamper.dev.yml ps
+    list
 }
 
 function logs() {
     echo "[ 📜 🐳 compose logs ]"
-    docker compose --env-file ../../infrastructure/env/devcamper.compose.env \
-        --file ../../infrastructure/docker/docker-compose.devcamper.dev.yml logs \
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} logs \
         --follow
 }
 

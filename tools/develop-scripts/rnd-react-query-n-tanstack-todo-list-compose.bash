@@ -5,29 +5,40 @@ cd "$(dirname "$0")" || exit
 export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
+ENV_FILE="../../infrastructure/env/rnd-react-query-n-tanstack-todo-list.compose.env"
+COMPOSE_FILE_DEV="../../infrastructure/docker/docker-compose.rnd-react-query-n-tanstack-todo-list.dev.yml"
+
+function list() {
+    echo "[ 📜 🐳 compose list ]"
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} ps
+}
+
 function up() {
     echo "[ 🟢 🐳 compose up ]"
-    docker compose --env-file ../../infrastructure/env/rnd-react-query-n-tanstack-todo-list.compose.env \
-    --file ../../infrastructure/docker/docker-compose.rnd-react-query-n-tanstack-todo-list.dev.yml \
-    up --detach --build --force-recreate
-    docker compose --env-file ../../infrastructure/env/rnd-react-query-n-tanstack-todo-list.compose.env \
-    ps
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} up \
+        --detach --build
+    list
 }
 
 function down() {
     echo "[ 🛑 🐳 compose down ]"
-    docker compose --env-file ../../infrastructure/env/rnd-react-query-n-tanstack-todo-list.compose.env \
-    --file ../../infrastructure/docker/docker-compose.rnd-react-query-n-tanstack-todo-list.dev.yml \
-    down --volumes --rmi all
-    docker compose --env-file ../../infrastructure/env/rnd-react-query-n-tanstack-todo-list.compose.env \
-    ps
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} down \
+        --volumes --rmi all
+    list
 }
 
 function logs() {
     echo "[ 📜 🐳 compose logs ]"
-    docker compose --env-file ../../infrastructure/env/rnd-react-query-n-tanstack-todo-list.compose.env \
-    --file ../../infrastructure/docker/docker-compose.rnd-react-query-n-tanstack-todo-list.dev.yml \
-    logs --follow
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} logs \
+        --follow
 }
 
 function help() {
