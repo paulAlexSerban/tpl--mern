@@ -41,6 +41,7 @@
         "develop:compose:rnd-axios-http": "bash ./tools/develop-scripts/rnd-axios-http-compose.bash",
         "develop:compose:rnd-react-query-n-tanstack-todo-list": "bash ./tools/develop-scripts/rnd-react-query-n-tanstack-todo-list-compose.bash",
         "develop:compose:shopping-cart-redux": "bash ./tools/develop-scripts/shopping-cart-redux-compose.bash",
+        "develop:compose:shopping-cart-usereducer": "bash ./tools/develop-scripts/shopping-cart-usereducer-compose.bash",
         "develop:compose:sidebar-and-modal-basic": "bash ./tools/develop-scripts/sidebar-and-modal-basic-compose.bash",
         "develop:compose:sidebar-tabs": "bash ./tools/develop-scripts/sidebar-tabs-compose.bash",
         "develop:compose:simple-shop": "bash ./tools/develop-scripts/simple-shop-compose.bash",
