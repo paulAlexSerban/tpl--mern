@@ -31,6 +31,6 @@ services:
             dockerfile: dev.Dockerfile
         volumes:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
-            - ../../frontend/apps/form-user-list-app:/usr/src/app # Mount the app directory to the container
+            - ../../frontend/apps/form-user-list-app:/usr/src/app:delegated # Mount the app directory to the container
         networks:
             - form-user-list-network
