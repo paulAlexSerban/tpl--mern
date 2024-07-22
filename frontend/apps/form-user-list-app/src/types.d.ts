@@ -3,6 +3,8 @@ export type User = {
     email: string;
 };
 
+export type Users = User[];
+
 export type UserList = {
     users: User[];
 };

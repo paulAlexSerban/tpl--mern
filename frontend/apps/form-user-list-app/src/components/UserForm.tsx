@@ -11,19 +11,26 @@ const UserForm: FC<UserFormProps> = ({ onUserAdd }) => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
         onUserAdd({ name, email });
     };
+
+    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setName(event.target.value);
+    }
+
+    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(event.target.value);
+    }
 
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <label>Names</label>
-                <input value={name} onChange={(e) => setName(e.target.value)} />
+                <label htmlFor="name">Names</label>
+                <input id="name" value={name} onChange={handleNameChange} aria-label="Names" />
             </div>
             <div>
-                <label>Email</label>
-                <input value={email} onChange={(e) => setEmail(e.target.value)} />
+                <label htmlFor="email">Enter Email</label>
+                <input id="email" value={email} onChange={handleEmailChange} aria-label="Email" />
             </div>
             <button>Add User</button>
         </form>

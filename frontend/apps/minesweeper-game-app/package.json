@@ -14,7 +14,9 @@
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
         "package": "bash scripts/package.bash",
-        "test": "jest"
+        "test": "jest",
+        "test:update": "jest --verbose --coverage --updateSnapshot",
+        "test:watch": "jest --watch"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.23.9",

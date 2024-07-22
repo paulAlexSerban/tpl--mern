@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { UserList as TUserList } from '../types.d';
 
 type UserListProps = TUserList;
@@ -7,8 +7,8 @@ const UserList: FC<UserListProps> = ({ users }) => {
     const renderedUsers = users.map((user) => {
         return (
             <tr key={user.name}>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
+                <td data-testid="name">{user.name}</td>
+                <td data-testid="email">{user.email}</td>
             </tr>
         );
     });
@@ -21,7 +21,7 @@ const UserList: FC<UserListProps> = ({ users }) => {
                     <th>Email</th>
                 </tr>
             </thead>
-            <tbody>{renderedUsers}</tbody>
+            <tbody data-testid="users">{renderedUsers}</tbody>
         </table>
     );
 };
