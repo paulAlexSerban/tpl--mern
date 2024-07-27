@@ -1,4 +1,4 @@
-import React, { useState, FC } from 'react';
+import { useState, FC, FormEvent, ChangeEvent } from 'react';
 import { User } from '../types.d';
 
 type UserFormProps = {
@@ -9,18 +9,20 @@ const UserForm: FC<UserFormProps> = ({ onUserAdd }) => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         onUserAdd({ name, email });
+        setEmail('');
+        setName('');
     };
 
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value);
-    }
+    };
 
-    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value);
-    }
+    };
 
     return (
         <form onSubmit={handleSubmit}>

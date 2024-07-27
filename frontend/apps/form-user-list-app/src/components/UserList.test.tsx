@@ -1,18 +1,13 @@
-import React from 'react';
 import { render, screen, within } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import UserList from './UserList';
-
+import { users as usersData } from '../mock/users';
 import { Users } from '../types.d';
 
 const renderComponent = () => {
-    const users: Users = [
-        { name: 'John Doe', email: 'john@doe.com' },
-        { name: 'Jane Doe', email: 'jane@doe.com' },
-    ];
+    const users: Users = usersData;
 
     render(<UserList users={users} />);
-
     return {
         users,
     };
