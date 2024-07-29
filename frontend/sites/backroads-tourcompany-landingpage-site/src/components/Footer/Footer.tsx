@@ -1,5 +1,6 @@
-import { socialLinks } from '../data';
-import PageLinks from './PageLinks';
+import { socialLinks } from '@/data';
+
+import PageLinks from '@/components/PageLinks/PageLinks';
 import SocialLink from './SocialLink';
 
 import './Footer.scss';

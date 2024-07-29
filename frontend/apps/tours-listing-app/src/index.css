@@ -298,16 +298,16 @@ main {
     border-top-right-radius: var(--borderRadius);
 }
 
-.tour-info {
+.info {
     padding: 2rem 1.5rem;
 }
-.tour-info h5 {
+.info h5 {
     text-align: center;
     margin-bottom: 1rem;
     font-weight: 500;
     line-height: 1.5;
 }
-.tour-info p {
+.info p {
     line-height: 1.5;
     color: var(--grey-500);
     margin-bottom: 1.25rem;

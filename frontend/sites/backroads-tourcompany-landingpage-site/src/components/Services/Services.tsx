@@ -1,7 +1,9 @@
-import { services } from '../data';
-import Title from './Title';
+import { services } from '@/data';
+import Title from '@/components/Title/Title';
+
 import Service from './Service';
 import './Services.scss';
+
 const Services = () => {
     return (
         <section className="section services" id="services">

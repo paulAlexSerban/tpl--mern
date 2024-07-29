@@ -10,33 +10,36 @@
     border: 2px solid transparent;
     cursor: pointer;
     box-shadow: var(--btn-shadow);
+
+    &:hover {
+        color: var(--clr-primary-1);
+        background: var(--clr-primary-8);
+    }
 }
-.btn:hover {
-    color: var(--clr-primary-1);
-    background: var(--clr-primary-8);
-}
-/* section */
+
 .section {
     padding: 5rem 0;
     scroll-margin-top: 4rem;
 }
+
 .section-title {
     text-align: center;
     margin-bottom: 4rem;
+
+    h2 {
+        text-transform: uppercase;
+    }
+    span {
+        color: var(--clr-primary-5);
+    }
 }
-.section-title h2 {
-    text-transform: uppercase;
-}
-.section-title span {
-    color: var(--clr-primary-5);
-}
+
 .section-center {
     width: 90vw;
     margin: 0 auto;
     max-width: 1170px;
-}
-@media screen and (min-width: 992px) {
-    .section-center {
+
+    @media screen and (min-width: 992px) {
         width: 95vw;
     }
 }

@@ -1,7 +1,8 @@
-import logoImg from '../assets/logo.svg';
 import './Navbar.scss';
-import { pageLinks, socialLinks } from '../data';
-import { capitalize } from '../utils/capitalize';
+
+import logoImg from '@/assets/logo.svg';
+import { pageLinks, socialLinks } from '@/data';
+import { capitalize } from '@/utils/capitalize';
 
 const Navbar = () => {
     return (

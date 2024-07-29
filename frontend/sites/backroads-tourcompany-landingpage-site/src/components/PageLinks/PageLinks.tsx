@@ -1,10 +1,9 @@
-import { pageLinks } from '../data';
+import { pageLinks } from '@/data';
 import PageLink from './PageLink';
 import { FC } from 'react';
-type PageLinksProps = {
-    parentClass: string;
-    itemClass: string;
-};
+
+import { PageLinks as PageLinksProps } from '@/@types';
+
 const PageLinks: FC<PageLinksProps> = ({ parentClass, itemClass }) => {
     return (
         <ul className={parentClass} id="nav-links">

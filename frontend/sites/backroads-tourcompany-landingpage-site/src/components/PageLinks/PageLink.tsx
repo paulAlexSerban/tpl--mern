@@ -1,15 +1,6 @@
 import { FC } from 'react';
 
-type LinkProps = {
-    id: number;
-    text: string;
-    href: string;
-};
-
-type PageLinkProps = {
-    link: LinkProps;
-    itemClass: string;
-};
+import { PageLink as PageLinkProps } from '@/@types';
 
 const PageLink: FC<PageLinkProps> = ({ link, itemClass }) => {
     return (

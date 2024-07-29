@@ -1,7 +1,7 @@
-import aboutImage from '../assets/about.jpeg';
+import aboutImage from '@/assets/about.jpeg';
 import './About.scss';
 
-import Title from './Title';
+import Title from '@/components/Title/Title';
 
 const About = () => {
     return (

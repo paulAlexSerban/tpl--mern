@@ -1,6 +1,7 @@
 import { CSSProperties } from 'react';
 import './Hero.scss';
-import mainBgkImg from '../assets/main.jpeg';
+
+import mainBgkImg from '@/assets/main.jpeg';
 
 const Hero = () => {
     const style = { '--hero-bkg-img': `url(${mainBgkImg})` } as CSSProperties;

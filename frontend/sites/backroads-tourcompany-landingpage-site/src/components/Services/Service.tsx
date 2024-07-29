@@ -1,10 +1,5 @@
 import { FC } from 'react';
-
-type ServiceProps = {
-    icon: string;
-    title: string;
-    text: string;
-};
+import { Service as ServiceProps } from '@/@types';
 
 const Service: FC<ServiceProps> = ({ icon, title, text }) => {
     return (

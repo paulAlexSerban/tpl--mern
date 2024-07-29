@@ -1,9 +1,5 @@
 import { FC } from 'react';
-
-type TitleProps = {
-    title: string;
-    subTitle: string;
-};
+import { Title as TitleProps } from '@/@types';
 
 const Title: FC<TitleProps> = ({ title, subTitle }) => {
     return (

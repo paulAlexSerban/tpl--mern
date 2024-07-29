@@ -1,12 +1,5 @@
 import { FC } from 'react';
-
-type SocialLinkProps = {
-    itemClass: string;
-    href: string;
-    icon: string;
-    target: string;
-    rel: string;
-};
+import { SocialLink as SocialLinkProps } from '@/@types';
 
 const SocialLink: FC<SocialLinkProps> = ({ itemClass, icon, ...props }) => {
     return (

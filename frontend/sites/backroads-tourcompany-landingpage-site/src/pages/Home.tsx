@@ -1,9 +1,9 @@
-import BaseLayout from '../layout/Base';
+import BaseLayout from '@/layout/Base';
 
-import Hero from '../components/Hero';
-import About from '../components/About';
-import Services from '../components/Services';
-import Tours from '../components/Tours';
+import Hero from '@/components/Hero/Hero';
+import About from '@/components/About/About';
+import Services from '@/components/Services/Services';
+import Tours from '@/components/Tours/Tours';
 
 const HomePage = () => {
     return (

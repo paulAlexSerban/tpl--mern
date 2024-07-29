@@ -19,7 +19,7 @@ const Tour: FC<TourProps> = ({ id, image, info, name, price, removeTour }) => {
         <article className="single-tour">
             <img src={image} alt={name} className="img" />
             <span className="tour-price">${price}</span>
-            <div className="tour-info">
+            <div className="info">
                 <h5>{name}</h5>
                 <p>
                     {readMore ? info : `${excerpt}...`}
