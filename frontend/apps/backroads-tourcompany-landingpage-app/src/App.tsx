@@ -1,6 +1,7 @@
 import './App.scss';
 import HomePage from './pages/Home';
-function App() {
+
+const App = () => {
     return (
         <>
             <HomePage />

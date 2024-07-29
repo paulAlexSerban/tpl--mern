@@ -50,7 +50,7 @@ html {
     --textColor: var(--grey-900);
     --borderRadius: 0.25rem;
     --letterSpacing: 1px;
-    --transition: 0.3s ease-in-out all;
+    --base-transition: 0.3s ease-in-out all;
     --max-width: 1120px;
     --fixed-width: 600px;
 
@@ -149,7 +149,7 @@ ul {
     letter-spacing: var(--letterSpacing);
     padding: 0.375rem 0.75rem;
     box-shadow: var(--shadow-1);
-    transition: var(--transition);
+    transition: var(--base-transition);
     text-transform: capitalize;
     display: inline-block;
 }
@@ -274,7 +274,7 @@ main {
     padding: 1.5rem 2rem;
     border-radius: var(--borderRadius);
     box-shadow: var(--shadow-1);
-    transition: var(--transition);
+    transition: var(--base-transition);
     text-align: center;
 }
 .review:hover {
@@ -343,7 +343,7 @@ main {
     background: transparent;
     border-color: transparent;
     margin: 0 0.5rem;
-    transition: var(--transition);
+    transition: var(--base-transition);
     cursor: pointer;
 }
 .prev-btn:hover,

@@ -22,7 +22,7 @@
     font-size: 1rem;
     margin-right: 1rem;
     letter-spacing: var(--spacing);
-    transition: var(--transition);
+    transition: var(--base-transition);
 }
 .footer-link:hover {
     color: var(--clr-primary-5);
@@ -31,7 +31,7 @@
     font-size: 2rem;
     margin-right: 1rem;
     color: var(--clr-white);
-    transition: var(--transition);
+    transition: var(--base-transition);
 }
 .footer-icon:hover {
     color: var(--clr-primary-5);
