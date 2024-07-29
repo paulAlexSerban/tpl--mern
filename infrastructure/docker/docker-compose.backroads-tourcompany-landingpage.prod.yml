@@ -32,7 +32,7 @@ services:
         volumes:
             - /usr/src/app/dist
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
-            - ../../frontend/apps/backroads-tourcompany-landingpage-app:/usr/src/app # Mount the app directory to the container
+            - ../../frontend/sites/backroads-tourcompany-landingpage-site:/usr/src/app # Mount the app directory to the container
         env_file:
             - ../../infrastructure/env/backroads-tourcompany-landingpage.compose.env
         networks:

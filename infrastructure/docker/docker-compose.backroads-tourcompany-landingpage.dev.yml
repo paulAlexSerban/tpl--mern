@@ -27,10 +27,10 @@ services:
     ui-react-spa:
         container_name: ui-react-spa-container
         build:
-            context: ../../frontend/apps/backroads-tourcompany-landingpage-app
+            context: ../../frontend/sites/backroads-tourcompany-landingpage-site
             dockerfile: dev.Dockerfile
         volumes:
-            - ../../frontend/apps/backroads-tourcompany-landingpage-app:/usr/src/app # Mount the app directory to the container
+            - ../../frontend/sites/backroads-tourcompany-landingpage-site:/usr/src/app # Mount the app directory to the container
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
         networks:
             - backroads-tourcompany-landingpage-network
