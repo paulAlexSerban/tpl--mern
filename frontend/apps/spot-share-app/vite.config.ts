@@ -15,6 +15,11 @@ export default defineConfig(({ command }) => {
         preview: {
             port: 5173,
         },
+        resolve: {
+            alias: {
+                '@': resolve(__dirname, './src'),
+            },
+        },
     };
 
     // if (command !== 'serve') {

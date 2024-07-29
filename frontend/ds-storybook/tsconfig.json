@@ -1,6 +1,9 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"]
+        },
         "outDir": "lib",
         "module": "esnext",
         "lib": ["DOM", "ESNext"],

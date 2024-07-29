@@ -38,6 +38,11 @@ export default defineConfig(({ command }) => {
     const config = {
         plugins: [react(), writeMetaPlugin()],
         base: '/',
+        resolve: {
+            alias: {
+                '@': resolve(__dirname, './src'),
+            },
+        },
     };
 
     // if (command !== 'serve') {

@@ -21,4 +21,4 @@ COPY . /usr/src/app/
 
 # Command to run when the container is ready
 # Separate arguments as separate values in the array
-CMD [ "yarn", "run", "develop:fortunes_api"]
+CMD [ "yarn", "run", "develop"]

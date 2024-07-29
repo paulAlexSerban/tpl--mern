@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import url from 'node:url';
 import { createRequire } from 'node:module';
+import { resolve } from 'path';
 
 // Custom plugin to write package.json data to meta.json
 const writeMetaPlugin = (): Plugin => {
@@ -67,6 +68,11 @@ export default defineConfig(({ command }) => {
     const config = {
         plugins: [react(), reactVirtualized(), writeMetaPlugin()],
         base: '/',
+        resolve: {
+            alias: {
+                '@': resolve(__dirname, './src'),
+            },
+        },
     };
 
     // if (command !== 'serve') {

@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import fs from 'fs';
 import path from 'path';
 import packageJson from './package.json';
+import { resolve } from 'path';
 
 const PROJECT_NAME = packageJson.name.split('/').pop();
 const BASE_URL = process.env.BASE_URL || '/';
@@ -38,6 +39,11 @@ export default defineConfig(({ command }) => {
     const config = {
         plugins: [react(), writeMetaPlugin()],
         base: '/',
+        resolve: {
+            alias: {
+                '@': resolve(__dirname, './src'),
+            },
+        },
     };
 
     // if (command !== 'serve') {

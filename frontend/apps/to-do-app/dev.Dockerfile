@@ -18,4 +18,4 @@ COPY . /usr/src/app/
 
 # Command to run when the container is ready
 # Separate arguments as separate values in the array
-CMD [ "yarn", "run", "develop:to-do"]
+CMD [ "yarn", "run", "develop"]

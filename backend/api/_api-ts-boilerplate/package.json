@@ -4,7 +4,7 @@
     "private": true,
     "main": "dist/bin/www.js",
     "scripts": {
-        "develop:api-ts-boilerplate": "concurrently \"yarn tsc --watch\" \"nodemon -q /dist/bin/www.js\"",
+        "develop": "concurrently \"yarn tsc --watch\" \"nodemon -q /dist/bin/www.js\"",
         "start": "pm2 start ./dist/bin/www.js -i 0",
         "stop": "pm2 delete www",
         "monitor": "pm2 monit",

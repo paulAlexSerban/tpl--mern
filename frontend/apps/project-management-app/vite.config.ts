@@ -2,6 +2,7 @@ import { defineConfig, Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
 import path from 'path';
+import { resolve } from 'path';
 
 const packageJson = require('./package.json');
 const PROJECT_NAME = packageJson.name.split('/').pop();
@@ -38,6 +39,11 @@ export default defineConfig(({ command }) => {
     const config = {
         plugins: [react(), writeMetaPlugin()],
         base: '/',
+        resolve: {
+            alias: {
+                '@': resolve(__dirname, './src'),
+            },
+        },
     };
 
     // if (command !== 'serve') {

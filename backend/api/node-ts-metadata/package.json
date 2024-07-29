@@ -4,7 +4,7 @@
     "version": "0.0.0",
     "main": "dist/index.js",
     "scripts": {
-        "develop:node-ts-metadata": "concurrently \"yarn tsc --watch\" \"nodemon -q dist/index.js\"",
+        "develop": "concurrently \"yarn tsc --watch\" \"nodemon -q dist/index.js\"",
         "start:node-ts-metadata": "yarn ts-node src/server.ts",
         "build:dev": "yarn tsc",
         "build:prod": "yarn tsc"

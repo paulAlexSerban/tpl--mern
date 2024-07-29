@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
 // const packageJson = require('./package.json');
 // const PROJECT_NAME = packageJson.name.split('/').pop();
@@ -14,6 +15,11 @@ export default defineConfig(() => {
         },
         preview: {
             port: 5173,
+        },
+        resolve: {
+            alias: {
+                '@': resolve(__dirname, './src'),
+            },
         },
     };
 

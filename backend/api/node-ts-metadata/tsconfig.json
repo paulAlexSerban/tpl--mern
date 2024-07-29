@@ -4,7 +4,11 @@
         "module": "commonjs",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"]
+        }
     },
     "typeRoots": ["./node_modules/@types", "./types"],
     "include": ["src/**/*", "types/**/*"],

@@ -12,7 +12,11 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "declaration": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"]
+        }
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules", "lib"]
