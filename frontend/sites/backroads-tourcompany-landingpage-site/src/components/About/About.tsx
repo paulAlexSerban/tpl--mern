@@ -8,11 +8,11 @@ const About = () => {
         <section className="section" id="about">
             <Title title="about" subTitle="us" />
 
-            <div className="section-center about-center">
-                <div className="about-img">
-                    <img src={aboutImage} className="about-photo" alt="awesome beach" />
+            <div className="section-center aboutCenter">
+                <div className="aboutImg">
+                    <img src={aboutImage} className="aboutPhoto" alt="awesome beach" />
                 </div>
-                <article className="about-info">
+                <article className="aboutInfo">
                     <h3>explore the difference</h3>
                     <p>
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur quisquam harum nam cumque
