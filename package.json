@@ -1,9 +1,15 @@
 {
     "name": "@wbk--mern-playground/core",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "author": "paulAlexSerban <paul.alex.serban@gmail.com>",
     "license": "MIT",
     "scripts": {
+        "////////////": "BUILD - apps",
+        "build:select-dropdown-app-vite": "lerna run --scope @wbk--mern-playground/select-dropdown-app-vite build:prod",
+        "///////////": "BUILD - libs",
+        "build:shared": "lerna run --scope @wbk--mern-playground/shared-* build:prod",
+        "build:react-cmp-lib": "lerna run --scope @wbk--mern-playground/react-cmp-lib build:prod",
+        "build:lsg-styles-generic": "lerna run --scope @wbk--mern-playground/lsg-styles-generic build:prod",
         "/////////": "TEST",
         "test": "lerna run test --parallel",
         "////////": "RUN IMAGE",
@@ -81,7 +87,9 @@
         "cz-conventional-changelog": "^3.3.0",
         "husky": "^9.0.7",
         "lerna": "^8.0.2",
-        "prettier": "^3.2.5"
+        "prettier": "^3.2.5",
+        "typescript": "^5.2.2",
+        "uuid": "^9.0.1"
     },
     "keywords": [],
     "private": true,
