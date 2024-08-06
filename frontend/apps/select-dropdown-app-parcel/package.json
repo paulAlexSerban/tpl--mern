@@ -3,10 +3,9 @@
     "version": "0.3.0",
     "license": "MIT",
     "scripts": {
-        "develop": "export NODE_ENV=development && parcel build src/index.html && parcel src/index.html -p 3000 --https",
+        "develop": "export NODE_ENV=development && parcel build src/index.html && parcel src/index.html -p $PORT",
         "lint": "echo \"No linting configured\"",
-        "build:dev": "rm -rfv ./dist && export NODE_ENV=development && parcel build src/index.html",
-        "build:prod": "rm -rfv ./dist && export NODE_ENV=production && parcel build src/index.html --no-source-maps --no-cache --no-autoinstall --public-url $BASE_URL/apps/select-dropdown-app",
+        "build": "rm -rfv ./dist && export NODE_ENV=production && parcel build src/index.html --no-source-maps --no-cache --no-autoinstall",
         "package": "bash scripts/package.bash"
     },
     "devDependencies": {
