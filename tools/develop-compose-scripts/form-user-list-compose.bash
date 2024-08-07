@@ -6,8 +6,8 @@ export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
 ENV_FILE="../../infrastructure/env/form-user-list.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/docker-compose.form-user-list.dev.yml"
-COMPOSE_FILE_PROD="../../infrastructure/docker/docker-compose.form-user-list.prod.yml"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.form-user-list.dev.yml"
+COMPOSE_FILE_PROD="../../infrastructure/docker/prod/docker-compose.form-user-list.prod.yml"
 
 function help() {
     echo "Usage: $0 <up|down|logs|up-prod|down-prod>"

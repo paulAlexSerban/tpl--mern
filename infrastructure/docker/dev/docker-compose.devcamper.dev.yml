@@ -1,0 +1,115 @@
+---
+version: '3.7'
+services:
+    # ---------------------------------------------------------------------
+    # | FE Service - Nginx-Service                                                     |
+    # ---------------------------------------------------------------------
+    devcamper-fe-proxy:
+        build:
+            context: ../../../frontend/sites/devcamper-site
+            dockerfile: dev.Dockerfile
+        container_name: fe-n-proxy
+        image: paulserbandev/fe-proxy
+        restart: unless-stopped
+        ports:
+            - '3000:80'
+        volumes:
+            # Mounts the nginx configuration file
+            # the section after collon is the path inside the container, do not chenge it if you don't know what you are doing
+            - ../../../frontend/sites/devcamper-site/dist:/usr/share/nginx/html
+            - ../../assets/dist:/usr/share/nginx/html/assets
+        networks:
+            - devcamper-networks
+    # ---------------------------------------------------------------------
+    # | ExpressJS API                                                     |
+    # ---------------------------------------------------------------------
+    devcamper-v1-api:
+        build:
+            context: ../../backend/api/devcamper-api
+            dockerfile: dev.Dockerfile
+        image: paulserbandev/v1-api
+        container_name: v1-api
+        restart: always
+        env_file:
+            - ../../infrastructure/env/devcamper.compose.env
+            - ../../.env
+        volumes:
+            - ../../backend/api/devcamper-api:/usr/src/app/
+            - /usr/src/app/node_modules
+        depends_on:
+            - mongo-database-service
+        networks:
+            - devcamper-networks
+
+    # ---------------------------------------------------------------------
+    # | MongoDB Database Server                                            |
+    # ---------------------------------------------------------------------
+    mongo-database-service:
+        image: mongo:latest
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
+        container_name: mongo-database-container
+        env_file:
+            - ../../infrastructure/env/devcamper.compose.env
+            - ../../.env
+        volumes:
+            - ../../database/.tmp-data/devcamper-data:/data/db
+        ports:
+            - '27017:27017'
+        networks:
+            - devcamper-networks
+
+    # # ---------------------------------------------------------------------
+    # # | Monitoring - Prometheus                                            |
+    # # ---------------------------------------------------------------------
+
+    # prometheus:
+    #     image: prom/prometheus:latest
+    #     container_name: prometheus
+    #     volumes:
+    #         - ../monitoring/prometheus:/etc/prometheus
+    #         - prometheus_data:/prometheus
+    #     ports:
+    #         - 9090:9090
+    #     expose:
+    #         - 9090
+    #     networks:
+    #         - devcamper-networks
+    #     command:
+    #         - '--config.file=/etc/prometheus/prometheus.yml'
+    #         - '--storage.tsdb.path=/prometheus'
+    #         - '--web.console.libraries=/etc/prometheus/console_libraries'
+    #         - '--web.console.templates=/etc/prometheus/consoles'
+    #         - '--web.enable-lifecycle'
+
+    # # ---------------------------------------------------------------------
+    # # | Monitoring - Grafana                                               |
+    # # ---------------------------------------------------------------------
+
+    # grafana:
+    #     image: grafana/grafana:latest
+    #     container_name: grafana
+    #     volumes:
+    #         - grafana_data:/var/lib/grafana
+    #         - ../monitoring/grafana/provisioning:/etc/grafana/provisioning
+    #     environment:
+    #         - GF_AUTH_DISABLE_LOGIN_FORM=true
+    #         - GF_AUTH_ANONYMOUS_ENABLED=true
+    #         - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    #     ports:
+    #         - 3030:3000
+    #     expose:
+    #         - 3030
+    #     networks:
+    #         - devcamper-networks
+    #     depends_on:
+    #         - prometheus
+
+networks:
+    devcamper-networks:
+        driver: bridge
+
+volumes:
+    prometheus_data: {}
+    grafana_data: {}

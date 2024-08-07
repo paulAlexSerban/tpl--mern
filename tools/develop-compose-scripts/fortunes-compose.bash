@@ -6,7 +6,7 @@ export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
 ENV_FILE="../../infrastructure/env/fortunes.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/docker-compose.fortunes.dev.yml"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.fortunes.dev.yml"
 
 function list() {
     echo "[ 📜 🐳 compose list ]"

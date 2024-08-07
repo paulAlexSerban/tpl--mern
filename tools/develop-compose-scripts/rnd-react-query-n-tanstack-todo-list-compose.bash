@@ -6,7 +6,7 @@ export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
 ENV_FILE="../../infrastructure/env/rnd-react-query-n-tanstack-todo-list.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/docker-compose.rnd-react-query-n-tanstack-todo-list.dev.yml"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.rnd-react-query-n-tanstack-todo-list.dev.yml"
 
 function list() {
     echo "[ 📜 🐳 compose list ]"

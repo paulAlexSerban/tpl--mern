@@ -6,8 +6,13 @@ export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
 ENV_FILE="../../infrastructure/env/backroads-tourcompany-landingpage.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/docker-compose.backroads-tourcompany-landingpage.dev.yml"
-COMPOSE_FILE_PROD="../../infrastructure/docker/docker-compose.backroads-tourcompany-landingpage.prod.yml"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.backroads-tourcompany-landingpage.dev.yml"
+COMPOSE_FILE_PROD="../../infrastructure/docker/prod/docker-compose.backroads-tourcompany-landingpage.prod.yml"
+
+if [ -z "$1" ]; then
+    help
+    exit 1
+fi
 
 function list() {
     echo "[ 📜 🐳 compose list ]"

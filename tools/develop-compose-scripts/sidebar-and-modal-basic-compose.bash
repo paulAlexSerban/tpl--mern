@@ -6,7 +6,7 @@ export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
 ENV_FILE="../../infrastructure/env/sidebar-and-modal-basic.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/docker-compose.sidebar-and-modal-basic.dev.yml"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.sidebar-and-modal-basic.dev.yml"
 
 function list() {
     echo "[ 📜 🐳 compose list ]"

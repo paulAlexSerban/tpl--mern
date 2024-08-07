@@ -1,0 +1,41 @@
+---
+version: '3.7'
+networks:
+    reservations-application-network:
+        driver: bridge
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        build:
+            context: ../../../backend/middleware/reservations-application-proxy
+            dockerfile: dev.Dockerfile
+        container_name: container-reservations-application-proxy
+        image: paulserbandev/reservations-application-proxy
+        restart: unless-stopped
+        ports:
+            - '3000:80'
+        volumes:
+            - ../../../backend/middleware/reservations-application-proxy/default.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/middleware/reservations-application-proxy/logs:/var/log/nginx
+        networks:
+            - reservations-application-network
+    # ---------------------------------------------------------------------
+    # | ExpressJS API                                                     |
+    # ---------------------------------------------------------------------
+    express-reservations-application-api:
+        build:
+            context: ../../backend/api/reservations-application-api
+            dockerfile: dev.Dockerfile
+        image: paulserbandev/reservations-application-api
+        container_name: container-reservations-application-api
+        restart: always
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
+        volumes:
+            - ../../backend/api/reservations-application-api:/usr/src/app/
+            - /usr/src/app/node_modules
+        networks:
+            - reservations-application-network

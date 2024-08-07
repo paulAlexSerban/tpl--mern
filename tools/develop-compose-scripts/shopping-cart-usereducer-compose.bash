@@ -6,8 +6,8 @@ export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
 ENV_FILE="../../infrastructure/env/shopping-cart-usereducer.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/docker-compose.shopping-cart-usereducer.dev.yml"
-COMPOSE_FILE_PROD="../../infrastructure/docker/docker-compose.shopping-cart-usereducer.prod.yml"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.shopping-cart-usereducer.dev.yml"
+COMPOSE_FILE_PROD="../../infrastructure/docker/prod/docker-compose.shopping-cart-usereducer.prod.yml"
 
 function list() {
     echo "[ 📜 🐳 compose list ]"

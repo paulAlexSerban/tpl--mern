@@ -6,7 +6,7 @@ export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
 ENV_FILE="../../infrastructure/env/megamenu-strapi-clone.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/docker-compose.megamenu-strapi-clone.dev.yml"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.megamenu-strapi-clone.dev.yml"
 
 function list() {
     echo "[ 📜 🐳 compose list ]"

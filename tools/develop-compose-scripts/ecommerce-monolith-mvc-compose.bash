@@ -6,7 +6,7 @@ export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
 ENV_FILE="../../infrastructure/env/ecommerce-monolith-mvc.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/docker-compose.ecommerce-monolith-mvc.dev.yml"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.ecommerce-monolith-mvc.dev.yml"
 
 function list() {
     echo "[ 📜 🐳 compose list ]"

@@ -9,6 +9,11 @@ PROJECT_VERSION=$(node -p "require('$PROJECT_PATH/package.json').version")
 
 echo "📦  Package $PROJECT_NAME@$PROJECT_VERSION"
 
+if [ -z "$1" ]; then
+    help
+    exit 1
+fi
+
 function build() {
     echo "🚧  Building..."
     docker build \
