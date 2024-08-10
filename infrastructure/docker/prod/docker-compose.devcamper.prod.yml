@@ -6,7 +6,7 @@ services:
     ui-nginx-proxy:
         build:
             context: ../../../
-            dockerfile: ./frontend/sites/devcamper-site/Dockerfile.dev
+            dockerfile: ./frontend/sites/devcamper-site/Dockerfile.prod
         container_name: container-ui-devcamper-proxy
         image: paulserbandev/devcamper-ui-proxy
         restart: unless-stopped
@@ -27,16 +27,16 @@ services:
         container_name: container-devcamper-api
         build:
             context: ../../../
-            dockerfile: ./backend/api/devcamper-api/Dockerfile.dev
+            dockerfile: ./backend/api/devcamper-api/Dockerfile.prod
         # restart: always
         env_file:
             - ../../../infrastructure/env/devcamper.compose.env
             - ../../../.env
-        volumes:
-            - /usr/src/app/node_modules
-            - /usr/src/app/backend/api/devcamper-api/dist
-            - /usr/src/app/backend/api/devcamper-api/node_modules
-            - ../../../backend/api/devcamper-api:/usr/src/app/backend/api/devcamper-api
+        # volumes:
+        #     - /usr/src/app/node_modules
+        #     - /usr/src/app/backend/api/devcamper-api/dist
+        #     - /usr/src/app/backend/api/devcamper-api/node_modules
+        #     - ../../../backend/api/devcamper-api:/usr/src/app/backend/api/devcamper-api
         depends_on:
             - mongo-database-service
         networks:

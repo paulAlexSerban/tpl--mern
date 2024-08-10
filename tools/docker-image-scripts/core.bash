@@ -17,7 +17,6 @@ fi
 function build() {
     echo "🚧  Building..."
     docker build \
-        --tag $PROJECT_NAME:$PROJECT_VERSION \
         --tag $PROJECT_NAME:latest \
         -f ../../Dockerfile \
         ../../ # the monorepo root
@@ -27,19 +26,19 @@ function build() {
 function run() {
     echo "🚀  Running..."
     docker run -it --rm --detach \
-        --name $PROJECT_NAME $PROJECT_NAME:$PROJECT_VERSION
+        --name $PROJECT_NAME $PROJECT_NAME:latest
     echo "✅  Run complete"
 }
 
 function stop() {
     echo "🛑  Stopping..."
-    docker stop $(docker ps -q --filter ancestor=$PROJECT_NAME:$PROJECT_VERSION)
+    docker stop $(docker ps -q --filter ancestor=$PROJECT_NAME:latest)
     echo "✅  Stop complete"
 }
 
 function clean() {
     echo "🧹  Cleaning..."
-    docker image rm $PROJECT_NAME:$PROJECT_VERSION
+    docker image rm $PROJECT_NAME:latest
     echo "✅  Clean complete"
 }
 

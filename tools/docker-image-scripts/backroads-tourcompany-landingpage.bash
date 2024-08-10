@@ -33,9 +33,7 @@ function help() {
 }
 
 function check_base_image() {
-
     echo "Checking base image $DEV_BASE_IMAGE"
-
     if [[ "$(docker images -q $DEV_BASE_IMAGE 2>/dev/null)" == "" ]]; then
         echo "Base image $DEV_BASE_IMAGE not found locally"
         echo "Please build the base image first with: make core_build"
@@ -50,7 +48,6 @@ function build() {
     check_base_image
     docker build \
         --build-arg CONTAINER_PORT=$CONTAINER_PORT \
-        --tag $PROJECT_NAME:$PROJECT_VERSION \
         --tag $PROJECT_NAME:latest \
         -f $PROJECT_PATH/Dockerfile.dev \
         ../../ # the monorepo root
@@ -59,9 +56,9 @@ function build() {
 
 function build-prod() {
     echo "🚧  Building..."
+    check_base_image
     docker build \
         --build-arg CONTAINER_PORT=$CONTAINER_PORT \
-        --tag $PROJECT_NAME:$PROJECT_VERSION \
         --tag $PROJECT_NAME:latest \
         -f $PROJECT_PATH/Dockerfile.prod \
         ../../ # the monorepo root
@@ -72,7 +69,7 @@ function run() {
     echo "🚀  Running..."
     docker run -it --rm --detach \
         -p ${HOST_PORT}:${CONTAINER_PORT} \
-        --name $PROJECT_NAME $PROJECT_NAME:$PROJECT_VERSION
+        --name $PROJECT_NAME $PROJECT_NAME:latest
     echo "Server listening to http://localhost:${HOST_PORT}" # Fixed message to use HOST_PORT
     echo "✅  Run complete"
 }
@@ -81,7 +78,7 @@ function run-prod() {
     echo "🚀  Running..."
     docker run -it --rm --detach \
         -p ${HOST_PORT}:80 \
-        --name $PROJECT_NAME $PROJECT_NAME:$PROJECT_VERSION
+        --name $PROJECT_NAME $PROJECT_NAME:latest
     echo "Server listening to http://localhost:${HOST_PORT}" # Fixed message to use HOST_PORT
     echo "✅  Run complete"
 }
@@ -94,7 +91,6 @@ function stop() {
 
 function clean() {
     echo "🧹  Cleaning..."
-    docker image rm $PROJECT_NAME:$PROJECT_VERSION
     docker image rm $PROJECT_NAME:latest
     echo "✅  Clean complete"
 }

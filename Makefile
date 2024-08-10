@@ -46,6 +46,43 @@ backroads-tourcompany-landingpage_clean:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/backroads-tourcompany-landingpage.bash clean
 
 # ------------------------------------------------------------- #
+# DevCamper
+# ------------------------------------------------------------- #
+
+devcamper-compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash up
+
+devcamper-compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash up-prod
+
+devcamper-compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash down
+
+devcamper-compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash down-prod
+
+devcamper-api_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash build
+
+devcamper-api_build-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash build-prod
+
+devcamper-api_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash run
+
+devcamper-api_run-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash run-prod
+
+devcamper-api_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash stop
+
+devcamper-api_stop-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash stop-prod
+
+devcamper-api_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash clean
+
+# ------------------------------------------------------------- #
 # Select Dropdown App (Parcel) 
 # ------------------------------------------------------------- #
 select-dropdown-app-parcel_build:
@@ -65,3 +102,4 @@ clean-all:
 	@echo "Cleaning up..."
 	@bash $(DOCKER_IMAGE_SCRIPTS)/core.bash clean
 	@bash $(DOCKER_IMAGE_SCRIPTS)/backroads-tourcompany-landingpage.bash clean
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash clean

@@ -35,9 +35,10 @@ connectDB();
 
 const app: Express = express();
 
-if (process.env.NODE_ENV === 'development') {
-    app.use(logger);
-}
+// if (process.env.NODE_ENV === 'development') {
+//     app.use(logger);
+// }
+app.use(logger);
 // Body parser
 app.use(express.json());
 
@@ -93,7 +94,7 @@ app.get('/api/v1/slow', async (req, res) => {
 // });
 
 app.use(errorHandler);
-app.use('/', indexRouter);
+app.use('/api/v1', indexRouter);
 
 // 404
 app.use((req, res, next) => {
