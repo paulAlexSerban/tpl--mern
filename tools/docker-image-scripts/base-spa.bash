@@ -4,7 +4,18 @@ cd "$(dirname "$0")" || exit
 
 . ../../.env
 
-PROJECT_PATH="../../frontend/apps/dummy-blog-app"
+if [ -z "$1" ]; then
+    help
+    exit 1
+fi
+
+if [ -z "$2" ]; then
+    echo "Please provide the app name"
+    exit 1
+fi
+
+APP_NAME=$2
+PROJECT_PATH="../../frontend/apps/${APP_NAME}"
 PACKAGE_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').pop()")
 PROJECT_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').join('__').split('@').pop()")
 PROJECT_VERSION=$(node -p "require('${PROJECT_PATH}/package.json').version")
@@ -19,11 +30,6 @@ IMAGE_NAME=${PROJECT_NAME}:${PROJECT_VERSION}
 CONTAINER_NAME=${PROJECT_NAME}
 
 echo "📦  Package ${PROJECT_NAME}@${PROJECT_VERSION}"
-
-if [ -z "$1" ]; then
-    help
-    exit 1
-fi
 
 function help() {
     echo "Available commands:"

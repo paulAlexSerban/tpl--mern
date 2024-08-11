@@ -11,22 +11,22 @@ core_build:
 # (site): Backroads Tourcompany Landing Page 
 # ------------------------------------------------------------- #
 backroads-tourcompany-landingpage-site_build:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/backroads-tourcompany-landingpage-site.bash build
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-site.bash build backroads-tourcompany-landingpage-site
 
 backroads-tourcompany-landingpage-site_build-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/backroads-tourcompany-landingpage-site.bash build-prod
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-site.bash build-prod backroads-tourcompany-landingpage-site
 
 backroads-tourcompany-landingpage-site_run:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/backroads-tourcompany-landingpage-site.bash run
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-site.bash run backroads-tourcompany-landingpage-site
 
 backroads-tourcompany-landingpage-site_run-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/backroads-tourcompany-landingpage-site.bash run-prod
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-site.bash run-prod backroads-tourcompany-landingpage-site
 
 backroads-tourcompany-landingpage-site_stop:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/backroads-tourcompany-landingpage-site.bash stop
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-site.bash stop backroads-tourcompany-landingpage-site
 
 backroads-tourcompany-landingpage-site_clean:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/backroads-tourcompany-landingpage-site.bash clean
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-site.bash clean backroads-tourcompany-landingpage-site
 
 # ------------------------------------------------------------- #
 # (compose): Backroads Tourcompany Landing Page 
@@ -44,25 +44,47 @@ backroads-tourcompany-landingpage_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/backroads-tourcompany-landingpage-compose.bash down-prod
 
 # ------------------------------------------------------------- #
+# (spa): Backroads Tourcompany Landing Page 
+# ------------------------------------------------------------- #
+birthday-buddy-app_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build birthday-buddy-app
+
+birthday-buddy-app_build-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build-prod birthday-buddy-app
+
+birthday-buddy-app_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run birthday-buddy-app
+
+birthday-buddy-app_run-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run-prod birthday-buddy-app
+
+birthday-buddy-app_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash stop birthday-buddy-app
+
+birthday-buddy-app_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean birthday-buddy-app
+
+
+# ------------------------------------------------------------- #
 # (site): DevCamper
 # ------------------------------------------------------------- #
 devcamper-site_build:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-site.bash build
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-site.bash build devcamper-site
 
 devcamper-site_build-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-site.bash build-prod
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-site.bash build-prod devcamper-site
 
 devcamper-site_run:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-site.bash run-prod
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-site.bash run-prod devcamper-site
 
 devcamper-site_run-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-site.bash run-prod
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-site.bash run-prod devcamper-site
 
 devcamper-site_stop:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-site.bash stop
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-site.bash stop devcamper-site
 
 devcamper-site_clean:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-site.bash clean
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-site.bash clean devcamper-site
 
 # ------------------------------------------------------------- #
 # (api): DevCamper
@@ -106,44 +128,44 @@ devcamper-compose-down-prod:
 # (spa): Dummy Blog App
 # ------------------------------------------------------------- #
 dummy-blog-app_build:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/dummy-blog-app.bash build
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build dummy-blog-app
 
 dummy-blog-app_build-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/dummy-blog-app.bash build-prod
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build-prod dummy-blog-app
 
 dummy-blog-app_run:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/dummy-blog-app.bash run
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run dummy-blog-app
 
 dummy-blog-app_run-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/dummy-blog-app.bash run-prod
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run-prod dummy-blog-app
 
 dummy-blog-app_stop:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/dummy-blog-app.bash stop
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash stop dummy-blog-app
 
 dummy-blog-app_clean:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/dummy-blog-app.bash clean
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean dummy-blog-app
 
 
 # ------------------------------------------------------------- #
 # (spa): Emaily User Feedback App
 # ------------------------------------------------------------- #
 emaily-user-feedback-app_build:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-app.bash build
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build emaily-user-feedback-app
 
 emaily-user-feedback-app_build-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-app.bash build-prod
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build-prod emaily-user-feedback-app
 
 emaily-user-feedback-app_run:	
-	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-app.bash run
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run emaily-user-feedback-app
 
 emaily-user-feedback-app_run-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-app.bash run-prod
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run-prod emaily-user-feedback-app
 
 emaily-user-feedback-app_stop:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-app.bash stop
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash stop emaily-user-feedback-app
 
 emaily-user-feedback-app_clean:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-app.bash clean
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean emaily-user-feedback-app
 
 # ------------------------------------------------------------- #
 # (api): Emaily User Feedback App
@@ -186,16 +208,22 @@ emaily-user-feedback-compose-down-prod:
 # (spa): Select Dropdown App (Parcel) 
 # ------------------------------------------------------------- #
 select-dropdown-app-parcel_build:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/select-dropdown-app-parcel.bash build
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build select-dropdown-app-parcel
 
 select-dropdown-app-parcel_build-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/select-dropdown-app-parcel.bash build-prod
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build-prod select-dropdown-app-parcel
 
 select-dropdown-app-parcel_run:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/select-dropdown-app-parcel.bash run
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run select-dropdown-app-parcel
 
 select-dropdown-app-parcel_run-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/select-dropdown-app-parcel.bash run-prod
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run-prod select-dropdown-app-parcel
+
+select-dropdown-app-parcel_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash stop select-dropdown-app-parcel
+
+select-dropdown-app-parcel_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean select-dropdown-app-parcel
 
 # ------------------------------------------------------------- #
 # (spa): Spot Share SPA App
@@ -207,14 +235,5 @@ spot-share-app_build:
 # Clean 
 clean-all:
 	@echo "Cleaning up..."
-	@bash $(DOCKER_IMAGE_SCRIPTS)/core.bash clean
-	@bash $(DOCKER_IMAGE_SCRIPTS)/backroads-tourcompany-landingpage-site.bash clean
-	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash clean
-	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-site.bash clean
-	@bash $(DOCKER_IMAGE_SCRIPTS)/dummy-blog-app.bash clean
-	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-app.bash clean
-	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-api.bash clean
-	@bash $(DOCKER_IMAGE_SCRIPTS)/select-dropdown-app-parcel.bash clean
-	@bash $(DOCKER_IMAGE_SCRIPTS)/spot-share-app.bash clean
 	@docker system prune -f
 	@echo "Cleaned up!"

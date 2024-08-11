@@ -1,23 +1,23 @@
 ---
-version: '3.7'
 networks:
     birthday-buddy-network:
         driver: bridge
+
 services:
     # ---------------------------------------------------------------------
     # | Proxy-Service - Nginx                                              |
     # ---------------------------------------------------------------------
     nginx-proxy:
-        build:
-            context: ../../../backend/middleware/simple-fe-only-spa-proxy
-            dockerfile: dev.Dockerfile
         container_name: container-birthday-buddy-proxy
         image: paulserbandev/birthday-buddy-proxy
-        restart: unless-stopped
+        build:
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: ./backend/middleware/simple-fe-only-spa-proxy/Dockerfile.dev
         ports:
             - '3000:80'
         volumes:
             - ../../../backend/middleware/simple-fe-only-spa-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+        restart: unless-stopped
         networks:
             - birthday-buddy-network
 
@@ -25,12 +25,15 @@ services:
     # UI React SPA
     # ---------------------------------------------------------------------
     ui-react-spa:
+        image: paulserbandev/birthday-buddy-ui
         container_name: ui-react-spa-container
         build:
-            context: ../../frontend/apps/birthday-buddy-app
-            dockerfile: dev.Dockerfile
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: ./frontend/sites/birthday-buddy-site/Dockerfile.dev
         volumes:
-            - ../../frontend/apps/birthday-buddy-app:/usr/src/app # Mount the app directory to the container
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - /usr/src/app/frontend/sites/birthday-buddy-site/node_mdules # Avoids overwriting dist with local volume
+            - ../../../frontend/sites/birthday-buddy-site:/usr/src/app/frontend/sites/birthday-buddy-site/ # Mount the app directory to the container
+        restart: unless-stopped
         networks:
             - birthday-buddy-network
