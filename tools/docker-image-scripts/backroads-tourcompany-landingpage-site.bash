@@ -2,6 +2,8 @@
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
+. ../../.env
+
 PROJECT_PATH="../../frontend/sites/backroads-tourcompany-landingpage-site"
 PACKAGE_NAME=$(node -p "require('$PROJECT_PATH/package.json').name.split('/').pop()")
 PROJECT_NAME=$(node -p "require('$PROJECT_PATH/package.json').name.split('/').join('__').split('@').pop()")
@@ -85,7 +87,7 @@ function run-prod() {
 
 function stop() {
     echo "🛑  Stopping..."
-    docker stop $(docker ps -q --filter ancestor=$PROJECT_NAME:$PROJECT_VERSION)
+    docker stop $(docker ps -q --filter ancestor=$PROJECT_NAME:latest)
     echo "✅  Stop complete"
 }
 

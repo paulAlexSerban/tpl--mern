@@ -2,6 +2,8 @@
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
+. ../../.env
+
 PROJECT_PATH="../../frontend/apps/select-dropdown-app-parcel"
 PACKAGE_NAME=$(node -p "require('$PROJECT_PATH/package.json').name.split('/').pop()")
 PROJECT_NAME=$(node -p "require('$PROJECT_PATH/package.json').name.split('/').join('__').split('@').pop()")

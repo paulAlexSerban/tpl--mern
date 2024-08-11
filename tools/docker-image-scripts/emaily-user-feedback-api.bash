@@ -3,9 +3,9 @@
 cd "$(dirname "$0")" || exit
 
 . ../../.env
-. ../../infrastructure/env/devcamper.compose.env
+. ../../infrastructure/env/emaily-user-feedback.compose.env
 
-PROJECT_PATH="../../backend/api/devcamper-api"
+PROJECT_PATH="../../backend/api/emaily-user-feedback-api"
 PACKAGE_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').pop()")
 PROJECT_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').join('__').split('@').pop()")
 PROJECT_VERSION=$(node -p "require('${PROJECT_PATH}/package.json').version")
@@ -25,6 +25,15 @@ if [ -z "$1" ]; then
   help
   exit 1
 fi
+
+function help() {
+  echo "Available commands:"
+  echo "  build - build the Docker image"
+  echo "  run - run the Docker container"
+  echo "  stop - stop the Docker container"
+  echo "  clean - remove the Docker image"
+  echo "  logs - show the logs of the Docker container"
+}
 
 function check_base_image() {
   echo "Checking base image ${DEV_BASE_IMAGE}"
@@ -59,34 +68,32 @@ function build-prod() {
   echo "✅  Build complete"
 }
 
-# use DB_ATLAS_URI instead of DB_URI when running the container with the compose file
 function run() {
   echo "🚀  Running..."
   docker run -it --rm --detach \
-    -p ${HOST_PORT}:${CONTAINER_PORT} \
     --env NODE_ENV=development \
-    --env DEVCAMPER_GEOCODER_PROVIDER=${DEVCAMPER_GEOCODER_PROVIDER} \
-    --env DEVCAMPER_GEOCODER_API_KEY=${DEVCAMPER_GEOCODER_API_KEY} \
+    --env EMAILY_GOOGLE_OAUTH_CLIENT_ID=${EMAILY_GOOGLE_OAUTH_CLIENT_ID} \
+    --env EMAILY_GOOGLE_OAUTH_CLIENT_SECRET=${EMAILY_GOOGLE_OAUTH_CLIENT_SECRET} \
+    --env EMAILY_GOOGLE_OAUTH_CALLBACK_URL=${EMAILY_GOOGLE_OAUTH_CALLBACK_URL} \
+    --env EMAILY_COOKIE_KEY=${EMAILY_COOKIE_KEY} \
     --env DB_URI=${DB_ATLAS_URI} \
     --env PORT=${CONTAINER_PORT} \
+    -p ${HOST_PORT}:${CONTAINER_PORT} \
     --name ${PROJECT_NAME} ${PROJECT_NAME}:latest
-  echo "Server listening to http://localhost:${HOST_PORT}" # Fixed message to use HOST_PORT
-  echo "✅  Run complete"
 }
 
-# use DB_ATLAS_URI instead of DB_URI when running the container with the compose file
 function run-prod() {
   echo "🚀  Running..."
   docker run -it --rm --detach \
-    -p ${HOST_PORT}:${CONTAINER_PORT} \
     --env NODE_ENV=production \
-    --env DEVCAMPER_GEOCODER_PROVIDER=${DEVCAMPER_GEOCODER_PROVIDER} \
-    --env DEVCAMPER_GEOCODER_API_KEY=${DEVCAMPER_GEOCODER_API_KEY} \
+    --env EMAILY_GOOGLE_OAUTH_CLIENT_ID=${EMAILY_GOOGLE_OAUTH_CLIENT_ID} \
+    --env EMAILY_GOOGLE_OAUTH_CLIENT_SECRET=${EMAILY_GOOGLE_OAUTH_CLIENT_SECRET} \
+    --env EMAILY_GOOGLE_OAUTH_CALLBACK_URL=${EMAILY_GOOGLE_OAUTH_CALLBACK_URL} \
+    --env EMAILY_COOKIE_KEY=${EMAILY_COOKIE_KEY} \
     --env DB_URI=${DB_ATLAS_URI} \
     --env PORT=${CONTAINER_PORT} \
+    -p ${HOST_PORT}:${CONTAINER_PORT} \
     --name ${PROJECT_NAME} ${PROJECT_NAME}:latest
-  # echo "Server listening to http://localhost:${HOST_PORT}" # Fixed message to use HOST_PORT
-  echo "✅  Run complete"
 }
 
 function stop() {

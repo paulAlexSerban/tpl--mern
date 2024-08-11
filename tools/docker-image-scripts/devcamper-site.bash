@@ -4,7 +4,7 @@ cd "$(dirname "$0")" || exit
 
 . ../../.env
 
-PROJECT_PATH="../../frontend/apps/dummy-blog-app"
+PROJECT_PATH="../../frontend/sites/devcamper-site"
 PACKAGE_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').pop()")
 PROJECT_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').join('__').split('@').pop()")
 PROJECT_VERSION=$(node -p "require('${PROJECT_PATH}/package.json').version")
@@ -34,20 +34,8 @@ function help() {
     echo "  logs - show the logs of the Docker container"
 }
 
-function check_base_image() {
-    echo "Checking base image ${DEV_BASE_IMAGE}"
-    if [[ "$(docker images -q ${DEV_BASE_IMAGE} 2>/dev/null)" == "" ]]; then
-        echo "Base image ${DEV_BASE_IMAGE} not found locally"
-        echo "Please build the base image first with: make core_build"
-        exit 1
-    else
-        echo "Base image ${DEV_BASE_IMAGE} found locally"
-    fi
-}
-
 function build() {
     echo "🚧  Building..."
-    check_base_image
     docker build \
         --build-arg CONTAINER_PORT=${CONTAINER_PORT} \
         --tag ${PROJECT_NAME}:latest \
@@ -58,7 +46,6 @@ function build() {
 
 function build-prod() {
     echo "🚧  Building..."
-    check_base_image
     docker build \
         --build-arg CONTAINER_PORT=${CONTAINER_PORT} \
         --tag ${PROJECT_NAME}:latest \

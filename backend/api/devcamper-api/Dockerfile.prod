@@ -2,14 +2,10 @@ FROM wbk--mern-playground__core:latest as builder
 
 COPY ./backend/api/devcamper-api ./backend/api/devcamper-api
 
-ARG CONTAINER_PORT
-ENV PORT=$CONTAINER_PORT
-EXPOSE $CONTAINER_PORT
-
 RUN yarn install
 RUN yarn build:devcamper-api
 
-FROM node:20-alpine
+FROM node:20-alpine as service
 
 # Create app directory
 RUN mkdir -p /usr/src/app

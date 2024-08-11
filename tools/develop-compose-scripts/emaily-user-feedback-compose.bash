@@ -7,6 +7,12 @@ export HOST_GROUP_ID=$(id -g)
 
 ENV_FILE="../../infrastructure/env/emaily-user-feedback.compose.env"
 COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.emaily-user-feedback.dev.yml"
+COMPOSE_FILE_PROD="../../infrastructure/docker/prod/docker-compose.emaily-user-feedback.prod.yml"
+
+if [ -z "$1" ]; then
+    help
+    exit 1
+fi
 
 function list() {
     echo "[ 📜 🐳 compose list ]"
@@ -41,8 +47,31 @@ function logs() {
         --follow
 }
 
-function help() {
-    echo "Usage: $0 {up|down|logs}"
+function up-prod() {
+    echo "[ 🟢 🐳 compose up production build ]"
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_PROD} up \
+        --detach --build --wait
+    list
 }
 
-$1
+function down-prod() {
+    echo "[ 🛑 🐳 compose down production build ]"
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_PROD} down \
+        --volumes --rmi all
+    list
+}
+
+function help() {
+    echo "Available commands:"
+    echo "  up - start the Docker container"
+    echo "  down - stop the Docker container"
+    echo "  logs - show the logs of the Docker container"
+    echo "  up-prod - start the Docker container with production build"
+    echo "  down-prod - stop the Docker container with production build"
+}
+
+$1 && echo "Done" || echo "Failed"

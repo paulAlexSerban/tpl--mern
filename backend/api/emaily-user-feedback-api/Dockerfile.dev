@@ -1,0 +1,7 @@
+FROM wbk--mern-playground__core:latest as builder
+
+COPY ./backend/api/emaily-user-feedback-api ./backend/api/emaily-user-feedback-api
+
+RUN yarn install
+
+CMD [ "yarn", "develop:emaily-user-feedback-api"]

@@ -4,7 +4,7 @@ cd "$(dirname "$0")" || exit
 
 . ../../.env
 
-PROJECT_PATH="../../frontend/apps/dummy-blog-app"
+PROJECT_PATH="../../frontend/apps/emaily-user-feedback-app"
 PACKAGE_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').pop()")
 PROJECT_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').join('__').split('@').pop()")
 PROJECT_VERSION=$(node -p "require('${PROJECT_PATH}/package.json').version")
