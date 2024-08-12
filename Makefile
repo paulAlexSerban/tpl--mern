@@ -66,6 +66,57 @@ birthday-buddy-app_clean:
 
 
 # ------------------------------------------------------------- #
+# (compose): Backroads Tourcompany Landing Page 
+# ------------------------------------------------------------- #
+birthday-buddy_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up birthday-buddy
+
+birthday-buddy_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod birthday-buddy
+
+birthday-buddy_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down birthday-buddy
+
+birthday-buddy_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod birthday-buddy
+
+# ------------------------------------------------------------- #
+# (spa): Color Generator App
+# ------------------------------------------------------------- #
+color-generator-app_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build color-generator-app
+
+color-generator-app_build-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build-prod color-generator-app
+
+color-generator-app_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run color-generator-app
+
+color-generator-app_run-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run-prod color-generator-app
+
+color-generator-app_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash stop color-generator-app
+
+color-generator-app_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean color-generator-app
+
+# ------------------------------------------------------------- #
+# (compose): Color Generator App
+# ------------------------------------------------------------- #
+color-generator_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up color-generator
+
+color-generator_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod color-generator
+
+color-generator_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down color-generator
+
+color-generator_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod color-generator
+
+# ------------------------------------------------------------- #
 # (site): DevCamper
 # ------------------------------------------------------------- #
 devcamper-site_build:
@@ -112,16 +163,16 @@ devcamper-api_clean:
 # ------------------------------------------------------------- #
 # (compose): DevCamper
 # ------------------------------------------------------------- #
-devcamper-compose-up:
+devcamper_compose-up:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash up
 
-devcamper-compose-up-prod:
+devcamper_compose-up-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash up-prod
 
-devcamper-compose-down:
+devcamper_compose-down:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash down
 
-devcamper-compose-down-prod:
+devcamper_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash down-prod
 
 # ------------------------------------------------------------- #
@@ -145,6 +196,20 @@ dummy-blog-app_stop:
 dummy-blog-app_clean:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean dummy-blog-app
 
+# ------------------------------------------------------------- #
+# (compose): Dummy Blog App
+# ------------------------------------------------------------- #
+dummy-blog_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up dummy-blog
+
+dummy-blog_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod dummy-blog
+
+dummy-blog_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down dummy-blog
+
+dummy-blog_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod dummy-blog
 
 # ------------------------------------------------------------- #
 # (spa): Emaily User Feedback App
@@ -191,16 +256,16 @@ emaily-user-feedback-api_clean:
 # ------------------------------------------------------------- #
 # (compose): Emaily User Feedback App
 # ------------------------------------------------------------- #
-emaily-user-feedback-compose-up:
+emaily-user-feedback_compose-up:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/emaily-user-feedback-compose.bash up
 
-emaily-user-feedback-compose-up-prod:
+emaily-user-feedback_compose-up-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/emaily-user-feedback-compose.bash up-prod
 
-emaily-user-feedback-compose-down:
+emaily-user-feedback_compose-down:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/emaily-user-feedback-compose.bash down
 
-emaily-user-feedback-compose-down-prod:
+emaily-user-feedback_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/emaily-user-feedback-compose.bash down-prod
 
 

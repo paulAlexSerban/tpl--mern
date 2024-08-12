@@ -1,4 +1,8 @@
 ---
+networks:
+    backroads-tourcompany-landingpage-network:
+        driver: bridge
+
 services:
     # ---------------------------------------------------------------------
     # | Proxy-Service - Nginx                                              |
@@ -24,17 +28,11 @@ services:
     # ---------------------------------------------------------------------
     ui-react-spa:
         container_name: ui-react-spa-container
+        image: paulserbandev/backroads-tourcompany-landingpage-ui-react-spa
         build:
             context: ../../../
             dockerfile: ./frontend/sites/backroads-tourcompany-landingpage-site/Dockerfile.prod
-        image: paulserbandev/backroads-tourcompany-landingpage-ui-react-spa
-        # volumes:
-        #     - /usr/src/app/dist
-        #     - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
-        #     - ../../../frontend/sites/backroads-tourcompany-landingpage-site:/usr/src/app # Mount the app directory to the container
+        env_file:
+            - ../../../infrastructure/env/backroads-tourcompany-landingpage.compose.env
         networks:
             - backroads-tourcompany-landingpage-network
-
-networks:
-    backroads-tourcompany-landingpage-network:
-        driver: bridge

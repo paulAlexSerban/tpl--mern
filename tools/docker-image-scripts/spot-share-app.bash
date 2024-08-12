@@ -51,4 +51,4 @@ function build() {
         --build-arg VITE_GOOGLE_MAPS_API_KEY=$VITE_GOOGLE_MAPS_API_KEY
 }
 
-$1
+$1 && echo "Done" || echo "Failed"

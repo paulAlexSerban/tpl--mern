@@ -42,4 +42,4 @@ function clean() {
     echo "✅  Clean complete"
 }
 
-$1
+$1 && echo "Done" || echo "Failed"

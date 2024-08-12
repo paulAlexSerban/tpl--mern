@@ -2,11 +2,23 @@
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
+if [ -z "$1" ]; then
+    help
+    exit 1
+fi
+
+if [ -z "$2" ]; then
+    echo "Please provide the app name"
+    exit 1
+fi
+
 export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
-ENV_FILE="../../infrastructure/env/birthday-buddy.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.birthday-buddy.dev.yml"
+APP_NAME=$2
+ENV_FILE="../../infrastructure/env/${APP_NAME}.compose.env"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.${APP_NAME}.dev.yml"
+COMPOSE_FILE_PROD="../../infrastructure/docker/prod/docker-compose.${APP_NAME}.prod.yml"
 
 function list() {
     echo "[ 📜 🐳 compose list ]"
@@ -41,8 +53,26 @@ function logs() {
         --follow
 }
 
-function help() {
-    echo "Usage: $0 {up|down|logs}"
+function up-prod() {
+    echo "[ 🟢 🐳 compose up production build ]"
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_PROD} up \
+        --detach --build --wait
+    list
 }
 
-$1
+function down-prod() {
+    echo "[ 🛑 🐳 compose down production build ]"
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_PROD} down \
+        --volumes --rmi all
+    list
+}
+
+function help() {
+    echo "Usage: $0 {up|down|up-prod|logs}"
+}
+
+$1 && echo "Done" || echo "Failed"

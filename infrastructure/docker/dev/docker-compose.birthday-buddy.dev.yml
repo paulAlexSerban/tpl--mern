@@ -29,11 +29,11 @@ services:
         container_name: ui-react-spa-container
         build:
             context: ../../../ # set context to root of monorepo project
-            dockerfile: ./frontend/sites/birthday-buddy-site/Dockerfile.dev
+            dockerfile: ./frontend/apps/birthday-buddy-app/Dockerfile.dev
         volumes:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
-            - /usr/src/app/frontend/sites/birthday-buddy-site/node_mdules # Avoids overwriting dist with local volume
-            - ../../../frontend/sites/birthday-buddy-site:/usr/src/app/frontend/sites/birthday-buddy-site/ # Mount the app directory to the container
+            - /usr/src/app/frontend/apps/birthday-buddy-app/node_mdules # Avoids overwriting dist with local volume
+            - ../../../frontend/apps/birthday-buddy-app:/usr/src/app/frontend/apps/birthday-buddy-app/ # Mount the app directory to the container
         restart: unless-stopped
         networks:
             - birthday-buddy-network

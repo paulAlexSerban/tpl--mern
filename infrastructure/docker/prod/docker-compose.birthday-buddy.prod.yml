@@ -1,6 +1,6 @@
 ---
 networks:
-    dummy-blog-network:
+    birthday-buddy-network:
         driver: bridge
 
 services:
@@ -8,11 +8,11 @@ services:
     # | Proxy-Service - Nginx                                              |
     # ---------------------------------------------------------------------
     nginx-proxy:
-        container_name: dummy-blog-proxy-container
+        container_name: birthday-buddy-proxy-container
         build:
             context: ../../../
             dockerfile: ./backend/middleware/simple-fe-only-spa-proxy/Dockerfile.prod
-        image: paulserbandev/dummy-blog-proxy
+        image: paulserbandev/birthday-buddy-proxy
         restart: unless-stopped
         ports:
             - '3000:80'
@@ -21,18 +21,18 @@ services:
         depends_on:
             - ui-react-spa
         networks:
-            - dummy-blog-network
+            - birthday-buddy-network
 
     # ---------------------------------------------------------------------
     # UI React SPA
     # ---------------------------------------------------------------------
     ui-react-spa:
         container_name: ui-react-spa-container
-        image: paulserbandev/dummy-blog-ui-react-spa
+        image: paulserbandev/birthday-buddy-ui-react-spa
         build:
             context: ../../../
-            dockerfile: ./frontend/apps/dummy-blog-app/Dockerfile.prod
+            dockerfile: ./frontend/apps/birthday-buddy-app/Dockerfile.prod
         env_file:
-            - ../../../infrastructure/env/dummy-blog.compose.env
+            - ../../../infrastructure/env/birthday-buddy.compose.env
         networks:
-            - dummy-blog-network
+            - birthday-buddy-network
