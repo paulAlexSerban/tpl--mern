@@ -1,8 +1,8 @@
 ---
-version: '3.7'
 networks:
     magic-world-network:
         driver: bridge
+
 services:
     # ---------------------------------------------------------------------
     # | PostgreSQL                                                        |

@@ -1,8 +1,8 @@
 ---
-version: '3.7'
 networks:
     {{infrastructure_docker-simple-slug}}-network:
         driver: bridge
+
 services:
     # ---------------------------------------------------------------------
     # | Proxy-Service - Nginx                                              |

@@ -1,8 +1,8 @@
 ---
-version: '3.7'
 networks:
     sidebar-and-modal-basic-network:
         driver: bridge
+
 services:
     # ---------------------------------------------------------------------
     # | Proxy-Service - Nginx                                              |

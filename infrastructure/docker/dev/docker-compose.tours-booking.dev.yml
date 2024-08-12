@@ -1,8 +1,8 @@
 ---
-version: '3.7'
 networks:
     tours-listing-network:
         driver: bridge
+
 services:
     # ---------------------------------------------------------------------
     # | Proxy-Service - Nginx                                              |

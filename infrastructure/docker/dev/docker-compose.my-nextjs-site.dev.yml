@@ -1,5 +1,4 @@
 ---
-version: '3.7'
 networks:
     my-nextjs-site-network:
         driver: bridge
