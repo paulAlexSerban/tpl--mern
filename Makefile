@@ -352,8 +352,14 @@ minesweeper-game-app_clean:
 minesweeper-game_compose-up:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up minesweeper-game
 
+minesweeper-game_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod minesweeper-game
+
 minesweeper-game_compose-down:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down minesweeper-game
+
+minesweeper-game_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod minesweeper-game
 
 # ------------------------------------------------------------- #
 # (spa): Select Dropdown App (Parcel) 
