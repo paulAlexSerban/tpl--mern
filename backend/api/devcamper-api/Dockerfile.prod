@@ -1,13 +1,10 @@
 FROM wbk--mern-playground__core:latest as builder
-
 COPY ./backend/api/devcamper-api ./backend/api/devcamper-api
-
 RUN yarn install
 RUN yarn build:devcamper-api
 
 FROM node:20-alpine as service
 
-# Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 

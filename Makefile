@@ -212,6 +212,20 @@ dummy-blog_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod dummy-blog
 
 # ------------------------------------------------------------- #
+# (service): Emaily User Feedback App
+# ------------------------------------------------------------- #
+ecommerce-monolith-mvc-service_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash build ecommerce-monolith-mvc-service
+
+ecommerce-monolith-mvc-service_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash run ecommerce-monolith-mvc-service
+
+ecommerce-monolith-mvc-service_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash stop ecommerce-monolith-mvc-service
+
+ecommerce-monolith-mvc-service_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash clean ecommerce-monolith-mvc-service
+# ------------------------------------------------------------- #
 # (spa): Emaily User Feedback App
 # ------------------------------------------------------------- #
 emaily-user-feedback-app_build:
