@@ -331,8 +331,14 @@ events-showcase_compose-down-prod:
 minesweeper-game-app_build:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build minesweeper-game-app
 
+minesweeper-game-app_build-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build-prod minesweeper-game-app
+
 minesweeper-game-app_run:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run minesweeper-game-app
+
+minesweeper-game-app_run-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run-prod minesweeper-game-app
 
 minesweeper-game-app_stop:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash stop minesweeper-game-app
