@@ -2,6 +2,7 @@
 networks:
     emaily-user-feedback-network:
         driver: bridge
+
 services:
     # ---------------------------------------------------------------------
     # | Proxy-Service - Nginx                                              |

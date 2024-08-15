@@ -1,6 +1,6 @@
 import PageContent from '../components/PageContent';
 import { useRouteError } from 'react-router-dom';
-import MainNavigation from '../components/MainNavigation';
+
 const ErrorPage = () => {
     const error = useRouteError();
     const { status = 500, message = 'An unexpected error occurred' } = error as { status: number; message: string };

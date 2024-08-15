@@ -1,0 +1,4 @@
+FROM wbk--mern-playground__core:latest as builder
+COPY ./frontend/apps/events-showcase-app ./frontend/apps/events-showcase-app
+RUN yarn install
+CMD [ "yarn", "develop:events-showcase-app"]

@@ -268,6 +268,62 @@ emaily-user-feedback_compose-down:
 emaily-user-feedback_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/emaily-user-feedback-compose.bash down-prod
 
+# ------------------------------------------------------------- #
+# (spa): Events Shocase
+# ------------------------------------------------------------- #
+events-showcase-app_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build events-showcase-app
+
+events-showcase-app_build-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build-prod events-showcase-app
+
+events-showcase-app_run:	
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run events-showcase-app
+
+events-showcase-app_run-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run-prod events-showcase-app
+
+events-showcase-app_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash stop events-showcase-app
+
+events-showcase-app_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean events-showcase-app
+
+# ------------------------------------------------------------- #
+# (api): Events Shocase
+# ------------------------------------------------------------- #
+events-showcase-api_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/events-showcase-api.bash build
+
+events-showcase-api_build-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/events-showcase-api.bash build-prod
+
+events-showcase-api_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/events-showcase-api.bash run
+
+events-showcase-api_run-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/events-showcase-api.bash run-prod
+
+events-showcase-api_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/events-showcase-api.bash stop
+
+events-showcase-api_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/events-showcase-api.bash clean
+
+# ------------------------------------------------------------- #
+# (compose): Events Shocase
+# ------------------------------------------------------------- #
+events-showcase_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up events-showcase
+
+events-showcase_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod events-showcase
+
+events-showcase_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down events-showcase
+
+events-showcase_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod events-showcase
 
 # ------------------------------------------------------------- #
 # (spa): Select Dropdown App (Parcel) 
