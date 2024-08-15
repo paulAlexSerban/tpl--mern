@@ -8,8 +8,7 @@ services:
     # | Proxy-Service - Nginx                                              |
     # ---------------------------------------------------------------------
     nginx-proxy:
-        container_name: container-backroads-tourcompany-landingpage-proxy
-        image: paulserbandev/backroads-tourcompany-landingpage-proxy
+        container_name: backroads-tourcompany-landingpage-proxy
         build:
             context: ../../../ # set context to root of monorepo project
             dockerfile: ./backend/middleware/simple-fe-only-spa-proxy/Dockerfile.dev
@@ -25,8 +24,7 @@ services:
     # UI React SPA
     # ---------------------------------------------------------------------
     ui-react-spa:
-        image: paulserbandev/backroads-tourcompany-landingpage-ui
-        container_name: ui-react-spa-container
+        container_name: ui-react-spa
         build:
             context: ../../../ # set context to root of monorepo project
             dockerfile: ./frontend/sites/backroads-tourcompany-landingpage-site/Dockerfile.dev
