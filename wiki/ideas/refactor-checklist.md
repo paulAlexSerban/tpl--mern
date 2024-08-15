@@ -2,7 +2,7 @@
 
 ## General
 - [ ] DEV Docker image
-  - [ ] SPA App.
+  - [x] SPA App.
   - [ ] API Service
 - [ ] PROD Docker image
   - [ ] SPA App.

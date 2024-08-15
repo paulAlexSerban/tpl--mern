@@ -326,6 +326,21 @@ events-showcase_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod events-showcase
 
 # ------------------------------------------------------------- #
+# (spa): Minesweeper Game App
+# ------------------------------------------------------------- #
+minesweeper-game-app_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build minesweeper-game-app
+
+minesweeper-game-app_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run minesweeper-game-app
+
+minesweeper-game-app_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash stop minesweeper-game-app
+
+minesweeper-game-app_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean minesweeper-game-app
+
+# ------------------------------------------------------------- #
 # (spa): Select Dropdown App (Parcel) 
 # ------------------------------------------------------------- #
 select-dropdown-app-parcel_build:
