@@ -9,10 +9,9 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../../backend/middleware/ecommerce-monolith-mvc-proxy
-            dockerfile: dev.Dockerfile
-        container_name: container-ecommerce-monolith-mvc-proxy
-        image: paulserbandev/ecommerce-monolith-mvc-proxy
+            context: ../../../
+            dockerfile: ./backend/middleware/ecommerce-monolith-mvc-proxy/Dockerfile.dev
+        container_name: ecommerce-monolith-mvc-proxy
         restart: unless-stopped
         ports:
             - '3000:80'
@@ -26,16 +25,16 @@ services:
     # ---------------------------------------------------------------------
     express-ecommerce-monolith-mvc-service:
         build:
-            context: ../../backend/services/ecommerce-monolith-mvc-service
-            dockerfile: dev.Dockerfile
-        image: paulserbandev/ecommerce-monolith-mvc-service
-        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
-        # without this, the container will fail to write files to the host volume
-        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
-        container_name: container-ecommerce-monolith-mvc-service
+            context: ../../../
+            dockerfile: ./backend/services/ecommerce-monolith-mvc-service/Dockerfile.dev
+        container_name: ecommerce-monolith-mvc-service
         restart: always
         volumes:
-            - ../../backend/services/ecommerce-monolith-mvc-service:/usr/src/app/
             - /usr/src/app/node_modules
+            - /usr/src/app/backend/services/ecommerce-monolith-mvc-service/node_modules
+            - ../../../backend/services/ecommerce-monolith-mvc-service:/usr/src/app/backend/services/ecommerce-monolith-mvc-service
+            - ../../../backend/services/ecommerce-monolith-mvc-service/src/views:/usr/src/app/backend/services/ecommerce-monolith-mvc-service/dist/src/views
+            - ../../../backend/services/ecommerce-monolith-mvc-service/public:/usr/src/app/backend/services/ecommerce-monolith-mvc-service/dist/public
+
         networks:
             - ecommerce-monolith-mvc-network
