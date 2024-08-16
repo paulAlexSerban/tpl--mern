@@ -1,54 +1,29 @@
-import { defineConfig, Plugin } from 'vite';
-import react from '@vitejs/plugin-react';
-import fs from 'fs';
-import path from 'path';
+import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import react from '@vitejs/plugin-react';
 
-const packageJson = require('./package.json');
-const PROJECT_NAME = packageJson.name.split('/').pop();
-const BASE_URL = process.env.BASE_URL || '/';
+const PORT = parseInt(process.env.PORT) || 3000;
 
-// Custom plugin to write package.json data to meta.json
-const writeMetaPlugin = (): Plugin => {
-    return {
-        name: 'vite-plugin-write-meta',
-        enforce: 'post',
-        apply: 'build', // This ensures the plugin is only applied during build and not during serve
-        writeBundle() {
-            const packageJsonPath = path.resolve(__dirname, './package.json');
-            const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
-            // Define the data you want to include in meta.json
-            const metaData = {
-                name: packageJson?.formattedName,
-                version: packageJson.version,
-                description: packageJson.description,
-                slug: PROJECT_NAME,
-                // Add any other package.json data you wish to include
-            };
-            const outputPath = path.resolve(__dirname, 'dist', 'meta.json');
-            // Ensure directory exists or create it
-            fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-            fs.writeFileSync(outputPath, JSON.stringify(metaData, null, 2));
-            console.log(`Meta data written to ${outputPath}`);
-        },
-    };
-};
+if (isNaN(PORT)) {
+    throw new Error('Invalid PORT');
+}
 
-// https://vitejs.dev/config/
-export default defineConfig(({ command }) => {
+export default defineConfig(() => {
     const config = {
-        plugins: [react(), writeMetaPlugin()],
+        plugins: [react()],
         base: '/',
+        server: {
+            port: PORT,
+        },
+        preview: {
+            port: PORT,
+        },
         resolve: {
             alias: {
                 '@': resolve(__dirname, './src'),
             },
         },
     };
-
-    // if (command !== 'serve') {
-    //     config.base = `${BASE_URL}apps/${PROJECT_NAME}`;
-    // }
 
     return config;
 });

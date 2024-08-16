@@ -211,20 +211,7 @@ dummy-blog-app_stop:
 dummy-blog-app_clean:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean dummy-blog-app
 
-# ------------------------------------------------------------- #
-# (spa): Dummy Blog App
-# ------------------------------------------------------------- #
-duolingo-clone_build:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build duolingo-clone
 
-duolingo-clone_run:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run duolingo-clone
-
-duolingo-clone_stop:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash stop duolingo-clone
-
-duolingo-clone_clean:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean duolingo-clone
 
 # ------------------------------------------------------------- #
 # (compose): Dummy Blog App
@@ -240,6 +227,36 @@ dummy-blog_compose-down:
 
 dummy-blog_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod dummy-blog
+
+# ------------------------------------------------------------- #
+# (spa): Duolingo Clone
+# ------------------------------------------------------------- #
+duolingo-clone_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build duolingo-clone
+
+duolingo-clone_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run duolingo-clone
+
+duolingo-clone_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash stop duolingo-clone
+
+duolingo-clone_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean duolingo-clone
+
+# ------------------------------------------------------------- #
+# (spa): Elegant Redux Online Shop App
+# ------------------------------------------------------------- #
+elegant-redux-online-shop-app_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build elegant-redux-online-shop-app
+
+elegant-redux-online-shop-app_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run elegant-redux-online-shop-app
+
+elegant-redux-online-shop-app_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash stop elegant-redux-online-shop-app
+
+elegant-redux-online-shop-app_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean elegant-redux-online-shop-app
 
 # ------------------------------------------------------------- #
 # (service): Ecommerce Monolith MVC Service
