@@ -117,6 +117,21 @@ color-generator_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod color-generator
 
 # ------------------------------------------------------------- #
+# (spa): Counter Redux
+# ------------------------------------------------------------- #
+counter-redux_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build counter-redux
+
+counter-redux_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run counter-redux
+
+counter-redux_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash stop counter-redux
+
+counter-redux_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean counter-redux
+
+# ------------------------------------------------------------- #
 # (site): DevCamper
 # ------------------------------------------------------------- #
 devcamper-site_build:
