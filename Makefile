@@ -217,8 +217,14 @@ dummy-blog_compose-down-prod:
 ecommerce-monolith-mvc-service_build:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash build ecommerce-monolith-mvc-service
 
+ecommerce-monolith-mvc-service_build-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash build-prod ecommerce-monolith-mvc-service
+
 ecommerce-monolith-mvc-service_run:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash run ecommerce-monolith-mvc-service
+
+ecommerce-monolith-mvc-service_run-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash run-prod ecommerce-monolith-mvc-service
 
 ecommerce-monolith-mvc-service_stop:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash stop ecommerce-monolith-mvc-service

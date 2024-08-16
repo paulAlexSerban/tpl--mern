@@ -85,7 +85,7 @@ function run() {
 function run-prod() {
     echo "🚀  Running..."
     docker run -it --rm --detach \
-        -p ${HOST_PORT}:80 \
+        -p ${HOST_PORT}:${CONTAINER_PORT} \
         --name ${PROJECT_NAME} ${PROJECT_NAME}:latest
     echo "Server listening to http://localhost:${HOST_PORT}" # Fixed message to use HOST_PORT
     echo "✅  Run complete"
