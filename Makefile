@@ -212,6 +212,21 @@ dummy-blog-app_clean:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean dummy-blog-app
 
 # ------------------------------------------------------------- #
+# (spa): Dummy Blog App
+# ------------------------------------------------------------- #
+duolingo-clone_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash build duolingo-clone
+
+duolingo-clone_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash run duolingo-clone
+
+duolingo-clone_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash stop duolingo-clone
+
+duolingo-clone_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-spa.bash clean duolingo-clone
+
+# ------------------------------------------------------------- #
 # (compose): Dummy Blog App
 # ------------------------------------------------------------- #
 dummy-blog_compose-up:

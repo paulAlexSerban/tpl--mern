@@ -4,10 +4,12 @@ import { login } from '../store/authenticationSlice';
 
 const Auth = () => {
     const dispatch = useDispatch();
+
     const loginHandler = (event: React.FormEvent) => {
         event.preventDefault();
         dispatch(login());
     };
+    
     return (
         <main className={classes.auth}>
             <section>
