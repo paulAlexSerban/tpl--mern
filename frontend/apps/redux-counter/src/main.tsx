@@ -5,7 +5,13 @@ import './index.scss';
 import { Provider } from 'react-redux';
 import { store } from './store/index.ts';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const container = document.getElementById('root');
+if (!container) {
+    throw new Error('Failed to find the root element');
+}
+const root = ReactDOM.createRoot(container);
+
+root.render(
     <React.StrictMode>
         <Provider store={store}>
             <App />
