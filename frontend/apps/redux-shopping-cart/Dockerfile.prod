@@ -1,12 +1,12 @@
 # ----------------- BUILDER STAGE -----------------
 FROM wbk--mern-playground__core:latest as builder
-COPY ./frontend/apps/shopping-cart-redux ./frontend/apps/shopping-cart-redux
+COPY ./frontend/apps/redux-shopping-cart ./frontend/apps/redux-shopping-cart
 RUN yarn install
-RUN yarn build:shopping-cart-redux
+RUN yarn build:redux-shopping-cart
 
 # ----------------- PRODUCTION STAGE -----------------
 FROM nginx:latest as prod
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
-COPY --from=builder /usr/src/app/frontend/apps/shopping-cart-redux/dist /usr/share/nginx/html
-COPY ./frontend/apps/shopping-cart-redux/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /usr/src/app/frontend/apps/redux-shopping-cart/dist /usr/share/nginx/html
+COPY ./frontend/apps/redux-shopping-cart/nginx/default.conf /etc/nginx/conf.d/default.conf

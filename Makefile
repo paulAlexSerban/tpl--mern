@@ -57,7 +57,7 @@ $(eval $(call spa_template,emaily-user-feedback-app))
 $(eval $(call spa_template,events-showcase-app))
 $(eval $(call spa_template,minesweeper-game-app))
 $(eval $(call spa_template,select-dropdown-app-parcel))
-$(eval $(call spa_template,shopping-cart-redux))
+$(eval $(call spa_template,redux-shopping-cart))
 $(eval $(call spa_template,spot-share-app))
 
 

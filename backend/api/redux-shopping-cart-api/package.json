@@ -1,5 +1,5 @@
 {
-    "name": "@wbk--mern-playground/shopping-cart-redux-api",
+    "name": "@wbk--mern-playground/redux-shopping-cart-api",
     "version": "0.0.0",
     "private": true,
     "main": "dist/bin/www.js",

@@ -7,58 +7,58 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../../backend/middleware/shopping-cart-redux-proxy
+            context: ../../../backend/middleware/redux-shopping-cart-proxy
             dockerfile: dev.Dockerfile
-        container_name: container-shopping-cart-redux-proxy
-        image: paulserbandev/shopping-cart-redux-proxy
+        container_name: container-redux-shopping-cart-proxy
+        image: paulserbandev/redux-shopping-cart-proxy
         restart: unless-stopped
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/middleware/shopping-cart-redux-proxy/default.conf:/etc/nginx/conf.d/default.conf
-            - ../../../backend/middleware/shopping-cart-redux-proxy/logs:/var/log/nginx
+            - ../../../backend/middleware/redux-shopping-cart-proxy/default.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/middleware/redux-shopping-cart-proxy/logs:/var/log/nginx
         networks:
-            - shopping-cart-redux-network
+            - redux-shopping-cart-network
     # ---------------------------------------------------------------------
     # UI React SPA
     # ---------------------------------------------------------------------
     ui-react-spa:
         container_name: ui-react-spa-container
         build:
-            context: ../../frontend/apps/shopping-cart-redux
+            context: ../../frontend/apps/redux-shopping-cart
             dockerfile: dev.Dockerfile
         # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
         # without this, the container will fail to write files to the host volume
         user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         volumes:
-            - ../../frontend/apps/shopping-cart-redux:/usr/src/app # Mount the app directory to the container
+            - ../../frontend/apps/redux-shopping-cart:/usr/src/app # Mount the app directory to the container
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
         networks:
-            - shopping-cart-redux-network
+            - redux-shopping-cart-network
 
     # ---------------------------------------------------------------------
     # | ExpressJS API                                                     |
     # ---------------------------------------------------------------------
-    express-shopping-cart-redux-api:
+    express-redux-shopping-cart-api:
         build:
-            context: ../../backend/api/shopping-cart-redux-api
+            context: ../../backend/api/redux-shopping-cart-api
             dockerfile: dev.Dockerfile
-        image: paulserbandev/shopping-cart-redux-api
-        container_name: container-shopping-cart-redux-api
+        image: paulserbandev/redux-shopping-cart-api
+        container_name: container-redux-shopping-cart-api
         restart: always
         # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
         # without this, the container will fail to write files to the host volume
         user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         env_file:
-            - ../../infrastructure/env/shopping-cart-redux.compose.env
+            - ../../infrastructure/env/redux-shopping-cart.compose.env
             - ../../.env
         depends_on:
             - mongo-database-service
         volumes:
-            - ../../backend/api/shopping-cart-redux-api:/usr/src/app/
+            - ../../backend/api/redux-shopping-cart-api:/usr/src/app/
             - /usr/src/app/node_modules
         networks:
-            - shopping-cart-redux-network
+            - redux-shopping-cart-network
     # ---------------------------------------------------------------------
     # | MongoDB Database Server                                            |
     # ---------------------------------------------------------------------
@@ -69,15 +69,15 @@ services:
         # without this, the container will fail to write files to the host volume
         user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         env_file:
-            - ../../infrastructure/env/shopping-cart-redux.compose.env
+            - ../../infrastructure/env/redux-shopping-cart.compose.env
             - ../../.env
         volumes:
-            - ../../database/.tmp-data/shopping-cart-redux-data:/data/db
+            - ../../database/.tmp-data/redux-shopping-cart-data:/data/db
         ports:
             - '27017:27017'
         networks:
-            - shopping-cart-redux-network
+            - redux-shopping-cart-network
 
 networks:
-    shopping-cart-redux-network:
+    redux-shopping-cart-network:
         driver: bridge

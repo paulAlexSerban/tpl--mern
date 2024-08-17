@@ -1,5 +1,5 @@
 {
-    "name": "@wbk--mern-playground/shopping-cart-redux",
+    "name": "@wbk--mern-playground/redux-shopping-cart",
     "formattedName": "Shopping Cart Redux",
     "description": "A simple shopping cart app built with React, Redux, and TypeScript.",
     "private": true,

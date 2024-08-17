@@ -1,4 +1,0 @@
-FROM wbk--mern-playground__core:latest as builder
-COPY ./frontend/apps/shopping-cart-redux ./frontend/apps/shopping-cart-redux
-RUN yarn install
-CMD [ "yarn", "develop:shopping-cart-redux"]

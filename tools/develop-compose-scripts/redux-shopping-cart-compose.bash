@@ -5,8 +5,8 @@ cd "$(dirname "$0")" || exit
 export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
-ENV_FILE="../../infrastructure/env/shopping-cart-redux.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.shopping-cart-redux.dev.yml"
+ENV_FILE="../../infrastructure/env/redux-shopping-cart.compose.env"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.redux-shopping-cart.dev.yml"
 
 function list() {
     echo "[ 📜 🐳 compose list ]"
