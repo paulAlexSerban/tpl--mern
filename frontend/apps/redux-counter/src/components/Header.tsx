@@ -1,11 +1,13 @@
-import classes from './Header.module.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../store/index';
-import { logout } from '../store/authenticationSlice';
+import { isAuthenticatedSelector } from '@/store';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { logout } from '@/store/slices/authentication';
+
+import classes from '@/components/Header.module.scss';
 
 const Header = () => {
-    const { isAuthenticated } = useSelector((state: RootState) => state.authentication);
-    const dispatch = useDispatch();
+    const { isAuthenticated } = useAppSelector(isAuthenticatedSelector);
+    const dispatch = useAppDispatch();
+
     const logoutHandler = () => {
         dispatch(logout());
     };

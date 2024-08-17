@@ -1,15 +1,17 @@
+import { type FormEvent } from 'react';
+import { useAppDispatch } from '@/store/hooks';
 import classes from './Auth.module.scss';
-import { useDispatch } from 'react-redux';
-import { login } from '../store/authenticationSlice';
+
+import { login } from '@/store/slices/authentication';
 
 const Auth = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const loginHandler = (event: React.FormEvent) => {
+    const loginHandler = (event: FormEvent) => {
         event.preventDefault();
         dispatch(login());
     };
-    
+
     return (
         <main className={classes.auth}>
             <section>

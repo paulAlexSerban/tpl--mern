@@ -1,4 +1,0 @@
-FROM wbk--mern-playground__core:latest as builder
-COPY ./frontend/apps/counter-redux ./frontend/apps/counter-redux
-RUN yarn install
-CMD [ "yarn", "develop:counter-redux"]

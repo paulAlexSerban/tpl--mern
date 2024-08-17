@@ -22,7 +22,7 @@ import { tokenLoader, checkAuthLoader } from './util/auth';
 // route actions
 import { action as authAction } from './pages/Authentication';
 import { action as deleteEventAction } from './pages/EventDetail';
-import { action as logoutAction } from './pages/Logout';
+import { action as logout } from './pages/Logout';
 import { action as manipulateEventAction } from './components/EventForm';
 import { action as newsletterAction } from './pages/Newsletter';
 
@@ -83,7 +83,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'logout',
-                action: logoutAction,
+                action: logout,
             },
         ],
     },

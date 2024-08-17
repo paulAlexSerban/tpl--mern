@@ -49,7 +49,7 @@ endef
 # Use the template for each SPA app
 $(eval $(call spa_template,birthday-buddy-app))
 $(eval $(call spa_template,color-generator-app))
-$(eval $(call spa_template,counter-redux))
+$(eval $(call spa_template,redux-counter))
 $(eval $(call spa_template,dummy-blog-app))
 $(eval $(call spa_template,duolingo-clone))
 $(eval $(call spa_template,elegant-redux-online-shop-app))

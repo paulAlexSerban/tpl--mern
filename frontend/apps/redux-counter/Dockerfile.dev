@@ -1,0 +1,4 @@
+FROM wbk--mern-playground__core:latest as builder
+COPY ./frontend/apps/redux-counter ./frontend/apps/redux-counter
+RUN yarn install
+CMD [ "yarn", "develop:redux-counter"]

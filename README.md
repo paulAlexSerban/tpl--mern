@@ -1,13 +1,12 @@
 # MERN Playgronud
 
-## Running
+## Experiments To Do
 
--   Develop docker compose setup - `yarn develop:compose:${PROJECT_NAME} ${COMPOSE_COMMAND}`
-    -   E.G. `yarn develop:compose:rnd-axios-http up
+### Redux
 
-## The Boy Scout To Do List
-
--   [ ] add compile script with tsc for proper typescript checking
--   [ ] if simple FE only app
-    -   [ ] use `simple-fe-only-spa-proxy`
-    -   [ ] adapt `docker-compose` to use `simple-fe-only-spa-proxy`
+-   build demo apps to showcase use of useAppStore custom hook as explained in `/frontend/apps/redux-counter/src/store/hooks/index.ts`
+    -   [ ] 1. Accessing the entire Store object w. Middleware Integration
+    -   [ ] 2. Replacing Reducers Dynamically by Dynamically Adding a Reducer
+    -   [ ] 3. Custom Store Enhancers by Accessing Enhancer Methods
+    -   [ ] 4. Complex State Management Operations by Synchronizing State with Local Storage
+    -   [ ] 5. Throttling State Updates w. Throttling Updates

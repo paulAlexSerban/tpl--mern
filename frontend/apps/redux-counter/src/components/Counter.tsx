@@ -1,12 +1,13 @@
-import classes from './Counter.module.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../store/index';
-import { increment, decrement, increase, decrease, toggle } from '../store/counterSlice';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import classes from '@/components/Counter.module.scss';
+import { AppDispatch, counterSelector } from '@/store';
+import { increment, decrement, increase, decrease, toggle } from '@/store/slices/counter';
+
 const Counter = () => {
     // Using the useSelector hook from 'react-redux' to select the 'counter' state from the Redux store.
     // useSelector returns status from the Redux store.
-    const { counter, showCounter } = useSelector((state: RootState) => state.counter);
-    const dispatch = useDispatch();
+    const { counter, showCounter } = useAppSelector(counterSelector);
+    const dispatch: AppDispatch = useAppDispatch();
     // this is not best practice
     // this is only for demonstration purposes of handle multiple states in redux
     const toggleCounterHandler = () => {

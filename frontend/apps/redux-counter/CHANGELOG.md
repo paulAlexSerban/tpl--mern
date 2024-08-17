@@ -7,7 +7,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   **counter-redux:** init ([70abffd](https://github.com/paulAlexSerban/wbk--mern-playground/commit/70abffd930c28d56a3c4c975ce1af511bbf6730b))
+-   **redux-counter:** init ([70abffd](https://github.com/paulAlexSerban/wbk--mern-playground/commit/70abffd930c28d56a3c4c975ce1af511bbf6730b))
 
 # 0.1.0 (2024-02-02)
 

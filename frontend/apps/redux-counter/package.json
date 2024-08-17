@@ -1,5 +1,5 @@
 {
-    "name": "@wbk--mern-playground/counter-redux",
+    "name": "@wbk--mern-playground/redux-counter",
     "formattedName": "Counter Redux",
     "description": "A simple counter app using Redux",
     "private": true,
