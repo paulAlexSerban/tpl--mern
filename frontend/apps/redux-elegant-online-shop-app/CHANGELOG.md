@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.2.0](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/elegant-redux-online-shop-app@0.1.0...@wbk--mern-playground/elegant-redux-online-shop-app@0.2.0) (2024-02-05)
+# [0.2.0](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/redux-elegant-online-shop-app@0.1.0...@wbk--mern-playground/redux-elegant-online-shop-app@0.2.0) (2024-02-05)
 
 ### Features
 
