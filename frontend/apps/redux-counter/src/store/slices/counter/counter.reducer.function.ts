@@ -1,5 +1,5 @@
-import { type CounterState } from './counter';
 import { type PayloadAction } from '@reduxjs/toolkit';
+import { type CounterState } from '@/store/slices/counter/counter.d';
 
 export const increment = (state: CounterState): void => {
     state.counter++;
