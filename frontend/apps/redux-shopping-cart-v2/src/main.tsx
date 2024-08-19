@@ -13,9 +13,15 @@ if (!container) {
 }
 const root = ReactDOM.createRoot(container);
 
+const store = setupStore();
+
+if (!store) {
+    throw new Error('Failed to create the store');
+}
+
 root.render(
     <React.StrictMode>
-        <Provider store={setupStore()}>
+        <Provider store={store}>
             <App />
         </Provider>
     </React.StrictMode>
