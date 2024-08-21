@@ -20,6 +20,8 @@ export const useAuthContext = () => {
     return context;
 };
 
+
+
 const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
