@@ -181,6 +181,21 @@ emaily-user-feedback_compose-down:
 emaily-user-feedback_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/emaily-user-feedback-compose.bash down-prod
 
+# ------------------------------------------------------------- #
+# (compose): Hello Strapi CMS
+# ------------------------------------------------------------- #
+hello-strapi-cms_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-strapi-cms-compose.bash up
+
+hello-strapi-cms_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-strapi-cms-compose.bash up-prod
+
+hello-strapi-cms_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-strapi-cms-compose.bash down
+
+hello-strapi-cms_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-strapi-cms-compose.bash down-prod
+
 # Core build 
 core_build:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/core.bash build
