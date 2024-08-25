@@ -1,6 +1,6 @@
 FROM wbk--mern-playground__core:latest as builder
 
-COPY ./frontend/sites/flowrise-site ./frontend/sites/flowrise-site
+COPY ./backend/services/flowrise-ssr-service ./backend/services/flowrise-ssr-service
 
 ARG CONTAINER_PORT
 ENV PORT=$CONTAINER_PORT

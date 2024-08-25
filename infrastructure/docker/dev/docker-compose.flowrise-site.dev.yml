@@ -27,7 +27,7 @@ services:
         container_name: nextjs-service-container
         build:
             context: ../../../
-            dockerfile: ./frontend/sites/flowrise-site/Dockerfile.dev
+            dockerfile: ./backend/services/flowrise-ssr-service/Dockerfile.dev
         env_file:
             - ../../../infrastructure/env/flowrise-site.compose.env
             - ../../../.env
@@ -35,8 +35,8 @@ services:
             - '9999:9999'
         volumes:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
-            - /usr/src/app/frontend/sites/flowrise-site/node_modules
-            - ../../../frontend/sites/flowrise-site:/usr/src/app/frontend/sites/flowrise-site # Mount the app directory to the container
+            - /usr/src/app/backend/services/flowrise-ssr-service/node_modules
+            - ../../../backend/services/flowrise-ssr-service:/usr/src/app/backend/services/flowrise-ssr-service # Mount the app directory to the container
 
         networks:
             - flowrise-site-network
