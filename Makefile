@@ -184,17 +184,32 @@ emaily-user-feedback_compose-down-prod:
 # ------------------------------------------------------------- #
 # (compose): Hello Strapi CMS
 # ------------------------------------------------------------- #
-hello-strapi-cms_compose-up:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-strapi-cms-compose.bash up
+hello-strapi_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-strapi-compose.bash up
 
-hello-strapi-cms_compose-up-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-strapi-cms-compose.bash up-prod
+hello-strapi_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-strapi-compose.bash up-prod
 
-hello-strapi-cms_compose-down:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-strapi-cms-compose.bash down
+hello-strapi_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-strapi-compose.bash down
 
-hello-strapi-cms_compose-down-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-strapi-cms-compose.bash down-prod
+hello-strapi_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-strapi-compose.bash down-prod
+
+# ------------------------------------------------------------- #
+# (compose): My Next.js Site
+# ------------------------------------------------------------- #
+my-nextjs-site_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/my-nextjs-site-compose.bash up
+
+my-nextjs-site_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/my-nextjs-site-compose.bash up-prod
+
+my-nextjs-site_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/my-nextjs-site-compose.bash down
+
+my-nextjs-site_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/my-nextjs-site-compose.bash down-prod
 
 # Core build 
 core_build:

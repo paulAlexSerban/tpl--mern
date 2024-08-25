@@ -1,0 +1,11 @@
+FROM wbk--mern-playground__core:latest as builder
+
+COPY ./frontend/sites/my-nextjs-site ./frontend/sites/my-nextjs-site
+
+ARG CONTAINER_PORT
+ENV PORT=$CONTAINER_PORT
+EXPOSE $CONTAINER_PORT
+
+RUN yarn install
+
+CMD [ "yarn", "develop:my-nextjs-site"]
