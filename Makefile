@@ -105,7 +105,7 @@ $(1)_clean:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash clean
 endef
 
-$(eval $(call mvc_service_template,ecommerce-monolith-mvc-service))
+$(eval $(call mvc_service_template,ecommerce-monolith-mvc-ssr-service))
 
 define spa-compose_template
 $(1)_compose-up:

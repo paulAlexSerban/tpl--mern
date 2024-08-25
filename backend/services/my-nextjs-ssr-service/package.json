@@ -1,5 +1,5 @@
 {
-    "name": "@wbk--mern-playground/my-nextjs-site",
+    "name": "@wbk--mern-playground/my-nextjs-ssr-service",
     "version": "0.1.0",
     "private": true,
     "scripts": {

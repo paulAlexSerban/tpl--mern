@@ -1,5 +1,5 @@
 {
-    "name": "@wbk--mern-playground/flowrise-site",
+    "name": "@wbk--mern-playground/flowrise-ssr-service",
     "version": "0.1.0",
     "private": true,
     "scripts": {

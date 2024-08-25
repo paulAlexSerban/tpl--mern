@@ -1,0 +1,4 @@
+FROM wbk--mern-playground__core:latest as builder
+COPY ./backend/services/ecommerce-monolith-mvc-ssr-service ./backend/services/ecommerce-monolith-mvc-ssr-service
+RUN yarn install
+CMD [ "yarn",  "develop:ecommerce-monolith-mvc-ssr-service"]
