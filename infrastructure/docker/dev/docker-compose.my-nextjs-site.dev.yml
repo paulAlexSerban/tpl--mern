@@ -2,6 +2,7 @@
 networks:
     my-nextjs-site-network:
         driver: bridge
+
 services:
     # ---------------------------------------------------------------------
     # | Proxy-Service - Nginx                                              |
@@ -24,16 +25,15 @@ services:
     # ---------------------------------------------------------------------
     ssr-service:
         container_name: nextjs-service-container
-        env_file:
-            - ../../../infrastructure/env/my-nextjs-site.compose.env
-            - ../../../.env
         build:
             context: ../../../
             dockerfile: ./backend/services/my-nextjs-ssr-service/Dockerfile.dev
+        env_file:
+            - ../../../infrastructure/env/my-nextjs-site.compose.env
+            - ../../../.env
         volumes:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
             - /usr/src/app/backend/services/my-nextjs-ssr-service/node_modules
             - ../../../backend/services/my-nextjs-ssr-service:/usr/src/app/backend/services/my-nextjs-ssr-service # Mount the app directory to the container
-
         networks:
             - my-nextjs-site-network

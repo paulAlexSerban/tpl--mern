@@ -182,6 +182,21 @@ emaily-user-feedback_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/emaily-user-feedback-compose.bash down-prod
 
 # ------------------------------------------------------------- #
+# (compose): Flowrise Site
+# ------------------------------------------------------------- #
+flowrise-site_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/flowrise-site-compose.bash up
+
+flowrise-site_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/flowrise-site-compose.bash up-prod
+
+flowrise-site_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/flowrise-site-compose.bash down
+
+flowrise-site_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/flowrise-site-compose.bash down-prod
+
+# ------------------------------------------------------------- #
 # (compose): Hello Strapi CMS
 # ------------------------------------------------------------- #
 hello-strapi_compose-up:
