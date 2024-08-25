@@ -1,26 +1,26 @@
 {
-  "kind": "collectionType",
-  "collectionName": "categories",
-  "info": {
-    "singularName": "category",
-    "pluralName": "categories",
-    "displayName": "Category"
-  },
-  "options": {
-    "draftAndPublish": true
-  },
-  "pluginOptions": {},
-  "attributes": {
-    "name": {
-      "type": "string",
-      "required": true,
-      "unique": true
+    "kind": "collectionType",
+    "collectionName": "categories",
+    "info": {
+        "singularName": "category",
+        "pluralName": "categories",
+        "displayName": "Category"
     },
-    "restaurants": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::restaurant.restaurant",
-      "inversedBy": "categories"
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string",
+            "required": true,
+            "unique": true
+        },
+        "restaurants": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::restaurant.restaurant",
+            "inversedBy": "categories"
+        }
     }
-  }
 }
