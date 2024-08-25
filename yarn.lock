@@ -22340,7 +22340,7 @@ mute-stream@^1.0.0, mute-stream@~1.0.0:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-1.0.0.tgz#e31bd9fe62f0aed23520aa4324ea6671531e013e"
   integrity sha512-avsJQhyd+680gKXyG/sQc0nXaC6rBkPOfyHYcFb9+hdkqQkR9bdnkJ0AMZhke0oesPqIO+mFFJ+IdBc7mst4IA==
 
-mysql@^2.18.1:
+mysql@2.18.1, mysql@^2.18.1:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/mysql/-/mysql-2.18.1.tgz#2254143855c5a8c73825e4522baf2ea021766717"
   integrity sha512-Bca+gk2YWmqp2Uf6k5NFEurwY/0td0cpebAucFpY/3jhrwrVGuxU2uQFCHjU19SJfje0yQvi+rVWdq78hR5lig==
@@ -23217,16 +23217,16 @@ nx@18.2.2, "nx@>=17.1.2 < 19":
     "@nx/nx-win32-x64-msvc" "18.2.2"
 
 nypm@^0.3.8:
-  version "0.3.9"
-  resolved "https://registry.yarnpkg.com/nypm/-/nypm-0.3.9.tgz#ab74c55075737466847611aa33c3c67741c01d8f"
-  integrity sha512-BI2SdqqTHg2d4wJh8P9A1W+bslg33vOE9IZDY6eR2QC+Pu1iNBVZUqczrd43rJb+fMzHU7ltAYKsEFY/kHMFcw==
+  version "0.3.11"
+  resolved "https://registry.yarnpkg.com/nypm/-/nypm-0.3.11.tgz#57e9a91bbf1dd357add633b1abca90df7a908456"
+  integrity sha512-E5GqaAYSnbb6n1qZyik2wjPDZON43FqOJO59+3OkWrnmQtjggrMOVnsyzfjxp/tS6nlYJBA4zRA5jSM2YaadMg==
   dependencies:
     citty "^0.1.6"
     consola "^3.2.3"
     execa "^8.0.1"
     pathe "^1.1.2"
-    pkg-types "^1.1.1"
-    ufo "^1.5.3"
+    pkg-types "^1.2.0"
+    ufo "^1.5.4"
 
 oauth-sign@^0.9.0:
   version "0.9.0"
@@ -24428,7 +24428,7 @@ pkg-dir@^7.0.0:
   dependencies:
     find-up "^6.3.0"
 
-pkg-types@^1.1.1:
+pkg-types@^1.1.1, pkg-types@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/pkg-types/-/pkg-types-1.2.0.tgz#d0268e894e93acff11a6279de147e83354ebd42d"
   integrity sha512-+ifYuSSqOQ8CqP4MbZA5hDpb97n3E8SVWdJe+Wms9kj745lmd3b7EZJiqvmLwAlmRfjrI7Hi5z3kdBJ93lFNPA==
@@ -29203,7 +29203,7 @@ uc.micro@^1.0.1, uc.micro@^1.0.5:
   resolved "https://registry.yarnpkg.com/uc.micro/-/uc.micro-1.0.6.tgz#9c411a802a409a91fc6cf74081baba34b24499ac"
   integrity sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==
 
-ufo@^1.5.3:
+ufo@^1.5.3, ufo@^1.5.4:
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/ufo/-/ufo-1.5.4.tgz#16d6949674ca0c9e0fbbae1fa20a71d7b1ded754"
   integrity sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==
