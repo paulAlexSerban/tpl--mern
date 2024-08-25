@@ -3,12 +3,15 @@ networks:
     dj-events-network:
         driver: bridge
 
+volumes:
+    dj-events-data:
+
 services:
     # ---------------------------------------------------------------------
     # | Proxy-Service - Nginx                                              |
     # ---------------------------------------------------------------------
     nginx-proxy:
-        container_name: container-dj-events-proxy
+        container_name: ${COMPOSE_PROJECT_NAME}_proxy
         build:
             context: ../../../
             dockerfile: ./backend/middleware/simple-ssr-service-proxy/Dockerfile.dev
@@ -19,12 +22,15 @@ services:
         restart: unless-stopped
         networks:
             - dj-events-network
+        depends_on:
+            - ssr-service
+            - phpmyadmin-service
 
     # ---------------------------------------------------------------------
     # Next.js SSR Service
     # ---------------------------------------------------------------------
     ssr-service:
-        container_name: nextjs-service-container
+        container_name: ${COMPOSE_PROJECT_NAME}_nextjs-service
         build:
             context: ../../../
             dockerfile: ./backend/services/dj-events-ssr-service/Dockerfile.dev
@@ -35,5 +41,85 @@ services:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
             - /usr/src/app/backend/services/dj-events-ssr-service/node_modules
             - ../../../backend/services/dj-events-ssr-service:/usr/src/app/backend/services/dj-events-ssr-service # Mount the app directory to the container
+        networks:
+            - dj-events-network
+        depends_on:
+            - strapi-cms
+
+    # ---------------------------------------------------------------------
+    # | Stratpi CMS
+    # ---------------------------------------------------------------------
+    strapi-cms:
+        container_name: ${COMPOSE_PROJECT_NAME}_strapi-cms
+        build:
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: ./backend/cms/dj-events-cms/Dockerfile.dev
+        ports:
+            - '1337:1337'
+        restart: unless-stopped
+        env_file:
+            - ../../../infrastructure/env/dj-events.compose.env
+            - ../../../.env
+        environment:
+            DATABASE_CLIENT: ${DATABASE_CLIENT}
+            DATABASE_HOST: mariadb-database-service
+            DATABASE_NAME: ${DATABASE_NAME}
+            DATABASE_USERNAME: ${DATABASE_USERNAME}
+            DATABASE_PORT: ${DATABASE_PORT}
+            JWT_SECRET: ${JWT_SECRET}
+            ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+            DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+            NODE_ENV: ${NODE_ENV}
+        volumes:
+            - /usr/src/app/node_modules
+            - ../../../backend/cms/dj-events-cms/config:/usr/src/app/backend/cms/dj-events-cms/config
+            - ../../../backend/cms/dj-events-cms/src:/usr/src/app/backend/cms/dj-events-cms/src
+            - ../../../backend/cms/dj-events-cms/public/uploads:/usr/src/app/backend/cms/dj-events-cms/public/uploads
+
+        networks:
+            - dj-events-network
+        depends_on:
+            - mariadb-database-service
+
+    # ---------------------------------------------------------------------
+    # | MariaDB Database Service
+    # ---------------------------------------------------------------------
+    mariadb-database-service:
+        container_name: ${COMPOSE_PROJECT_NAME}_mariadb-database-service
+        platform: linux/amd64 #for platform error on Apple M1 chips
+        restart: unless-stopped
+        env_file:
+            - ../../../infrastructure/env/dj-events.compose.env
+            - ../../../.env
+        image: mariadb:latest
+        environment:
+            MYSQL_USER: ${DATABASE_USERNAME}
+            MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
+            MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+            MYSQL_DATABASE: ${DATABASE_NAME}
+        volumes:
+            - dj-events-data:/var/lib/mysql
+            # - ../../../database/seeds/dj-events-cms-db/dj-events-cms.sql:/docker-entrypoint-initdb.d/dj-events-cms.sql
+            # - ../../../database/.tmp-data/dj-events-db/:/var/lib/mysql # if you want to use a bind folder
+        ports:
+            - '3306:3306'
+        networks:
+            - dj-events-network
+
+    # ---------------------------------------------------------------------
+    # | PhpMyAdmin Service
+    # ---------------------------------------------------------------------
+    phpmyadmin-service:
+        depends_on:
+            - mariadb-database-service
+        image: phpmyadmin/phpmyadmin:latest
+        container_name: ${COMPOSE_PROJECT_NAME}_phpmyadmin
+        platform: linux/amd64 #for platform error on Apple M1 chips
+        restart: always
+        ports:
+            - 8080:80
+        environment:
+            - PMA_HOST=mariadb-database-service
+            - MYSQL_ROOT_PASSWORD=${DATABASE_PASSWORD}
         networks:
             - dj-events-network
