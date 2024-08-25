@@ -1,0 +1,39 @@
+---
+networks:
+    dj-events-network:
+        driver: bridge
+
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        container_name: container-dj-events-proxy
+        build:
+            context: ../../../
+            dockerfile: ./backend/middleware/simple-ssr-service-proxy/Dockerfile.dev
+        ports:
+            - '3000:80'
+        volumes:
+            - ../../../backend/middleware/simple-ssr-service-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+        restart: unless-stopped
+        networks:
+            - dj-events-network
+
+    # ---------------------------------------------------------------------
+    # Next.js SSR Service
+    # ---------------------------------------------------------------------
+    ssr-service:
+        container_name: nextjs-service-container
+        build:
+            context: ../../../
+            dockerfile: ./backend/services/dj-events-ssr-service/Dockerfile.dev
+        env_file:
+            - ../../../infrastructure/env/dj-events.compose.env
+            - ../../../.env
+        volumes:
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - /usr/src/app/backend/services/dj-events-ssr-service/node_modules
+            - ../../../backend/services/dj-events-ssr-service:/usr/src/app/backend/services/dj-events-ssr-service # Mount the app directory to the container
+        networks:
+            - dj-events-network
