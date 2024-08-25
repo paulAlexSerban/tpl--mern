@@ -5,9 +5,9 @@ cd "$(dirname "$0")" || exit
 export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
-ENV_FILE="../../infrastructure/env/hello-strapi-cms.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.hello-strapi-cms.dev.yml"
-COMPOSE_FILE_PROD="../../infrastructure/docker/prod/docker-compose.hello-strapi-cms.prod.yml"
+ENV_FILE="../../infrastructure/env/hello-strapi.compose.env"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.hello-strapi.dev.yml"
+COMPOSE_FILE_PROD="../../infrastructure/docker/prod/docker-compose.hello-strapi.prod.yml"
 
 . $ENV_FILE
 
