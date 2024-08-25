@@ -158,6 +158,21 @@ devcamper_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash down-prod
 
 # ------------------------------------------------------------- #
+# (compose): DJ Events
+# ------------------------------------------------------------- #
+dj-events_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash up
+
+dj-events_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash up-prod
+
+dj-events_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash down
+
+dj-events_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash down-prod
+
+# ------------------------------------------------------------- #
 # (compose): Ecommerce Monolith MVC
 # ------------------------------------------------------------- #
 ecommerce-monolith_compose-up:
