@@ -39,9 +39,9 @@ services:
         depends_on:
             - mariadb-database-service
 
-        # ---------------------------------------------------------------------
-        # | MariaDB Database Service
-        # ---------------------------------------------------------------------
+    # ---------------------------------------------------------------------
+    # | MariaDB Database Service
+    # ---------------------------------------------------------------------
     mariadb-database-service:
         container_name: ${COMPOSE_PROJECT_NAME}_mariadb-database-service
         platform: linux/amd64 #for platform error on Apple M1 chips
@@ -64,6 +64,9 @@ services:
         networks:
             - hello-strapi-cms
 
+    # ---------------------------------------------------------------------
+    # | PhpMyAdmin Service
+    # ---------------------------------------------------------------------
     phpmyadmin-service:
         depends_on:
             - mariadb-database-service
