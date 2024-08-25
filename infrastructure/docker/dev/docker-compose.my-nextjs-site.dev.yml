@@ -29,11 +29,11 @@ services:
             - ../../../.env
         build:
             context: ../../../
-            dockerfile: ./frontend/sites/my-nextjs-site/Dockerfile.dev
+            dockerfile: ./backend/services/my-nextjs-ssr-service/Dockerfile.dev
         volumes:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
-            - /usr/src/app/frontend/sites/my-nextjs-site/node_modules
-            - ../../../frontend/sites/my-nextjs-site:/usr/src/app/frontend/sites/my-nextjs-site # Mount the app directory to the container
+            - /usr/src/app/backend/services/my-nextjs-ssr-service/node_modules
+            - ../../../backend/services/my-nextjs-ssr-service:/usr/src/app/backend/services/my-nextjs-ssr-service # Mount the app directory to the container
 
         networks:
             - my-nextjs-site-network

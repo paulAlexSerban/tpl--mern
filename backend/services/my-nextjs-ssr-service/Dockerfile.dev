@@ -1,6 +1,6 @@
 FROM wbk--mern-playground__core:latest as builder
 
-COPY ./frontend/sites/my-nextjs-site ./frontend/sites/my-nextjs-site
+COPY ./backend/services/my-nextjs-ssr-service ./backend/services/my-nextjs-ssr-service
 
 ARG CONTAINER_PORT
 ENV PORT=$CONTAINER_PORT
