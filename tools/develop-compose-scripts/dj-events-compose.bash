@@ -24,6 +24,15 @@ function up() {
     list
 }
 
+function recreate-ssr-service() {
+    echo "[ 🔄 🐳 compose recreate ssr-service ]"
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} up \
+        --detach --build --force-recreate ssr-service
+    list
+}
+
 function down() {
     echo "[ 🛑 🐳 compose down ]"
     docker compose \

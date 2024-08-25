@@ -166,6 +166,9 @@ dj-events_compose-up:
 dj-events_compose-up-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash up-prod
 
+dj-events_compose-recreate-ssr-service:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash recreate-ssr-service
+
 dj-events_compose-down:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash down
 
