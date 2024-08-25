@@ -24,7 +24,8 @@ interface GenericDocumentData {
      * - **Tab**: Main
      * - **Documentation**: https://prismic.io/docs/field#slices
      */
-    slices: prismic.SliceZone<GenericDocumentDataSlicesSlice> /**
+    slices: prismic.SliceZone<GenericDocumentDataSlicesSlice>;
+    /**
      * Meta Title field in *Generic*
      *
      * - **Field Type**: Text
@@ -32,7 +33,7 @@ interface GenericDocumentData {
      * - **API ID Path**: generic.meta_title
      * - **Tab**: SEO & Metadata
      * - **Documentation**: https://prismic.io/docs/field#key-text
-     */;
+     */
     meta_title: prismic.KeyTextField;
 
     /**
@@ -104,7 +105,8 @@ interface HomepageDocumentData {
      * - **Tab**: Main
      * - **Documentation**: https://prismic.io/docs/field#slices
      */
-    slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice> /**
+    slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice>;
+    /**
      * Meta Title field in *Homepage*
      *
      * - **Field Type**: Text
@@ -112,7 +114,7 @@ interface HomepageDocumentData {
      * - **API ID Path**: homepage.meta_title
      * - **Tab**: SEO & Metadata
      * - **Documentation**: https://prismic.io/docs/field#key-text
-     */;
+     */
     meta_title: prismic.KeyTextField;
 
     /**
