@@ -7,50 +7,60 @@
     height: 60px;
     padding: 0 30px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 
-.header a {
-    color: #333;
-    margin-right: 20px;
-}
+    a {
+        color: #333;
+        margin-right: 0;
 
-.header a:hover {
-    color: #000;
-}
-.header ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-}
+        &:hover {
+            color: #000;
+        }
 
-.logo {
-    color: red;
-    font-size: 20px;
-    text-transform: uppercase;
-}
+        @media (min-width: 768px) {
+            margin-right: 20px;
+        }
+    }
 
-.logo a {
-    color: red;
-}
+    a,
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+    }
 
-@media (max-width: 768px) {
-    .header {
+    @media (max-width: 768px) {
         flex-direction: column;
         height: auto;
     }
 
-    .header ul {
+    ul {
         margin: 20px 0;
         flex-direction: column;
         text-align: center;
-    }
 
-    .header a {
-        margin-right: 0;
+        @media (max-width: 768px) {
+            margin: 0px;
+            flex-direction: row;
+            text-align: left;
+        }
     }
 
     .logo {
-        margin: 20px 0;
+        color: red;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+}
+
+.logo {
+    margin: 20px 0px;
+
+    a {
+        color: red;
+    }
+
+    @media (min-width: 768px) {
+        margin: 0px 0px;
     }
 }

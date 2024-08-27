@@ -3,6 +3,9 @@ import Head from 'next/head';
 import styles from '@/styles/generic-layout.module.scss';
 import { useRouter } from 'next/router';
 
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
 type GenericLayoutProps = {
     title?: string;
     keywords?: string;
@@ -25,7 +28,9 @@ const GenericLayout: FC<GenericLayoutProps> = ({
                 <meta name="description" content={description} />
                 <meta name="keywords" content={keywords} />
             </Head>
+            <Header />
             <div className={styles.container}>{children}</div>
+            <Footer />
         </div>
     );
 };
