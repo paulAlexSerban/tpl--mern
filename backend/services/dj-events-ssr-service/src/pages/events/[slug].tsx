@@ -1,7 +1,11 @@
+import GenericLayout from '@/components/GenericLayout';
+
 const EventPage = () => {
     return (
-        <div>
+        <GenericLayout>
             <h1>Event Page</h1>
-        </div>
+        </GenericLayout>
     );
 };
+
+export default EventPage;
