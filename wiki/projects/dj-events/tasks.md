@@ -11,7 +11,11 @@
 
 - [x] Setup 'Generic Layout' and its component
   - [x] Setup 'Generic Layout'
-  - [ ] Setup Header, Footer, Sidebar, Main
+  - [x] Setup Header, Footer, Sidebar, Main
+
+- [ ] Setup 404 Page
+  - [ ] Create 404 Page
+  - [ ] Setup Route
 
 - [ ] Setup testing framework
   - Unit Testing - Jest, React Testing Library
