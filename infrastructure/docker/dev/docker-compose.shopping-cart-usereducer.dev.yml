@@ -1,0 +1,36 @@
+---
+networks:
+    shopping-cart-usereducer-network:
+        driver: bridge
+
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        build:
+            context: ../../../backend/services/simple-fe-only-spa-proxy
+            dockerfile: dev.Dockerfile
+        container_name: container-shopping-cart-usereducer-proxy
+        image: paulserbandev/shopping-cart-usereducer-proxy
+        restart: unless-stopped
+        ports:
+            - '3000:80'
+        volumes:
+            - ../../../backend/services/simple-fe-only-spa-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+        networks:
+            - shopping-cart-usereducer-network
+
+    # ---------------------------------------------------------------------
+    # UI React SPA
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa-container
+        build:
+            context: ../../frontend/apps/shopping-cart-usereducer-app
+            dockerfile: dev.Dockerfile
+        volumes:
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - ../../frontend/apps/shopping-cart-usereducer-app:/usr/src/app # Mount the app directory to the container
+        networks:
+            - shopping-cart-usereducer-network

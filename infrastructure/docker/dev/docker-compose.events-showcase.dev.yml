@@ -1,0 +1,59 @@
+---
+networks:
+    events-showcase-network:
+        driver: bridge
+
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        container_name: events-showcase-proxy
+        build:
+            context: ../../../
+            dockerfile: ./backend/middleware/events-showcase-proxy/Dockerfile.dev
+        ports:
+            - '3000:80'
+        volumes:
+            - ../../../backend/middleware/events-showcase-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+        restart: unless-stopped
+        networks:
+            - events-showcase-network
+
+    # ---------------------------------------------------------------------
+    # UI React SPA
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa
+        build:
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: ./frontend/apps/events-showcase-app/Dockerfile.dev
+        environment:
+            - PORT=3000
+        env_file:
+            - ../../../infrastructure/env/events-showcase.compose.env
+        volumes:
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - /usr/src/app/frontend/apps/events-showcase-app/node_mdules # Avoids overwriting dist with local volume
+            - ../../../frontend/apps/events-showcase-app:/usr/src/app/frontend/apps/events-showcase-app/ # Mount the app directory to the container
+        networks:
+            - events-showcase-network
+
+    # ---------------------------------------------------------------------
+    # | ExpressJS API                                                     |
+    # ---------------------------------------------------------------------
+    express-events-showcase-api:
+        container_name: events-showcase-api
+        build:
+            context: ../../../
+            dockerfile: ./backend/api/events-showcase-api/Dockerfile.dev
+        environment:
+            - PORT=5000
+        volumes:
+            - /usr/src/app/node_modules
+            - /usr/src/app/backend/api/events-showcase-api/dist
+            - /usr/src/app/backend/api/events-showcase-api/node_modules
+            - ../../../backend/api/events-showcase-api:/usr/src/app/backend/api/events-showcase-api
+        restart: always
+        networks:
+            - events-showcase-network

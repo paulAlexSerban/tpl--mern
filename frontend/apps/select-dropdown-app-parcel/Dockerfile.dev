@@ -1,0 +1,19 @@
+FROM wbk--mern-playground__core:latest as builder
+
+COPY ./frontend/apps/select-dropdown-app-parcel ./frontend/apps/select-dropdown-app-parcel
+COPY ./frontend/components/react-cmp-lib ./frontend/components/react-cmp-lib
+COPY ./frontend/lsg-styles-generic ./frontend/lsg-styles-generic
+COPY ./shared/foundation ./shared/foundation
+
+ARG CONTAINER_PORT
+ENV PORT=$CONTAINER_PORT
+
+EXPOSE $CONTAINER_PORT
+
+RUN yarn install
+
+RUN yarn build:lsg-styles-generic
+RUN yarn build:shared
+RUN yarn build:react-cmp-lib
+
+CMD ["yarn", "develop:select-dropdown-app-parcel"]

@@ -1,0 +1,11 @@
+.featuredCenter {
+    @media screen and (min-width: 768px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    @media screen and (min-width: 1170px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

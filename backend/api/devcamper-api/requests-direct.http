@@ -1,0 +1,27 @@
+@host = http://localhost:3001
+
+GET {{host}}/api/v1
+Content-Type: application/json
+
+###
+
+GET {{host}}/api/v1/bootcamps
+Content-Type: application/json
+
+###
+POST {{host}}/api/v1/bootcamps
+Content-Type: application/json
+
+{
+    "name": "Devworks Bootcamp - Two",
+    "description": "This is a program",
+    "website": "https://devworks.com",
+    "phone": "(111) 111-1111",
+    "email": "test@gmail.com",
+    "address": "233 Bay State Rd, Boston, MA 02215",
+    "careers": ["Web Development", "UI/UX", "Business"],
+    "housing": true,
+    "jobAssistance": true,
+    "jobGuarantee": false,
+    "acceptGi": true
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../includes/head') %>
+    <body>
+        <%- include('../includes/navigation') %>
+        <main>
+            <h1><%= pageTitle %></h1>
+            <link rel="stylesheet" href="/css/forms.css" />
+            <link rel="stylesheet" href="/css/product.css">
+
+            <form action="/admin/add-product" method="POST" class="product-form">
+                <div class="form-control">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" />
+                </div>
+                <div class="form-control">
+                    <label for="imageSrc">Image URL</label>
+                    <input type="text" id="imageSrc" name="imageSrc" />
+                </div>
+                <div class="form-control">
+                    <label for="imageAlt">Image Alt. Description</label>
+                    <input type="text" id="imageAlt" name="imageAlt" />
+                </div>
+                <div class="form-control">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" name="price" />
+                </div>
+                <div class="form-control">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="5"></textarea>
+                </div>
+
+                <button type="submit">Add Product</button>
+            </form>
+        </main>
+    </body>
+</html>

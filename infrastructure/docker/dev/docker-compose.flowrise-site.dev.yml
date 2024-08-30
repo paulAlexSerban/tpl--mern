@@ -1,0 +1,42 @@
+---
+networks:
+    flowrise-site-network:
+        driver: bridge
+
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        container_name: container-flowrise-site-proxy
+        build:
+            context: ../../../
+            dockerfile: ./backend/middleware/simple-ssr-service-proxy/Dockerfile.dev
+        restart: unless-stopped
+        ports:
+            - '3000:80'
+        volumes:
+            - ../../../backend/middleware/simple-ssr-service-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+        networks:
+            - flowrise-site-network
+
+    # ---------------------------------------------------------------------
+    # Next.js SSR Service
+    # ---------------------------------------------------------------------
+    ssr-service:
+        container_name: nextjs-service-container
+        build:
+            context: ../../../
+            dockerfile: ./backend/services/flowrise-ssr-service/Dockerfile.dev
+        env_file:
+            - ../../../infrastructure/env/flowrise-site.compose.env
+            - ../../../.env
+        ports:
+            - '9999:9999'
+        volumes:
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - /usr/src/app/backend/services/flowrise-ssr-service/node_modules
+            - ../../../backend/services/flowrise-ssr-service:/usr/src/app/backend/services/flowrise-ssr-service # Mount the app directory to the container
+
+        networks:
+            - flowrise-site-network

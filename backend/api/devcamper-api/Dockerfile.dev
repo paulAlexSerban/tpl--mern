@@ -1,0 +1,7 @@
+FROM wbk--mern-playground__core:latest as builder
+
+COPY ./backend/api/devcamper-api ./backend/api/devcamper-api
+
+RUN yarn install
+
+CMD [ "yarn", "develop:devcamper-api"]

@@ -1,0 +1,65 @@
+---
+version: '3.8'
+
+services:
+    # ---------------------------------------------------------------------
+    # | UI React SP                                                       |
+    # ---------------------------------------------------------------------
+    frontend:
+        build:
+            context: ../../frontend/apps/to-do-app
+            dockerfile: dev.Dockerfile
+        container_name: react-app
+        ports:
+            - '5173:5173'
+        stdin_open: true
+        tty: true
+        depends_on:
+            - backend
+        networks:
+            - to-do-networks
+
+    # ---------------------------------------------------------------------
+    # | Node.js API                                                       |
+    # ---------------------------------------------------------------------
+    backend:
+        build:
+            context: ../../backend/api/to-do-api
+            dockerfile: dev.Dockerfile
+        container_name: node-api
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
+        ports:
+            - '3000:3000'
+        restart: always
+        env_file:
+            - ../../infrastructure/env/to-do.compose.env
+            - ../../.env
+        depends_on:
+            - database
+        networks:
+            - to-do-networks
+
+    # ---------------------------------------------------------------------
+    # | MongoDB Database                                                   |
+    # ---------------------------------------------------------------------
+    database:
+        image: mongo
+        container_name: mongo-db
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
+        ports:
+            - '27017:27017'
+        env_file:
+            - ../../infrastructure/env/emaily-user-feedback.compose.env
+            - ../../.env
+        volumes:
+            - ../../database/.tmp-data/to-do-data:/data/db
+        networks:
+            - to-do-networks
+
+networks:
+    to-do-networks:
+        driver: bridge

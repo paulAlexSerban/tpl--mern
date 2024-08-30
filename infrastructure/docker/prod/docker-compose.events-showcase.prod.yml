@@ -1,0 +1,48 @@
+---
+networks:
+    events-showcase-network:
+        driver: bridge
+
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        container_name: events-showcase-proxy
+        build:
+            context: ../../../
+            dockerfile: ./backend/middleware/events-showcase-proxy/Dockerfile.prod
+        ports:
+            - '3000:80'
+        restart: unless-stopped
+        networks:
+            - events-showcase-network
+
+    # ---------------------------------------------------------------------
+    # UI React SPA
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa
+        build:
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: ./frontend/apps/events-showcase-app/Dockerfile.prod
+            args:
+                - VITE_APP_BACKEND_URL=${VITE_APP_BACKEND_URL}
+                - VITE_APP_ASSET_URL=${VITE_APP_ASSET_URL}
+                - REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
+        networks:
+            - events-showcase-network
+
+    # ---------------------------------------------------------------------
+    # | ExpressJS API                                                     |
+    # ---------------------------------------------------------------------
+    express-events-showcase-api:
+        container_name: events-showcase-api
+        build:
+            context: ../../../
+            dockerfile: ./backend/api/events-showcase-api/Dockerfile.prod
+        environment:
+            - PORT=5000
+        restart: always
+        networks:
+            - events-showcase-network

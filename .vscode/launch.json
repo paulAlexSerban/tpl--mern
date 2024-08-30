@@ -1,0 +1,52 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.4.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "test minesweeper-game-app",
+            "skipFiles": ["<node_internals>/**"],
+            "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
+            "args": [
+                "--config",
+                "${workspaceFolder}/frontend/apps/minesweeper-game-app/jest.config.js",
+                "--verbose",
+                "--no-cache"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "test:watch minesweeper-game-app",
+            "skipFiles": ["<node_internals>/**"],
+            "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
+            "args": [
+                "--config",
+                "${workspaceFolder}/frontend/apps/minesweeper-game-app/jest.config.js",
+                "--verbose",
+                "--no-cache",
+                "--watch"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "test:current minesweeper-game-app",
+            "skipFiles": ["<node_internals>/**"],
+            "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
+            "args": [
+                "--config",
+                "${workspaceFolder}/frontend/apps/minesweeper-game-app/jest.config.js",
+                "--verbose",
+                "--no-cache",
+                "${file}"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}

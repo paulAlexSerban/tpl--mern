@@ -1,0 +1,137 @@
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+    /* dark shades of primary color*/
+    --clr-primary-1: rgb(4, 78, 83);
+    --clr-primary-2: rgb(10, 108, 117);
+    --clr-primary-3: rgb(14, 124, 134);
+    --clr-primary-4: rgb(20, 145, 153);
+    /* primary/main color */
+    --clr-primary-5: rgb(44, 174, 186);
+    /* lighter shades of primary color */
+    --clr-primary-6: rgb(55, 188, 200);
+    --clr-primary-7: rgb(82, 209, 218);
+    --clr-primary-8: rgb(136, 235, 242);
+    --clr-primary-9: rgb(191, 248, 253);
+    --clr-primary-10: rgb(224, 252, 255);
+    /* darkest grey - used for headings */
+    --clr-grey-1: rgb(16, 42, 66);
+    --clr-grey-2: rgb(36, 58, 82);
+    --clr-grey-3: rgb(50, 77, 103);
+    --clr-grey-4: rgb(72, 100, 127);
+    /* grey used for paragraphs */
+    --clr-grey-5: rgb(97, 125, 152);
+    --clr-grey-6: rgb(130, 154, 176);
+    --clr-grey-7: rgb(158, 178, 199);
+    --clr-grey-8: rgb(188, 204, 220);
+    --clr-grey-9: rgb(218, 226, 236);
+    --clr-grey-10: rgb(241, 245, 248);
+    --clr-white: #fff;
+    --ff-primary: 'Lato', sans-serif;
+    --base-transition: all 0.3s linear;
+    --spacing: 0.25rem;
+    --radius: 0.5rem;
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --btn-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+/*
+  =============== 
+  Global Styles
+  ===============
+  */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif;
+    background: var(--clr-white);
+    color: var(--clr-grey-1);
+    line-height: 1.5;
+    font-size: 1rem * 0.625;
+
+    @media screen and (min-width: 800px) {
+        font-size: 1rem;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+img:not(.nav-logo) {
+    width: 100%;
+    display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+
+    @media screen and (min-width: 800px) {
+        line-height: 1;
+    }
+}
+h1 {
+    font-size: 3rem;
+
+    @media screen and (min-width: 800px) {
+        font-size: 4rem;
+    }
+}
+h2 {
+    font-size: 2rem;
+
+    @media screen and (min-width: 800px) {
+        font-size: 2.5rem;
+    }
+}
+h3 {
+    font-size: 1.25rem;
+
+    @media screen and (min-width: 800px) {
+        font-size: 1.75rem;
+    }
+}
+h4 {
+    font-size: 0.875rem;
+
+    @media screen and (min-width: 800px) {
+        font-size: 1rem;
+    }
+}
+p {
+    margin-bottom: 1.25rem;
+    color: var(--clr-grey-5);
+}
+/*  global classes */

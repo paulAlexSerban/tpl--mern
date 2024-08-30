@@ -1,0 +1,4 @@
+FROM wbk--mern-playground__core:latest as builder
+COPY ./frontend/apps/color-generator-app ./frontend/apps/color-generator-app
+RUN yarn install
+CMD [ "yarn", "develop:color-generator-app"]

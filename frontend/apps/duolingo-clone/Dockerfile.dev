@@ -1,0 +1,4 @@
+FROM wbk--mern-playground__core:latest as builder
+COPY ./frontend/apps/duolingo-clone ./frontend/apps/duolingo-clone
+RUN yarn install
+CMD [ "yarn", "develop:duolingo-clone"]

@@ -1,0 +1,34 @@
+<mxfile host="65bd71144e">
+    <diagram id="RhLmjJXWOZco7IWcEflu" name="Page-1">
+        <mxGraphModel dx="1736" dy="1071" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="REST API" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="240" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="GraphQL" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="240" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Request path + http method&lt;br&gt;(= endpoint) identify a resource / action on the server" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="320" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="API is stateless and decoupled from frontend" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="400" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="The most common type of API because of its ease of use" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="480" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Query expression identifies a resource and action" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="320" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="API is stateless and decoupled froim frontend" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="400" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Popular but less common, because you need to learn the query language" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="480" width="200" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

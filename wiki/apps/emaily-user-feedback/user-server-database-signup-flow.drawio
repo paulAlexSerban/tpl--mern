@@ -1,0 +1,283 @@
+<mxfile host="65bd71144e">
+    <diagram id="04jFZDbdDH499fe-jz6K" name="Page-1">
+        <mxGraphModel dx="1614" dy="792" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=#3A5431;strokeWidth=2;fillColor=#6d8764;fontSize=22;fontColor=#ffffff;align=center;fillStyle=hatch;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="70" width="410" height="690" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=2;fillColor=none;fontSize=16;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1211" y="125" width="160" height="605" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="List of Surveys" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;labelBackgroundColor=none;fontSize=22;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="1229" y="143" width="125" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=22;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="650" y="70" width="200" height="700" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.browserWindow;rSize=0;fillColor=default;strokeColor=#666666;mainText=,;recursiveResize=0;rounded=0;labelBackgroundColor=none;fontSize=22;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="80" width="290" height="690" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Page 1" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;fontSize=17;fontColor=#666666;align=left;" parent="6" vertex="1">
+                    <mxGeometry x="60" y="12" width="110" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="https://www.draw.io" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;rSize=0;fontSize=17;fontColor=#666666;align=left;" parent="6" vertex="1">
+                    <mxGeometry x="130" y="60" width="250" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.25;startArrow=classic;startFill=1;endArrow=none;endFill=0;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=22;fontColor=#FFFFFF;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="363" y="182" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="363" y="182"/>
+                        </Array>
+                        <mxPoint x="690" y="182" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.5;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=16;fontColor=#FFFFFF;" parent="1" target="15" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="690" y="260" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="Server" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;labelBackgroundColor=none;fontSize=22;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="80" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Sign me up please. I just went to google, here's my profile" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;labelBackgroundColor=none;fontSize=22;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="121" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Log me out please" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;labelBackgroundColor=none;fontSize=22;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="445" y="345" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.25;entryX=1.009;entryY=0.3;entryPerimeter=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=22;fontColor=#FFFFFF;" parent="1" source="15" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="690" y="259" as="sourcePoint"/>
+                        <mxPoint x="363" y="259" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="480" y="259"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="Set-Cookie: 'aslkdflkasdf'" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=2;fillColor=none;fontSize=16;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="240" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="MongoDB" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;labelBackgroundColor=none;fontSize=22;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="1070" y="82" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=2;fillColor=none;fontSize=16;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1010" y="124" width="160" height="616" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="List of Users" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;labelBackgroundColor=none;fontSize=22;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="1028" y="137" width="125" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.017;exitY=0.545;entryX=1;entryY=0.5;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=16;fontColor=#FFFFFF;exitPerimeter=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1032" y="278" as="sourcePoint"/>
+                        <mxPoint x="810" y="277" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1032" y="277"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.009;exitY=0.806;entryX=1;entryY=0.5;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=16;fontColor=#FFFFFF;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="21" target="41" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1030" y="460"/>
+                            <mxPoint x="940" y="460"/>
+                            <mxPoint x="940" y="701"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="21" value="user 123" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=2;fillColor=none;fontSize=22;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1030" y="170" width="120" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="user456" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=2;fillColor=none;fontSize=22;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1030" y="531" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="user789" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=2;fillColor=none;fontSize=22;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1030" y="591" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="user012" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=2;fillColor=none;fontSize=22;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1030" y="651" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=16;fontColor=#FFFFFF;" parent="1" source="26" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1030" y="185" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1030" y="185"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="26" value="Oh look, a new user. &amp;nbsp;I'll create a record of you in the database." style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=16;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="143" width="120" height="83" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="Here's a cookie, it says that you're user 123" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=16;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="236" width="120" height="83" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.25;startArrow=classic;startFill=1;endArrow=none;endFill=0;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=22;fontColor=#FFFFFF;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="360" y="385" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="360" y="385"/>
+                        </Array>
+                        <mxPoint x="687" y="385" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="Sure, I'll unset your cookie" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=16;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="365" width="120" height="83" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.5;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=16;fontColor=#FFFFFF;" parent="1" target="32" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="690" y="427" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.25;entryX=1.009;entryY=0.3;entryPerimeter=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=22;fontColor=#FFFFFF;" parent="1" source="32" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="690" y="426" as="sourcePoint"/>
+                        <mxPoint x="363" y="426" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="480" y="426"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="32" value="Set-Cookie: &quot;&quot;" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=2;fillColor=none;fontSize=16;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="407" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.25;startArrow=classic;startFill=1;endArrow=none;endFill=0;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=22;fontColor=#FFFFFF;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="360" y="599" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="360" y="599"/>
+                        </Array>
+                        <mxPoint x="687" y="599" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="34" value="Sign me up please. I just went to google, here's my profile" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;labelBackgroundColor=none;fontSize=22;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="538" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.75;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=16;fontColor=#FFFFFF;" parent="1" source="36" target="21" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="920" y="566"/>
+                            <mxPoint x="920" y="440"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="36" value="Ok, but let me see if I have already made a user record for you" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=16;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="540" width="120" height="102" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.25;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=16;fontColor=#FFFFFF;" parent="1" source="38" target="21" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="survey" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=2;fillColor=none;fontSize=16;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1229" y="230" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=16;fontColor=#FFFFFF;" parent="1" source="40" target="21" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="survey" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=2;fillColor=none;fontSize=16;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="1231.5" y="320" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="Oh look, you have been here! &amp;nbsp;Great, you are still user 123&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=16;fontColor=#FFFFFF;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="651" width="120" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.75;entryX=1;entryY=0.5;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=16;fontColor=#FFFFFF;" parent="1" target="44" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="690" y="701" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.25;entryX=1.009;entryY=0.3;entryPerimeter=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=#FFFFFF;strokeWidth=3;fontSize=22;fontColor=#FFFFFF;" parent="1" source="44" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="690" y="700" as="sourcePoint"/>
+                        <mxPoint x="363" y="700" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="480" y="700"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="44" value="Set-Cookie: 'aslkdflkasdf'" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=#FFFFFF;strokeWidth=2;fillColor=none;fontSize=16;fontColor=#FFFFFF;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="681" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.75;exitY=0;entryX=0.75;entryY=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=default;strokeWidth=3;fontSize=16;fontColor=#FFFFFF;" parent="1" source="11" target="11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=22;fontColor=default;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="840" width="215" height="550" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;fontColor=default;exitX=1.001;exitY=0.703;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="47" target="62">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.browserWindow;rSize=0;fillColor=default;strokeColor=none;mainText=,;recursiveResize=0;rounded=0;labelBackgroundColor=none;fontSize=22;fontColor=#050505;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="850" width="290" height="540" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="Page 1" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="47">
+                    <mxGeometry x="60" y="12" width="110" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="https://www.draw.io" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;rSize=0;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="47">
+                    <mxGeometry x="130" y="60" width="250" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=default;strokeWidth=1;fontSize=16;fontColor=default;exitDx=0;exitDy=0;" edge="1" parent="1" target="60" source="65">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="642" y="1070" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=default;strokeWidth=3;fontSize=12;fontColor=default;" edge="1" parent="1" source="53" target="65">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" style="edgeStyle=none;html=1;strokeColor=default;strokeWidth=1;fontColor=default;entryX=0.999;entryY=0.197;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="53" target="47">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="Looks like you have the same google profile ID as user123. &amp;nbsp;I need to give you a token that says you are user 123" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=16;fontColor=default;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="662.5" y="910" width="190" height="97" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="Server" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;labelBackgroundColor=none;fontSize=22;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="852" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=default;strokeWidth=1;fontSize=16;fontColor=default;exitDx=0;exitDy=0;" edge="1" parent="1" target="64" source="68">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="645" y="1333" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="56" value="Log me in please, here's my google profile" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;labelBackgroundColor=none;fontSize=22;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="890" width="210" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="Can I have a list of my posts?" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;labelBackgroundColor=none;fontSize=22;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="1165" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" style="edgeStyle=none;html=1;strokeColor=default;fontColor=default;entryX=0.996;entryY=0.408;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="60" target="47">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="Set-Cookie: 'aslkdflkasdf'" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=16;fontColor=default;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="432" y="1050" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=none;startFill=0;endArrow=none;endFill=0;jettySize=auto;orthogonalLoop=1;strokeColor=default;strokeWidth=1;fontSize=16;fontColor=default;entryDx=0;entryDy=0;" edge="1" parent="1" source="62" target="67">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="645" y="1230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="62" value="Cookie: 'aslkdflkasdf'" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=16;fontColor=default;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="425" y="1210" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1.003;entryY=0.895;entryPerimeter=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=default;strokeWidth=1;fontSize=16;fontColor=default;entryDx=0;entryDy=0;" edge="1" parent="1" source="64" target="47">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="403" y="1333" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="64" value="Posts" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=16;fontColor=default;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="425" y="1313" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="Call serializeUser with the user to generate the identifying piece of info" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=16;fontColor=default;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="662.5" y="1040.5" width="190" height="59" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;jettySize=auto;orthogonalLoop=1;strokeColor=default;strokeWidth=3;fontSize=12;fontColor=default;" edge="1" parent="1" source="67" target="68">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="Take identifying piece of info from cookie, pass into 'deserializeUser' to turn it into a user" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=16;fontColor=default;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="662.5" y="1190" width="190" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="Ah, user 123, welcome back! &amp;nbsp;Here's your list of posts" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;labelBackgroundColor=none;strokeColor=default;strokeWidth=2;fillColor=none;fontSize=16;fontColor=default;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="662.5" y="1293" width="190" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

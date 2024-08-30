@@ -1,0 +1,9 @@
+@host = http://localhost:1337
+
+GET {{host}}/api/restaurants
+Content-Type: application/json
+
+### 
+
+GET {{host}}/api/categories
+Content-Type: application/json

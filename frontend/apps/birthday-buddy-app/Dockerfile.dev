@@ -1,0 +1,4 @@
+FROM wbk--mern-playground__core:latest as builder
+COPY ./frontend/apps/birthday-buddy-app ./frontend/apps/birthday-buddy-app
+RUN yarn install
+CMD [ "yarn", "develop:birthday-buddy-app"]

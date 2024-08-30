@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('includes/head') %>
+    <body>
+        <%- include('includes/navigation') %>
+
+        <div class="container">
+            <main role="main" class="pb-3">
+                <!-- START - Layout Content -->
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container mb-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"> </th>
+                                            <th scope="col">Product</th>
+                                            <th scope="col">Available</th>
+                                            <th scope="col" class="text-center">Quantity</th>
+                                            <th scope="col" class="text-right">Price</th>
+                                            <th> </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <% if(cart[0].items.length > 0) { %>
+        
+                                            <% for(cartItem of cart[0].items) { %>
+                                                <tr>
+                                                    <td><img src="https://dummyimage.com/50x50/55595c/fff" /></td>
+                                                    <td><%= cartItem.name %></td>
+                                                    <td>In stock</td>
+                                                    <td><input class="form-control" type="text" value="<%= cartItem.quantity %>" /></td>
+                                                    <td class="text-right"><%= cartItem.price * cartItem.quantity %> $</td>
+                                                    <td class="text-right">
+                    
+                                                        <form asp-page-handler="removetocart" method="post">
+                                                            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                                            <input type="hidden" asp-for="@Model.Cart.Id" name="cartId" />
+                                                            <input type="hidden" asp-for="@cartItem.Id" name="cartItemId" />
+                                                        </form>
+                    
+                                                    </td>
+                                                </tr>
+                                            <% } %>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><strong>Total</strong></td>
+                                                <td class="text-right"><strong><%= cart[0].total %> $</strong></td>
+                                            </tr>
+                                        <% } %>
+                
+                
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col mb-2">
+                            <div class="row">
+                                <div class="col-sm-12  col-md-6">
+                                    <a href="/products" class="btn btn-lg btn-block btn-success">Continue Shopping</a>
+                                </div>
+                                <div class="col-sm-12 col-md-6 text-right">
+                                    <a href="/checkout" class="btn btn-lg btn-block btn-danger text-uppercase">CheckOut</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- END - Layout Content -->
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <%- include('includes/footer') %>
+
+        <!-- JS -->
+        <%- include('includes/scripts') %>
+    </body>
+</html>

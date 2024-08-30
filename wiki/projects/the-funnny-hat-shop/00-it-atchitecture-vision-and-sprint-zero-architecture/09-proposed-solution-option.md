@@ -1,0 +1,13 @@
+# Proposed Solution Option
+- use EC2 to host the web application using apache as a web server
+- create application layer on EC2 for business rules and access the data layer
+- the auto scaling groups should be used to automatically scale the web application based on the demand
+- the application load balancer
+- for caching, use Elasticache to cache the data
+- images will be stored on the stock management S3 bucket
+- the domain will be hosted thorough Route 53 Hosted Zone
+- data will be stored on MySQL on AWS RDS
+- AWS Cloudwatch will send alarms for any issues on the EC2 instances
+- Amazon SES will be used to send emails to customers
+- Amazon CloudFront will be used to cache the images and static content
+- Amazon API Gateway will be used to integrate with the delivery vendor API

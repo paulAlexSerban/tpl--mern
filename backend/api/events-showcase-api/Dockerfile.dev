@@ -1,0 +1,4 @@
+FROM wbk--mern-playground__core:latest as builder
+COPY ./backend/api/events-showcase-api ./backend/api/events-showcase-api
+RUN yarn install
+CMD [ "yarn", "develop:events-showcase-api"]

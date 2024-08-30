@@ -1,0 +1,58 @@
+---
+networks:
+    {{infrastructure_docker-full-stack-mock-slug}}-network:
+        driver: bridge
+
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        build:
+            context: ../../backend/middleware/full-stack-mock-proxy
+            dockerfile: dev.Dockerfile
+        container_name: container-{{infrastructure_docker-full-stack-mock-slug}}-proxy
+        image: paulserbandev/{{infrastructure_docker-full-stack-mock-slug}}-proxy
+        restart: unless-stopped
+        ports:
+            - '3000:80'
+        volumes:
+            - ../../backend/middleware/full-stack-mock-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+        networks:
+            - {{infrastructure_docker-full-stack-mock-slug}}-network
+
+    # ---------------------------------------------------------------------
+    # UI React SPA
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa-container
+        build:
+            context: ../../frontend/apps/{{infrastructure_docker-full-stack-mock-slug}}-app
+            dockerfile: dev.Dockerfile
+        volumes:
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - ../../frontend/apps/{{infrastructure_docker-full-stack-mock-slug}}-app:/usr/src/app # Mount the app directory to the container
+        networks:
+            - {{infrastructure_docker-full-stack-mock-slug}}-network
+
+    # ---------------------------------------------------------------------
+    # | ExpressJS API                                                     |
+    # ---------------------------------------------------------------------
+    express-api:
+        build:
+            context: ../../backend/api/{{infrastructure_docker-full-stack-mock-slug}}-api
+            dockerfile: dev.Dockerfile
+        image: paulserbandev/{{infrastructure_docker-full-stack-mock-slug}}-api
+        container_name: container-{{infrastructure_docker-full-stack-mock-slug}}-api
+        restart: always
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
+        env_file:
+            - ../../infrastructure/env/{{infrastructure_docker-full-stack-mock-slug}}.compose.env
+            - ../../.env
+        volumes:
+            - ../../backend/api/{{infrastructure_docker-full-stack-mock-slug}}-api:/usr/src/app/
+            - /usr/src/app/node_modules
+        networks:
+            - {{infrastructure_docker-full-stack-mock-slug}}-network

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('includes/head') %>
+    <body>
+        <%- include('includes/navigation') %>
+
+        <div class="container">
+            <main role="main" class="pb-3">
+                <!-- START - Layout Content -->
+
+                <hr />
+
+                <div class="container"><%- include('includes/carousel') %></div>
+
+                <div class="container mt-3">
+                    <%- include('includes/productOverview', {sectionLabel: "Last products", iconName: "fa-star"})%>
+                </div>
+
+                <div class="container mt-3 mb-4">
+                    <%- include('includes/productOverview', {sectionLabel: "Best products", iconName: "fa-trophy"})%>
+                </div>
+
+                <!-- END - Layout Content -->
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <%- include('includes/footer') %>
+
+        <!-- JS -->
+        <%- include('includes/scripts') %>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<mxfile host="65bd71144e">
+    <diagram id="W8zOhv5StQr890w0Tf8W" name="Page-1">
+        <mxGraphModel dx="1736" dy="1071" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Decoupled Ends" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="3" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="3" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Backend === API" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="360" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="REST* API" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="440" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="GraphQL" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="440" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Different URL's + HTTP Verbs&lt;br&gt;(= endpoints) for differen actions&lt;br&gt;*Representational State Transfer" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="560" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="One URL + HTTP Verb&lt;br&gt;(= one endpoint) that accepts query commands" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="560" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Execute code on the server" style="whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="540" width="200" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('includes/head') %>
+    <body>
+        <%- include('includes/navigation') %>
+
+        <div class="container">
+            <main role="main" class="pb-3">
+                <!-- START - Layout Content -->
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="/products">Products</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Category</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-3">
+                            <div class="card bg-light mb-3">
+                                <div class="card-header bg-primary text-white text-uppercase">
+                                    <i class="fa fa-list"></i> Categories
+                                </div>
+                                <ul class="list-group category_block">
+                                    <% if(categories.length > 0) { %> <% for(category of categories) { %>
+                                    <li class="list-group-item">
+                                        <a href="/products"><%= category.name%></a>
+                                    </li>
+                                    <% } %> <% } %>
+                                </ul>
+                            </div>
+
+                            <% if(products.length > 0) { %> 
+                                <div class="card bg-light mb-3">
+                                    <div class="card-header bg-success text-white text-uppercase">Last product</div>
+                                    <div class="card-body">
+                                        <img
+                                            asp-append-version="true"
+                                            class="img-fluid"
+                                            src="<%= products[0].image.url %>"
+                                        />
+                                        <h5 class="card-title"><%= products[0].name %></h5>
+                                        <p class="card-text"><%= products[0].summary %></p>
+                                        <p class="bloc_left_price"><%= products[0].price %> $</p>
+                                    </div>
+                                </div>
+                                <% }%>
+
+                        </div>
+
+                        <div class="col">
+                            <div class="row">
+                                <% if(products.length > 0) { %> <%- include('includes/productList', {products})%> <% } %>
+
+                                <div class="col-12">
+                                    <nav aria-label="...">
+                                        <ul class="pagination">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item active">
+                                                <a class="page-link" href="#"
+                                                    >2 <span class="sr-only">(current)</span></a
+                                                >
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- END - Layout Content -->
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <%- include('includes/footer') %>
+
+        <!-- JS -->
+        <%- include('includes/scripts') %>
+    </body>
+</html>

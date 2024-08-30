@@ -1,0 +1,34 @@
+---
+networks:
+    minesweeper-game-network:
+        driver: bridge
+
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        container_name: minesweeper-game-proxy
+        build:
+            context: ../../../
+            dockerfile: ./backend/services/simple-fe-only-spa-proxy/Dockerfile.prod
+        restart: unless-stopped
+        ports:
+            - '3000:80'
+        depends_on:
+            - ui-react-spa
+        networks:
+            - minesweeper-game-network
+
+    # ---------------------------------------------------------------------
+    # UI React SPA
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa
+        build:
+            context: ../../../
+            dockerfile: ./frontend/apps/minesweeper-game-app/Dockerfile.prod
+        env_file:
+            - ../../../infrastructure/env/minesweeper-game.compose.env
+        networks:
+            - minesweeper-game-network

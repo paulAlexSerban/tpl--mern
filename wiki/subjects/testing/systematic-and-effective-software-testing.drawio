@@ -1,0 +1,122 @@
+<mxfile host="65bd71144e">
+    <diagram id="0joeu4zxauTJagQHSwkK" name="Page-1">
+        <mxGraphModel dx="461" dy="190" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="24" style="edgeStyle=none;html=1;dashed=1;exitX=-0.003;exitY=0.284;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.998;entryY=0.387;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="22" target="5">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="630" y="300"/>
+                            <mxPoint x="600" y="300"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="Effective and systematic testing" style="whiteSpace=wrap;html=1;align=center;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="750" y="130" width="450" height="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Larger tests" style="whiteSpace=wrap;html=1;align=center;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="1020" y="180" width="160" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Unit testing" style="whiteSpace=wrap;html=1;align=center;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="770" y="180" width="160" height="520" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" style="edgeStyle=none;html=1;entryX=1;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.005;exitY=0.6;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" edge="1" parent="1" source="5" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" style="edgeStyle=none;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1.004;exitY=0.323;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="5" target="22">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="Units with different roles &lt;br&gt;and responsabilities" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="23">
+                    <mxGeometry x="-0.0934" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="Testing to guide &lt;br&gt;development" style="whiteSpace=wrap;html=1;align=center;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="180" width="160" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Test-driven Development (TDD)" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="230" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Design for Testability" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="320" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Design for Contracts" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="410" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="build a feature" style="edgeStyle=none;html=1;" edge="1" parent="1" source="6" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="6" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Developer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="305" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Requirement analysis" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="95" y="460" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Specification testing" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="790" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Boundry testing" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="790" y="320" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Structural testing" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="790" y="420" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Property based testing" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="790" y="520" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Mocks, stubs, and fakes" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="790" y="620" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="Integration testing" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="1040" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="System testing" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="1040" y="320" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Intelligent testing" style="whiteSpace=wrap;html=1;align=center;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="1020" y="440" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Muattion testing" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="1040" y="480" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" style="edgeStyle=none;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=0.998;exitY=0.355;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="520.0000000000001" y="390.04999999999995" as="sourcePoint"/>
+                        <mxPoint x="750.32" y="390" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="530.32" y="390"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" value="Automated test suite" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="26">
+                    <mxGeometry x="-0.0934" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=none;html=1;dashed=1;exitX=-0.004;exitY=0.281;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.995;entryY=0.419;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="749" y="409.9999999999999" as="sourcePoint"/>
+                        <mxPoint x="520" y="410.04999999999984" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="630.8" y="410.15999999999997"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=none;html=1;" edge="1" parent="1" source="29">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="630" y="410" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="Test code quality" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="570" y="450" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

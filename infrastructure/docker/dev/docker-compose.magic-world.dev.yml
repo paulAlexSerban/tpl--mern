@@ -1,0 +1,46 @@
+---
+networks:
+    magic-world-network:
+        driver: bridge
+
+services:
+    # ---------------------------------------------------------------------
+    # | PostgreSQL                                                        |
+    # ---------------------------------------------------------------------
+    postgres:
+        image: postgres:latest
+        container_name: container-magic-world-postgres
+        restart: always
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: magic-world
+        ports:
+            - 15432:5432
+        volumes:
+            - ../../database/.tmp-data/magic-world-db:/var/lib/postgresql/data
+            - ../../database/seeds/magic-world-db/init.sql:/docker-entrypoint-initdb.d/init.sql
+            - ../../database/seeds/magic-world-db/magic-world.sql:/docker-entrypoint-initdb.d/magic-world.sql
+        networks:
+            - magic-world-network
+
+    # ---------------------------------------------------------------------
+    # | PgAdmin                                                           |
+    # ---------------------------------------------------------------------
+    pgadmin:
+        image: dpage/pgadmin4
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
+        ports:
+            - 15433:80
+        environment:
+            POSTGRES_USER: postgres
+            PGADMIN_DEFAULT_EMAIL: admin@test.com
+            PGADMIN_DEFAULT_PASSWORD: postgres
+        depends_on:
+            - postgres
+        networks:
+            - magic-world-network
+        volumes:
+            - ../../database/.tmp-data/magic-world-pgadmin-data/:/var/lib/pgadmin/

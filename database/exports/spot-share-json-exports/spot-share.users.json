@@ -1,0 +1,49 @@
+[
+    {
+        "_id": {
+            "$oid": "65fd797925276f6b64a4580f"
+        },
+        "name": "Manu",
+        "email": "test@test.com",
+        "password": "testers",
+        "image": "https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg",
+        "places": [
+            {
+                "$oid": "65fdbc9042c1e7c3fd417c76"
+            },
+            {
+                "$oid": "65fdbc9142c1e7c3fd417c7a"
+            }
+        ],
+        "__v": 4
+    },
+    {
+        "_id": {
+            "$oid": "65fd7ada25276f6b64a45818"
+        },
+        "name": "Manus",
+        "email": "test@tests.com",
+        "password": "testers",
+        "image": "https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg",
+        "places": [
+            {
+                "$oid": "65fdbc1342c1e7c3fd417c6a"
+            },
+            {
+                "$oid": "65fdbc7f42c1e7c3fd417c71"
+            }
+        ],
+        "__v": 4
+    },
+    {
+        "_id": {
+            "$oid": "65fdb28f82bfa1d6dfe5e5d7"
+        },
+        "name": "Manuel",
+        "email": "testing@tests.com",
+        "password": "testers",
+        "image": "https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg",
+        "places": [],
+        "__v": 0
+    }
+]

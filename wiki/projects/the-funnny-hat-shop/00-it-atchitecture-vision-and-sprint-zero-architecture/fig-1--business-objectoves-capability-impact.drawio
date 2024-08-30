@@ -1,0 +1,88 @@
+<mxfile host="65bd71144e">
+    <diagram id="rCRBv9BJ7MuaY7tntduO" name="Page-1">
+        <mxGraphModel dx="1044" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="sales" style="whiteSpace=wrap;html=1;align=center;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="80" width="320" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="customer" style="whiteSpace=wrap;html=1;align=center;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="80" width="320" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="operations" style="whiteSpace=wrap;html=1;align=center;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="80" width="160" height="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="warehouse" style="whiteSpace=wrap;html=1;align=center;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="240" width="720" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="financial services" style="whiteSpace=wrap;html=1;align=center;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="400" width="720" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="point of sale" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="e-commerce" style="whiteSpace=wrap;html=1;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="customer accounts" style="whiteSpace=wrap;html=1;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="customer insights" style="whiteSpace=wrap;html=1;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="supply chain service" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="280" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="procurement" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="280" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="order management" style="whiteSpace=wrap;html=1;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="280" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="product management" style="whiteSpace=wrap;html=1;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="280" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="delivery service" style="whiteSpace=wrap;html=1;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="280" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="invoicing" style="whiteSpace=wrap;html=1;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="430" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="salaries" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="430" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="billing" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="430" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="payments" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="430" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="NEW" style="whiteSpace=wrap;html=1;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="560" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Existing" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="560" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Change" style="whiteSpace=wrap;html=1;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="560" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="shop maintenance" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="820" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="human resources" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="820" y="210" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="security" style="whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="820" y="290" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="communications" style="whiteSpace=wrap;html=1;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="1">
+                    <mxGeometry x="820" y="370" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="it support" style="whiteSpace=wrap;html=1;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="1">
+                    <mxGeometry x="820" y="450" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

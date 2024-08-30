@@ -1,0 +1,4 @@
+FROM wbk--mern-playground__core:latest as builder
+COPY ./frontend/apps/redux-elegant-online-shop-app ./frontend/apps/redux-elegant-online-shop-app
+RUN yarn install
+CMD [ "yarn", "develop:redux-elegant-online-shop-app"]

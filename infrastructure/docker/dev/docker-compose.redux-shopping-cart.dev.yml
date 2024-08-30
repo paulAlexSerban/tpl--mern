@@ -1,0 +1,83 @@
+---
+version: '3.8'
+
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        build:
+            context: ../../../backend/middleware/redux-shopping-cart-proxy
+            dockerfile: dev.Dockerfile
+        container_name: container-redux-shopping-cart-proxy
+        image: paulserbandev/redux-shopping-cart-proxy
+        restart: unless-stopped
+        ports:
+            - '3000:80'
+        volumes:
+            - ../../../backend/middleware/redux-shopping-cart-proxy/default.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/middleware/redux-shopping-cart-proxy/logs:/var/log/nginx
+        networks:
+            - redux-shopping-cart-network
+    # ---------------------------------------------------------------------
+    # UI React SPA
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa-container
+        build:
+            context: ../../frontend/apps/redux-shopping-cart
+            dockerfile: dev.Dockerfile
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
+        volumes:
+            - ../../frontend/apps/redux-shopping-cart:/usr/src/app # Mount the app directory to the container
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+        networks:
+            - redux-shopping-cart-network
+
+    # ---------------------------------------------------------------------
+    # | ExpressJS API                                                     |
+    # ---------------------------------------------------------------------
+    express-redux-shopping-cart-api:
+        build:
+            context: ../../backend/api/redux-shopping-cart-api
+            dockerfile: dev.Dockerfile
+        image: paulserbandev/redux-shopping-cart-api
+        container_name: container-redux-shopping-cart-api
+        restart: always
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
+        env_file:
+            - ../../infrastructure/env/redux-shopping-cart.compose.env
+            - ../../.env
+        depends_on:
+            - mongo-database-service
+        volumes:
+            - ../../backend/api/redux-shopping-cart-api:/usr/src/app/
+            - /usr/src/app/node_modules
+        networks:
+            - redux-shopping-cart-network
+    # ---------------------------------------------------------------------
+    # | MongoDB Database Server                                            |
+    # ---------------------------------------------------------------------
+    mongo-database-service:
+        image: mongo:latest
+        container_name: mongo-database-container
+        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
+        # without this, the container will fail to write files to the host volume
+        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
+        env_file:
+            - ../../infrastructure/env/redux-shopping-cart.compose.env
+            - ../../.env
+        volumes:
+            - ../../database/.tmp-data/redux-shopping-cart-data:/data/db
+        ports:
+            - '27017:27017'
+        networks:
+            - redux-shopping-cart-network
+
+networks:
+    redux-shopping-cart-network:
+        driver: bridge

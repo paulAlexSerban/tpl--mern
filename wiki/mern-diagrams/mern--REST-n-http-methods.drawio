@@ -1,0 +1,49 @@
+<mxfile host="65bd71144e">
+    <diagram id="CshSxTJ_N4f4o9BogVYI" name="Page-1">
+        <mxGraphModel dx="1736" dy="1071" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="GET" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="240" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="POST" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="240" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="PUT" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="240" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="PATCH" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="480" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="DELETE" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="480" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="OPTIONS" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="480" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Get a Resource from the Server" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="300" width="160" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Post a Resource to the Sever (i.e. create or append Resource)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="300" width="160" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Put a resource onto the Server (i.e. create or overwrite a Resource)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="300" width="160" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Update parts of an existing Resource on the Sever" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="540" width="160" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Delete a resource" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="540" width="160" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="determine whether follow=up request is allowed (sen automatically)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="540" width="160" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;The VERB path combination alone does not dictate what happens&amp;nbsp;on &lt;br&gt;the server, that is up to the logic written for each verb&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#BD7000;fillColor=#f0a30a;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="245" y="160" width="550" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

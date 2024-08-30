@@ -1,0 +1,34 @@
+---
+networks:
+    backroads-tourcompany-landingpage-network:
+        driver: bridge
+
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        container_name: backroads-tourcompany-landingpage-proxy
+        build:
+            context: ../../../
+            dockerfile: ./backend/services/simple-fe-only-spa-proxy/Dockerfile.prod
+        restart: unless-stopped
+        ports:
+            - '3000:80'
+        depends_on:
+            - ui-react-spa
+        networks:
+            - backroads-tourcompany-landingpage-network
+
+    # ---------------------------------------------------------------------
+    # UI React SPA
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa
+        build:
+            context: ../../../
+            dockerfile: ./frontend/sites/backroads-tourcompany-landingpage-site/Dockerfile.prod
+        env_file:
+            - ../../../infrastructure/env/backroads-tourcompany-landingpage.compose.env
+        networks:
+            - backroads-tourcompany-landingpage-network
