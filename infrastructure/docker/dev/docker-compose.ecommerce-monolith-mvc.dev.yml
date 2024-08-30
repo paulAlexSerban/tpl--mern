@@ -10,14 +10,14 @@ services:
     nginx-proxy:
         build:
             context: ../../../
-            dockerfile: ./backend/middleware/ecommerce-monolith-mvc-proxy/Dockerfile.dev
+            dockerfile: ./backend/services/ecommerce-monolith-mvc-proxy/Dockerfile.dev
         container_name: ecommerce-monolith-mvc-proxy
         restart: unless-stopped
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/middleware/ecommerce-monolith-mvc-proxy/default.conf:/etc/nginx/conf.d/default.conf
-            - ../../../backend/middleware/ecommerce-monolith-mvc-proxy/logs:/var/log/nginx
+            - ../../../backend/services/ecommerce-monolith-mvc-proxy/default.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/services/ecommerce-monolith-mvc-proxy/logs:/var/log/nginx
         networks:
             - ecommerce-monolith-mvc-network
     # ---------------------------------------------------------------------
