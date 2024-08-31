@@ -11,7 +11,7 @@ services:
         container_name: events-showcase-proxy
         build:
             context: ../../../
-            dockerfile: ./backend/middleware/events-showcase-proxy/Dockerfile.prod
+            dockerfile: ./backend/showcase/events-showcase-proxy/Dockerfile.prod
         ports:
             - '3000:80'
         restart: unless-stopped
