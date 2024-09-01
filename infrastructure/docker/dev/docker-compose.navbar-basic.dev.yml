@@ -9,7 +9,7 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../../backend/middleware/navbar-basic-proxy
+            context: ../../../backend/services/navbar-basic-proxy
             dockerfile: dev.Dockerfile
         container_name: container-navbar-basic-proxy
         image: paulserbandev/navbar-basic-proxy
@@ -17,7 +17,7 @@ services:
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/middleware/navbar-basic-proxy/default.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/services/navbar-basic-proxy/default.conf:/etc/nginx/conf.d/default.conf
         networks:
             - navbar-basic-network
 
