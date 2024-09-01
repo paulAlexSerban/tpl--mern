@@ -7,7 +7,7 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../../backend/middleware/spot-share-proxy
+            context: ../../../backend/services/spot-share-proxy
             dockerfile: prod.Dockerfile
         container_name: container-spot-share-proxy
         restart: unless-stopped
