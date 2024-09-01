@@ -9,7 +9,7 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../../backend/middleware/slider-w-buttons-proxy
+            context: ../../../backend/services/slider-w-buttons-proxy
             dockerfile: dev.Dockerfile
         container_name: container-slider-w-buttons-proxy
         image: paulserbandev/slider-w-buttons-proxy
@@ -17,7 +17,7 @@ services:
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/middleware/slider-w-buttons-proxy/default.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/services/slider-w-buttons-proxy/default.conf:/etc/nginx/conf.d/default.conf
         networks:
             - slider-w-buttons-network
 

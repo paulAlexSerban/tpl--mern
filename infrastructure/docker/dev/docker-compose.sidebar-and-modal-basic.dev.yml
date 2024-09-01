@@ -9,7 +9,7 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../../backend/middleware/sidebar-and-modal-basic-proxy
+            context: ../../../backend/services/sidebar-and-modal-basic-proxy
             dockerfile: dev.Dockerfile
         container_name: container-sidebar-and-modal-basic-proxy
         image: paulserbandev/sidebar-and-modal-basic-proxy
@@ -17,7 +17,7 @@ services:
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/middleware/sidebar-and-modal-basic-proxy/default.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/services/sidebar-and-modal-basic-proxy/default.conf:/etc/nginx/conf.d/default.conf
         networks:
             - sidebar-and-modal-basic-network
 

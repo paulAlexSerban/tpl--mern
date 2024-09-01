@@ -9,7 +9,7 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../backend/middleware/full-stack-mock-proxy
+            context: ../../backend/services/full-stack-mock-proxy
             dockerfile: dev.Dockerfile
         container_name: container-{{infrastructure_docker-full-stack-mock-slug}}-proxy
         image: paulserbandev/{{infrastructure_docker-full-stack-mock-slug}}-proxy
@@ -17,7 +17,7 @@ services:
         ports:
             - '3000:80'
         volumes:
-            - ../../backend/middleware/full-stack-mock-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+            - ../../backend/services/full-stack-mock-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
         networks:
             - {{infrastructure_docker-full-stack-mock-slug}}-network
 

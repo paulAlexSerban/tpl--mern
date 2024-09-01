@@ -9,7 +9,7 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../../backend/middleware/express-monolith-web-service-proxy
+            context: ../../../backend/services/express-monolith-web-service-proxy
             dockerfile: dev.Dockerfile
         container_name: container-ecommerce-arch-journey-monolith-proxy
         image: paulserbandev/ecommerce-arch-journey-monolith-proxy
@@ -17,7 +17,7 @@ services:
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/middleware/express-monolith-web-service-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/services/express-monolith-web-service-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
         networks:
             - ecommerce-arch-journey-monolith-network
     # ---------------------------------------------------------------------

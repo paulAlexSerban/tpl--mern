@@ -9,7 +9,7 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../../backend/middleware/lorem-ipsum-generator-proxy
+            context: ../../../backend/services/lorem-ipsum-generator-proxy
             dockerfile: dev.Dockerfile
         container_name: container-lorem-ipsum-generator-proxy
         image: paulserbandev/lorem-ipsum-generator-proxy
@@ -17,7 +17,7 @@ services:
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/middleware/lorem-ipsum-generator-proxy/default.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/services/lorem-ipsum-generator-proxy/default.conf:/etc/nginx/conf.d/default.conf
         networks:
             - lorem-ipsum-generator-network
 
