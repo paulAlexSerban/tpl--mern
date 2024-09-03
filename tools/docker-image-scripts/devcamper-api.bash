@@ -59,7 +59,7 @@ function build-prod() {
   echo "✅  Build complete"
 }
 
-# use DB_ATLAS_URI instead of DB_URI when running the container with the compose file
+# use DATABASE_ATLAS_URI instead of DATABASE_URI when running the container with the compose file
 function run() {
   echo "🚀  Running..."
   docker run -it --rm --detach \
@@ -67,14 +67,14 @@ function run() {
     --env NODE_ENV=development \
     --env DEVCAMPER_GEOCODER_PROVIDER=${DEVCAMPER_GEOCODER_PROVIDER} \
     --env DEVCAMPER_GEOCODER_API_KEY=${DEVCAMPER_GEOCODER_API_KEY} \
-    --env DB_URI=${DB_ATLAS_URI} \
+    --env DATABASE_URI=${DATABASE_ATLAS_URI} \
     --env PORT=${CONTAINER_PORT} \
     --name ${PROJECT_NAME} ${PROJECT_NAME}:latest
   echo "Server listening to http://localhost:${HOST_PORT}" # Fixed message to use HOST_PORT
   echo "✅  Run complete"
 }
 
-# use DB_ATLAS_URI instead of DB_URI when running the container with the compose file
+# use DATABASE_ATLAS_URI instead of DATABASE_URI when running the container with the compose file
 function run-prod() {
   echo "🚀  Running..."
   docker run -it --rm --detach \
@@ -82,7 +82,7 @@ function run-prod() {
     --env NODE_ENV=production \
     --env DEVCAMPER_GEOCODER_PROVIDER=${DEVCAMPER_GEOCODER_PROVIDER} \
     --env DEVCAMPER_GEOCODER_API_KEY=${DEVCAMPER_GEOCODER_API_KEY} \
-    --env DB_URI=${DB_ATLAS_URI} \
+    --env DATABASE_URI=${DATABASE_ATLAS_URI} \
     --env PORT=${CONTAINER_PORT} \
     --name ${PROJECT_NAME} ${PROJECT_NAME}:latest
   # echo "Server listening to http://localhost:${HOST_PORT}" # Fixed message to use HOST_PORT

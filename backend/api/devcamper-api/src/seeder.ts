@@ -10,7 +10,7 @@ import BootcampSchema from './models/BootcampSchema';
 
 // load env vars
 dotenv.config();
-const DB_URL = process.env.DB_LOCAL_URI;
+const DB_URL = process.env.DATABASE_LOCAL_URI;
 
 if (!DB_URL) {
     console.log('No database URL provided');

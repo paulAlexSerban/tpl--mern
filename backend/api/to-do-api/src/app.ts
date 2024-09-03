@@ -9,17 +9,17 @@ import tasksRoute from './routes/tasks';
 
 dotenv.config();
 
-const { DB_URI } = process.env;
+const { DATABASE_URI } = process.env;
 
-if (!DB_URI) {
-    console.error('No DB_URI provided');
+if (!DATABASE_URI) {
+    console.error('No DATABASE_URI provided');
     process.exit(1);
 }
 
 const connectDB = async () => {
     try {
         // Corrected the MongoDB connection URI scheme here
-        const conn = await mongoose.connect(DB_URI);
+        const conn = await mongoose.connect(DATABASE_URI);
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (err) {
         // Corrected error handling
