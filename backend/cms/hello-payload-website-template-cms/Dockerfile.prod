@@ -1,0 +1,22 @@
+# Build the production image artifacts in context of @wbk--mern-playground Monorepo
+FROM wbk--mern-playground__core:latest as builder
+COPY ./backend/cms/hello-payload-website-template-cms ./backend/cms/hello-payload-website-template-cms
+RUN yarn install
+RUN yarn build:hello-payload-website-template-cms
+
+# Setup the runtime image using the production artifacts without unnecessary dependencies
+FROM node:20-alpine as runtime
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+ENV NODE_ENV=production
+ENV PAYLOAD_CONFIG_PATH=./backend/cms/hello-payload-website-template-cms/dist/payload.config.js
+
+COPY ./backend/cms/hello-payload-website-template-cms/package.json ./
+COPY --from=builder /usr/src/app/backend/cms/hello-payload-website-template-cms/dist ./dist
+COPY --from=builder /usr/src/app/backend/cms/hello-payload-website-template-cms/build ./build
+
+RUN yarn install --production
+
+CMD ["node", "dist/server.js"]

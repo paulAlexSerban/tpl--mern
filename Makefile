@@ -215,6 +215,21 @@ flowrise-site_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/flowrise-site-compose.bash down-prod
 
 # ------------------------------------------------------------- #
+# (compose): Hello Payload CMS
+# ------------------------------------------------------------- #
+hello-payload-website-template_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-payload-website-template-compose.bash up
+
+hello-payload-website-template_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-payload-website-template-compose.bash up-prod
+
+hello-payload-website-template_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-payload-website-template-compose.bash down
+
+hello-payload-website-template_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-payload-website-template-compose.bash down-prod
+
+# ------------------------------------------------------------- #
 # (compose): Hello Strapi CMS
 # ------------------------------------------------------------- #
 hello-strapi_compose-up:

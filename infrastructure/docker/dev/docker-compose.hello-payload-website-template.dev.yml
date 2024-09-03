@@ -1,0 +1,49 @@
+---
+networks:
+    hello-payload-website-template:
+        driver: bridge
+
+services:
+    # ---------------------------------------------------------------------
+    # | Payload CMS
+    # ---------------------------------------------------------------------
+    payload-cms:
+        container_name: ${COMPOSE_PROJECT_NAME}
+        build:
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: ./backend/cms/hello-payload-website-template-cms/Dockerfile.dev
+        ports:
+            - '3000:3000'
+        restart: unless-stopped
+        env_file:
+            - ../../../infrastructure/env/hello-payload-website-template.compose.env
+            - ../../../.env
+        volumes:
+            - /usr/src/app/node_modules
+        depends_on:
+            - mongo-database-service
+        networks:
+            - hello-payload-website-template
+
+    # ---------------------------------------------------------------------
+    # | MongoDB Database Server                                            |
+    # ---------------------------------------------------------------------
+    mongo-database-service:
+        image: mongo:latest
+        container_name: ${COMPOSE_PROJECT_NAME}_mongo
+        env_file:
+            - ../../../infrastructure/env/hello-payload-website-template.compose.env
+            - ../../../.env
+        ports:
+            - '27017:27017'
+        command:
+            - --storageEngine=wiredTiger
+        volumes:
+            - hello-payload-website-template-data:/data/db
+        logging:
+            driver: none
+        networks:
+            - hello-payload-website-template
+
+volumes:
+    hello-payload-website-template-data:

@@ -1,0 +1,10 @@
+FROM wbk--mern-playground__core:latest as builder
+
+COPY ./backend/cms/hello-payload-website-template-cms ./backend/cms/hello-payload-website-template-cms
+
+RUN yarn install
+
+ENV NODE_ENV=development
+ENV PAYLOAD_CONFIG_PATH=dist/payload.config.js
+
+CMD [ "yarn", "develop:hello-payload-website-template-cms" ]
