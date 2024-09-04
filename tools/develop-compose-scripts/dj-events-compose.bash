@@ -33,6 +33,15 @@ function recreate-ssr-service() {
     list
 }
 
+function recreate-strapi-cms() {
+    echo "[ 🔄 🐳 compose recreate strapi-cms ]"
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} up \
+        --detach --build --force-recreate strapi-cms
+    list
+}
+
 function down() {
     echo "[ 🛑 🐳 compose down ]"
     docker compose \
