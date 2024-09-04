@@ -25,7 +25,7 @@ services:
         depends_on:
             - ssr-service
             - simple-storage-service
-            # - phpmyadmin-service
+            - phpmyadmin-service
 
     # ---------------------------------------------------------------------
     # Next.js SSR Service
@@ -116,20 +116,20 @@ services:
     # ---------------------------------------------------------------------
     # | PhpMyAdmin Service
     # ---------------------------------------------------------------------
-    # phpmyadmin-service:
-    #     depends_on:
-    #         - mariadb-database-service
-    #     image: phpmyadmin/phpmyadmin:latest
-    #     container_name: ${COMPOSE_PROJECT_NAME}_phpmyadmin
-    #     platform: linux/amd64 #for platform error on Apple M1 chips
-    #     restart: always
-    #     ports:
-    #         - 8080:80
-    #     environment:
-    #         - PMA_HOST=mariadb-database-service
-    #         - MYSQL_ROOT_PASSWORD=${DATABASE_PASSWORD}
-    #     networks:
-    #         - dj-events-network
+    phpmyadmin-service:
+        depends_on:
+            - mariadb-database-service
+        image: phpmyadmin/phpmyadmin:latest
+        container_name: ${COMPOSE_PROJECT_NAME}_phpmyadmin
+        platform: linux/amd64 #for platform error on Apple M1 chips
+        restart: always
+        ports:
+            - 8080:80
+        environment:
+            - PMA_HOST=mariadb-database-service
+            - MYSQL_ROOT_PASSWORD=${DATABASE_PASSWORD}
+        networks:
+            - dj-events-network
 
     # ---------------------------------------------------------------------
     # Nginx - Simple Storage Service
