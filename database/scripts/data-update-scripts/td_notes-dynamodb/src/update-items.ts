@@ -1,8 +1,6 @@
-import { Express } from 'express';
 import { DynamoDBClient, UpdateItemCommand } from '@aws-sdk/client-dynamodb';
 import { ScanCommand, ScanCommandInput } from '@aws-sdk/lib-dynamodb';
 import dotenv from 'dotenv';
-import { timeStamp } from 'console';
 dotenv.config({ path: './td_notes-dynamodb.env' });
 
 const client = new DynamoDBClient({});

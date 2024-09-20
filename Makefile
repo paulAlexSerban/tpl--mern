@@ -178,6 +178,9 @@ dj-events_compose-down:
 dj-events_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash down-prod
 
+dj-events_compose-restore-database:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash restore-database
+
 # ------------------------------------------------------------- #
 # (compose): Ecommerce Monolith MVC
 # ------------------------------------------------------------- #
