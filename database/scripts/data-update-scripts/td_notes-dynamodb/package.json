@@ -1,0 +1,21 @@
+{
+    "name": "@wbk--mern-playground/td_notes-dynamodb",
+    "version": "1.0.0",
+    "private": true,
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "run:list-tables": "yarn ts-node src/list-tables.ts",
+        "run:list-table-items": "yarn ts-node src/list-table-items.ts",
+        "run:update-items": "yarn ts-node src/update-items.ts"
+    },
+    "dependencies": {
+        "@aws-sdk/client-dynamodb": "^3.651.1",
+        "@aws-sdk/core": "^3.651.1",
+        "@aws-sdk/lib-dynamodb": "^3.654.0",
+        "@types/node": "^20.11.17",
+        "dotenv": "^16.4.5",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.3"
+    }
+}

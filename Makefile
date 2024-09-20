@@ -262,6 +262,12 @@ my-nextjs-site_compose-down:
 my-nextjs-site_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/my-nextjs-site-compose.bash down-prod
 
+# ------------------------------------------------------------- #
+# DynamoDB Training
+# ------------------------------------------------------------- #
+dynamodb-training_setup-aws-credentials:
+	@bash tools/aws/setup-user.bash dynamodb-training
+
 # Core build 
 core_build:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/core.bash build
