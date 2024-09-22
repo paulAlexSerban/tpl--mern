@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Paragraph } from '@wbk--mern-playground/react-cmp-lib';
+import { Paragraph } from '@wbk--mern-playground/select-dropdown-app-cmp-library';
 import '@wbk--mern-playground/lsg-styles-generic/lib/components/atoms/paragraph.css';
 
 const meta = {

@@ -3,9 +3,9 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.5.1](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/react-cmp-lib@0.5.0...@wbk--mern-playground/react-cmp-lib@0.5.1) (2024-02-05)
+## [0.5.1](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/select-dropdown-app-cmp-library@0.5.0...@wbk--mern-playground/select-dropdown-app-cmp-library@0.5.1) (2024-02-05)
 
-**Note:** Version bump only for package @wbk--mern-playground/react-cmp-lib
+**Note:** Version bump only for package @wbk--mern-playground/select-dropdown-app-cmp-library
 
 # 0.5.0 (2024-02-02)
 
@@ -24,31 +24,31 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 0.4.1 (2023-10-18)
 
-**Note:** Version bump only for package @wbk--mern-playground/react-cmp-lib
+**Note:** Version bump only for package @wbk--mern-playground/select-dropdown-app-cmp-library
 
-# [0.4.0](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/react-cmp-lib@0.3.1...@wbk--mern-playground/react-cmp-lib@0.4.0) (2023-10-18)
+# [0.4.0](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/select-dropdown-app-cmp-library@0.3.1...@wbk--mern-playground/select-dropdown-app-cmp-library@0.4.0) (2023-10-18)
 
 ### Features
 
 -   **structure:** moved storybook out of the react library package ([8e557cd](https://github.com/paulAlexSerban/wbk--mern-playground/commit/8e557cdce96bd430df38d3da4460df4774b79b3d))
 
-## [0.3.1](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/react-cmp-lib@0.3.0...@wbk--mern-playground/react-cmp-lib@0.3.1) (2023-10-12)
+## [0.3.1](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/select-dropdown-app-cmp-library@0.3.0...@wbk--mern-playground/select-dropdown-app-cmp-library@0.3.1) (2023-10-12)
 
-**Note:** Version bump only for package @wbk--mern-playground/react-cmp-lib
+**Note:** Version bump only for package @wbk--mern-playground/select-dropdown-app-cmp-library
 
-# [0.3.0](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/react-cmp-lib@0.2.3...@wbk--mern-playground/react-cmp-lib@0.3.0) (2023-10-12)
+# [0.3.0](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/select-dropdown-app-cmp-library@0.2.3...@wbk--mern-playground/select-dropdown-app-cmp-library@0.3.0) (2023-10-12)
 
 ### Features
 
 -   added chormatic tests ([fab13db](https://github.com/paulAlexSerban/wbk--mern-playground/commit/fab13db64d15606ec3e1bee1ac658c7b21827ee9))
 
-## [0.2.3](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/react-cmp-lib@0.2.2...@wbk--mern-playground/react-cmp-lib@0.2.3) (2023-10-12)
+## [0.2.3](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/select-dropdown-app-cmp-library@0.2.2...@wbk--mern-playground/select-dropdown-app-cmp-library@0.2.3) (2023-10-12)
 
 ### Bug Fixes
 
 -   cleanup ([7359581](https://github.com/paulAlexSerban/wbk--mern-playground/commit/735958170f11f71fccdae07f851dce5aa62f477a))
 
-## [0.2.2](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/react-cmp-lib@0.2.1...@wbk--mern-playground/react-cmp-lib@0.2.2) (2023-10-12)
+## [0.2.2](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/select-dropdown-app-cmp-library@0.2.1...@wbk--mern-playground/select-dropdown-app-cmp-library@0.2.2) (2023-10-12)
 
 ### Bug Fixes
 

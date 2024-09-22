@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '@wbk--mern-playground/lsg-styles-generic/lib/components/organisms/header.css';
-import { Header } from '@wbk--mern-playground/react-cmp-lib';
+import { Header } from '@wbk--mern-playground/select-dropdown-app-cmp-library';
 
 const meta = {
     title: 'Organisms/Header',

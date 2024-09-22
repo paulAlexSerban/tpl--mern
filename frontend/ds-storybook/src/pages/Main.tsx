@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Header } from '@wbk--mern-playground/react-cmp-lib';
+import { Header } from '@wbk--mern-playground/select-dropdown-app-cmp-library';
 
 type User = {
     name: string;

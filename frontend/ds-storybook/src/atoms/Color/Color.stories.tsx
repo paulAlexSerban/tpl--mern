@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Color } from '@wbk--mern-playground/react-cmp-lib';
+import { Color } from '@wbk--mern-playground/select-dropdown-app-cmp-library';
 import '@wbk--mern-playground/lsg-styles-generic/lib/components/atoms/utilities.css';
 import { text, select } from '@storybook/addon-knobs';
 

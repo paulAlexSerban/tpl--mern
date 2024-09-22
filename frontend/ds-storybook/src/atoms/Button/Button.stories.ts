@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import '@wbk--mern-playground/lsg-styles-generic/lib/components/atoms/button.css';
-import { Button } from '@wbk--mern-playground/react-cmp-lib';
+import { Button } from '@wbk--mern-playground/select-dropdown-app-cmp-library';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {

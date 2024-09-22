@@ -1,5 +1,5 @@
 {
-    "name": "@wbk--mern-playground/react-cmp-lib",
+    "name": "@wbk--mern-playground/select-dropdown-app-cmp-library",
     "version": "0.5.1",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
@@ -40,6 +40,6 @@
         "access": "public"
     },
     "readme": "ERROR: No README data found!",
-    "_id": "@wbk--mern-playground/react-cmp-lib@0.1.0",
+    "_id": "@wbk--mern-playground/select-dropdown-app-cmp-library@0.1.0",
     "gitHead": "1d60eb697e8de2f3d72ca816f3763ec42a52b1aa"
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Select } from '@wbk--mern-playground/react-cmp-lib';
+import { Select } from '@wbk--mern-playground/select-dropdown-app-cmp-library';
 
 import '@wbk--mern-playground/lsg-styles-generic/lib/components/atoms/utilities.css';
 import '@wbk--mern-playground/lsg-styles-generic/lib/components/atoms/paragraph.css';

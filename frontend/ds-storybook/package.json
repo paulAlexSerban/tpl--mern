@@ -32,7 +32,7 @@
     },
     "dependencies": {
         "@wbk--mern-playground/lsg-styles-generic": "^0.2.1",
-        "@wbk--mern-playground/react-cmp-lib": "^0.5.1",
+        "@wbk--mern-playground/select-dropdown-app-cmp-library": "^0.5.1",
         "@wbk--mern-playground/shared-foundation": "^0.3.1"
     },
     "publishConfig": {

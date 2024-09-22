@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Select } from '@wbk--mern-playground/react-cmp-lib';
+import { Select } from '@wbk--mern-playground/select-dropdown-app-cmp-library';
 import React from 'react';
 
 import '@wbk--mern-playground/lsg-styles-generic/lib/components/molecules/select.css';

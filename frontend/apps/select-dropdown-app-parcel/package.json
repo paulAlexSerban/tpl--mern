@@ -1,5 +1,5 @@
 {
-    "name": "@wbk--mern-playground/select-dropdown-app",
+    "name": "@wbk--mern-playground/select-dropdown-app-parcel",
     "version": "0.3.0",
     "license": "MIT",
     "scripts": {
@@ -18,7 +18,7 @@
     },
     "dependencies": {
         "@wbk--mern-playground/lsg-styles-generic": "^0.2.1",
-        "@wbk--mern-playground/react-cmp-lib": "^0.5.1",
+        "@wbk--mern-playground/select-dropdown-app-cmp-library": "^0.5.1",
         "@wbk--mern-playground/shared-foundation": "^0.3.1"
     },
     "private": true

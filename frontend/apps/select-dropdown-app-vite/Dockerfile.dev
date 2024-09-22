@@ -1,6 +1,6 @@
 FROM wbk--mern-playground__core:latest as builder
 
-COPY ./frontend/apps/select-dropdown-app-parcel ./frontend/apps/select-dropdown-app-parcel
+COPY ./frontend/apps/select-dropdown-app-vite ./frontend/apps/select-dropdown-app-vite
 COPY ./frontend/libraries/select-dropdown-app-cmp-library ./frontend/libraries/select-dropdown-app-cmp-library
 COPY ./frontend/lsg-styles-generic ./frontend/lsg-styles-generic
 COPY ./shared/foundation ./shared/foundation
@@ -16,4 +16,4 @@ RUN yarn build:lsg-styles-generic
 RUN yarn build:shared
 RUN yarn build:select-dropdown-app-cmp-library
 
-CMD ["yarn", "develop:select-dropdown-app-parcel"]
+CMD ["yarn", "develop:select-dropdown-app-vite"]

@@ -182,6 +182,12 @@ dj-events_compose-restore-database:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash restore-database
 
 # ------------------------------------------------------------- #
+# DynamoDB Training
+# ------------------------------------------------------------- #
+dynamodb-training_setup-aws-credentials:
+	@bash tools/aws/setup-user.bash dynamodb-training
+
+# ------------------------------------------------------------- #
 # (compose): Ecommerce Monolith MVC
 # ------------------------------------------------------------- #
 ecommerce-monolith_compose-up:
@@ -265,11 +271,22 @@ my-nextjs-site_compose-down:
 my-nextjs-site_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/my-nextjs-site-compose.bash down-prod
 
+
+
 # ------------------------------------------------------------- #
-# DynamoDB Training
+# (compose): Select Dropdown App (Vite)
 # ------------------------------------------------------------- #
-dynamodb-training_setup-aws-credentials:
-	@bash tools/aws/setup-user.bash dynamodb-training
+select-dropdown-app-vite_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up select-dropdown-app-vite
+
+select-dropdown-app-vite_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod select-dropdown-app-vite
+
+select-dropdown-app-vite_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down select-dropdown-app-vite
+
+select-dropdown-app-vite_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod select-dropdown-app-vite
 
 # Core build 
 core_build:
