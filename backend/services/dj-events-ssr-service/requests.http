@@ -1,0 +1,10 @@
+@host = http://localhost:3000
+
+GET {{host}}/api/events
+
+###
+POST {{host}}/api/events
+
+###
+
+GET {{host}}/api/events/throwback-thursdays-with-dj-manny-duke
