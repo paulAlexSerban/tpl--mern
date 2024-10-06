@@ -24,7 +24,7 @@ services:
             - dj-events-network
         depends_on:
             - ssr-service
-            - simple-storage-service
+            - document-storage-service
             - phpmyadmin-service
 
     # ---------------------------------------------------------------------
@@ -46,7 +46,7 @@ services:
             - dj-events-network
         depends_on:
             - strapi-cms
-            - simple-storage-service
+            - document-storage-service
 
     # ---------------------------------------------------------------------
     # | Stratpi CMS
@@ -132,13 +132,13 @@ services:
             - dj-events-network
 
     # ---------------------------------------------------------------------
-    # Nginx - Simple Storage Service
+    # Nginx - Document Storage Service
     # ---------------------------------------------------------------------
-    simple-storage-service:
-        container_name: ${COMPOSE_PROJECT_NAME}_simple-storage-service
+    document-storage-service:
+        container_name: ${COMPOSE_PROJECT_NAME}_document-storage-service
         build:
             context: ../../../
-            dockerfile: ./backend/services/dj-events-simple-storage-service/Dockerfile.dev
+            dockerfile: ./backend/services/dj-events-document-storage-service/Dockerfile.dev
         ports:
             - '3030:80'
         restart: unless-stopped

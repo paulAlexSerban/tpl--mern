@@ -34,7 +34,7 @@ function restore-database() {
     for i in {1..3}; do
         echo "[ info ] Checking if database service is available"
         docker exec dj-events_mariadb-database-service mariadb -u${DATABASE_USERNAME} -p${DATABASE_PASSWORD} ${DATABASE_NAME} -e "SELECT 1" && break
-        sleep 5
+        sleep 10
     done
 
     if [ -f "${DATABASE_BACKUP_FOLDER}/dj-events-backup.sql" ]; then
