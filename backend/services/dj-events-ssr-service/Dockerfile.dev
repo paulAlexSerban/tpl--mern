@@ -3,7 +3,11 @@ FROM wbk--mern-playground__core:latest as builder
 COPY ./backend/services/dj-events-ssr-service ./backend/services/dj-events-ssr-service
 
 ARG CONTAINER_PORT
+ARG NEXT_PUBLIC_API_URL
+
 ENV PORT=$CONTAINER_PORT
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
 EXPOSE $CONTAINER_PORT
 
 RUN yarn install

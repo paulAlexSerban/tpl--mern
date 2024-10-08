@@ -1,6 +1,6 @@
 import { events } from './data.json';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { EventsResponseData } from './events.d';
+import { EventsResponseData } from '@/types';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<EventsResponseData>) {
     if (req.method === 'GET') {
