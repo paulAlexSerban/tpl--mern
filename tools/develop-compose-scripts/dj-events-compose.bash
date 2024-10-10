@@ -32,14 +32,15 @@ function restore-database() {
 
     # check if database service is available if not retry 3 times with 5 seconds interval
     for i in {1..3}; do
-        echo "[ info ] Checking if database service is available"
+        echo "[ ℹ️ info ] ⏳  Checking if database service is available"
         docker exec dj-events_mariadb-database-service mariadb -u${DATABASE_USERNAME} -p${DATABASE_PASSWORD} ${DATABASE_NAME} -e "SELECT 1" && break
         sleep 10
     done
 
     if [ -f "${DATABASE_BACKUP_FOLDER}/dj-events-backup.sql" ]; then
-        echo "[ info ] Restoring database from backup"
+        echo "[ ℹ️ info ] Restoring database from backup"
         docker exec -i dj-events_mariadb-database-service mariadb -u${DATABASE_USERNAME} -p${DATABASE_PASSWORD} ${DATABASE_NAME} <${DATABASE_BACKUP_FOLDER}/dj-events-backup.sql
+        echo " [ ✅ success ] Database restored"
     else
         echo "[ ❌ error ] No backup file found"
     fi
