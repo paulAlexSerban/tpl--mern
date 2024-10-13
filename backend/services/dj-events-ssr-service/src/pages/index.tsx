@@ -14,8 +14,8 @@ const HomePage: FC<HomePageProps> = ({ events }) => {
         <GenericLayout>
             <h1>Upcoming Events</h1>
             {events.length === 0 && <h3>No events to show</h3>}
-            {events.map((evt) => (
-                <EventItem key={evt.id} event={evt} />
+            {events.map((evt, index) => (
+                <EventItem key={index} event={evt} />
             ))}
             {events.length > 0 && (
                 <Link href="/events" className="btn-secondary">
@@ -29,12 +29,12 @@ const HomePage: FC<HomePageProps> = ({ events }) => {
 export default HomePage;
 
 export const getStaticProps = async () => {
-    const res = await fetch(`${PRIVATE_CMS_API_URL}/events`);
+    const res = await fetch(`${PRIVATE_CMS_API_URL}/events?populate=*&_sort=date:ASC&_limit=3`);
     const responseJSON = await res.json();
     const events = responseJSON.data;
 
     return {
-        props: { events: events.slice(0, 3) },
+        props: { events },
         revalidate: 1,
     };
 };

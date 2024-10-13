@@ -23,7 +23,7 @@ const EventsPage: FC<EventsPageProps> = ({ events }) => {
 export default EventsPage;
 
 export const getStaticProps = async () => {
-    const res = await fetch(`${PRIVATE_CMS_API_URL}/events`);
+    const res = await fetch(`${PRIVATE_CMS_API_URL}/events?populate=*&_sort=date:ASC`);
     const resJSON = await res.json();
     const events = resJSON.data;
 
