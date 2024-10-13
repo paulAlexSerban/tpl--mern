@@ -1,5 +1,5 @@
 import GenericLayout from '@/components/GenericLayout';
-import { API_URL } from '@/config/index';
+import { PRIVATE_CMS_API_URL } from '@/config/index';
 import type { Event } from '@/types';
 import type { FC } from 'react';
 import EventItem from '@/components/EventItem';
@@ -23,8 +23,9 @@ const EventsPage: FC<EventsPageProps> = ({ events }) => {
 export default EventsPage;
 
 export const getStaticProps = async () => {
-    const res = await fetch(`${API_URL}/events`);
-    const events = await res.json();
+    const res = await fetch(`${PRIVATE_CMS_API_URL}/events`);
+    const resJSON = await res.json();
+    const events = resJSON.data;
 
     return {
         props: { events },

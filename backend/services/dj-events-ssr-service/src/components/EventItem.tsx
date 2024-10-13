@@ -3,7 +3,7 @@ import type { Event } from '@/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '@/styles/eventItem.module.scss';
-import { APP_URL } from '@/config';
+import { PUBLIC_APP_URL } from '@/config';
 
 type EventItemProps = {
     event: Event;
@@ -16,7 +16,7 @@ const EventItem: FC<EventItemProps> = ({ event }) => {
         <div className={styles.event}>
             <div className={styles.img}>
                 <Image
-                    src={`${APP_URL}${imageSrc}`}
+                    src={`${PUBLIC_APP_URL}${imageSrc}`}
                     width={170}
                     height={100}
                     alt={event.name}

@@ -1,5 +1,5 @@
 import GenericLayout from '@/components/GenericLayout';
-import { API_URL } from '@/config/index';
+import { PRIVATE_CMS_API_URL, PUBLIC_APP_URL } from '@/config/index';
 import type { Event } from '@/types';
 import { GetServerSideProps } from 'next';
 import { FC } from 'react';
@@ -7,7 +7,7 @@ import styles from '@/styles/eventPage.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaPencilAlt, FaTimes } from 'react-icons/fa';
-import { APP_URL } from '@/config';
+
 type EventPageProps = {
     event: Event;
 };
@@ -37,7 +37,13 @@ const EventPage: FC<EventPageProps> = ({ event }) => {
                 <h1>{event.name}</h1>
                 {event.image && (
                     <div className={styles.image}>
-                        <Image src={`${APP_URL}${imageSrc}`} width={960} height={600} alt={event.name} unoptimized />
+                        <Image
+                            src={`${PUBLIC_APP_URL}${imageSrc}`}
+                            width={960}
+                            height={600}
+                            alt={event.name}
+                            unoptimized
+                        />
                     </div>
                 )}
                 <h3>Performers:</h3>
@@ -50,7 +56,7 @@ const EventPage: FC<EventPageProps> = ({ event }) => {
                 <p>{event.address}</p>
 
                 <Link className={styles.back} href="/events">
-                   {'<'} Go Back
+                    {'<'} Go Back
                 </Link>
             </div>
         </GenericLayout>
@@ -62,12 +68,13 @@ export default EventPage;
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     const { slug } = query;
 
-    const res = await fetch(`${API_URL}/events?slug=${slug}`);
+    const res = await fetch(`${PRIVATE_CMS_API_URL}/events?slug=${slug}`);
     const resJSON = await res.json();
+    const event = resJSON.data;
 
     return {
         props: {
-            event: resJSON[0],
+            event
         },
     };
 };
