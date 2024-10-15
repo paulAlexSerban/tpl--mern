@@ -7,37 +7,33 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
-                <Link href="/">DJ Events</Link>
+                <Link className={styles.link} href="/">DJ Events</Link>
             </div>
 
             <Search />
 
             <nav>
-                <ul>
+                <ul className={styles.list}>
                     <li>
-                        <Link href="/events">Events</Link>
+                        <Link className={styles.link} href="/events">Events</Link>
                     </li>
 
-                    {/* <>
+                    <>
                         <li>
-                            <Link href="/events/add">
-                            Add Events
-                            </Link>
+                            <Link className={styles.link} href="/events/add">Add Events</Link>
                         </li>
                         <li>
-                            <Link href="/account/dashboard">
-                            Dashboard
-                            </Link>
+                            <Link className={styles.link} href="/account/dashboard">Dashboard</Link>
                         </li>
                         <li>
-                            <Link href="/">
+                            <Link className={styles.link} href="/">
                                 <button className="btn-secondary btn-icon">
                                     <FaSignOutAlt />
                                     Logout
                                 </button>
                             </Link>
                         </li>
-                    </> */}
+                    </>
                 </ul>
             </nav>
         </header>
