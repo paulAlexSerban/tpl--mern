@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from '@/styles/header.module.scss';
+import Search from '@/components/Search';
 import { FaSignOutAlt } from 'react-icons/fa';
 
 const Header = () => {
@@ -8,6 +9,8 @@ const Header = () => {
             <div className={styles.logo}>
                 <Link href="/">DJ Events</Link>
             </div>
+
+            <Search />
 
             <nav>
                 <ul>
