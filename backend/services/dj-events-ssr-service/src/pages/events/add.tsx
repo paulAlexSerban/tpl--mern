@@ -24,22 +24,24 @@ const AddEventPage: FC = () => {
     });
 
     const router = useRouter();
+    console.log({ PUBLIC_CMS_API_URL });
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // Validation
+        // Basic validation
         const hasEmptyFields = Object.values(values).some((element) => element === '');
 
         if (hasEmptyFields) {
             toast.error('Please fill in all fields');
+            return;
         }
+
 
         const res = await fetch(`${PUBLIC_CMS_API_URL}/api/events`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer`,
             },
             body: JSON.stringify({ data: values }),
         });
