@@ -74,7 +74,13 @@ function recreate-strapi-cms() {
     list
 }
 
-
+function restart-ssr-service() {
+    echo "[ 🔄 🐳 compose restart ssr-service ]"
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} restart ssr-service
+    list
+}
 
 function down() {
     echo "[ 🛑 🐳 compose down ]"
@@ -92,6 +98,14 @@ function logs() {
         --env-file ${ENV_FILE} \
         --file ${COMPOSE_FILE_DEV} logs \
         --follow
+}
+
+function logs-ssr-service() {
+    echo "[ 📜 🐳 compose logs ssr-service ]"
+    docker compose \
+        --env-file ${ENV_FILE} \
+        --file ${COMPOSE_FILE_DEV} logs \
+        --follow ssr-service
 }
 
 function help() {

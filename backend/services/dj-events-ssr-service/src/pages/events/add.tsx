@@ -39,7 +39,7 @@ const AddEventPage: FC = () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer`,
             },
             body: JSON.stringify({ data: values }),
         });
