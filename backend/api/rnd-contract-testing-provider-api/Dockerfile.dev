@@ -1,7 +1,0 @@
-FROM wbk--mern-playground__core:latest as builder
-
-COPY ./backend/api/rnd-contract-testing-provider-api ./backend/api/rnd-contract-testing-provider-api
-
-RUN yarn install
-
-CMD [ "yarn", "develop:rnd-contract-testing-provider-api"]
