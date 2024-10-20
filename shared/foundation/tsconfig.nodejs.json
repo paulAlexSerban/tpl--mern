@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
-        "outDir": "lib",
-        "module": "esnext",
+        "outDir": "lib/nodejs",
+        "module": "commonjs",
         "target": "esnext",
         "declaration": true,
         "moduleResolution": "node",

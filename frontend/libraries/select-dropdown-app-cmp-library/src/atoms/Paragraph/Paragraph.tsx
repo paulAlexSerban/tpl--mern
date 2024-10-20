@@ -1,5 +1,5 @@
 import React from 'react';
-import { fontSize } from '@wbk--mern-playground/shared-foundation';
+import { fontSize } from '@wbk--mern-playground/shared-foundation/lib/browser';
 
 export interface ParagraphProps {
     size?: keyof typeof fontSize;

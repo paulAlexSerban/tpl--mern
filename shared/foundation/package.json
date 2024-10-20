@@ -12,6 +12,7 @@
         "@babel/preset-typescript": "^7.23.0",
         "@types/jest": "^29.5.5",
         "@types/uuid": "^9.0.8",
+        "concurrently": "^8.2.2",
         "jest": "^29.7.0",
         "jest-fetch-mock": "^3.0.3",
         "tsc": "^2.0.4",
@@ -23,8 +24,11 @@
         "test:watch": "jest --verbose --watch",
         "start": "yarn tsc --project tsconfig.json --watch",
         "lint": "echo \"No linting configured\"",
-        "build:dev": "rm -rfv ./lib && yarn tsc --project tsconfig.json",
-        "build:prod": "rm -rfv ./lib && yarn tsc --project tsconfig.json"
+        "build:dev": "concurrently -c blue,green \"yarn build:node\" \"yarn build:browser\"",
+        "build:prod": "concurrently -c blue,green \"yarn build:node\" \"yarn build:browser\"",
+        "build:node": "rm -rfv ./lib/nodejs && yarn tsc --project tsconfig.nodejs.json",
+        "build:browser": "rm -rfv ./lib/browser && yarn tsc --project tsconfig.browser.json"
+
     },
     "publishConfig": {
         "access": "public"

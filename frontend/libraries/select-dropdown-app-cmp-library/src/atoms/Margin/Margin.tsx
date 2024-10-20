@@ -1,5 +1,5 @@
 import React from 'react';
-import { spacing } from '@wbk--mern-playground/shared-foundation';
+import { spacing } from '@wbk--mern-playground/shared-foundation/lib/browser';
 
 export interface MarginProps {
     space?: keyof typeof spacing;

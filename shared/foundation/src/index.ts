@@ -1,9 +1,22 @@
-import { randomChoice } from './arrays';
+import { randomChoice } from './arrays/index';
 
-import { padToThree } from './numbers';
+import { padToThree } from './numbers/index';
 
-import { fontSize, spacing } from './settings';
+import { fontSize, spacing } from './settings/index';
 
-import { randomWord } from './tools';
+import { calculateComplexity, getStringInfo, slugify, toUpperCase, toUpperCaseWithCallback } from './strings/index';
 
-export { randomChoice, padToThree, fontSize, spacing, randomWord };
+import { randomWord } from './tools/index';
+
+export {
+    randomChoice,
+    padToThree,
+    fontSize,
+    spacing,
+    randomWord,
+    calculateComplexity,
+    getStringInfo,
+    slugify,
+    toUpperCase,
+    toUpperCaseWithCallback,
+};
