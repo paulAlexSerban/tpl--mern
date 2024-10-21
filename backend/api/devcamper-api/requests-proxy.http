@@ -12,7 +12,7 @@ POST {{host}}/api/v1/bootcamps
 Content-Type: application/json
 
 {
-    "name": "Devworks Bootcamp - ONE",
+    "name": "Devworks Bootcamp - TWO",
     "description": "This is a program",
     "website": "https://devworks.com",
     "phone": "(111) 111-1111",
