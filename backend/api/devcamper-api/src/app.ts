@@ -7,6 +7,9 @@ import bootcampsRouter from './routes/bootcamps';
 import indexRouter from './routes/index';
 import connectDB from './config/database';
 import promClient from 'prom-client';
+import { swaggerSpec } from './swagger';
+import swaggerUi from 'swagger-ui-express';
+
 import { importData, deleteData } from './seeder';
 // Prometheus
 const register = new promClient.Registry();
@@ -94,6 +97,7 @@ app.get('/api/v1/slow', async (req, res) => {
 // });
 
 app.use(errorHandler);
+app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api/v1', indexRouter);
 
 // 404
