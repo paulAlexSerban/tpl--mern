@@ -60,30 +60,68 @@ $(eval $(call spa_template,select-dropdown-app-parcel))
 $(eval $(call spa_template,redux-shopping-cart))
 $(eval $(call spa_template,spot-share-app))
 
+# ------------------------------------------------------------- #
+# (image): DevCamper API
+# ------------------------------------------------------------- #
+devcamper-api-image_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash build
 
-define api_template
-$(1)_build:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/$(1).bash build
+devcamper-api-image_build-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash build-prod
 
-$(1)_build-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/$(1).bash build-prod
+devcamper-api-image_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash run
 
-$(1)_run:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/$(1).bash run
+devcamper-api-image_run-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash run-prod
 
-$(1)_run-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/$(1).bash run-prod
+devcamper-api-image_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash stop
 
-$(1)_stop:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/$(1).bash stop
+devcamper-api-image_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/devcamper-api.bash clean
 
-$(1)_clean:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/$(1).bash clean
-endef
+# ------------------------------------------------------------- #
+# (image): Emaily User Feedback API
+# ------------------------------------------------------------- #
+emaily-user-feedback-api-image_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-api.bash build
 
-$(eval $(call api_template,devcamper-api))
-$(eval $(call api_template,emaily-user-feedback-api))
-$(eval $(call api_template,events-showcase-api))
+emaily-user-feedback-api-image_build-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-api.bash build-prod
+
+emaily-user-feedback-api-image_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-api.bash run
+
+emaily-user-feedback-api-image_run-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-api.bash run-prod
+
+emaily-user-feedback-api-image_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-api.bash stop
+
+emaily-user-feedback-api-image_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/emaily-user-feedback-api.bash clean
+
+# ------------------------------------------------------------- #
+# (image): Events Showcase API
+# ------------------------------------------------------------- #
+events-showcase-api-image_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/events-showcase-api.bash build
+
+events-showcase-api-image_build-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/events-showcase-api.bash build-prod
+
+events-showcase-api-image_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/events-showcase-api.bash run
+
+events-showcase-api-image_run-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/events-showcase-api.bash run-prod
+
+events-showcase-api-image_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/events-showcase-api.bash stop
+
+events-showcase-api-image_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/events-showcase-api.bash clean
 
 define mvc_service_template
 $(1)_build:
