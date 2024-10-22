@@ -9,8 +9,8 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../../backend/services/proxy/simple-base-spa-proxy
-            dockerfile: dev.Dockerfile
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: ./backend/services/proxy/simple-base-spa-proxy/Dockerfile.dev
         container_name: container-rnd-react-query-n-tanstack-todo-list-proxy
         image: paulserbandev/rnd-react-query-n-tanstack-todo-list-proxy
         restart: unless-stopped
@@ -25,56 +25,37 @@ services:
     # UI React SPA
     # ---------------------------------------------------------------------
     ui-react-spa:
+        image: paulserbandev/rnd-react-query-n-tanstack-todo-list-ui
         container_name: ui-react-spa-container
         build:
-            context: ../../frontend/apps/rnd-react-query-n-tanstack-todo-list-app
-            dockerfile: dev.Dockerfile
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: ./frontend/apps/rnd-react-query-n-tanstack-todo-list-app/Dockerfile.dev
         env_file:
-            - ../../infrastructure/env/rnd-react-query-n-tanstack-todo-list.compose.env
+            - ../../../infrastructure/env/rnd-react-query-n-tanstack-todo-list.compose.env
         volumes:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
-            - ../../frontend/apps/rnd-react-query-n-tanstack-todo-list-app:/usr/src/app # Mount the app directory to the container
+            - /usr/src/app/frontend/apps/rnd-react-query-n-tanstack-todo-list-app/node_mdules # Avoids overwriting dist with local volume
+            - ../../../frontend/apps/rnd-react-query-n-tanstack-todo-list-app:/usr/src/app/frontend/apps/rnd-react-query-n-tanstack-todo-list-app/ # Mount the app directory to the container
+        restart: unless-stopped
         networks:
             - rnd-react-query-n-tanstack-todo-list-network
-        develop:
-            watch:
-                - action: sync
-                  path: ../../frontend/apps/rnd-react-query-n-tanstack-todo-list-app
-                  target: /*
-                  ignore:
-                      - ../../frontend/apps/rnd-react-query-n-tanstack-todo-list-app/node_modules
-                - action: rebuild
-                  path: ../../frontend/apps/rnd-react-query-n-tanstack-todo-list-app/package.json
-                  target: /*
 
     # ---------------------------------------------------------------------
-    # | ExpressJS API                                                     |
+    # | Express.js (Node.js) API                                           |
     # ---------------------------------------------------------------------
     express-api:
-        build:
-            context: ../../backend/api/rnd-react-query-n-tanstack-todo-list-api
-            dockerfile: dev.Dockerfile
-        image: paulserbandev/rnd-react-query-n-tanstack-todo-list-api
-        container_name: container-rnd-react-query-n-tanstack-todo-list-api
         restart: always
-        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
-        # without this, the container will fail to write files to the host volume
-        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
+        container_name: express-api-container
+        build:
+            context: ../../../
+            dockerfile: ./backend/api/rnd-react-query-n-tanstack-todo-list-api/Dockerfile.dev
         env_file:
-            - ../../infrastructure/env/rnd-react-query-n-tanstack-todo-list.compose.env
-            - ../../.env
+            - ../../../infrastructure/env/rnd-react-query-n-tanstack-todo-list.compose.env
+            - ../../../.env
         volumes:
             - /usr/src/app/node_modules
-            - ../../backend/api/rnd-react-query-n-tanstack-todo-list-api:/usr/src/app/
+            - /usr/src/app/backend/api/rnd-react-query-n-tanstack-todo-list-api/dist
+            - /usr/src/app/backend/api/rnd-react-query-n-tanstack-todo-list-api/node_modules
+            - ../../../backend/api/rnd-react-query-n-tanstack-todo-list-api:/usr/src/app/backend/api/rnd-react-query-n-tanstack-todo-list-api
         networks:
             - rnd-react-query-n-tanstack-todo-list-network
-        develop:
-            watch:
-                - action: sync
-                  path: ../../backend/api/rnd-react-query-n-tanstack-todo-list-api
-                  target: /*
-                  ignore:
-                      - ../../backend/api/rnd-react-query-n-tanstack-todo-list-api/node_modules
-                - action: rebuild
-                  path: ../../backend/api/rnd-react-query-n-tanstack-todo-list-api/package.json
-                  target: /*

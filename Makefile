@@ -317,6 +317,22 @@ my-nextjs-site_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/my-nextjs-site-compose.bash down-prod
 
 
+# ------------------------------------------------------------- #
+# (compose): RND React Query & Tanstack To Do List App      
+# ------------------------------------------------------------- #
+rnd-react-query-n-tanstack-todo-list_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up rnd-react-query-n-tanstack-todo-list
+
+rnd-react-query-n-tanstack-todo-list_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod rnd-react-query-n-tanstack-todo-list
+
+rnd-react-query-n-tanstack-todo-list_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down rnd-react-query-n-tanstack-todo-list
+
+rnd-react-query-n-tanstack-todo-list_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod rnd-react-query-n-tanstack-todo-list
+
+
 
 # ------------------------------------------------------------- #
 # (compose): Select Dropdown App (Vite)

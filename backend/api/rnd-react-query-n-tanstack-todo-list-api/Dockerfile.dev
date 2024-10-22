@@ -1,0 +1,7 @@
+FROM wbk--mern-playground__core:latest as builder
+
+COPY ./backend/api/rnd-react-query-n-tanstack-todo-list-api ./backend/api/rnd-react-query-n-tanstack-todo-list-api
+
+RUN yarn install
+
+CMD [ "yarn", "develop:rnd-react-query-n-tanstack-todo-list-api"]
