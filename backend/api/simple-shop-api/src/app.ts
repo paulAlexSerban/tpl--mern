@@ -1,10 +1,9 @@
-import fs from 'node:fs/promises';
+
 
 import bodyParser from 'body-parser';
 import express, { Express, Request, Response, NextFunction } from 'express';
 import productRoutes from './routes/product';
 const app: Express = express();
-const port = 4001;
 
 app.use(bodyParser.json());
 
@@ -35,7 +34,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 // routes
-app.use('/product', productRoutes);
+app.use('/api/v1/product', productRoutes);
 
 // 404
 app.use((req, res, next) => {
@@ -45,6 +44,4 @@ app.use((req, res, next) => {
     res.status(404).json({ message: '404 - Not Found' });
 });
 
-app.listen(port, () => {
-    console.log(`⚡️ [server]: Simple Shop service is running at port: ${port}`);
-});
+export default app;

@@ -1,0 +1,16 @@
+FROM wbk--mern-playground__core:latest as builder
+COPY ./backend/api/simple-shop-api ./backend/api/simple-shop-api
+RUN yarn install
+RUN yarn build:simple-shop-api
+
+FROM node:20-alpine as service
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY --from=builder /usr/src/app/backend/api/simple-shop-api/package.json ./
+COPY --from=builder /usr/src/app/backend/api/simple-shop-api/dist ./dist
+
+RUN yarn install --production
+
+CMD ["node", "./dist/bin/www.js"]
