@@ -34,7 +34,7 @@ services:
             - ../../../infrastructure/env/events-showcase.compose.env
         volumes:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
-            - /usr/src/app/frontend/apps/events-showcase-app/node_mdules # Avoids overwriting dist with local volume
+            - /usr/src/app/frontend/apps/events-showcase-app/node_modules # Avoids overwriting dist with local volume
             - ../../../frontend/apps/events-showcase-app:/usr/src/app/frontend/apps/events-showcase-app/ # Mount the app directory to the container
         networks:
             - events-showcase-network

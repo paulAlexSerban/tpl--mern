@@ -32,7 +32,7 @@ services:
             dockerfile: ./frontend/apps/color-generator-app/Dockerfile.dev
         volumes:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
-            - /usr/src/app/frontend/apps/color-generator-app/node_mdules # Avoids overwriting dist with local volume
+            - /usr/src/app/frontend/apps/color-generator-app/node_modules # Avoids overwriting dist with local volume
             - ../../../frontend/apps/color-generator-app:/usr/src/app/frontend/apps/color-generator-app/ # Mount the app directory to the container
         restart: unless-stopped
         networks:

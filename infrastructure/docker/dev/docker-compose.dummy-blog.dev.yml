@@ -32,7 +32,7 @@ services:
             dockerfile: ./frontend/apps/dummy-blog-app/Dockerfile.dev
         volumes:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
-            - /usr/src/app/frontend/apps/dummy-blog-app/node_mdules # Avoids overwriting dist with local volume
+            - /usr/src/app/frontend/apps/dummy-blog-app/node_modules # Avoids overwriting dist with local volume
             - ../../../frontend/apps/dummy-blog-app:/usr/src/app/frontend/apps/dummy-blog-app/ # Mount the app directory to the container
         restart: unless-stopped
         networks:

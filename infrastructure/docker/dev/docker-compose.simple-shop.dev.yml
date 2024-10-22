@@ -32,7 +32,7 @@ services:
             dockerfile: ./frontend/apps/simple-shop-app/Dockerfile.dev
         volumes:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
-            - /usr/src/app/frontend/apps/simple-shop-app/node_mdules # Avoids overwriting dist with local volume
+            - /usr/src/app/frontend/apps/simple-shop-app/node_modules # Avoids overwriting dist with local volume
             - ../../../frontend/apps/simple-shop-app:/usr/src/app/frontend/apps/simple-shop-app/ # Mount the app directory to the container
         restart: unless-stopped
         networks:

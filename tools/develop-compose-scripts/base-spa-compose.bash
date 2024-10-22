@@ -72,7 +72,14 @@ function down-prod() {
 }
 
 function help() {
-    echo "Usage: $0 {up|down|up-prod|logs}"
+    echo "Available commands:"
+    echo "  up - start the Docker container"
+    echo "  down - stop the Docker container"
+    echo "  logs - show the logs of the Docker container"
+    echo "  up-prod - start the Docker container with production build"
+    echo "  down-prod - stop the Docker container with production build"
+    echo "  list - list the containers"
+    echo "  help - show this help"
 }
 
 $1 && echo "Done" || echo "Failed"

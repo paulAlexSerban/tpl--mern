@@ -32,7 +32,7 @@ services:
             dockerfile: ./frontend/apps/select-dropdown-app-vite/Dockerfile.dev
         volumes:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
-            - /usr/src/app/frontend/apps/select-dropdown-app-vite/node_mdules # Avoids overwriting dist with local volume
+            - /usr/src/app/frontend/apps/select-dropdown-app-vite/node_modules # Avoids overwriting dist with local volume
             - ../../../frontend/apps/select-dropdown-app-vite:/usr/src/app/frontend/apps/select-dropdown-app-vite/ # Mount the app directory to the container
         restart: unless-stopped
         networks:

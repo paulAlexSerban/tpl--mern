@@ -52,10 +52,11 @@ $(eval $(call spa_template,color-generator-app))
 $(eval $(call spa_template,redux-counter))
 $(eval $(call spa_template,dummy-blog-app))
 $(eval $(call spa_template,duolingo-clone))
-$(eval $(call spa_template,redux-elegant-online-shop-app))
 $(eval $(call spa_template,emaily-user-feedback-app))
 $(eval $(call spa_template,events-showcase-app))
+$(eval $(call spa_template,filtered-gallery-app))
 $(eval $(call spa_template,minesweeper-game-app))
+$(eval $(call spa_template,redux-elegant-online-shop-app))
 $(eval $(call spa_template,select-dropdown-app-parcel))
 $(eval $(call spa_template,redux-shopping-cart))
 $(eval $(call spa_template,spot-share-app))
@@ -159,26 +160,42 @@ $(1)_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod $(1)
 endef
 
-$(eval $(call spa-compose_template,birthday-buddy))
+# $(eval $(call spa-compose_template,birthday-buddy))
 $(eval $(call spa-compose_template,color-generator))
 $(eval $(call spa-compose_template,dummy-blog))
 $(eval $(call spa-compose_template,events-showcase))
+$(eval $(call spa-compose_template,filtered-gallery))
 $(eval $(call spa-compose_template,minesweeper-game))
+
+# ------------------------------------------------------------- #
+# (compose): Birthday Buddy App
+# ------------------------------------------------------------- #
+birthday-buddy_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up birthday-buddy	
+
+birthday-buddy_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod birthday-buddy
+
+birthday-buddy_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down birthday-buddy
+
+birthday-buddy_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod birthday-buddy
 
 # ------------------------------------------------------------- #
 # (compose): Backroads Tourcompany Landing Page 
 # ------------------------------------------------------------- #
 backroads-tourcompany-landingpage_compose-up:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/backroads-tourcompany-landingpage-compose.bash up
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up backroads-tourcompany-landingpage
 
 backroads-tourcompany-landingpage_compose-up-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/backroads-tourcompany-landingpage-compose.bash up-prod
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod backroads-tourcompany-landingpage
 
 backroads-tourcompany-landingpage_compose-down:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/backroads-tourcompany-landingpage-compose.bash down
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down backroads-tourcompany-landingpage
 
 backroads-tourcompany-landingpage_compose-down-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/backroads-tourcompany-landingpage-compose.bash down-prod
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod backroads-tourcompany-landingpage
 
 # ------------------------------------------------------------- #
 # (compose): DevCamper
@@ -255,6 +272,21 @@ emaily-user-feedback_compose-down:
 
 emaily-user-feedback_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/emaily-user-feedback-compose.bash down-prod
+
+# ------------------------------------------------------------- #
+# (compose): Filtered Gallery App
+# ------------------------------------------------------------- #
+filtered-gallery-app_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up filtered-gallery	
+
+filtered-gallery-app_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod filtered-gallery
+
+filtered-gallery-app_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down filtered-gallery
+
+filtered-gallery-app_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod filtered-gallery
 
 # ------------------------------------------------------------- #
 # (compose): Flowrise Site
