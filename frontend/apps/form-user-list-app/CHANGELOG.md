@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/form-user-list-app@0.1.0...@wbk--mern-playground/form-user-list-app@0.1.1) (2024-10-22)
+
+**Note:** Version bump only for package @wbk--mern-playground/form-user-list-app
+
 # 0.1.0 (2024-10-22)
 
 ### Features
