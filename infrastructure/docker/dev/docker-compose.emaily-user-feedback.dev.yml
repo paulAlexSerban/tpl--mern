@@ -8,15 +8,15 @@ services:
     # | Proxy-Service - Nginx                                              |
     # ---------------------------------------------------------------------
     nginx-proxy:
-        image: paulserbandev/emaily-user-feedback-proxy
-        container_name: container-emaily-user-feedback-proxy
+        image: paulserbandev/proxy/emaily-user-feedback-proxy
+        container_name: container/emaily-user-feedback-proxy
         build:
             context: ../../../
-            dockerfile: ./backend/services/emaily-user-feedback-proxy/Dockerfile.dev
+            dockerfile: ./backend/services/proxy/emaily-user-feedback-proxy/Dockerfile.dev
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/services/emaily-user-feedback-proxy/default.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/services/proxy/emaily-user-feedback-proxy/default.conf:/etc/nginx/conf.d/default.conf
         restart: unless-stopped
         networks:
             - emaily-user-feedback-network

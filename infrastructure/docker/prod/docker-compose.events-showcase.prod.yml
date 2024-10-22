@@ -8,10 +8,10 @@ services:
     # | Proxy-Service - Nginx                                              |
     # ---------------------------------------------------------------------
     nginx-proxy:
-        container_name: events-showcase-proxy
+        container_name: proxy/events-showcase-proxy
         build:
             context: ../../../
-            dockerfile: ./backend/showcase/events-showcase-proxy/Dockerfile.prod
+            dockerfile: ./backend/showcase/proxy/events-showcase-proxy/Dockerfile.prod
         ports:
             - '3000:80'
         restart: unless-stopped

@@ -1,6 +1,6 @@
 FROM wbk--mern-playground__core:latest as builder
 
-COPY ./backend/services/dj-events-ssr-service ./backend/services/dj-events-ssr-service
+COPY ./backend/services/ssr/dj-events-ssr-service ./backend/services/ssr/dj-events-ssr-service
 
 ARG PORT
 ARG PROTOCOL

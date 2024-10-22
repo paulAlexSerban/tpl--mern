@@ -12,11 +12,11 @@ services:
         image: paulserbandev/color-generator-proxy
         build:
             context: ../../../ # set context to root of monorepo project
-            dockerfile: ./backend/services/simple-fe-only-spa-proxy/Dockerfile.dev
+            dockerfile: ./backend/services/proxy/simple-fe-only-spa-proxy/Dockerfile.dev
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/services/simple-fe-only-spa-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/services/proxy/simple-fe-only-spa-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
         restart: unless-stopped
         networks:
             - color-generator-network

@@ -11,7 +11,7 @@ services:
         container_name: minesweeper-game-proxy
         build:
             context: ../../../
-            dockerfile: ./backend/services/simple-fe-only-spa-proxy/Dockerfile.prod
+            dockerfile: ./backend/services/proxy/simple-fe-only-spa-proxy/Dockerfile.prod
         restart: unless-stopped
         ports:
             - '3000:80'

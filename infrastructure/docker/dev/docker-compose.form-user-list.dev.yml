@@ -9,7 +9,7 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../../backend/services/simple-fe-only-spa-proxy
+            context: ../../../backend/services/proxy/simple-fe-only-spa-proxy
             dockerfile: dev.Dockerfile
         container_name: container-form-user-list-proxy
         image: paulserbandev/form-user-list-proxy
@@ -17,7 +17,7 @@ services:
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/services/simple-fe-only-spa-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/services/proxy/simple-fe-only-spa-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
         networks:
             - form-user-list-network
 

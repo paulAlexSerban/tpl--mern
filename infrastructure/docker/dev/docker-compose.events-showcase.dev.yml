@@ -8,14 +8,14 @@ services:
     # | Proxy-Service - Nginx                                              |
     # ---------------------------------------------------------------------
     nginx-proxy:
-        container_name: events-showcase-proxy
+        container_name: proxy/events-showcase-proxy
         build:
             context: ../../../
-            dockerfile: ./backend/showcase/events-showcase-proxy/Dockerfile.dev
+            dockerfile: ./backend/showcase/proxy/events-showcase-proxy/Dockerfile.dev
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/showcase/events-showcase-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/showcase/proxy/events-showcase-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
         restart: unless-stopped
         networks:
             - events-showcase-network

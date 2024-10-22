@@ -1,20 +1,40 @@
 ---
-version: '3.8'
+networks:
+    simple-shop-network:
+        driver: bridge
 
 services:
     # ---------------------------------------------------------------------
-    # | UI React SP                                                       |
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        container_name: container-simple-shop-proxy
+        image: paulserbandev/simple-shop-proxy
+        build:
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: ./backend/services/proxy/simple-fe-only-spa-proxy/Dockerfile.dev
+        ports:
+            - '3000:80'
+        volumes:
+            - ../../../backend/services/proxy/simple-fe-only-spa-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+        restart: unless-stopped
+        networks:
+            - simple-shop-network
+
+    # ---------------------------------------------------------------------
+    # UI React SPA
     # ---------------------------------------------------------------------
     ui-react-spa:
+        image: paulserbandev/simple-shop-ui
         container_name: ui-react-spa-container
         build:
-            context: ../../frontend/apps/simple-shop
-            dockerfile: dev.Dockerfile
-        ports:
-            - '3000:5173' # Expose the port your app runs on
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: ./frontend/apps/simple-shop-app/Dockerfile.dev
         volumes:
-            - ../../frontend/apps/simple-shop:/usr/src/app # Mount the app directory to the container
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - /usr/src/app/frontend/apps/simple-shop-app/node_mdules # Avoids overwriting dist with local volume
+            - ../../../frontend/apps/simple-shop-app:/usr/src/app/frontend/apps/simple-shop-app/ # Mount the app directory to the container
+        restart: unless-stopped
         networks:
             - simple-shop-network
 
@@ -22,21 +42,19 @@ services:
     # | Node.js API                                                       |
     # ---------------------------------------------------------------------
     nodejs-api:
+        restart: always
         container_name: nodejs-api-container
-        # ensure that the CONTAINER user id and group id are the same as the HOST user id and group id
-        # without this, the container will fail to write files to the host volume
-        user: '${HOST_USER_ID}:${HOST_GROUP_ID}'
         build:
-            context: ../../backend/api/simple-shop-api
-            dockerfile: dev.Dockerfile
-        ports:
-            - '3001:4001' # Expose the port your app runs on
+            context: ../../../
+            dockerfile: ./backend/api/simple-shop-api/Dockerfile.dev
+        env_file:
+            - ../../../infrastructure/env/simple-shop.compose.env
+            - ../../../.env
         volumes:
-            - ../../backend/api/simple-shop-api:/usr/src/app # Mount the app directory to the container
-            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - /usr/src/app/node_modules
+            - /usr/src/app/backend/api/simple-shop-api/dist
+            - /usr/src/app/backend/api/simple-shop-api/node_modules
+            - ../../../backend/api/simple-shop-api:/usr/src/app/backend/api/simple-shop-api
         networks:
             - simple-shop-network
 
-networks:
-    simple-shop-network:
-        driver: bridge

@@ -1,4 +1,4 @@
 FROM wbk--mern-playground__core:latest as builder
-COPY ./frontend/apps/simple-shop ./frontend/apps/simple-shop
+COPY ./frontend/apps/simple-shop-app ./frontend/apps/simple-shop-app
 RUN yarn install
-CMD [ "yarn", "develop:simple-shop"]
+CMD [ "yarn", "develop:simple-shop-app"]
