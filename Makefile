@@ -164,7 +164,7 @@ endef
 $(eval $(call spa-compose_template,color-generator))
 $(eval $(call spa-compose_template,dummy-blog))
 $(eval $(call spa-compose_template,events-showcase))
-$(eval $(call spa-compose_template,filtered-gallery))
+# $(eval $(call spa-compose_template,filtered-gallery))
 $(eval $(call spa-compose_template,minesweeper-game))
 
 # ------------------------------------------------------------- #
@@ -332,6 +332,21 @@ hello-strapi_compose-down:
 
 hello-strapi_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-strapi-compose.bash down-prod
+
+# ------------------------------------------------------------- #
+# (compose): Magic World
+# ------------------------------------------------------------- #
+magic-wrold_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/magic-world-compose.bash up
+
+magic-wrold_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/magic-world-compose.bash up-prod
+
+magic-wrold_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/magic-world-compose.bash down
+
+magic-wrold_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/magic-world-compose.bash down-prod
 
 # ------------------------------------------------------------- #
 # (compose): My Next.js Site

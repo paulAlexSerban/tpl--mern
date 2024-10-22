@@ -1,5 +1,5 @@
 {
-    "name": "@wbk--mern-playground/fortunes_api",
+    "name": "@wbk--mern-playground/fortunes-api",
     "version": "0.1.0",
     "private": true,
     "main": "dist/bin/www.js",
