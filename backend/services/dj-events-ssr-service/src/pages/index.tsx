@@ -29,7 +29,9 @@ const HomePage: FC<HomePageProps> = ({ events }) => {
 export default HomePage;
 
 export const getStaticProps = async () => {
-    const res = await fetch(`${PRIVATE_CMS_API_URL}/events?populate=*&sort=date:ASC&pagination[start]=0&pagination[limit]=3`);
+    const res = await fetch(
+        `${PRIVATE_CMS_API_URL}/events?populate=*&sort=date:ASC&pagination[start]=0&pagination[limit]=3`
+    );
     const responseJSON = await res.json();
     const events = responseJSON.data;
 

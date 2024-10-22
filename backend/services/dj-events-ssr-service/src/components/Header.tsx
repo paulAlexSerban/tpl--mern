@@ -7,7 +7,9 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
-                <Link className={styles.link} href="/">DJ Events</Link>
+                <Link className={styles.link} href="/">
+                    DJ Events
+                </Link>
             </div>
 
             <Search />
@@ -15,15 +17,21 @@ const Header = () => {
             <nav>
                 <ul className={styles.list}>
                     <li>
-                        <Link className={styles.link} href="/events">Events</Link>
+                        <Link className={styles.link} href="/events">
+                            Events
+                        </Link>
                     </li>
 
                     <>
                         <li>
-                            <Link className={styles.link} href="/events/add">Add Events</Link>
+                            <Link className={styles.link} href="/events/add">
+                                Add Events
+                            </Link>
                         </li>
                         <li>
-                            <Link className={styles.link} href="/account/dashboard">Dashboard</Link>
+                            <Link className={styles.link} href="/account/dashboard">
+                                Dashboard
+                            </Link>
                         </li>
                         <li>
                             <Link className={styles.link} href="/">

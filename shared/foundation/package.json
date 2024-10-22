@@ -28,7 +28,6 @@
         "build:prod": "concurrently -c blue,green \"yarn build:node\" \"yarn build:browser\"",
         "build:node": "rm -rfv ./lib/nodejs && yarn tsc --project tsconfig.nodejs.json",
         "build:browser": "rm -rfv ./lib/browser && yarn tsc --project tsconfig.browser.json"
-
     },
     "publishConfig": {
         "access": "public"

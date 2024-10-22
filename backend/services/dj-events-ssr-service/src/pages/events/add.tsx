@@ -37,7 +37,6 @@ const AddEventPage: FC = () => {
             return;
         }
 
-
         const res = await fetch(`${PUBLIC_CMS_API_URL}/api/events`, {
             method: 'POST',
             headers: {

@@ -144,7 +144,7 @@ export default router;
  *         - jobAssistance
  *         - jobGuarantee
  *         - acceptGi
- * 
+ *
  *       properties:
  *         id:
  *           type: string
@@ -200,14 +200,14 @@ export default router;
  *         photo:
  *           type: string
  *           description: The photo of the bootcamp
- * 
+ *
  *       example:
  *         id: 5d713995b721c3bb38c1f5d0
  *         user: 5d7a514b5d2c12c7449be026
  *         name: Devworks Bootcamp
  *         description: Devworks is a full stack JavaScript Bootcamp
  *         website: https://devworks.com
- *         phone: (111) 111-1111    
+ *         phone: (111) 111-1111
  *         email:
  *         address: 233 Bay State Rd Boston MA 02215
  *         careers: Web Development, UI/UX, Mobile Development

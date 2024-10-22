@@ -1,5 +1,3 @@
-
-
 import bodyParser from 'body-parser';
 import express, { Express, Request, Response, NextFunction } from 'express';
 import productRoutes from './routes/product';

@@ -1,203 +1,203 @@
 openapi: 3.0.0
 info:
-  title: Devcamper API
-  version: 1.0.0
-  description: API to retrieve all bootcamps and courses
+    title: Devcamper API
+    version: 1.0.0
+    description: API to retrieve all bootcamps and courses
 host: http://localhost:3000
 basePath: /api/v1
 servers:
-  - url: http://localhost:3000
-    description: Local development server
+    - url: http://localhost:3000
+      description: Local development server
 paths:
-  /api/v1/bootcamps:
-    get:
-      summary: Retrieve a list of bootcamps
-      description: Retrieve a list of bootcamps from the database and return as JSON
-      responses:
-        "200":
-          description: A list of bootcamps
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Bootcamp"
-    post:
-      summary: Create a new bootcamp
-      description: Add a new bootcamp to the database
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Bootcamp"
-      responses:
-        "201":
-          description: Bootcamp created successfully
-  "/api/v1/bootcamps/radius/{zipcode}/{distance}":
-    get:
-      summary: Get bootcamps within a certain radius
-      description: Retrieve bootcamps located within a certain distance from a given zipcode
-      parameters:
-        - in: path
-          name: zipcode
-          required: true
-          description: Zipcode to search from
-          schema:
-            type: string
-        - in: path
-          name: distance
-          required: true
-          description: Distance in miles
-          schema:
-            type: number
-      responses:
-        "200":
-          description: A list of bootcamps within the radius
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Bootcamp"
-  "/api/v1/bootcamps/{id}":
-    get:
-      summary: Retrieve a single bootcamp
-      description: Get a bootcamp by its ID
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: Bootcamp ID
-          schema:
-            type: string
-      responses:
-        "200":
-          description: A single bootcamp
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Bootcamp"
-    put:
-      summary: Update a bootcamp
-      description: Update bootcamp details by ID
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: Bootcamp ID
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Bootcamp"
-      responses:
-        "200":
-          description: Bootcamp updated successfully
-    delete:
-      summary: Delete a bootcamp
-      description: Remove a bootcamp by ID
-      parameters:
-        - in: path
-          name: id
-          required: true
-          description: Bootcamp ID
-          schema:
-            type: string
-      responses:
-        "200":
-          description: Bootcamp deleted successfully
+    /api/v1/bootcamps:
+        get:
+            summary: Retrieve a list of bootcamps
+            description: Retrieve a list of bootcamps from the database and return as JSON
+            responses:
+                '200':
+                    description: A list of bootcamps
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/Bootcamp'
+        post:
+            summary: Create a new bootcamp
+            description: Add a new bootcamp to the database
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Bootcamp'
+            responses:
+                '201':
+                    description: Bootcamp created successfully
+    '/api/v1/bootcamps/radius/{zipcode}/{distance}':
+        get:
+            summary: Get bootcamps within a certain radius
+            description: Retrieve bootcamps located within a certain distance from a given zipcode
+            parameters:
+                - in: path
+                  name: zipcode
+                  required: true
+                  description: Zipcode to search from
+                  schema:
+                      type: string
+                - in: path
+                  name: distance
+                  required: true
+                  description: Distance in miles
+                  schema:
+                      type: number
+            responses:
+                '200':
+                    description: A list of bootcamps within the radius
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/Bootcamp'
+    '/api/v1/bootcamps/{id}':
+        get:
+            summary: Retrieve a single bootcamp
+            description: Get a bootcamp by its ID
+            parameters:
+                - in: path
+                  name: id
+                  required: true
+                  description: Bootcamp ID
+                  schema:
+                      type: string
+            responses:
+                '200':
+                    description: A single bootcamp
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Bootcamp'
+        put:
+            summary: Update a bootcamp
+            description: Update bootcamp details by ID
+            parameters:
+                - in: path
+                  name: id
+                  required: true
+                  description: Bootcamp ID
+                  schema:
+                      type: string
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Bootcamp'
+            responses:
+                '200':
+                    description: Bootcamp updated successfully
+        delete:
+            summary: Delete a bootcamp
+            description: Remove a bootcamp by ID
+            parameters:
+                - in: path
+                  name: id
+                  required: true
+                  description: Bootcamp ID
+                  schema:
+                      type: string
+            responses:
+                '200':
+                    description: Bootcamp deleted successfully
 components:
-  schemas:
-    Bootcamp:
-      type: object
-      required:
-        - name
-        - description
-        - website
-        - phone
-        - email
-        - address
-        - careers
-        - averageCost
-        - housing
-        - jobAssistance
-        - jobGuarantee
-        - acceptGi
-      properties:
-        id:
-          type: string
-          description: The auto-generated ID of the bootcamp
-        user:
-          type: string
-          description: The user that owns the bootcamp
-        name:
-          type: string
-          description: The name of the bootcamp
-        description:
-          type: string
-          description: A short description of the bootcamp
-        website:
-          type: string
-          description: The website of the bootcamp
-        phone:
-          type: string
-          description: The contact phone number of the bootcamp
-        email:
-          type: string
-          description: The contact email of the bootcamp
-        address:
-          type: string
-          description: The address of the bootcamp
-        careers:
-          type: array
-          items:
-            type: string
-          description: The careers that the bootcamp prepares students for
-        housing:
-          type: boolean
-          description: Whether the bootcamp provides housing
-        jobAssistance:
-          type: boolean
-          description: Whether the bootcamp provides job assistance
-        jobGuarantee:
-          type: boolean
-          description: Whether the bootcamp provides a job guarantee
-        acceptGi:
-          type: boolean
-          description: Whether the bootcamp accepts GI Bill funding
-        averageCost:
-          type: number
-          description: The average cost of the bootcamp
-        createdAt:
-          type: string
-          format: date-time
-          description: The date the bootcamp was created
-        slug:
-          type: string
-          description: The URL-friendly name of the bootcamp
-        photo:
-          type: string
-          description: The photo of the bootcamp
-      example:
-        id: 5d713995b721c3bb38c1f5d0
-        user: 5d7a514b5d2c12c7449be026
-        name: Devworks Bootcamp
-        description: Devworks is a full stack JavaScript Bootcamp
-        website: https://devworks.com
-        phone: (111) 111-1111
-        email: null
-        address: 233 Bay State Rd Boston MA 02215
-        careers: Web Development, UI/UX, Mobile Development
-        housing: true
-        jobAssistance: true
-        jobGuarantee: false
-        acceptGi: true
-        averageCost: 9000
-        createdAt: 2019-08-15T22:40:59.000Z
-        slug: devworks-bootcamp
-        photo: no-photo.jpg
+    schemas:
+        Bootcamp:
+            type: object
+            required:
+                - name
+                - description
+                - website
+                - phone
+                - email
+                - address
+                - careers
+                - averageCost
+                - housing
+                - jobAssistance
+                - jobGuarantee
+                - acceptGi
+            properties:
+                id:
+                    type: string
+                    description: The auto-generated ID of the bootcamp
+                user:
+                    type: string
+                    description: The user that owns the bootcamp
+                name:
+                    type: string
+                    description: The name of the bootcamp
+                description:
+                    type: string
+                    description: A short description of the bootcamp
+                website:
+                    type: string
+                    description: The website of the bootcamp
+                phone:
+                    type: string
+                    description: The contact phone number of the bootcamp
+                email:
+                    type: string
+                    description: The contact email of the bootcamp
+                address:
+                    type: string
+                    description: The address of the bootcamp
+                careers:
+                    type: array
+                    items:
+                        type: string
+                    description: The careers that the bootcamp prepares students for
+                housing:
+                    type: boolean
+                    description: Whether the bootcamp provides housing
+                jobAssistance:
+                    type: boolean
+                    description: Whether the bootcamp provides job assistance
+                jobGuarantee:
+                    type: boolean
+                    description: Whether the bootcamp provides a job guarantee
+                acceptGi:
+                    type: boolean
+                    description: Whether the bootcamp accepts GI Bill funding
+                averageCost:
+                    type: number
+                    description: The average cost of the bootcamp
+                createdAt:
+                    type: string
+                    format: date-time
+                    description: The date the bootcamp was created
+                slug:
+                    type: string
+                    description: The URL-friendly name of the bootcamp
+                photo:
+                    type: string
+                    description: The photo of the bootcamp
+            example:
+                id: 5d713995b721c3bb38c1f5d0
+                user: 5d7a514b5d2c12c7449be026
+                name: Devworks Bootcamp
+                description: Devworks is a full stack JavaScript Bootcamp
+                website: https://devworks.com
+                phone: (111) 111-1111
+                email: null
+                address: 233 Bay State Rd Boston MA 02215
+                careers: Web Development, UI/UX, Mobile Development
+                housing: true
+                jobAssistance: true
+                jobGuarantee: false
+                acceptGi: true
+                averageCost: 9000
+                createdAt: 2019-08-15T22:40:59.000Z
+                slug: devworks-bootcamp
+                photo: no-photo.jpg
 tags: []

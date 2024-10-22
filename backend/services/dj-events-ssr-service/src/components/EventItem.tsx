@@ -27,7 +27,7 @@ const EventItem: FC<EventItemProps> = ({ event }) => {
         const time = eventTime;
         setDateTime(`${date} at ${time}`);
     }, [eventDate, eventTime]);
-    
+
     return (
         <div className={styles.event}>
             <div className={styles.img}>

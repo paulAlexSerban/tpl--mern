@@ -23,7 +23,7 @@ type EventImage = {
             };
         };
     };
-}
+};
 
 type EventAttributes = {
     name: string;

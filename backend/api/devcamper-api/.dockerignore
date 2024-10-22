@@ -2,4 +2,4 @@ node_modules
 npm-debug.log
 .env.common
 .env
-.env.devx
+.env.dev

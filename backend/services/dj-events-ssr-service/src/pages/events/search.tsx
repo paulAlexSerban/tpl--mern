@@ -8,8 +8,6 @@ import qs from 'qs';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-
-
 type SearchPageProps = {
     events: Event[];
 };
@@ -18,8 +16,8 @@ const SearchPage: FC<SearchPageProps> = ({ events }) => {
     const router = useRouter();
     const term = router.query.term as string;
     return (
-        <GenericLayout title='Search Results'>
-            <Link href='/events'>{'<'} Go back</Link>
+        <GenericLayout title="Search Results">
+            <Link href="/events">{'<'} Go back</Link>
             <h1>Search Results for {term}</h1>
             {events.length === 0 && <h3>No events to show</h3>}
             {events.map((evt) => (
