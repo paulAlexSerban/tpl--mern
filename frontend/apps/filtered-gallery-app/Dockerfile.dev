@@ -1,0 +1,4 @@
+FROM wbk--mern-playground__core:latest as builder
+COPY ./frontend/apps/filtered-gallery-app ./frontend/apps/filtered-gallery-app
+RUN yarn install
+CMD [ "yarn", "develop:filtered-gallery-app"]
