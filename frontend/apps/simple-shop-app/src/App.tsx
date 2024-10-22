@@ -13,7 +13,7 @@ function App() {
         const fetchProducts = async () => {
             try {
                 setIsLoading(true);
-                const response = await fetch('http://localhost:4001/product');
+                const response = await fetch('http://localhost:3000/api/v1/product');
                 const responseData = await response.json();
 
                 if (!response.ok) {
@@ -39,7 +39,7 @@ function App() {
                 price: +productPrice, // "+" to convert string to number
             };
             let hasError = false;
-            const response = await fetch('http://localhost:4001/product', {
+            const response = await fetch('http://localhost:3000/api/v1/product', {
                 method: 'POST',
                 body: JSON.stringify(newProduct),
                 headers: {

@@ -12,11 +12,11 @@ services:
         image: paulserbandev/simple-shop-proxy
         build:
             context: ../../../ # set context to root of monorepo project
-            dockerfile: ./backend/services/proxy/simple-fe-only-spa-proxy/Dockerfile.dev
+            dockerfile: ./backend/services/proxy/simple-react-express-proxy/Dockerfile.dev
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/services/proxy/simple-fe-only-spa-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/services/proxy/simple-react-express-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
         restart: unless-stopped
         networks:
             - simple-shop-network
@@ -39,11 +39,11 @@ services:
             - simple-shop-network
 
     # ---------------------------------------------------------------------
-    # | Node.js API                                                       |
+    # | Express.js (Node.js) API                                           |
     # ---------------------------------------------------------------------
-    nodejs-api:
+    express-api:
         restart: always
-        container_name: nodejs-api-container
+        container_name: express-api-container
         build:
             context: ../../../
             dockerfile: ./backend/api/simple-shop-api/Dockerfile.dev
@@ -57,4 +57,3 @@ services:
             - ../../../backend/api/simple-shop-api:/usr/src/app/backend/api/simple-shop-api
         networks:
             - simple-shop-network
-

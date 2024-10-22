@@ -9,7 +9,7 @@ services:
     # ---------------------------------------------------------------------
     nginx-proxy:
         build:
-            context: ../../../backend/services/proxy/full-stack-mock-proxy
+            context: ../../../backend/services/proxy/simple-react-express-proxy
             dockerfile: dev.Dockerfile
         container_name: container-rnd-react-query-n-tanstack-todo-list-proxy
         image: paulserbandev/rnd-react-query-n-tanstack-todo-list-proxy
@@ -17,7 +17,7 @@ services:
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/services/proxy/full-stack-mock-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/services/proxy/simple-react-express-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
         networks:
             - rnd-react-query-n-tanstack-todo-list-network
 
