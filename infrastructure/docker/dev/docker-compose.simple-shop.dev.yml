@@ -12,11 +12,11 @@ services:
         image: paulserbandev/simple-shop-proxy
         build:
             context: ../../../ # set context to root of monorepo project
-            dockerfile: ./backend/services/proxy/simple-react-express-proxy/Dockerfile.dev
+            dockerfile: ./backend/services/proxy/simple-base-spa-proxy/Dockerfile.dev
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/services/proxy/simple-react-express-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+            - ../../../backend/services/proxy/simple-base-spa-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
         restart: unless-stopped
         networks:
             - simple-shop-network
