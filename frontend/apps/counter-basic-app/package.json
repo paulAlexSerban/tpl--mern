@@ -3,7 +3,7 @@
     "formattedName": "Counter",
     "description": "A simple counter app to demonstrate the use of ReactJS with TypeScript.",
     "private": true,
-    "version": "0.2.0",
+    "version": "0.3.0",
     "type": "module",
     "scripts": {
         "develop": "vite --host",

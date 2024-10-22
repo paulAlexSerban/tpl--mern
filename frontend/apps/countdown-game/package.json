@@ -3,7 +3,7 @@
     "formattedName": "Countdown Game",
     "description": "A simple countdown game",
     "private": true,
-    "version": "0.2.0",
+    "version": "0.3.0",
     "type": "module",
     "scripts": {
         "develop": "vite",

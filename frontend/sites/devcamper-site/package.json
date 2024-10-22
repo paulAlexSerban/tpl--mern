@@ -1,6 +1,6 @@
 {
     "name": "@wbk--mern-playground/devcamper-site",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "",
     "scripts": {
         "develop": "export NODE_ENV=development && webpack serve --config webpack.dev.js --hot --progress",

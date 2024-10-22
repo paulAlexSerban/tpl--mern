@@ -1,0 +1,12 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 0.1.0 (2024-10-22)
+
+### Features
+
+-   **backroads-tourcompany--landingpage:** small style adjusmtents ([dbf2b00](https://github.com/paulAlexSerban/wbk--mern-playground/commit/dbf2b00db69058a0f8e4b3ab6c3909cf20e45bdb))
+-   **navbar-basic:** init ([8d55259](https://github.com/paulAlexSerban/wbk--mern-playground/commit/8d55259b8dc685092b0d2f966a26efa5ff26d12a))
+-   **navbar-basic:** initial implementation ([049a20e](https://github.com/paulAlexSerban/wbk--mern-playground/commit/049a20ea4f4de629a867b3739bb3001405334e67))

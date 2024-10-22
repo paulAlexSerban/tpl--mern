@@ -1,7 +1,7 @@
 {
     "name": "@wbk--mern-playground/color-generator-app",
     "private": true,
-    "version": "0.0.0",
+    "version": "0.1.0",
     "type": "module",
     "scripts": {
         "develop": "vite --host",
@@ -11,9 +11,9 @@
         "package": "bash scripts/package.bash"
     },
     "dependencies": {
+        "@types/nanoid": "^3.0.0",
         "@types/react": "^18.2.27",
         "@types/react-dom": "^18.2.12",
-        "@types/nanoid": "^3.0.0",
         "@types/react-toastify": "^4.1.0",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
         "@typescript-eslint/parser": "^6.0.0",

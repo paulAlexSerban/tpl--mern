@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2024-10-22)
+
+### Features
+
+-   **misc:** migrate from react-playground to mern-playground ([8f04b10](https://github.com/paulAlexSerban/wbk--mern-playground/commit/8f04b103fc0a1af0286bbc101d997c7763f8e35d))
+
 ## [0.2.1](https://github.com/paulAlexSerban/wbk--mern-playground/compare/storybook@0.2.0...storybook@0.2.1) (2024-02-05)
 
 **Note:** Version bump only for package storybook

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0 (2024-10-22)
+
+### Features
+
+-   **form user list:** add fr testing ([7a0ab1b](https://github.com/paulAlexSerban/wbk--mern-playground/commit/7a0ab1b82974d308834f7becf75346c95af31a54))
+-   **minesweeper game:** improove setup ([9c7a629](https://github.com/paulAlexSerban/wbk--mern-playground/commit/9c7a629aecd37a97b3e8048f1436cee75bfa1dcb))
+-   **minesweeper-game:** field and cell manipulator ([1222dd4](https://github.com/paulAlexSerban/wbk--mern-playground/commit/1222dd440db1d9f5c63eb660fd61711cfb3f9521))
+
 # [0.2.0](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/_vite-react-ts-boilerplate@0.1.0...@wbk--mern-playground/_vite-react-ts-boilerplate@0.2.0) (2024-02-05)
 
 ### Features

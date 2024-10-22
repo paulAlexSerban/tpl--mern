@@ -3,7 +3,7 @@
     "formattedName": "Elegant Redux Online Shop App",
     "description": "A simple online shop app built with React, Redux Toolkit, TypeScript, and Vite.",
     "private": true,
-    "version": "0.2.0",
+    "version": "0.3.0",
     "type": "module",
     "scripts": {
         "develop": "vite --host",

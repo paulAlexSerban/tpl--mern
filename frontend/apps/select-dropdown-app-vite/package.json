@@ -3,7 +3,7 @@
     "formattedName": "Select Dropdown App Vite",
     "description": "Select Dropdown App Vite",
     "private": true,
-    "version": "0.1.1",
+    "version": "0.2.0",
     "type": "module",
     "scripts": {
         "develop": "concurrently \"yarn compile:watch\" \"vite --host\"",
@@ -15,9 +15,9 @@
         "package": "bash scripts/package.bash"
     },
     "dependencies": {
-        "@wbk--mern-playground/lsg-styles-generic": "^0.2.1",
-        "@wbk--mern-playground/select-dropdown-app-cmp-library": "^0.5.1",
-        "@wbk--mern-playground/shared-foundation": "^0.3.1",
+        "@wbk--mern-playground/lsg-styles-generic": "^0.3.0",
+        "@wbk--mern-playground/select-dropdown-app-cmp-library": "^0.6.0",
+        "@wbk--mern-playground/shared-foundation": "^0.4.0",
         "react": "^18.3.1",
         "react-dom": "^18.2.0"
     },

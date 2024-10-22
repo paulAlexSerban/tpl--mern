@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.2.0 (2024-10-22)
+
+### Features
+
+-   **redux-shopping-cart-v2:** added thunks ([e656efa](https://github.com/paulAlexSerban/wbk--mern-playground/commit/e656efab9e7e0e68ab51ee1335ec91010eaa73e8))
+-   **redux-shopping-cart-v2:** init ([4b40058](https://github.com/paulAlexSerban/wbk--mern-playground/commit/4b400587c37a6cf5d7cf9fde16b10334ada7257f))
+-   **redux:** rnd ([ba589bb](https://github.com/paulAlexSerban/wbk--mern-playground/commit/ba589bba00bc474ad3e060d1739fb657d77fcb0f))
+
 # 0.1.0 (2024-02-05)
 
 ### Features

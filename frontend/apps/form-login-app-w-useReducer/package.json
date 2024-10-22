@@ -3,7 +3,7 @@
     "formattedName": "Form Login App w/ useReducer",
     "description": "A simple form login app using ReactJS and TypeScript with useReducer",
     "private": true,
-    "version": "0.2.0",
+    "version": "0.3.0",
     "type": "module",
     "scripts": {
         "develop": "vite",

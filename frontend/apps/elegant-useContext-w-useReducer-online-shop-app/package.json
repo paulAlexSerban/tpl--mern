@@ -3,7 +3,7 @@
     "formattedName": "Elegant Use Context w/ Use Reducer Online Shop App",
     "description": "Elegant Use Context w/ Use Reducer Online Shop App",
     "private": true,
-    "version": "0.2.0",
+    "version": "0.3.0",
     "type": "module",
     "scripts": {
         "develop": "vite",

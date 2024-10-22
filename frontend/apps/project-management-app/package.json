@@ -3,7 +3,7 @@
     "formattedName": "Project Management App",
     "description": "A project management app built with ReactJS, TypeScript, and TailwindCSS.",
     "private": true,
-    "version": "0.2.0",
+    "version": "0.3.0",
     "type": "module",
     "scripts": {
         "develop": "vite",

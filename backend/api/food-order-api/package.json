@@ -1,7 +1,7 @@
 {
     "name": "@wbk--mern-playground/food-order-api",
     "private": true,
-    "version": "0.0.0",
+    "version": "0.1.0",
     "main": "dist/index.js",
     "scripts": {
         "develop": "concurrently \"yarn tsc --watch\" \"nodemon -q dist/index.js\"",

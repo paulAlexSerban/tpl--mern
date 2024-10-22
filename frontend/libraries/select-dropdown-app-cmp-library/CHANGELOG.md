@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.6.0 (2024-10-22)
+
+### Features
+
+-   **shared-foundation:** adjust to build FE & BE ready artefact ([4d6b428](https://github.com/paulAlexSerban/wbk--mern-playground/commit/4d6b4285dd7e9cc4b2e168026ef84d7d97ce5a44))
+
 ## [0.5.1](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/select-dropdown-app-cmp-library@0.5.0...@wbk--mern-playground/select-dropdown-app-cmp-library@0.5.1) (2024-02-05)
 
 **Note:** Version bump only for package @wbk--mern-playground/select-dropdown-app-cmp-library

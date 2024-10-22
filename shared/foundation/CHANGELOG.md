@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2024-10-22)
+
+### Features
+
+-   **foundations:** config ([910adc3](https://github.com/paulAlexSerban/wbk--mern-playground/commit/910adc3dc0482b0faeb2bb03eafe4a75fc2fd1fd))
+-   **foundation:** small adjustments ([fef585f](https://github.com/paulAlexSerban/wbk--mern-playground/commit/fef585f8b82d578db24e820fb2c34e6f3a70d532))
+-   **foundations:** password checker ([7b6e000](https://github.com/paulAlexSerban/wbk--mern-playground/commit/7b6e00085e389a795c0710508c0c895615c56d1e))
+-   **foundations:** unit testing ([d0371ae](https://github.com/paulAlexSerban/wbk--mern-playground/commit/d0371ae1b9de44c1e8304ce1dc2afdf4daeda82a))
+-   **misc:** migrate from react-playground to mern-playground ([8f04b10](https://github.com/paulAlexSerban/wbk--mern-playground/commit/8f04b103fc0a1af0286bbc101d997c7763f8e35d))
+-   **shared-foundation:** adjust to build FE & BE ready artefact ([4d6b428](https://github.com/paulAlexSerban/wbk--mern-playground/commit/4d6b4285dd7e9cc4b2e168026ef84d7d97ce5a44))
+
 ## [0.3.1](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/shared-foundation@0.3.0...@wbk--mern-playground/shared-foundation@0.3.1) (2024-02-05)
 
 **Note:** Version bump only for package @wbk--mern-playground/shared-foundation

@@ -3,7 +3,7 @@
     "formattedName": "Form Login App",
     "description": "A simple form login app using ReactJS and TypeScript",
     "private": true,
-    "version": "0.2.0",
+    "version": "0.3.0",
     "type": "module",
     "scripts": {
         "develop": "vite",
