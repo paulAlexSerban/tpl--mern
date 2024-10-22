@@ -1,55 +1,55 @@
 <mxfile host="65bd71144e">
     <diagram id="AIXlxMhuW8tR9zTCVHCW" name="Page-1">
-        <mxGraphModel dx="1736" dy="1071" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="1412" dy="757" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="2" value="Server Hosts Node API + React SPA" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="2" value="Server Hosts Node API + React SPA" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="200" y="240" width="240" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="Node (Express) API handles incoming requests" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="3" value="Node (Express) API handles incoming requests" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="200" y="320" width="240" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="Requests not targeting API routes return React SPA" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="4" value="Requests not targeting API routes return React SPA" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="200" y="400" width="240" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="Data is exchanged between React APP and Node API in JSON format" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="5" value="Data is exchanged between React APP and Node API in JSON format" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="200" y="480" width="240" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="TWO Separatesd Servers" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="6" value="TWO Separatesd Servers" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="520" y="240" width="240" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="Node (Express.js) API handles incoming requests" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="7" value="Node (Express.js) API handles incoming requests" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="520" y="320" width="240" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="React SPA served from separate static host" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="8" value="React SPA served from separate static host" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="520" y="400" width="240" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="Data is exchanged between React App and Node API in JSON format." style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="9" value="Data is exchanged between React App and Node API in JSON format." style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="520" y="480" width="240" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="both cases have: Logically Separated Apps (SPA + API)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="10" value="both cases have: Logically Separated Apps (SPA + API)" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="200" y="560" width="560" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="Node.js + Express Server" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="11" value="Node.js + Express Server" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="360" y="680" width="240" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="Server-side rendered Pages&lt;br&gt;(e.g. via Pug, EJS, ...)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="12" value="Server-side rendered Pages&lt;br&gt;(e.g. via Pug, EJS, ...)" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="360" y="760" width="240" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="13" value="" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="360" y="820" width="240" height="250" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" style="edgeStyle=none;html=1;" edge="1" parent="1" source="14" target="15">
+                <mxCell id="16" style="edgeStyle=none;html=1;" parent="1" source="14" target="15" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="" style="whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" vertex="1" parent="1">
+                <mxCell id="14" value="" style="whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="1" vertex="1">
                     <mxGeometry x="370" y="840" width="220" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" value="Rendered HTML on the server via HTML templating language" style="whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" vertex="1" parent="1">
+                <mxCell id="15" value="Rendered HTML on the server via HTML templating language" style="whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="1" vertex="1">
                     <mxGeometry x="150" y="825" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="17" target="20">
+                <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="17" target="20" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="400" y="1120"/>
@@ -57,28 +57,28 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="17" value="" style="whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+                <mxCell id="17" value="" style="whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" parent="1" vertex="1">
                     <mxGeometry x="370" y="885" width="60" height="175" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="18" target="20">
+                <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="18" target="20" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="" style="whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+                <mxCell id="18" value="" style="whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" parent="1" vertex="1">
                     <mxGeometry x="440" y="885" width="150" height="45" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="19" target="20">
+                <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="19" target="20" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="" style="whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+                <mxCell id="19" value="" style="whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" parent="1" vertex="1">
                     <mxGeometry x="440" y="940" width="150" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="Reac Components" style="whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+                <mxCell id="20" value="React Components" style="whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" parent="1" vertex="1">
                     <mxGeometry x="670" y="930" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;dashPattern=8 8;fillColor=#e3c800;strokeColor=#B09500;" edge="1" parent="1" source="24" target="20">
+                <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;dashPattern=8 8;fillColor=#e3c800;strokeColor=#B09500;" parent="1" source="24" target="20" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="&quot;Widget&quot;-like" style="whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+                <mxCell id="24" value="&quot;Widget&quot;-like" style="whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" parent="1" vertex="1">
                     <mxGeometry x="670" y="845" width="120" height="40" as="geometry"/>
                 </mxCell>
             </root>
