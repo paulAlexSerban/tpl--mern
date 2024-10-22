@@ -333,6 +333,21 @@ select-dropdown-app-vite_compose-down:
 select-dropdown-app-vite_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod select-dropdown-app-vite
 
+# ------------------------------------------------------------- #
+# (compose): Simple Shop
+# ------------------------------------------------------------- #
+simple-shop_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up simple-shop
+
+simple-shop_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod simple-shop
+
+simple-shop_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down simple-shop
+
+simple-shop_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod simple-shop
+
 # Core build 
 core_build:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/core.bash build
