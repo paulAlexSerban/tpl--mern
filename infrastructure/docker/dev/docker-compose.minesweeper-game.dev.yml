@@ -8,7 +8,7 @@ services:
     # | Proxy-Service - Nginx                                              |
     # ---------------------------------------------------------------------
     nginx-proxy:
-        container_name: minesweeper-game-proxy
+        container_name: nginx-proxy-container
         build:
             context: ../../../ # set context to root of monorepo project
             dockerfile: ./backend/services/proxy/simple-fe-only-spa-proxy/Dockerfile.dev
@@ -24,13 +24,14 @@ services:
     # UI React SPA
     # ---------------------------------------------------------------------
     ui-react-spa:
-        container_name: ui-react-spa
+        container_name: ui-react-spa-container
         build:
-            context: ../../../
+            context: ../../../ # set context to root of monorepo project
             dockerfile: ./frontend/apps/minesweeper-game-app/Dockerfile.dev
         volumes:
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
             - /usr/src/app/frontend/apps/minesweeper-game-app/node_modules # Avoids overwriting dist with local volume
-            - ../../../frontend/apps/minesweeper-game-app:/usr/src/app/frontend/apps/minesweeper-game-app # Mount the app directory to the container
+            - ../../../frontend/apps/minesweeper-game-app:/usr/src/app/frontend/apps/minesweeper-game-app/ # Mount the app directory to the container
+        restart: unless-stopped
         networks:
             - minesweeper-game-network

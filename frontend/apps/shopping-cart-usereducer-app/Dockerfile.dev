@@ -1,0 +1,4 @@
+FROM wbk--mern-playground__core:latest as builder
+COPY ./frontend/apps/shopping-cart-usereducer-app ./frontend/apps/shopping-cart-usereducer-app
+RUN yarn install
+CMD [ "yarn", "develop:shopping-cart-usereducer-app"]

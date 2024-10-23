@@ -1,5 +1,5 @@
 {
-    "name": "@wbk--mern-playground/select-dropdown-app-vite",
+    "name": "@wbk--mern-playground/select-dropdown-app-vite-app",
     "formattedName": "Select Dropdown App Vite",
     "description": "Select Dropdown App Vite",
     "private": true,
@@ -14,19 +14,17 @@
         "preview": "vite preview",
         "package": "bash scripts/package.bash"
     },
-    "dependencies": {
+    "devDependencies": {
         "@wbk--mern-playground/lsg-styles-generic": "^0.3.0",
         "@wbk--mern-playground/select-dropdown-app-cmp-library": "^0.6.0",
         "@wbk--mern-playground/shared-foundation": "^0.4.0",
-        "react": "^18.3.1",
-        "react-dom": "^18.2.0"
-    },
-    "devDependencies": {
         "@types/react": "^18.2.27",
         "@types/react-dom": "^18.2.12",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
         "@typescript-eslint/parser": "^6.0.0",
         "@vitejs/plugin-react": "^4.0.3",
+        "react": "^18.3.1",
+        "react-dom": "^18.2.0",
         "concurrently": "^8.2.2",
         "eslint": "^8.45.0",
         "eslint-plugin-react-hooks": "^4.6.0",

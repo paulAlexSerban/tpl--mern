@@ -8,6 +8,7 @@ services:
     # | Proxy-Service - Nginx                                              |
     # ---------------------------------------------------------------------
     nginx-proxy:
+        container_name: nginx-proxy-container
         build:
             context: ../../../ # set context to root of monorepo project
             dockerfile: ./backend/services/proxy/simple-fe-only-spa-proxy/Dockerfile.dev
@@ -23,6 +24,7 @@ services:
     # UI React SPA
     # ---------------------------------------------------------------------
     ui-react-spa:
+        container_name: ui-react-spa-container
         build:
             context: ../../../ # set context to root of monorepo project
             dockerfile: ./frontend/apps/filtered-gallery-app/Dockerfile.dev

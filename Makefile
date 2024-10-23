@@ -160,42 +160,38 @@ $(1)_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod $(1)
 endef
 
-# $(eval $(call spa-compose_template,birthday-buddy))
+$(eval $(call spa-compose_template,backroads-tourcompany-landingpage))
+$(eval $(call spa-compose_template,birthday-buddy))
 $(eval $(call spa-compose_template,color-generator))
 $(eval $(call spa-compose_template,dummy-blog))
+# $(eval $(call spa-compose_template,form-user-list))
 $(eval $(call spa-compose_template,events-showcase))
-# $(eval $(call spa-compose_template,filtered-gallery))
+$(eval $(call spa-compose_template,filtered-gallery))
+$(eval $(call spa-compose_template,frequently-asked-questions))
+$(eval $(call spa-compose_template,lorem-ipsum-generator))
+$(eval $(call spa-compose_template,megamenu-strapi-clone))
 $(eval $(call spa-compose_template,minesweeper-game))
+$(eval $(call spa-compose_template,navbar-basic))
+$(eval $(call spa-compose_template,reviews))
+$(eval $(call spa-compose_template,rnd-axios-http))
+$(eval $(call spa-compose_template,select-dropdown-app-vite))
+$(eval $(call spa-compose_template,shopping-cart-usereducer))
 
 # ------------------------------------------------------------- #
 # (compose): Birthday Buddy App
 # ------------------------------------------------------------- #
-birthday-buddy_compose-up:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up birthday-buddy	
+form-user-list_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up form-user-list	
 
-birthday-buddy_compose-up-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod birthday-buddy
+form-user-list_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod form-user-list
 
-birthday-buddy_compose-down:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down birthday-buddy
+form-user-list_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down form-user-list
 
-birthday-buddy_compose-down-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod birthday-buddy
+form-user-list_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod form-user-list
 
-# ------------------------------------------------------------- #
-# (compose): Backroads Tourcompany Landing Page 
-# ------------------------------------------------------------- #
-backroads-tourcompany-landingpage_compose-up:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up backroads-tourcompany-landingpage
-
-backroads-tourcompany-landingpage_compose-up-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod backroads-tourcompany-landingpage
-
-backroads-tourcompany-landingpage_compose-down:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down backroads-tourcompany-landingpage
-
-backroads-tourcompany-landingpage_compose-down-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod backroads-tourcompany-landingpage
 
 # ------------------------------------------------------------- #
 # (compose): DevCamper
@@ -272,21 +268,6 @@ emaily-user-feedback_compose-down:
 
 emaily-user-feedback_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/emaily-user-feedback-compose.bash down-prod
-
-# ------------------------------------------------------------- #
-# (compose): Filtered Gallery App
-# ------------------------------------------------------------- #
-filtered-gallery-app_compose-up:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up filtered-gallery	
-
-filtered-gallery-app_compose-up-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod filtered-gallery
-
-filtered-gallery-app_compose-down:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down filtered-gallery
-
-filtered-gallery-app_compose-down-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod filtered-gallery
 
 # ------------------------------------------------------------- #
 # (compose): Flowrise Site
@@ -380,22 +361,6 @@ rnd-react-query-n-tanstack-todo-list_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod rnd-react-query-n-tanstack-todo-list
 
 
-
-# ------------------------------------------------------------- #
-# (compose): Select Dropdown App (Vite)
-# ------------------------------------------------------------- #
-select-dropdown-app-vite_compose-up:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up select-dropdown-app-vite
-
-select-dropdown-app-vite_compose-up-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod select-dropdown-app-vite
-
-select-dropdown-app-vite_compose-down:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down select-dropdown-app-vite
-
-select-dropdown-app-vite_compose-down-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod select-dropdown-app-vite
-
 # ------------------------------------------------------------- #
 # (compose): Simple Shop
 # ------------------------------------------------------------- #
@@ -414,6 +379,10 @@ simple-shop_compose-down-prod:
 # Core build 
 core_build:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/core.bash build
+
+# tests
+base-spa-dev-setup-smoke-tests:
+	@bash ./infrastructure/tests/base-spa-dev-setup-smoke-tests.bash
 
 # Clean 
 clean-all:

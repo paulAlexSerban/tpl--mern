@@ -1,21 +1,22 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
+import react from '@vitejs/plugin-react';
 
-// const packageJson = require('./package.json');
-// const PROJECT_NAME = packageJson.name.split('/').pop();
-// const BASE_URL = process.env.BASE_URL || '/';
+const PORT = parseInt(process.env.PORT) || 3000;
 
-// https://vitejs.dev/config/
-export default defineConfig(({ command }) => {
+if (isNaN(PORT)) {
+    throw new Error('Invalid PORT');
+}
+
+export default defineConfig(() => {
     const config = {
         plugins: [react()],
         base: '/',
         server: {
-            port: 5173,
+            port: PORT,
         },
         preview: {
-            port: 5173,
+            port: PORT,
         },
         resolve: {
             alias: {
@@ -23,10 +24,6 @@ export default defineConfig(({ command }) => {
             },
         },
     };
-
-    // if (command !== 'serve') {
-    //     config.base = `${BASE_URL}apps/${PROJECT_NAME}`;
-    // }
 
     return config;
 });
