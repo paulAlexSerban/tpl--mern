@@ -3,7 +3,7 @@
     "formattedName": "Select Dropdown App Vite",
     "description": "Select Dropdown App Vite",
     "private": true,
-    "version": "0.3.0",
+    "version": "0.3.1",
     "type": "module",
     "scripts": {
         "develop": "concurrently \"yarn compile:watch\" \"vite --host\"",
@@ -21,7 +21,7 @@
         "@typescript-eslint/parser": "^6.0.0",
         "@vitejs/plugin-react": "^4.0.3",
         "@wbk--mern-playground/lsg-styles-generic": "^0.3.0",
-        "@wbk--mern-playground/select-dropdown-app-cmp-library": "^0.6.0",
+        "@wbk--mern-playground/select-dropdown-app-cmp-library": "^0.6.1",
         "@wbk--mern-playground/shared-foundation": "^0.4.0",
         "eslint": "^8.45.0",
         "eslint-plugin-react-hooks": "^4.6.0",

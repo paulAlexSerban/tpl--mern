@@ -1,6 +1,6 @@
 {
     "name": "@wbk--mern-playground/playgrounds-react",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "license": "MIT",
     "scripts": {
         "develop": "export NODE_ENV=development && parcel build src/index.html && parcel src/index.html -p 3000 --https",
@@ -18,7 +18,7 @@
     },
     "dependencies": {
         "@wbk--mern-playground/lsg-styles-generic": "^0.3.0",
-        "@wbk--mern-playground/select-dropdown-app-cmp-library": "^0.6.0",
+        "@wbk--mern-playground/select-dropdown-app-cmp-library": "^0.6.1",
         "@wbk--mern-playground/shared-foundation": "^0.4.0"
     },
     "private": true
