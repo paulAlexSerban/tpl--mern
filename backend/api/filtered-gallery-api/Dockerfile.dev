@@ -1,0 +1,7 @@
+FROM wbk--mern-playground__core:latest as builder
+
+COPY ./backend/api/filtered-gallery-api ./backend/api/filtered-gallery-api
+
+RUN yarn install
+
+CMD [ "yarn", "develop:filtered-gallery-api"]
