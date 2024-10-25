@@ -176,9 +176,13 @@ $(eval $(call spa-compose_template,reviews))
 $(eval $(call spa-compose_template,rnd-axios-http))
 $(eval $(call spa-compose_template,select-dropdown-app-vite))
 $(eval $(call spa-compose_template,shopping-cart-usereducer))
+$(eval $(call spa-compose_template,sidebar-tabs))
+$(eval $(call spa-compose_template,slider-w-buttons))
+$(eval $(call spa-compose_template,to-do-list-grocery-buddy))
+$(eval $(call spa-compose_template,tours-booking))
 
 # ------------------------------------------------------------- #
-# (compose): Birthday Buddy App
+# (compose): Form User List
 # ------------------------------------------------------------- #
 form-user-list_compose-up:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up form-user-list	

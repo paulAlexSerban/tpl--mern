@@ -8,17 +8,15 @@ services:
     # | Proxy-Service - Nginx                                              |
     # ---------------------------------------------------------------------
     nginx-proxy:
+        container_name: nginx-proxy-container
         build:
-            context: ../../../backend/services/proxy/sidebar-tabs-proxy
-            dockerfile: dev.Dockerfile
-        container_name: container-sidebar-tabs-proxy
-        image: paulserbandev/sidebar-tabs-proxy
-        restart: unless-stopped
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: ./backend/services/proxy/simple-fe-only-spa-proxy/Dockerfile.dev
         ports:
             - '3000:80'
         volumes:
-            - ../../../backend/services/proxy/sidebar-tabs-proxy/default.conf:/etc/nginx/conf.d/default.conf
-            - ../../../backend/services/proxy/sidebar-tabs-proxy/logs:/var/log/nginx
+            - ../../../backend/services/proxy/simple-fe-only-spa-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+        restart: unless-stopped
         networks:
             - sidebar-tabs-network
 
@@ -28,10 +26,12 @@ services:
     ui-react-spa:
         container_name: ui-react-spa-container
         build:
-            context: ../../frontend/apps/sidebar-tabs-app
-            dockerfile: dev.Dockerfile
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: ./frontend/apps/sidebar-tabs-app/Dockerfile.dev
         volumes:
-            - ../../frontend/apps/sidebar-tabs-app:/usr/src/app # Mount the app directory to the container
             - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - /usr/src/app/frontend/apps/sidebar-tabs-app/node_modules # Avoids overwriting dist with local volume
+            - ../../../frontend/apps/sidebar-tabs-app:/usr/src/app/frontend/apps/sidebar-tabs-app/ # Mount the app directory to the container
+        restart: unless-stopped
         networks:
             - sidebar-tabs-network

@@ -92,7 +92,7 @@ const Select: React.FC<SelectProps> = ({
         setHighlightedIndex(optionIndex);
     };
 
-    const onButtonKeyDown: KeyboardEventHandler = (event) => {
+    const onButtonKeyDown: KeyboardEventHandler = (event: React.KeyboardEvent) => {
         event.preventDefault();
 
         if ([KEY_CODES.ENTER, KEY_CODES.SPACE, KEY_CODES.DOWN_ARROW].includes(event.keyCode)) {

@@ -5,8 +5,8 @@ cd "$(dirname "$0")" || exit
 export HOST_USER_ID=$(id -u)
 export HOST_GROUP_ID=$(id -g)
 
-ENV_FILE="../../infrastructure/env/tours-listing.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.tours-listing.dev.yml"
+ENV_FILE="../../infrastructure/env/tours-booking.compose.env"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.tours-booking.dev.yml"
 
 function list() {
     echo "[ 📜 🐳 compose list ]"
