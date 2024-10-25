@@ -164,10 +164,11 @@ $(eval $(call spa-compose_template,backroads-tourcompany-landingpage))
 $(eval $(call spa-compose_template,birthday-buddy))
 $(eval $(call spa-compose_template,color-generator))
 $(eval $(call spa-compose_template,dummy-blog))
-# $(eval $(call spa-compose_template,form-user-list))
+$(eval $(call spa-compose_template,form-user-list))
 $(eval $(call spa-compose_template,events-showcase))
 $(eval $(call spa-compose_template,filtered-gallery))
 $(eval $(call spa-compose_template,frequently-asked-questions))
+$(eval $(call spa-compose_template,json-to-excel))
 $(eval $(call spa-compose_template,lorem-ipsum-generator))
 $(eval $(call spa-compose_template,megamenu-strapi-clone))
 $(eval $(call spa-compose_template,minesweeper-game))
@@ -176,6 +177,7 @@ $(eval $(call spa-compose_template,reviews))
 $(eval $(call spa-compose_template,rnd-axios-http))
 $(eval $(call spa-compose_template,select-dropdown-app-vite))
 $(eval $(call spa-compose_template,shopping-cart-usereducer))
+$(eval $(call spa-compose_template,sidebar-and-modal-basic))
 $(eval $(call spa-compose_template,sidebar-tabs))
 $(eval $(call spa-compose_template,slider-w-buttons))
 $(eval $(call spa-compose_template,to-do-list-grocery-buddy))
@@ -184,17 +186,17 @@ $(eval $(call spa-compose_template,tours-booking))
 # ------------------------------------------------------------- #
 # (compose): Form User List
 # ------------------------------------------------------------- #
-form-user-list_compose-up:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up form-user-list	
+json-to-excel_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up json-to-excel	
 
-form-user-list_compose-up-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod form-user-list
+json-to-excel_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod json-to-excel
 
-form-user-list_compose-down:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down form-user-list
+json-to-excel_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down json-to-excel
 
-form-user-list_compose-down-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod form-user-list
+json-to-excel_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod json-to-excel
 
 
 # ------------------------------------------------------------- #
