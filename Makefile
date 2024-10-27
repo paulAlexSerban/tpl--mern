@@ -396,6 +396,15 @@ simple-shop_compose-down:
 simple-shop_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash down-prod simple-shop
 
+# ------------------------------------------------------------- #
+# (compose): Hello Wordpress
+# ------------------------------------------------------------- #
+hello-wordpress_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-wordpress-compose.bash up hello-wordpress
+
+hello-wordpress_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/hello-wordpress-compose.bash down hello-wordpress
+
 # Core build 
 core_build:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/core.bash build
