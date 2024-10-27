@@ -186,17 +186,17 @@ $(eval $(call spa-compose_template,tours-booking))
 # ------------------------------------------------------------- #
 # (compose): Form User List
 # ------------------------------------------------------------- #
-json-to-excel_compose-up:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up json-to-excel	
+# json-to-excel_compose-up:
+# 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up json-to-excel	
 
-json-to-excel_compose-up-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod json-to-excel
+# json-to-excel_compose-up-prod:
+# 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod json-to-excel
 
-json-to-excel_compose-down:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down json-to-excel
+# json-to-excel_compose-down:
+# 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down json-to-excel
 
-json-to-excel_compose-down-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod json-to-excel
+# json-to-excel_compose-down-prod:
+# 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod json-to-excel
 
 
 # ------------------------------------------------------------- #
@@ -387,8 +387,11 @@ core_build:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/core.bash build
 
 # tests
-base-spa-dev-setup-smoke-tests:
-	@bash ./infrastructure/tests/base-spa-dev-setup-smoke-tests.bash
+base-spa-fe-only-dev-setup-smoke-tests:
+	@bash ./infrastructure/tests/base-spa-fe-only-dev-setup-smoke-tests.bash
+
+base-spa-fullstack-dev-setup-smoke-tests:
+	@bash ./infrastructure/tests/base-spa-fullstack-dev-setup-smoke-tests.bash
 
 # Clean 
 clean-all:

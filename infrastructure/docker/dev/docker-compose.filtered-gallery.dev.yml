@@ -44,9 +44,9 @@ services:
     # ---------------------------------------------------------------------
     # | ExpressJS API                                                     |
     # ---------------------------------------------------------------------
-    filtered-gallery-api:
+    express-api:
         restart: always
-        container_name: container-filtered-gallery-api
+        container_name: express-api-container
         build:
             context: ../../../
             dockerfile: ./backend/api/filtered-gallery-api/Dockerfile.dev

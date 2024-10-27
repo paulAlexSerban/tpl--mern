@@ -1,32 +1,13 @@
 #!/bin/bash
+
 START_TIME=$(date +%s)
 
 echo "[ 🚀 🚀 ] Starting Base SPA Dev Setup Smoke Tests..."
 # Define the Docker Compose setups to test
 BASE_SPA_SETUP=(
-    # "backroads-tourcompany-landingpage"
-    # "birthday-buddy"
-    # "color-generator"
-    # "dummy-blog"
-    # "form-user-list"
-    # "filtered-gallery"
-    # "frequently-asked-questions"
-    # "json-to-excel"
-    # "lorem-ipsum-generator"
-    # "megamenu-strapi-clone"
-    # "minesweeper-game"
-    # "navbar-basic"
-    # "reviews"
-    # "rnd-axios-http"
-    # "select-dropdown-app-vite"
-    # "shopping-cart-usereducer"
-    # "sidebar-and-modal-modal"
-    "sidebar-tabs"
-    # "slider-w-buttons"
-    # "to-do-list-grocery-buddy"
-    # "tours-booking"
+    "filtered-gallery"
 )
-BASE_SPA_CONTAINERS=("nginx-proxy-container" "ui-react-spa-container")
+BASE_SPA_CONTAINERS=("nginx-proxy-container" "ui-react-spa-container" "express-api-container")
 
 start_compose_setup() {
     # Start the Docker Compose setup
@@ -49,7 +30,7 @@ check_compose_status() {
     # Check if 'birthday-buddy' is running from 'docker compose ls' output
     local STATUS=$(docker compose ls | grep "$1" | awk '{print $2}')
 
-    if [[ "${STATUS}" == "running(2)"* ]]; then
+    if [[ "${STATUS}" =~ "running"* ]]; then
         echo "[ ✅ 💪 ] $1 is running."
         make ${1}_compose-down
     else

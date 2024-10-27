@@ -17,8 +17,8 @@ export HOST_GROUP_ID=$(id -g)
 
 APP_NAME=$2
 ENV_FILE="../../infrastructure/env/${APP_NAME}.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.${APP_NAME}.dev.yml"
-COMPOSE_FILE_PROD="../../infrastructure/docker/prod/docker-compose.${APP_NAME}.prod.yml"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.base-spa-fe-only.dev.yml"
+COMPOSE_FILE_PROD="../../infrastructure/docker/prod/docker-compose.base-spa-fe-only.prod.yml"
 
 function list() {
     echo "[ 📜 🐳 compose list ]"
