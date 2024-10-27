@@ -71,9 +71,12 @@ const competency_types = [
     },
 ];
 
-const competency_types_map = competency_types.reduce((acc: { [key: string]: typeof competency_types[0] }, competency_type) => {
-    acc[competency_type.slug] = competency_type;
-    return acc;
-}, {});
+const competency_types_map = competency_types.reduce(
+    (acc: { [key: string]: (typeof competency_types)[0] }, competency_type) => {
+        acc[competency_type.slug] = competency_type;
+        return acc;
+    },
+    {}
+);
 
 export { competency_types, competency_types_map };
