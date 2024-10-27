@@ -3,7 +3,7 @@ networks:
     base-spa-fullstack-network:
         driver: bridge
 volumes:
-  postgres:
+    postgres:
 
 services:
     # ---------------------------------------------------------------------
@@ -71,7 +71,7 @@ services:
     #     healthcheck:
     #         test: psql postgres --command "select 1" -U postgres
     #     volumes:
-    #         - postgres:/var/lib/postgresql/data  
+    #         - postgres:/var/lib/postgresql/data
     #     environment:
     #         POSTGRES_USER: postgres
     #         POSTGRES_PASSWORD: password

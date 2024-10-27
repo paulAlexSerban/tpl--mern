@@ -23,5 +23,5 @@ const competency_types = [
         id: 5,
         name: 'Leadership and Mentoring',
         slug: 'leadership-and-mentoring',
-    }
-]
+    },
+];
