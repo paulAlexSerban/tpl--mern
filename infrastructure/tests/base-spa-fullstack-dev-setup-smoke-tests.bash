@@ -4,10 +4,10 @@ START_TIME=$(date +%s)
 
 echo "[ 🚀 🚀 ] Starting Base SPA Dev Setup Smoke Tests..."
 # Define the Docker Compose setups to test
-BASE_SPA_SETUP=(
+COMPOSE_SETUPS=(
     "filtered-gallery"
 )
-BASE_SPA_CONTAINERS=("nginx-proxy-container" "ui-react-spa-container" "express-api-container")
+CONTAINERS=("nginx-proxy-container" "ui-react-spa-container" "express-api-container")
 
 start_compose_setup() {
     # Start the Docker Compose setup
@@ -39,10 +39,10 @@ check_compose_status() {
     fi
 }
 
-for SETUP in "${BASE_SPA_SETUP[@]}"; do
+for SETUP in "${COMPOSE_SETUPS[@]}"; do
     start_compose_setup $SETUP
     # sleep 5
-    for SERVICE in "${BASE_SPA_CONTAINERS[@]}"; do
+    for SERVICE in "${CONTAINERS[@]}"; do
         check_service_status ${SERVICE}
     done
     check_compose_status ${SETUP}

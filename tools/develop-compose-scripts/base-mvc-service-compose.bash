@@ -75,4 +75,4 @@ function help() {
     echo "Usage: $0 {up|down|up-prod|logs}"
 }
 
-$1 && echo "Done" || echo "Failed"
+$1 && echo "[ ✅ ] Done" || echo "[ 🚫 ]Failed"

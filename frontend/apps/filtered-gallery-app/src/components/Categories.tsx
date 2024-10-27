@@ -9,6 +9,9 @@ type CategoriesProps = {
 const Categories: FC<CategoriesProps> = ({ categories, filterItems }) => {
     return (
         <div className="btn-container">
+            <button type="button" className="btn" onClick={() => filterItems('all')}>
+                all
+            </button>
             {categories.map((category) => {
                 return (
                     <button type="button" className="btn" key={category} onClick={() => filterItems(category)}>

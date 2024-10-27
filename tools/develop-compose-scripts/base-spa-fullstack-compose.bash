@@ -2,26 +2,23 @@
 # makes sure the folder containing the script will be the root folder
 cd "$(dirname "$0")" || exit
 
-export HOST_USER_ID=$(id -u)
-export HOST_GROUP_ID=$(id -g)
-
-ENV_FILE="../../infrastructure/env/form-user-list.compose.env"
-COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.form-user-list.dev.yml"
-COMPOSE_FILE_PROD="../../infrastructure/docker/prod/docker-compose.form-user-list.prod.yml"
-
-function help() {
-    echo "Usage: $0 <up|down|logs|up-prod|down-prod>"
-    echo "  up: starts the development environment"
-    echo "  down: stops the development environment"
-    echo "  logs: shows the logs of the development environment"
-    echo "  up-prod: starts the production environment"
-    echo "  down-prod: stops the production environment"
-}
-
 if [ -z "$1" ]; then
     help
     exit 1
 fi
+
+if [ -z "$2" ]; then
+    echo "Please provide the app name"
+    exit 1
+fi
+
+export HOST_USER_ID=$(id -u)
+export HOST_GROUP_ID=$(id -g)
+
+APP_NAME=$2
+ENV_FILE="../../infrastructure/env/${APP_NAME}.compose.env"
+COMPOSE_FILE_DEV="../../infrastructure/docker/dev/docker-compose.base-spa-fullstack.dev.yml"
+COMPOSE_FILE_PROD="../../infrastructure/docker/prod/docker-compose.base-spa-fullstack.prod.yml"
 
 function list() {
     echo "[ 📜 🐳 compose list ]"
@@ -74,4 +71,15 @@ function down-prod() {
     list
 }
 
-$1
+function help() {
+    echo "Available commands:"
+    echo "  up - start the Docker container"
+    echo "  down - stop the Docker container"
+    echo "  logs - show the logs of the Docker container"
+    echo "  up-prod - start the Docker container with production build"
+    echo "  down-prod - stop the Docker container with production build"
+    echo "  list - list the containers"
+    echo "  help - show this help"
+}
+
+$1 && echo "[ ✅ ] Done" || echo "[ 🚫 ]Failed"

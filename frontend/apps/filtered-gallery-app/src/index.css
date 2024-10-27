@@ -316,6 +316,12 @@ ul {
     color: var(--grey-500);
 }
 
+.item-category {
+    padding-top: 0.5rem;
+    font-size: var(--small-text);
+    color: var(--grey-400);
+}
+
 .section-center {
     justify-items: center;
 }

@@ -61,7 +61,149 @@ $(eval $(call spa_template,select-dropdown-app-parcel))
 $(eval $(call spa_template,redux-shopping-cart))
 $(eval $(call spa_template,spot-share-app))
 
+define mvc_service_template
+$(1)_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash build $(1)
+
+$(1)_build-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash build-prod $(1)
+
+$(1)_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash run $(1)
+
+$(1)_run-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash run-prod $(1)
+
+$(1)_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash stop $(1)
+
+$(1)_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash clean
+endef
+
+$(eval $(call mvc_service_template,ecommerce-monolith-mvc-ssr-service))
+
+define spa-fe-only-compose_template
+$(1)_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash up $(1)
+
+$(1)_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash up-prod $(1)
+
+$(1)_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash down $(1)
+
+$(1)_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash down-prod $(1)
+endef
+
+$(eval $(call spa-fe-only-compose_template,backroads-tourcompany-landingpage))
+$(eval $(call spa-fe-only-compose_template,birthday-buddy))
+$(eval $(call spa-fe-only-compose_template,color-generator))
+$(eval $(call spa-fe-only-compose_template,dummy-blog))
+$(eval $(call spa-fe-only-compose_template,form-user-list))
+$(eval $(call spa-fe-only-compose_template,events-showcase))
+$(eval $(call spa-fe-only-compose_template,frequently-asked-questions))
+$(eval $(call spa-fe-only-compose_template,json-to-excel))
+$(eval $(call spa-fe-only-compose_template,lorem-ipsum-generator))
+$(eval $(call spa-fe-only-compose_template,megamenu-strapi-clone))
+$(eval $(call spa-fe-only-compose_template,minesweeper-game))
+$(eval $(call spa-fe-only-compose_template,navbar-basic))
+$(eval $(call spa-fe-only-compose_template,reviews))
+$(eval $(call spa-fe-only-compose_template,rnd-axios-http))
+$(eval $(call spa-fe-only-compose_template,select-dropdown-app-vite))
+$(eval $(call spa-fe-only-compose_template,shopping-cart-usereducer))
+$(eval $(call spa-fe-only-compose_template,sidebar-and-modal-basic))
+$(eval $(call spa-fe-only-compose_template,sidebar-tabs))
+$(eval $(call spa-fe-only-compose_template,slider-w-buttons))
+$(eval $(call spa-fe-only-compose_template,to-do-list-grocery-buddy))
+$(eval $(call spa-fe-only-compose_template,tours-booking))
+
+define spa-fullstack-compose_template
+$(1)_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fullstack-compose.bash up $(1)
+
+$(1)_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fullstack-compose.bash up-prod $(1)
+
+$(1)_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fullstack-compose.bash down $(1)
+
+$(1)_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fullstack-compose.bash down-prod $(1)
+endef
+
+$(eval $(call spa-fullstack-compose_template,filtered-gallery))
+
 # ------------------------------------------------------------- #
+# (compose): Form User List
+# ------------------------------------------------------------- #
+# json-to-excel_compose-up:
+# 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash up json-to-excel	
+
+# json-to-excel_compose-up-prod:
+# 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash up-prod json-to-excel
+
+# json-to-excel_compose-down:
+# 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash down json-to-excel
+
+# json-to-excel_compose-down-prod:
+# 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash down-prod json-to-excel
+
+
+# ------------------------------------------------------------- #
+# (compose): DevCamper
+# ------------------------------------------------------------- #
+devcamper_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash up
+
+devcamper_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash up-prod
+
+devcamper_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash down
+
+devcamper_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash down-prod
+
+# ------------------------------------------------------------- #
+# (compose): DJ Events
+# ------------------------------------------------------------- #
+dj-events_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash up
+
+dj-events_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash up-prod
+
+dj-events_compose-recreate-ssr-service:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash recreate-ssr-service
+
+dj-events_compose-recreate-strapi-cms:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash recreate-strapi-cms
+
+dj-events_compose-logs-ssr-service:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash logs-ssr-service
+
+dj-events_compose-restart-ssr-service:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash restart-ssr-service
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash logs-ssr-service
+
+dj-events_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash down
+
+dj-events_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash down-prod
+
+dj-events_compose-restore-database:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash restore-database
+
+# ------------------------------------------------------------- #
+# DynamoDB Training
+# ------------------------------------------------------------- #
+dynamodb-training_setup-aws-credentials:
+	@bash tools/aws/setup-user.bash dynamodb-training
+
+	# ------------------------------------------------------------- #
 # (image): DevCamper API
 # ------------------------------------------------------------- #
 devcamper-api-image_build:
@@ -123,133 +265,6 @@ events-showcase-api-image_stop:
 
 events-showcase-api-image_clean:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/events-showcase-api.bash clean
-
-define mvc_service_template
-$(1)_build:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash build $(1)
-
-$(1)_build-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash build-prod $(1)
-
-$(1)_run:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash run $(1)
-
-$(1)_run-prod:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash run-prod $(1)
-
-$(1)_stop:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash stop $(1)
-
-$(1)_clean:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/base-mvc-service.bash clean
-endef
-
-$(eval $(call mvc_service_template,ecommerce-monolith-mvc-ssr-service))
-
-define spa-compose_template
-$(1)_compose-up:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up $(1)
-
-$(1)_compose-up-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod $(1)
-
-$(1)_compose-down:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down $(1)
-
-$(1)_compose-down-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod $(1)
-endef
-
-$(eval $(call spa-compose_template,backroads-tourcompany-landingpage))
-$(eval $(call spa-compose_template,birthday-buddy))
-$(eval $(call spa-compose_template,color-generator))
-$(eval $(call spa-compose_template,dummy-blog))
-$(eval $(call spa-compose_template,form-user-list))
-$(eval $(call spa-compose_template,events-showcase))
-$(eval $(call spa-compose_template,filtered-gallery))
-$(eval $(call spa-compose_template,frequently-asked-questions))
-$(eval $(call spa-compose_template,json-to-excel))
-$(eval $(call spa-compose_template,lorem-ipsum-generator))
-$(eval $(call spa-compose_template,megamenu-strapi-clone))
-$(eval $(call spa-compose_template,minesweeper-game))
-$(eval $(call spa-compose_template,navbar-basic))
-$(eval $(call spa-compose_template,reviews))
-$(eval $(call spa-compose_template,rnd-axios-http))
-$(eval $(call spa-compose_template,select-dropdown-app-vite))
-$(eval $(call spa-compose_template,shopping-cart-usereducer))
-$(eval $(call spa-compose_template,sidebar-and-modal-basic))
-$(eval $(call spa-compose_template,sidebar-tabs))
-$(eval $(call spa-compose_template,slider-w-buttons))
-$(eval $(call spa-compose_template,to-do-list-grocery-buddy))
-$(eval $(call spa-compose_template,tours-booking))
-
-# ------------------------------------------------------------- #
-# (compose): Form User List
-# ------------------------------------------------------------- #
-# json-to-excel_compose-up:
-# 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up json-to-excel	
-
-# json-to-excel_compose-up-prod:
-# 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod json-to-excel
-
-# json-to-excel_compose-down:
-# 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down json-to-excel
-
-# json-to-excel_compose-down-prod:
-# 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod json-to-excel
-
-
-# ------------------------------------------------------------- #
-# (compose): DevCamper
-# ------------------------------------------------------------- #
-devcamper_compose-up:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash up
-
-devcamper_compose-up-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash up-prod
-
-devcamper_compose-down:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash down
-
-devcamper_compose-down-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/devcamper-compose.bash down-prod
-
-# ------------------------------------------------------------- #
-# (compose): DJ Events
-# ------------------------------------------------------------- #
-dj-events_compose-up:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash up
-
-dj-events_compose-up-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash up-prod
-
-dj-events_compose-recreate-ssr-service:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash recreate-ssr-service
-
-dj-events_compose-recreate-strapi-cms:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash recreate-strapi-cms
-
-dj-events_compose-logs-ssr-service:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash logs-ssr-service
-
-dj-events_compose-restart-ssr-service:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash restart-ssr-service
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash logs-ssr-service
-
-dj-events_compose-down:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash down
-
-dj-events_compose-down-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash down-prod
-
-dj-events_compose-restore-database:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/dj-events-compose.bash restore-database
-
-# ------------------------------------------------------------- #
-# DynamoDB Training
-# ------------------------------------------------------------- #
-dynamodb-training_setup-aws-credentials:
-	@bash tools/aws/setup-user.bash dynamodb-training
 
 # ------------------------------------------------------------- #
 # (compose): Ecommerce Monolith MVC
@@ -350,37 +365,35 @@ my-nextjs-site_compose-down:
 my-nextjs-site_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/my-nextjs-site-compose.bash down-prod
 
-
 # ------------------------------------------------------------- #
 # (compose): RND React Query & Tanstack To Do List App      
 # ------------------------------------------------------------- #
 rnd-react-query-n-tanstack-todo-list_compose-up:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up rnd-react-query-n-tanstack-todo-list
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash up rnd-react-query-n-tanstack-todo-list
 
 rnd-react-query-n-tanstack-todo-list_compose-up-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod rnd-react-query-n-tanstack-todo-list
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash up-prod rnd-react-query-n-tanstack-todo-list
 
 rnd-react-query-n-tanstack-todo-list_compose-down:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down rnd-react-query-n-tanstack-todo-list
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash down rnd-react-query-n-tanstack-todo-list
 
 rnd-react-query-n-tanstack-todo-list_compose-down-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod rnd-react-query-n-tanstack-todo-list
-
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash down-prod rnd-react-query-n-tanstack-todo-list
 
 # ------------------------------------------------------------- #
 # (compose): Simple Shop
 # ------------------------------------------------------------- #
 simple-shop_compose-up:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up simple-shop
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash up simple-shop
 
 simple-shop_compose-up-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash up-prod simple-shop
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash up-prod simple-shop
 
 simple-shop_compose-down:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down simple-shop
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash down simple-shop
 
 simple-shop_compose-down-prod:
-	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-compose.bash down-prod simple-shop
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/base-spa-fe-only-compose.bash down-prod simple-shop
 
 # Core build 
 core_build:

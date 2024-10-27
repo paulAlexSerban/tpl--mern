@@ -82,4 +82,4 @@ function help() {
     echo "  help - show this help"
 }
 
-$1 && echo "Done" || echo "Failed"
+$1 && echo "[ ✅ ] Done" || echo "[ 🚫 ]Failed"

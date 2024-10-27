@@ -10,7 +10,7 @@ export type MenuItemProps = {
     desc: string;
 };
 
-const MenuItem: FC<MenuItemProps> = ({ img, title, price, desc }) => {
+const MenuItem: FC<MenuItemProps> = ({ img, title, category, price, desc }) => {
     return (
         <article className="menu-item">
             <img src={img} alt={title} className="img" />
@@ -20,6 +20,7 @@ const MenuItem: FC<MenuItemProps> = ({ img, title, price, desc }) => {
                     <span className="item-price">${price}</span>
                 </header>
                 <p className="item-text">{desc}</p>
+                <p className="item-category">Category: {category} </p>
             </div>
         </article>
     );

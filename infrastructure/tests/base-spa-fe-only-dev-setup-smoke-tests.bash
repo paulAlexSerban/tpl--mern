@@ -4,7 +4,7 @@ START_TIME=$(date +%s)
 
 echo "[ 🚀 🚀 ] Starting Base SPA Dev Setup Smoke Tests..."
 # Define the Docker Compose setups to test
-COMPOSE_SETUP=(
+COMPOSE_SETUPS=(
     "backroads-tourcompany-landingpage"
     "birthday-buddy"
     "color-generator"
@@ -29,7 +29,7 @@ COMPOSE_SETUP=(
 )
 CONTAINERS=("nginx-proxy-container" "ui-react-spa-container")
 
-start_compose_setup() {
+start_compose_setupS() {
     # Start the Docker Compose setup
     echo "[ 🚀 ] Starting ${1} Docker Compose setup..."
     make ${1}_compose-up
@@ -39,11 +39,11 @@ check_service_status() {
     local SERVICE_NAME=${1}
     local IS_RUNNING=$(docker inspect -f '{{.State.Status}}' "${SERVICE_NAME}")
 
-    if [[ "${IS_RUNNING}" != "running" ]]; then
+    if [[ "${IS_RUNNING}" =~ "running" ]]; then
+        echo "[ ✅ ✅ ] ${SERVICE_NAME} is ${IS_RUNNING}"
+    else
         echo "[ 🚫 🚫 ] ${SERVICE_NAME} is not running."
         exit 1
-    else
-        echo "[ ✅ ✅ ] ${SERVICE_NAME} is ${IS_RUNNING}"
     fi
 }
 
@@ -60,8 +60,8 @@ check_compose_status() {
     fi
 }
 
-for SETUP in "${COMPOSE_SETUP[@]}"; do
-    start_compose_setup $SETUP
+for SETUP in "${COMPOSE_SETUPS[@]}"; do
+    start_compose_setupS $SETUP
     # sleep 5
     for SERVICE in "${CONTAINERS[@]}"; do
         check_service_status ${SERVICE}

@@ -12,34 +12,41 @@ const api = new HttpRequestFacade(); // Create an instance of HttpRequestFacade
 
 function App() {
     const [menuItems, setMenuItems] = useState<MenuItemProps[]>([]);
+    const [filteredMenuItems, setFilteredMenuItems] = useState<MenuItemProps[]>([]);
     const [categories, setCategories] = useState<Categories>([]);
+    const [filterCriteria, setFilterCriteria] = useState<string>('all');
     const [isFetching, setIsFetching] = useState<boolean>(true);
+
+    const fetchPosts = async () => {
+        setIsFetching(true);
+        try {
+            const data: MenuItemProps[] = await api.get(RECIPE_LIST_API);
+            const categories = Array.from(new Set(data.map((item) => item.category))).filter(
+                (category): category is string => category !== undefined
+            );
+            setCategories(categories);
+            setMenuItems(data);
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setIsFetching(false);
+        }
+    };
 
     const filterItems = (category: string) => {
         if (category === 'all') {
+            setFilteredMenuItems([]);
+            setFilterCriteria('all');
+            console.log({ menuItems });
             setMenuItems(menuItems);
             return;
         }
         const newItems = menuItems.filter((item) => item.category === category);
-        setMenuItems(newItems);
+        setFilterCriteria(category);
+        setFilteredMenuItems(newItems);
     };
 
     useEffect(() => {
-        const fetchPosts = async () => {
-            setIsFetching(true);
-            try {
-                const data: MenuItemProps[] = await api.get(RECIPE_LIST_API);
-                const categories = Array.from(new Set(data.map((item) => item.category))).filter(
-                    (category): category is string => category !== undefined
-                );
-                setCategories(categories);
-                setMenuItems(data);
-            } catch (err) {
-                console.error(err);
-            } finally {
-                setIsFetching(false);
-            }
-        };
         fetchPosts();
     }, []);
 
@@ -48,7 +55,7 @@ function App() {
     if (isFetching) {
         content = <p>Loading...</p>;
     } else if (menuItems.length > 0) {
-        content = <Menu items={menuItems} />;
+        content = <Menu items={filterCriteria === 'all' ? menuItems : filteredMenuItems} />;
     } else {
         content = <p>No menu items found.</p>;
     }

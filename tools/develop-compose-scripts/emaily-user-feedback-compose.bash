@@ -74,4 +74,4 @@ function help() {
     echo "  down-prod - stop the Docker container with production build"
 }
 
-$1 && echo "Done" || echo "Failed"
+$1 && echo "[ ✅ ] Done" || echo "[ 🚫 ]Failed"

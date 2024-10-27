@@ -1,24 +1,17 @@
-import express, { Express, NextFunction, Request, Response } from 'express';
-import logger from './middleware/logger';
 import dotenv from 'dotenv';
-import indexRouter from './routes/index';
-import recipesRouter from './routes/recipes';
+import express, { Express } from 'express';
+import { logger, delayResponse } from './middleware';
+import { rootRouter, recipesRouter } from './routes';
 
 dotenv.config();
 const app: Express = express();
+
 app.use(logger);
-
 app.use(express.json());
-
-// Form data
 app.use(express.urlencoded({ extended: false }));
 
-const delayResponse = (req: Request, res: Response, next: NextFunction) => {
-    setTimeout(() => next(), 1000);
-};
-
 app.use('/api/v1/recipes', delayResponse, recipesRouter);
-app.use('/api/v1', indexRouter);
+app.use('/api/v1', rootRouter);
 
 // 404
 app.use((req, res, next) => {
