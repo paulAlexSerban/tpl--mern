@@ -1,6 +1,6 @@
 {
     "name": "@wbk--mern-playground/filtered-gallery-api",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "private": true,
     "main": "dist/bin/www.js",
     "scripts": {

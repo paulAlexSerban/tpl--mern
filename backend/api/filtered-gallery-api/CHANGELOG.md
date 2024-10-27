@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/filtered-gallery-api@0.3.0...@wbk--mern-playground/filtered-gallery-api@0.3.1) (2024-10-27)
+
+**Note:** Version bump only for package @wbk--mern-playground/filtered-gallery-api
+
 # 0.3.0 (2024-10-27)
 
 ### Features
