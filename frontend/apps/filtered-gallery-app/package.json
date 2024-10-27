@@ -1,7 +1,7 @@
 {
     "name": "@wbk--mern-playground/filtered-gallery-app",
     "private": true,
-    "version": "0.1.2",
+    "version": "0.2.0",
     "type": "module",
     "scripts": {
         "develop": "concurrently \"yarn compile:watch\" \"vite --host\"",
