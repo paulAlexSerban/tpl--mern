@@ -26,8 +26,8 @@ services:
         ports:
             - ${WORDPRESS_PORT:-80}:80
         volumes:
-          - ../../../backend/services/ssr/hello-wordpress-ssr-service/dist:/var/www/html
-          - ../../../backend/services/ssr/hello-wordpress-ssr-service/src/wp-content:/usr/src/wordpress/wp-content
+            - ../../../backend/services/ssr/hello-wordpress-ssr-service/dist:/var/www/html
+            - ../../../backend/services/ssr/hello-wordpress-ssr-service/src/wp-content:/usr/src/wordpress/wp-content
 
     # ---------------------------------------------------------------------
     # | MySQL                                                             |
