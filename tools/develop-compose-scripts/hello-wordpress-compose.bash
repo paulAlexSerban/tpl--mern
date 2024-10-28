@@ -25,10 +25,10 @@ source $ENV_FILE
 
 function backup-database() {
     echo "[ 🔄 🐳 compose backup database ]"
-    # if [ -f "${DATABASE_BACKUP_FOLDER}/hello-wordpress-backup.sql" ]; then
-    #     echo "[ info ] Backup exists, copying to old folder"
-    #     mv ${DATABASE_BACKUP_FOLDER}/hello-wordpress-backup.sql ${DATABASE_BACKUP_FOLDER}/hello-wordpress-backup-$(date +%F_%H-%M-%S).sql
-    # fi
+    if [ -f "${DATABASE_BACKUP_FOLDER}/hello-wordpress-backup.sql" ]; then
+        echo "[ info ] Backup exists, renaming..."
+        mv ${DATABASE_BACKUP_FOLDER}/hello-wordpress-backup.sql ${DATABASE_BACKUP_FOLDER}/hello-wordpress-backup-$(date +%F_%H-%M-%S).sql
+    fi
 
     docker exec hello-wordpress_mysql mariadb-dump -u${DATABASE_USER} -p${DATABASE_PASSWORD} ${COMPOSE_PROJECT_NAME} >${DATABASE_BACKUP_FOLDER}/hello-wordpress-backup.sql
 }
@@ -37,10 +37,13 @@ function restore-database() {
     echo "[ 🔄 🐳 compose restore database ]"
 
     # check if database service is available if not retry 3 times with 5 seconds interval
+    local SLEEP_INTERVAL=5
     for i in {1..3}; do
+        SLEEP_INTERVAL=$((SLEEP_INTERVAL * i))
         echo "[ ℹ️  info ] ⏳  Checking if database service is available"
         docker exec hello-wordpress_mysql mariadb -u${DATABASE_USER} -p${DATABASE_PASSWORD} ${COMPOSE_PROJECT_NAME} -e "SELECT 1" && break
-        sleep 10
+        echo "[ ⏳ info ] Waiting for database to be available - $SLEEP_INTERVAL seconds"
+        sleep $SLEEP_INTERVAL
     done
 
     if [ -f "${DATABASE_BACKUP_FOLDER}/hello-wordpress-backup.sql" ]; then
@@ -50,6 +53,24 @@ function restore-database() {
     else
         echo "[ ❌ error ] No backup file found"
     fi
+}
+
+function clean-install() {
+    local SLEEP_INTERVAL=5
+    for i in {1..3}; do
+        SLEEP_INTERVAL=$((SLEEP_INTERVAL * i))
+        echo "[ ℹ️  info ] ⏳  Checking if wordpress service is available"
+        docker exec $COMPOSE_PROJECT_NAME wp core is-installed --allow-root && break
+        echo "[ ⏳ info ] Wainting for wordpress to be installed - $SLEEP_INTERVAL seconds"
+        sleep $SLEEP_INTERVAL
+    done
+
+    docker exec $COMPOSE_PROJECT_NAME wp theme install twentytwenty --activate --allow-root
+    docker exec $COMPOSE_PROJECT_NAME wp plugin delete hello --allow-root
+    docker exec $COMPOSE_PROJECT_NAME wp plugin delete akismet --allow-root
+    docker exec $COMPOSE_PROJECT_NAME wp theme delete twentytwentyfour --allow-root
+    docker exec $COMPOSE_PROJECT_NAME wp theme delete twentytwentythree --allow-root
+    docker exec $COMPOSE_PROJECT_NAME wp theme delete twentytwentytwo --allow-root
 }
 
 function list() {
@@ -66,6 +87,7 @@ function up() {
         --file ${COMPOSE_FILE_DEV} up \
         --detach --build
     restore-database
+    clean-install
     list
 }
 
