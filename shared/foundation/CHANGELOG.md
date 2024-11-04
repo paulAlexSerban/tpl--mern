@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/shared-foundation@0.4.0...@wbk--mern-playground/shared-foundation@0.5.0) (2024-11-04)
+
+### Features
+
+-   **shared-foundation:** test ([9ea0ba9](https://github.com/paulAlexSerban/wbk--mern-playground/commit/9ea0ba9f3778e479d57b775cb9a765914f8ef867))
+
 # 0.4.0 (2024-10-22)
 
 ### Features
