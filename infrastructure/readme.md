@@ -1,13 +1,9 @@
 # Tips for Managing Infrastructure in a Monorepo:
 
 -   **Environment Separation**: If you have multiple environments (like development, staging, production), consider structuring your Kubernetes configs to reflect these environments, either through directory structure or naming conventions.
-
 -   **Access Control**: Ensure proper access control and security practices are in place, as infrastructure configurations can be sensitive.
-
 -   **Documentation**: Maintain clear documentation within the /infra directory to guide developers on how to use and update these configurations.
-
 -   **CI/CD Integration**: Consider how these configurations integrate with your CI/CD pipelines and whether there are specific pipelines for deploying infrastructure changes.
-
 -   **Versioning and History**: Keep infrastructure code versioned alongside your application code. This way, changes to infrastructure can be tracked and managed with the same rigor as application code changes.
 
 ## Versioning infrastructure code

@@ -1,6 +1,6 @@
 {
     "name": "storybook",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "main": "index.js",
     "license": "MIT",
     "scripts": {
@@ -32,8 +32,8 @@
     },
     "dependencies": {
         "@wbk--mern-playground/lsg-styles-generic": "^0.3.0",
-        "@wbk--mern-playground/select-dropdown-app-cmp-library": "^0.6.1",
-        "@wbk--mern-playground/shared-foundation": "^0.4.0"
+        "@wbk--mern-playground/select-dropdown-app-cmp-library": "^0.6.2",
+        "@wbk--mern-playground/shared-foundation": "^0.5.0"
     },
     "publishConfig": {
         "access": "public"
