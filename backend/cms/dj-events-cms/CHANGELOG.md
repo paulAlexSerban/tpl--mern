@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/dj-events-cms@0.2.1...@wbk--mern-playground/dj-events-cms@0.2.2) (2024-11-10)
+
+**Note:** Version bump only for package @wbk--mern-playground/dj-events-cms
+
 ## [0.2.1](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/dj-events-cms@0.2.0...@wbk--mern-playground/dj-events-cms@0.2.1) (2024-11-04)
 
 **Note:** Version bump only for package @wbk--mern-playground/dj-events-cms
