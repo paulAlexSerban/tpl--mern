@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/paulAlexSerban/wbk--mern-playground/compare/@wbk--mern-playground/blog-w-comments-comments-api@0.2.0...@wbk--mern-playground/blog-w-comments-comments-api@0.2.1) (2024-11-10)
+
+### Bug Fixes
+
+-   **axios:** added as corect dependency ([94021fc](https://github.com/paulAlexSerban/wbk--mern-playground/commit/94021fc5e33f61ccffb34e8e983a0701e520ae88))
+
 # 0.2.0 (2024-11-10)
 
 ### Features
