@@ -1,0 +1,7 @@
+FROM wbk--mern-playground__core:latest as builder
+
+COPY ./backend/middleware/blog-w-comments-event-bus-middleware ./backend/middleware/blog-w-comments-event-bus-middleware
+
+RUN yarn install
+
+CMD [ "yarn", "develop:blog-w-comments-event-bus-middleware"]

@@ -1,0 +1,16 @@
+FROM wbk--mern-playground__core:latest as builder
+COPY ./backend/middleware/blog-w-comments-event-bus-middleware ./backend/middleware/blog-w-comments-event-bus-middleware
+RUN yarn install
+RUN yarn build:blog-w-comments-event-bus-middleware
+
+FROM node:20-alpine as service
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY --from=builder /usr/src/app/backend/middleware/blog-w-comments-event-bus-middleware/package.json ./
+COPY --from=builder /usr/src/app/backend/middleware/blog-w-comments-event-bus-middleware/dist ./dist
+
+RUN yarn install --production
+
+CMD ["node", "./dist/bin/www.js"]

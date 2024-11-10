@@ -137,6 +137,21 @@ endef
 $(eval $(call spa-fullstack-compose_template,filtered-gallery))
 
 # ------------------------------------------------------------- #
+# (compose): Blog with Comments 
+# ------------------------------------------------------------- #
+blog-w-comments_compose-up:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/blog-w-comments-compose.bash up blog-w-comments
+
+blog-w-comments_compose-up-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/blog-w-comments-compose.bash up-prod blog-w-comments
+
+blog-w-comments_compose-down:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/blog-w-comments-compose.bash down blog-w-comments
+
+blog-w-comments_compose-down-prod:
+	@bash $(DEVELOP_COMPOSE_SCRIPTS)/blog-w-comments-compose.bash down-prod blog-w-comments
+
+# ------------------------------------------------------------- #
 # (compose): Form User List
 # ------------------------------------------------------------- #
 # json-to-excel_compose-up:

@@ -1,0 +1,13 @@
+@host = http://localhost:3000/api/comments
+
+GET {{host}}/2
+
+###
+POST {{host}}/2
+Content-Type: application/json
+
+{
+  "title": "My first post",
+  "content": "This is my first comment. I'm so excited!",
+    "postId": 2
+}

@@ -1,0 +1,149 @@
+---
+networks:
+    blog-w-comments-network:
+        driver: bridge
+volumes:
+    postgres:
+
+services:
+    # ---------------------------------------------------------------------
+    # | Proxy-Service - Nginx                                              |
+    # ---------------------------------------------------------------------
+    nginx-proxy:
+        container_name: nginx-proxy-container
+        build:
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: ./backend/services/proxy/blog-w-comments-proxy/Dockerfile.dev
+        ports:
+            - '3000:80'
+        volumes:
+            - ../../../backend/services/proxy/blog-w-comments-proxy/default.dev.conf:/etc/nginx/conf.d/default.conf
+        restart: unless-stopped
+        networks:
+            - blog-w-comments-network
+        depends_on:
+            - ui-react-spa
+            - posts-api
+            - comments-api
+            - query-api
+            - event-bus
+
+    # ---------------------------------------------------------------------
+    # UI React SPA
+    # ---------------------------------------------------------------------
+    ui-react-spa:
+        container_name: ui-react-spa-container
+        build:
+            context: ../../../ # set context to root of monorepo project
+            dockerfile: .${UI_PROJECT_PATH}/Dockerfile.dev
+        volumes:
+            - /usr/src/app/node_modules # Avoids overwriting node_modules with local volume
+            - /usr/src/app${UI_PROJECT_PATH}/node_modules # Avoids overwriting dist with local volume
+            - ../../..${UI_PROJECT_PATH}:/usr/src/app${UI_PROJECT_PATH}/ # Mount the app directory to the container
+        restart: unless-stopped
+        networks:
+            - blog-w-comments-network
+
+    # ---------------------------------------------------------------------
+    # | Posts API                                                          |
+    # ---------------------------------------------------------------------
+    posts-api:
+        restart: always
+        container_name: posts-api-container
+        build:
+            context: ../../../
+            dockerfile: .${API_POSTS_PROJECT_PATH}/Dockerfile.dev
+        env_file:
+            - ../../../infrastructure/env/blog-w-comments.compose.env
+            - ../../../.env
+        volumes:
+            - /usr/src/app/node_modules
+            - /usr/src/app${API_POSTS_PROJECT_PATH}/dist
+            - /usr/src/app${API_POSTS_PROJECT_PATH}/node_modules
+            - ../../..${API_POSTS_PROJECT_PATH}:/usr/src/app${API_POSTS_PROJECT_PATH}
+        networks:
+            - blog-w-comments-network
+        depends_on:
+            - event-bus
+
+    # ---------------------------------------------------------------------
+    # | Comments API                                                       |
+    # ---------------------------------------------------------------------
+    comments-api:
+        restart: always
+        container_name: comments-api-container
+        build:
+            context: ../../../
+            dockerfile: .${API_COMMENTS_PROJECT_PATH}/Dockerfile.dev
+        env_file:
+            - ../../../infrastructure/env/blog-w-comments.compose.env
+            - ../../../.env
+        volumes:
+            - /usr/src/app/node_modules
+            - /usr/src/app${API_COMMENTS_PROJECT_PATH}/dist
+            - /usr/src/app${API_COMMENTS_PROJECT_PATH}/node_modules
+            - ../../..${API_COMMENTS_PROJECT_PATH}:/usr/src/app${API_COMMENTS_PROJECT_PATH}
+        networks:
+            - blog-w-comments-network
+        depends_on:
+            - event-bus
+
+    # ---------------------------------------------------------------------
+    # | Event Bus                                                         |
+    # ---------------------------------------------------------------------
+    event-bus:
+        restart: always
+        container_name: event-bus-container
+        build:
+            context: ../../../
+            dockerfile: .${MIDDLEWARE_EVENT_BUS_PROJECT_PATH}/Dockerfile.dev
+        env_file:
+            - ../../../infrastructure/env/blog-w-comments.compose.env
+            - ../../../.env
+        volumes:
+            - /usr/src/app/node_modules
+            - /usr/src/app${MIDDLEWARE_EVENT_BUS_PROJECT_PATH}/dist
+            - /usr/src/app${MIDDLEWARE_EVENT_BUS_PROJECT_PATH}/node_modules
+            - ../../..${MIDDLEWARE_EVENT_BUS_PROJECT_PATH}:/usr/src/app${MIDDLEWARE_EVENT_BUS_PROJECT_PATH}
+        networks:
+            - blog-w-comments-network
+
+    # ---------------------------------------------------------------------
+    # | Query API                                                         |
+    # ---------------------------------------------------------------------
+    query-api:
+        restart: always
+        container_name: query-api-container
+        build:
+            context: ../../../
+            dockerfile: .${API_QUERY_PROJECT_PATH}/Dockerfile.dev
+        env_file:
+            - ../../../infrastructure/env/blog-w-comments.compose.env
+            - ../../../.env
+        volumes:
+            - /usr/src/app/node_modules
+            - /usr/src/app${API_QUERY_PROJECT_PATH}/dist
+            - /usr/src/app${API_QUERY_PROJECT_PATH}/node_modules
+            - ../../..${API_QUERY_PROJECT_PATH}:/usr/src/app${API_QUERY_PROJECT_PATH}
+        networks:
+            - blog-w-comments-network
+
+    # ---------------------------------------------------------------------
+    # | Moderation API                                                         |
+    # ---------------------------------------------------------------------
+    moderation-api:
+        restart: always
+        container_name: moderation-api-container
+        build:
+            context: ../../../
+            dockerfile: .${API_MODERATION_PROJECT_PATH}/Dockerfile.dev
+        env_file:
+            - ../../../infrastructure/env/blog-w-comments.compose.env
+            - ../../../.env
+        volumes:
+            - /usr/src/app/node_modules
+            - /usr/src/app${API_MODERATION_PROJECT_PATH}/dist
+            - /usr/src/app${API_MODERATION_PROJECT_PATH}/node_modules
+            - ../../..${API_MODERATION_PROJECT_PATH}:/usr/src/app${API_MODERATION_PROJECT_PATH}
+        networks:
+            - blog-w-comments-network

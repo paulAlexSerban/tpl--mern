@@ -1,0 +1,7 @@
+FROM wbk--mern-playground__core:latest as builder
+
+COPY ./backend/api/blog-w-comments-comments-api ./backend/api/blog-w-comments-comments-api
+
+RUN yarn install
+
+CMD [ "yarn", "develop:blog-w-comments-comments-api"]

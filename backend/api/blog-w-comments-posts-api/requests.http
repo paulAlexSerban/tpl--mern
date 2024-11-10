@@ -1,0 +1,12 @@
+@host = http://localhost:3000/api/posts
+
+GET {{host}}/1
+
+###
+POST {{host}}
+Content-Type: application/json
+
+{
+  "title": "My first post",
+  "content": "This is my first post. I'm so excited!"
+}

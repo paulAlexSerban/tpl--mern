@@ -3,10 +3,10 @@
 Role and Functionality of Middleware Services
 Middleware services perform tasks that are necessary for the efficient operation of applications but are generally separated from the business logic layer. Here are some typical functionalities provided by middleware services:
 
-1. Authentication and Authorization: Handling security for applications by verifying user identities and ensuring they have permission to perform certain actions.
-2. Data Management: Including caching mechanisms (like Redis), database middleware that provides an abstraction layer over database operations, or services that manage session states across multiple servers.
-3. Message Queuing: Middleware services like RabbitMQ, Apache Kafka, or AWS SQS provide a robust way to handle asynchronous communication between different parts of an application, improving reliability and scalability by decoupling the components.
-4. API Management: Similar to API gateways, some middleware services manage API traffic, monitor and enforce policies like rate limiting, and provide analytics and logging.
+1. Authentication and Authorization (auth): Handling security for applications by verifying user identities and ensuring they have permission to perform certain actions.
+2. Data Management (cache): Including caching mechanisms (like Redis), database middleware that provides an abstraction layer over database operations, or services that manage session states across multiple servers.
+3. Message Queuing (event-bus, queue): Middleware services like RabbitMQ, Apache Kafka, or AWS SQS provide a robust way to handle asynchronous communication between different parts of an application, improving reliability and scalability by decoupling the components.
+4. API Management (gateway): Similar to API gateways, some middleware services manage API traffic, monitor and enforce policies like rate limiting, and provide analytics and logging.
 5. Logging and Monitoring: Collecting, storing, and analyzing logs from various parts of an application to monitor its performance and troubleshoot issues.
 
 ## Placement in Application Architecture
