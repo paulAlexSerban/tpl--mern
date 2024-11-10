@@ -53,6 +53,7 @@ function build() {
 
   docker build \
     --build-arg CONTAINER_PORT=${CONTAINER_PORT} \
+    --tag ${IMAGE_REGISTRY_NAMESPACE}/${PROJECT_NAME}:latest \
     --tag ${IMAGE_REGISTRY_NAMESPACE}/${PROJECT_NAME}:${PROJECT_VERSION} \
     -f ${PROJECT_PATH}/Dockerfile.dev \
     ../../ # the monorepo root
@@ -65,13 +66,20 @@ function build-prod() {
   check_base_image
   docker build \
     --build-arg CONTAINER_PORT=${CONTAINER_PORT} \
+    --tag ${IMAGE_REGISTRY_NAMESPACE}/${PROJECT_NAME}:latest \
     --tag ${IMAGE_REGISTRY_NAMESPACE}/${PROJECT_NAME}:${PROJECT_VERSION} \
     -f ${PROJECT_PATH}/Dockerfile.prod \
     ../../ # the monorepo root
   echo "✅  Build complete"
 }
 
-function push() {
+function push_latest() {
+  echo "🚀  Pushing..."
+  docker push ${IMAGE_REGISTRY_NAMESPACE}/${PROJECT_NAME}:latest
+  echo "✅  Push complete"
+}
+
+function push_released_version() {
   echo "🚀  Pushing..."
   docker push ${IMAGE_REGISTRY_NAMESPACE}/${PROJECT_NAME}:${PROJECT_VERSION}
   echo "✅  Push complete"
@@ -80,6 +88,7 @@ function push() {
 function clean() {
   echo "🧹  Cleaning..."
   docker image rm ${IMAGE_REGISTRY_NAMESPACE}/${PROJECT_NAME}:${PROJECT_VERSION}
+  docker image rm ${IMAGE_REGISTRY_NAMESPACE}/${PROJECT_NAME}:latest
   echo "✅  Clean complete"
 }
 

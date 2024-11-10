@@ -160,8 +160,11 @@ blog-w-comments-posts-api-image_build:
 blog-w-comments-posts-api-image_build-prod:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/blog-w-comments-posts-api.bash build-prod
 
-blog-w-comments-posts-api-image_push:
-	@bash $(DOCKER_IMAGE_SCRIPTS)/blog-w-comments-posts-api.bash push
+blog-w-comments-posts-api-image_push_latest:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/blog-w-comments-posts-api.bash push_latest
+
+blog-w-comments-posts-api-image_push_released_version:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/blog-w-comments-posts-api.bash push_released_version
 
 blog-w-comments-posts-api-image_run:
 	@bash $(DOCKER_IMAGE_SCRIPTS)/blog-w-comments-posts-api.bash run
