@@ -152,6 +152,30 @@ blog-w-comments_compose-down-prod:
 	@bash $(DEVELOP_COMPOSE_SCRIPTS)/blog-w-comments-compose.bash down-prod blog-w-comments
 
 # ------------------------------------------------------------- #
+# (image): Blog with Comments - Posts API
+# ------------------------------------------------------------- #
+blog-w-comments-posts-api-image_build:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/blog-w-comments-posts-api.bash build
+
+blog-w-comments-posts-api-image_build-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/blog-w-comments-posts-api.bash build-prod
+
+blog-w-comments-posts-api-image_push:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/blog-w-comments-posts-api.bash push
+
+blog-w-comments-posts-api-image_run:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/blog-w-comments-posts-api.bash run
+
+blog-w-comments-posts-api-image_run-prod:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/blog-w-comments-posts-api.bash run-prod
+
+blog-w-comments-posts-api-image_stop:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/blog-w-comments-posts-api.bash stop
+
+blog-w-comments-posts-api-image_clean:
+	@bash $(DOCKER_IMAGE_SCRIPTS)/blog-w-comments-posts-api.bash clean
+
+# ------------------------------------------------------------- #
 # (compose): Form User List
 # ------------------------------------------------------------- #
 # json-to-excel_compose-up:
@@ -219,7 +243,7 @@ dj-events_compose-restore-database:
 dynamodb-training_setup-aws-credentials:
 	@bash tools/aws/setup-user.bash dynamodb-training
 
-	# ------------------------------------------------------------- #
+# ------------------------------------------------------------- #
 # (image): DevCamper API
 # ------------------------------------------------------------- #
 devcamper-api-image_build:

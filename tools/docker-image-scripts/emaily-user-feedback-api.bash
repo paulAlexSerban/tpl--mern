@@ -7,7 +7,7 @@ cd "$(dirname "$0")" || exit
 
 PROJECT_PATH="../../backend/api/emaily-user-feedback-api"
 PACKAGE_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').pop()")
-PROJECT_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').join('__').split('@').pop()")
+PROJECT_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').join('_').split('--').join('-').split('@').pop()")
 PROJECT_VERSION=$(node -p "require('${PROJECT_PATH}/package.json').version")
 
 DEV_BASE_IMAGE=$(cat ${PROJECT_PATH}/Dockerfile.dev | grep FROM | awk '{print $2}')

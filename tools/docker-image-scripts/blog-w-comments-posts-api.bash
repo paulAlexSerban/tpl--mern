@@ -3,9 +3,9 @@
 cd "$(dirname "$0")" || exit
 
 . ../../.env
-. ../../infrastructure/env/events-showcase.compose.env
+. ../../infrastructure/env/blog-w-comments.compose.env
 
-PROJECT_PATH="../../backend/api/events-showcase-api"
+PROJECT_PATH="../../backend/api/blog-w-comments-posts-api"
 PACKAGE_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').pop()")
 PROJECT_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').join('_').split('--').join('-').split('@').pop()")
 PROJECT_VERSION=$(node -p "require('${PROJECT_PATH}/package.json').version")
@@ -18,6 +18,8 @@ CONTAINER_PORT=5000
 
 IMAGE_NAME=${PROJECT_NAME}:${PROJECT_VERSION}
 CONTAINER_NAME=${PROJECT_NAME}
+
+IMAGE_REGISTRY_NAMESPACE=paulserbandev
 
 echo "📦  Package ${PROJECT_NAME}@${PROJECT_VERSION}"
 
@@ -47,13 +49,14 @@ function check_base_image() {
 }
 
 function build() {
-  echo "🚧  Building..."
-  check_base_image
+  echo "🚧  Building..." && check_base_image
+
   docker build \
     --build-arg CONTAINER_PORT=${CONTAINER_PORT} \
-    --tag ${PROJECT_NAME}:latest \
+    --tag ${IMAGE_REGISTRY_NAMESPACE}/${PROJECT_NAME}:${PROJECT_VERSION} \
     -f ${PROJECT_PATH}/Dockerfile.dev \
     ../../ # the monorepo root
+
   echo "✅  Build complete"
 }
 
@@ -62,50 +65,22 @@ function build-prod() {
   check_base_image
   docker build \
     --build-arg CONTAINER_PORT=${CONTAINER_PORT} \
-    --tag ${PROJECT_NAME}:latest \
+    --tag ${IMAGE_REGISTRY_NAMESPACE}/${PROJECT_NAME}:${PROJECT_VERSION} \
     -f ${PROJECT_PATH}/Dockerfile.prod \
     ../../ # the monorepo root
   echo "✅  Build complete"
 }
 
-function run() {
-  echo "🚀  Running..."
-  docker run -it --rm --detach \
-    --env NODE_ENV=development \
-    --env PORT=${CONTAINER_PORT} \
-    -p ${HOST_PORT}:${CONTAINER_PORT} \
-    --name ${PROJECT_NAME} ${PROJECT_NAME}:latest
-}
-
-function run-prod() {
-  echo "🚀  Running..."
-  docker run -it --rm --detach \
-    --env NODE_ENV=production \
-    --env PORT=${CONTAINER_PORT} \
-    -p ${HOST_PORT}:${CONTAINER_PORT} \
-    --name ${PROJECT_NAME} ${PROJECT_NAME}:latest
-}
-
-function stop() {
-  echo "🛑  Stopping..."
-  docker stop $(docker ps -q --filter ancestor=${PROJECT_NAME}:latest)
-  echo "✅  Stop complete"
-}
-
-function stop-prod() {
-  echo "🛑  Stopping..."
-  docker stop $(docker ps -q --filter ancestor=${PROJECT_NAME}:latest)
-  echo "✅  Stop complete"
+function push() {
+  echo "🚀  Pushing..."
+  docker push ${IMAGE_REGISTRY_NAMESPACE}/${PROJECT_NAME}:${PROJECT_VERSION}
+  echo "✅  Push complete"
 }
 
 function clean() {
   echo "🧹  Cleaning..."
-  docker image rm ${PROJECT_NAME}:latest
+  docker image rm ${IMAGE_REGISTRY_NAMESPACE}/${PROJECT_NAME}:${PROJECT_VERSION}
   echo "✅  Clean complete"
-}
-
-function logs() {
-  docker logs ${CONTAINER_NAME}
 }
 
 $1 && echo "[ ✅ ] Done" || echo "[ 🚫 ]Failed"
