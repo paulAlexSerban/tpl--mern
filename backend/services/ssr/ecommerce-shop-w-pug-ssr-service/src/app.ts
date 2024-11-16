@@ -5,9 +5,7 @@ import rootDir from './util/path';
 
 import { router as adminRouter } from './routes/admin';
 
-
-
-import {router as shopRoutes } from './routes/shop';
+import { router as shopRoutes } from './routes/shop';
 
 const app = express();
 app.set('view engine', 'pug');
