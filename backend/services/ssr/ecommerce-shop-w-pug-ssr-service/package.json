@@ -1,6 +1,6 @@
 {
     "name": "@wbk--mern-playground/ecommerce-shop-w-pug-ssr-service",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "private": true,
     "main": "dist/bin/www.js",
     "scripts": {
@@ -15,10 +15,10 @@
         "concurrently": "^8.2.2",
         "cookie-parser": "~1.4.4",
         "debug": "~2.6.9",
-        "pug": "^3.0.2",
         "express": "^4.18.2",
         "morgan": "~1.9.1",
-        "pm2": "^5.3.1"
+        "pm2": "^5.3.1",
+        "pug": "^3.0.2"
     },
     "devDependencies": {
         "@types/cookie-parser": "^1.4.6",
