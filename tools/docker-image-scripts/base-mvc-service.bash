@@ -15,7 +15,7 @@ if [ -z "$2" ]; then
 fi
 
 APP_NAME=$2
-PROJECT_PATH="../../backend/services/${APP_NAME}"
+PROJECT_PATH="../../backend/services/ssr/${APP_NAME}"
 PACKAGE_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').pop()")
 # this trimmings are necessary to make the project name compatible with docker
 PROJECT_NAME=$(node -p "require('${PROJECT_PATH}/package.json').name.split('/').join('_').split('--').join('-').split('@').pop()")
