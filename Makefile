@@ -82,6 +82,7 @@ $(1)_clean:
 endef
 
 $(eval $(call mvc_service_template,ecommerce-monolith-mvc-ssr-service))
+$(eval $(call mvc_service_template,ecommerce-shop-w-pug-ssr-service))
 
 define spa-fe-only-compose_template
 $(1)_compose-up:

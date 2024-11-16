@@ -1,0 +1,6 @@
+FROM wbk--mern-playground__core:latest as builder
+COPY ./backend/services/ssr/ecommerce-shop-w-pug-ssr-service ./backend/services/ssr/ecommerce-shop-w-pug-ssr-service
+COPY ./backend/services/ssr/ecommerce-shop-w-pug-ssr-service/public ./backend/services/ssr/ecommerce-shop-w-pug-ssr-service/dist/public
+COPY ./backend/services/ssr/ecommerce-shop-w-pug-ssr-service/src/views ./backend/services/ssr/ecommerce-shop-w-pug-ssr-service/dist/src/views
+RUN yarn install
+CMD [ "yarn",  "develop:ecommerce-shop-w-pug-ssr-service"]
