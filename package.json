@@ -6,7 +6,6 @@
     "scripts": {
         "-": "BUILD - apps",
         "build:backroads-tourcompany-landingpage-site": "lerna run --scope @wbk--mern-playground/backroads-tourcompany-landingpage-site build",
-        "build:birthday-buddy-app": "lerna run --scope @wbk--mern-playground/birthday-buddy-app build",
         "build:blog-w-comments-app": "lerna run --scope @wbk--mern-playground/blog-w-comments-app build",
         "build:blog-w-comments-comments-api": "lerna run --scope @wbk--mern-playground/blog-w-comments-comments-api build",
         "build:blog-w-comments-event-bus-middleware": "lerna run --scope @wbk--mern-playground/blog-w-comments-event-bus-middleware build",
@@ -66,7 +65,6 @@
         "process:devcamper-assets": "lerna run --scope @wbk--mern-playground/devcamper-assets process",
         "----": "DEVELOP - apps",
         "develop:backroads-tourcompany-landingpage-site": "lerna run --scope @wbk--mern-playground/backroads-tourcompany-landingpage-site develop",
-        "develop:birthday-buddy-app": "lerna run --scope @wbk--mern-playground/birthday-buddy-app develop",
         "develop:blog-w-comments-app": "lerna run --scope @wbk--mern-playground/blog-w-comments-app develop",
         "develop:blog-w-comments-comments-api": "lerna run --scope @wbk--mern-playground/blog-w-comments-comments-api develop",
         "develop:blog-w-comments-event-bus-middleware": "lerna run --scope @wbk--mern-playground/blog-w-comments-event-bus-middleware develop",

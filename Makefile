@@ -47,7 +47,6 @@ $(1)_clean:
 endef
 
 # Use the template for each SPA app
-$(eval $(call spa_template,birthday-buddy-app))
 $(eval $(call spa_template,color-generator-app))
 $(eval $(call spa_template,redux-counter))
 $(eval $(call spa_template,dummy-blog-app))
@@ -99,7 +98,6 @@ $(1)_compose-down-prod:
 endef
 
 $(eval $(call spa-fe-only-compose_template,backroads-tourcompany-landingpage))
-$(eval $(call spa-fe-only-compose_template,birthday-buddy))
 $(eval $(call spa-fe-only-compose_template,color-generator))
 $(eval $(call spa-fe-only-compose_template,dummy-blog))
 $(eval $(call spa-fe-only-compose_template,form-user-list))
